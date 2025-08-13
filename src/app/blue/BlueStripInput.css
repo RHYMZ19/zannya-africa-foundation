@@ -1,0 +1,45 @@
+.strip-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: transparent;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blue-strip {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3b82f6;
+    opacity: 0.2;
+    width: 90%;
+    max-width: 700px;
+    height: 220px;
+    border-radius: 75% / 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 255, 0.2);
+}
+
+.strip-input {
+    
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    text-align: center;
+    width: 60%;
+    padding: 6px;
+    font-family: 'Georgia', serif;
+    caret-color: white;
+    
+}
+
+.strip-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}

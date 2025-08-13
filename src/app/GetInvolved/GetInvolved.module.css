@@ -1,0 +1,38 @@
+.page {
+    margin-bottom: 20px;
+    padding: 30px;
+    background-color: rgba(238, 227, 227, 0.95);
+    border-radius: 1px;
+    box-shadow: 0 15px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    border: 1px solid #faf7f7;
+    width: 500px;
+    height: 500px;
+    z-index: 100;
+}
+
+.Q {
+    display: flex;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: black;
+}
+
+.Q::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 13px; /* Slightly below the text */
+  width: 0%;
+  height: 1.5px;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+
+.Q:hover::after {
+  width: 70%;
+}

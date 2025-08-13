@@ -1,0 +1,93 @@
+.title {
+    display: 'flex';
+    justify-content: 'center';
+    align-items: 'center';
+    font-size: 50px;
+    font-weight: 1000;
+    color: #ffffff;
+    background: linear-gradient( 90deg, #00c6, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    
+
+    opacity: 0;
+    transition: translateY(-50%);
+    animation: fadeSlideIn 1s ease-out forwards;
+}
+
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #666;
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    background-color: transparent;
+}
+
+.bucket {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    color: transparent;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+    
+}
+
+.buckets {
+    position: absolute;
+    overflow-y: auto;
+    width: 100%;
+    
+    color: black;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.container {
+    position: relative;
+    background-size: cover;
+    height: 100vh;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 102, 204, 0.5), transparent 80%);
+    display: flex;
+    z-index: 1;
+}
+
+.scrollContainer {
+    height: 500px;
+    overflow: hidden;
+    padding: 10;
+    border: opx;
+    border-radius: 10px;
+    background: white;
+}

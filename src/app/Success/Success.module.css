@@ -1,0 +1,60 @@
+.previewcontainer {
+    display: flex;
+    gap: 16px;
+    background-color: transparent;
+    padding: 16px;
+    border-radius: 12px;
+    align-items: center;
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    border-left: 5px solid #0059c1;
+    transition: all 0.9s ease;
+}
+
+.previewcontainer:hover {
+    animation: shake 0.9s;
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0% {transform: translateX(0);}
+    25% {transform: translateX(-5px);}
+    50% {transform: translateX(5px);}
+    75% {transform: translateX(-5%);}
+    100% {transform: translateX(0);}
+}
+
+.previewimage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.previewtext {
+    flex: 1;
+}
+
+.arrowButton {
+    margin-top: 8px;
+    background: #0070f3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+.arrowButton:hover {
+    background: #0059c1;
+}
+
+.headings {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}

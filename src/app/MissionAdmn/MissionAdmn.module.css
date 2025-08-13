@@ -1,0 +1,69 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.h1 {
+   text-align: center;
+}
+
+.h2 {
+   text-align: center;
+}
+
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.form input, .form textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.form button {
+  padding: 0.6rem;
+  background-color: #0070f3;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.leaderItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.deleteBtn {
+  background-color: #e00;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 3px;
+}
+.message {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: green;
+}

@@ -1,0 +1,40 @@
+.container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background: #f8f8f8;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+}
+
+.button {
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.link {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.link a {
+    color: #0070f3;
+    text-decoration: none;
+}

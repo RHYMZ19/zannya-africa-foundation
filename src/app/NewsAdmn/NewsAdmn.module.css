@@ -1,0 +1,51 @@
+.formcontainer {
+  max-width: 500px;
+  margin: auto;
+  background: #f4f4f4;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.formcontainer h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.uploadform {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.uploadform input,
+.uploadform select,
+.uploadform textarea,
+.uploadform button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.uploadform textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.uploadform button {
+  background-color: #008080;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.uploadform button:hover {
+  background-color: #006666;
+}
+
+@media (max-width: 600px) {
+  .formcontainer {
+    padding: 15px;
+  }
+}

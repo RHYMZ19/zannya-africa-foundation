@@ -1,0 +1,15 @@
+.container { max-width: 720px; margin: 20px auto; padding: 18px; background: #fff; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+.title { font-size: 1.2rem; margin-bottom: 12px; }
+.controls { display:flex; gap:12px; margin-bottom:12px; }
+.radio { display:flex; align-items:center; gap:8px; font-size:0.95rem; }
+.fileInput { display:block; margin-bottom:12px; }
+.preview { display:flex; gap:12px; overflow-x:auto; padding:8px 0; }
+.previewItem { width:160px; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.06); text-align:center; }
+.previewItem img, .previewItem video { width:100%; height:100px; object-fit:cover; display:block; }
+.filename { font-size:0.8rem; padding:6px; }
+.actions { margin-top:12px; }
+.uploadBtn { background:#0e76a8; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; }
+.uploadBtn[disabled] { opacity:0.6; cursor:not-allowed; }
+.progress { height:8px; background:#eee; border-radius:8px; margin-top:12px; overflow:hidden; }
+.progressBar { height:100%; background: linear-gradient(90deg,#3b82f6,#06b6d4); transition: width .2s ease; }
+.message { margin-top:10px; color:#064e3b; }

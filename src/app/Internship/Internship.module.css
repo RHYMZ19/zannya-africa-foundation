@@ -1,0 +1,113 @@
+.arrowButton {
+    margin-top: 8px;
+    background: #0070f3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.container {
+    
+
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    
+    padding: 9em 1em;
+    color: white;
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    height: 20px;
+}
+
+.header {
+    
+    
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.header.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.h1 {
+    font-size: 3em;
+    margin-bottom: 0.2em;
+    animation: fadeInZoom 1.2s ease forwards;
+}
+
+.p1 {
+    font-size: 1.4em;
+    font-style: italic;
+    color: #dcdcdc;
+    margin-top: 0;
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.c {
+    padding: 40px; 
+    max-width: 900px; 
+    margin: auto; 
+    font-family: Arial, sans-serif;
+}
+
+.head {
+    
+    font-weight: bold;
+    font-style: oblique;
+    font-size: 40px;
+    padding: 10px;
+    align-content: center;
+}
+
+.Qoute {
+    border-left: 4px solid #ccc; 
+    padding-left: 15px; 
+    margin: 20px 0;
+}
+
+.DW {
+    background-color: #0057b7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.DW:hover, .btn:hover {
+    box-shadow: 0 0 10px #0057b7aa;
+    transform: scale(1.05);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 400px;
+}
+
+.form input, .form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,32 @@
+.contactContainer {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.iconRow {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.iconLink {
+  font-size: 2rem;
+  color: #0e2a47;
+  transition: transform 0.3s ease, color 0.3s ease;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.iconLink:hover {
+  color: #1e90ff;
+  transform: scale(1.3);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}

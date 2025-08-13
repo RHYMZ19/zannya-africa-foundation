@@ -1,0 +1,16 @@
+
+
+/* curved screen shell */
+.curved-page {
+    position: relative;
+    
+    width: 100%;
+    background-color: green;
+    overflow: hidden;
+    height: 100vh;
+    
+    
+    
+
+}
+

@@ -1,0 +1,61 @@
+.arrowButton {
+    margin-top: 8px;
+    background: #0070f3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.arrowButton:hover {
+    background: #0059c1;
+}
+
+.container {
+    
+
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    
+    padding: 9em 1em;
+    color: white;
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    height: 20px;
+}
+
+.header {
+    
+    
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.header.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.h1 {
+    font-size: 3em;
+    margin-bottom: 0.2em;
+    animation: fadeInZoom 1.2s ease forwards;
+}
+
+.p1 {
+    font-size: 1.4em;
+    font-style: italic;
+    color: #dcdcdc;
+    margin-top: 0;
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

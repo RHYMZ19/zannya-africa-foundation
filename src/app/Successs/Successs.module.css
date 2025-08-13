@@ -1,0 +1,131 @@
+.arrowButton {
+    margin-top: 8px;
+    background: #0070f3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.container {
+    
+
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    
+    padding: 9em 1em;
+    color: white;
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    height: 20px;
+}
+
+.header {
+    
+    
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.header.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.h1 {
+    font-size: 3em;
+    margin-bottom: 0.2em;
+    animation: fadeInZoom 1.2s ease forwards;
+}
+
+.p1 {
+    font-size: 1.4em;
+    font-style: italic;
+    color: #dcdcdc;
+    margin-top: 0;
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.ss{
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.testimonialssection {
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.testimonialssection h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #013220;
+}
+
+.testimonialcard, .story-card {
+  background-color: white;
+  border-left: 5px solid #4CAF50;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-weight: bold;
+  color: #444;
+}
+
+.storycard h3 {
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.downloadbtn {
+  color: #4CAF50;
+  text-decoration: underline;
+}
+
+.cta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.donatebutton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.donatebutton:hover {
+  background-color: #388E3C;
+}
+
