@@ -1,8 +1,6 @@
 'use client';
-
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
-
 export default function
 Hd() {
     return(
@@ -12,12 +10,12 @@ Hd() {
             </div>
 
             <div style={{alignContent: 'center', height: '100vh',textAlign: 'center', width: '50vw'}}>
-                <h1 style={{fontSize: '50px', lineHeight: '50px'}}><strong>ZANNYA AFRICA FOUNDATION</strong></h1>
-                <h2><strong>''Cganging the community through sports''</strong></h2>
+                <h1 style={{fontSize: '50px', lineHeight: '50px'}}><strong>&quot;ZANNYA AFRICA FOUNDATION&quot;</strong></h1>
+                <h2><strong>&quot;Changing the community through sports&quot;</strong></h2>
 
-                <p style={{marginTop: '20px'}}>{`Changing the community through sports. We work with unprivileged children, 
+                <p style={{marginTop: '20px'}}>&quot;Changing the community through sports. We work with unprivileged children, 
                     youth and women for their own development and 
-                    the community at large using sports and recreation activities as the engine!`}
+                    the community at large using sports and recreation activities as the engine!&quot;
                 </p>
 
                 <p style={{marginTop: '40px'}}>{`Follow Us`}</p>
