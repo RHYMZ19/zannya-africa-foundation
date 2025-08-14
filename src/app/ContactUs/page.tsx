@@ -1,3 +1,4 @@
+'use client';
 import { FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import styles from './ContactUs.module.css';

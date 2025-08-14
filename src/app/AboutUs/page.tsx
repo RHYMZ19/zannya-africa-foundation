@@ -1,3 +1,5 @@
+'use client';
+
 import Histories from "../Histories/Histories";
 import Leadership from "../Leadership/Leadership";
 import Locations from "../Locations/Locations";

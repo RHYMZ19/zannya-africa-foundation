@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from "react";
 import Styles from "./ImageScroll.module.css";
 

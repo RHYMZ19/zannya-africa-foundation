@@ -1,3 +1,4 @@
+'use client';
 import styles from './CarCard.module.css';
 
 type CarCardProps = {

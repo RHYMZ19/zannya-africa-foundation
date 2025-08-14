@@ -1,3 +1,4 @@
+'use client';
 import styles from './FeaturedCard.module.css';
 
 type FeaturedCardProps = {

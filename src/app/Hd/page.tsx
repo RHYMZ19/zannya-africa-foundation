@@ -1,3 +1,5 @@
+'use client';
+
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 export default function

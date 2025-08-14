@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import styles from './Gallery.module.css';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
