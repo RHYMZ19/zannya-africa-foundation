@@ -47,15 +47,15 @@ export default function Donates() {
                     DONATE
                 </h1>
                 <p className={styles.p1}>
-                    &quot;Mission && Vision&quot;
+                    Mission && Vision
                 </p>
                 </header>
             </div>
 
 
     <div className={styles.container}>
-      <h2 className={styles.h2}>&quot;Support Our Mission&quot;</h2>
-      <p className={styles.p}>&quot;Your donation empowers change in education, health, and community development.&quot;</p>
+      <h2 className={styles.h2}>Support Our Mission</h2>
+      <p className={styles.p}>Your donation empowers change in education, health, and community development.</p>
 
       <div className={styles.amounts}>
         {[10, 25, 50, 100].map((val) => (
@@ -78,7 +78,7 @@ export default function Donates() {
       </button>
 
       <div className={styles.trust}>
-        <p>&quot;🔒 Secure & Encrypted • 📈 Transparent Use • ❤️ Every Coin Counts&quot;</p>
+        <p>🔒 Secure & Encrypted • 📈 Transparent Use • ❤️ Every Coin Counts</p>
       </div>
 
       <div className={styles.contact}>

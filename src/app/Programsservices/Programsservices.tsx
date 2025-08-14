@@ -24,7 +24,7 @@ Programsservices (){
             }>
                 <h3 className={styles.headings}>Programs</h3>
                 <p>
-                    {`In our daily life, we often come across the term 'lifestyle'...`}
+                    In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
                     router.push('/Programs')

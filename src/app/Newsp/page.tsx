@@ -89,7 +89,7 @@ Newsp(){
                     NEWS && UPDATES
                 </h1>
                 <p className={styles.p1}>
-                    {`Zannya Africa Foundation`}
+                    Zannya Africa Foundation
                 </p>
                 </header>
              </div>
@@ -107,10 +107,10 @@ Newsp(){
          
     <div className={styles.newslistcontainer}>
       {loading ? (
-        <p>{`Loading...`}</p>
+        <p>Loading...</p>
       ) :
       news.length === 0 ? (
-        <p className={styles.nonews}>{`No news available.`}</p>
+        <p className={styles.nonews}>No news available.</p>
       ) : (
         news.map(({ id, title, type, description, image, video, timestamp }) => (
           <div key={id} className={styles.newscard}>
@@ -122,7 +122,7 @@ Newsp(){
               {video && (
                 <video controls className={styles.newsvideo}>
                   <source src={video} type="video/mp4" />
-                  {`Your browser does not support the video tag.`}
+                  Your browser does not support the video tag.
                 </video>
               )}
               {timestamp && (

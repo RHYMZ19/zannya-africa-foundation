@@ -3,12 +3,12 @@
 export default function
 Terms() {
     return(
-        <div>"
+        <div>
             Privacy Policy for Zannya Africa Foundation
 
 Effective Date: August 5, 2025
 
-"Zannya Africa Foundation ("we," "our," or "us") respects your privacy and is committed to protecting your personal data. This Privacy Policy outlines how we collect, use, and safeguard the information you provide while visiting our website."
+Zannya Africa Foundation (we, our, or us) respects your privacy and is committed to protecting your personal data. This Privacy Policy outlines how we collect, use, and safeguard the information you provide while visiting our website.
 
 
 1. Information We Collect
@@ -60,7 +60,7 @@ Withdraw your consent at any time
 
 Please contact us at [insert contact email] for any data-related requests.
 
-'7. Children's Privacy'
+7. Childrens Privacy
 
 We do not knowingly collect data from children under the age of 13. If we learn we have done so, we will delete the data promptly.
 
@@ -99,13 +99,11 @@ We strive to provide accurate information, but we do not guarantee completeness 
 We may update these terms at any time. Continued use of the website means you accept the changes.
 
 
----
-
 For questions or concerns, contact us at: Zannya Africa Foundation
 Email: [insert email address]
 Phone: [insert phone number]
 
-Thank you for trusting us with your information."
+Thank you for trusting us with your information.
         </div>
     )
 }

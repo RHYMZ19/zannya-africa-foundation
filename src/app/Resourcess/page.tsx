@@ -73,10 +73,10 @@ export default function Resourcess() {
                   <div className={styles.container}>
                                   <header className={`header ${visible ? 'show' : ""}`}>
                                   <h1 className={styles.h1}>
-                                      &quot;ZANNYA AFRICA FOUNDATION&quot;
+                                      ZANNYA AFRICA FOUNDATION
                                   </h1>
                                   <p className={styles.p1}>
-                                      &quot;changing the community through sports&quot;
+                                      changing the community through sports
                                   </p>
                                   </header>
                               </div>

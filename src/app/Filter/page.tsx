@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { db } from '../lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import styles from './Filter.module.css';
+import Image from 'next/image';
 
 type FilterItem ={
   id: string;
@@ -124,7 +125,7 @@ export default function Filter(){
 
       <div className={styles.resultslist}>
         {filteredData.length === 0 ? (
-          <p>&quot;No results found.&quot;</p>
+          <p>No results found.</p>
         ) : (
           filteredData.map(item => (
             <div key={item.id} className={styles.resultcard}>
@@ -133,7 +134,7 @@ export default function Filter(){
               {item.subcategory && <p><strong></strong> {item.subcategory}</p>}
               <p>{item.description}</p>
               <p><strong></strong> {item.country}</p>
-              {item.image && <img src={item.image} alt={item.name} style={{ maxWidth: '100%', borderRadius: '8px' }} />}
+              {item.image && <Image src={item.image} alt={item.name} style={{ maxWidth: '100%', borderRadius: '8px' }} />}
               {item.video && (
                 <video controls style={{ maxWidth: '100%', marginTop: '10px' }}>
                   <source src={item.video} type="video/mp4" />

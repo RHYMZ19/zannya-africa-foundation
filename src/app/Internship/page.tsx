@@ -42,7 +42,7 @@ export default function
                                 OPPORTUNITIES
                             </h1>
                             <p className={styles.p1}>
-                               &quot; zannya africa foundation&quot;
+                               zannya africa foundation
                             </p>
                             </header>
                         </div>
@@ -51,7 +51,7 @@ export default function
                             <section className={styles.c}>
                                 <h2 className={styles.head}>Internship and Career Opportunities</h2>
                                 <p>
-                                    &quot;Zannya Africa Foundation is committed to nurturing future leaders by providing internship placements and career development opportunities across its programs and departments.&quot;
+                                    Zannya Africa Foundation is committed to nurturing future leaders by providing internship placements and career development opportunities across its programs and departments.
                                 </p>
 
                                 <h3>Available Opportunities</h3>
@@ -84,8 +84,8 @@ export default function
 
                                 <h3 style={{paddingTop: '15px'}}><strong>Application Process:</strong></h3>
                                 <p>
-                                    &quot;To apply, send your CV and a short cover letter to <a href="mailto:careers@zannyafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>careers@zannyafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
-                                &quot;</p>
+                                    To apply, send your CV and a short cover letter to <a href="mailto:careers@zannyafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>careers@zannyafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
+                                </p>
                                 
                                 <form className={styles.form}>
                                     <label>
@@ -120,10 +120,10 @@ export default function
 
                                 <h3 style={{paddingTop: '15px'}}><strong>Frequently Asked Questions</strong></h3>
                                 <p><strong>Q: Is this a paid internship?</strong><br/>
-                                &quot;A: Some internships may include a stipend, others are voluntary based on the program and funding.&quot;</p>
+                                A: Some internships may include a stipend, others are voluntary based on the program and funding.</p>
 
                                 <p><strong>Q: Do you accept international applicants?</strong><br/>
-                                &quot;A: Yes, we welcome applications from across Africa and beyond, provided applicants meet our criteria.&quot;</p>
+                                A: Yes, we welcome applications from across Africa and beyond, provided applicants meet our criteria.</p>
                     </section>
 
                 </div>

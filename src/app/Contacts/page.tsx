@@ -10,6 +10,7 @@ import LanguageSelecter from '../LanguageSelecter/LanguageSelecter';
 import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
 import StickyBar from '../StickyBar/StickyBar';
 import { MdEmail } from 'react-icons/md';
+import Image from 'next/image';
 
 export default function ContactPage() {
 
@@ -31,7 +32,7 @@ export default function ContactPage() {
                                     router.push('')}
                                     className={styles.arrowButton}>Donate
                                     </button>
-                                    < img src='/log.jpg' alt="log" width={100} height={100}></img>
+                                    < Image src='/log.jpg' alt="log" width={100} height={100}></Image>
                                     </StickyBar>
 
                                     <div className={styles.container}>
@@ -40,7 +41,7 @@ export default function ContactPage() {
                     CONTACT US
                 </h1>
                 <p className={styles.p1}>
-                    &quot;zannya africa foundation&quot;
+                    zannya africa foundation
                 </p>
                 </header>
             </div>
@@ -48,9 +49,9 @@ export default function ContactPage() {
       <h1 className={styles.h1}>Contact Us</h1>
 
       <div className={styles.contactInfo}>
-        <p><strong>Address:</strong>&quot;Plot 12, Charity Road, Kampala, Uganda&quot;</p>
-        <p><strong>Phone:</strong>&quot;+256 700 123 456&quot;</p>
-        <p><strong>Email:</strong> <a href="mailto:info@zannyaafrica.org">&quot;info@zannyaafrica.org&quot;</a></p>
+        <p><strong>Address:</strong>Plot 12, Charity Road, Kampala, Uganda</p>
+        <p><strong>Phone:</strong>+256 700 123 456</p>
+        <p><strong>Email:</strong> <a href="mailto:info@zannyaafrica.org">info@zannyaafrica.org</a></p>
 
         <div className={styles.socialLinks}>
           <a href="https://facebook.com/zannyaafrica" target="_blank">Facebook</a>

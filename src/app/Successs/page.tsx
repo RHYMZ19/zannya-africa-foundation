@@ -39,10 +39,10 @@ Successs() {
             <div className={styles.container}>
                             <header className={`header ${visible ? 'show' : ""}`}>
                             <h1 className={styles.h1}>
-                               &quot; SUCCESS STORIES&quot;
+                                SUCCESS STORIES
                             </h1>
                             <p className={styles.p1}>
-                                &quot;Zannya Africa foundation&quot;
+                                Zannya Africa foundation
                             </p>
                             </header>
                         </div>
@@ -50,24 +50,24 @@ Successs() {
             
             <div className={styles.ss}>
                 <section className={styles.testimonialssection}>
-  <h2>&quot;Testimonials & Success Stories&quot;</h2>
+  <h2>Testimonials & Success Stories</h2>
 
   
   <div className={styles.testimonialcard}>
-    <p className={styles.quote}>&quot;“Zannya helped me get a scholarship and become the first girl in my village to go to university.”&quot;</p>
-    <p className={styles.author}>&quot;Amina, Uganda&quot;</p>
+    <p className={styles.quote}>“Zannya helped me get a scholarship and become the first girl in my village to go to university.</p>
+    <p className={styles.author}>Amina, Uganda</p>
   </div>
 
   
   <div className={styles.storycard}>
-    <h3>'From Slums to School: Samuel's Journey'</h3>
-    <p>&quot;Zannya Africa Foundation supported Samuel through education bursaries. Now he’s a teacher helping hundreds of children in Kampala.&quot;</p>
+    <h3>From Slums to School: Samuels Journey</h3>
+    <p>Zannya Africa Foundation supported Samuel through education bursaries. Now hes a teacher helping hundreds of children in Kampala.</p>
     <a href="Samuel_story.pdf" className={styles.downloadbtn} target="_blank">Download Full Story (PDF)</a>
   </div>
 
 
   <div className={styles.cta}>
-    <p>&quot;Want to support more success stories like these?&quot;</p>
+    <p>Want to support more success stories like these?</p>
     <a href="/donate" className={styles.donatebutton}>Donate Now</a>
   </div>
 </section>

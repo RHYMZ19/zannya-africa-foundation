@@ -58,33 +58,33 @@ InternationalReachPage() {
 
                         
             <Maps></Maps>
-            <p  style={{color: 'red'}}><strong>Zannya Africa foundation</strong> {`opparates in maltiple countries across east and west
-             Africa partnering with local communities to implement sustainable programs in education, health, and empowerment.`}</p>
+            <p  style={{color: 'red'}}><strong>Zannya Africa foundation</strong> opparates in maltiple countries across east and west
+             Africa partnering with local communities to implement sustainable programs in education, health, and empowerment.</p>
             <div style={{padding: '10px'}}>
                 <h1 style={{fontSize: '40px', color: 'black', fontWeight: 'bold', fontStyle: 'italic'}}>List of countries available</h1>
 
                 <div style={{margin: '15px'}}>
                 <h2 style={{fontStyle: 'italic', fontWeight: '15px'}}>Uganda</h2>
                 <p><strong>Head office in </strong> Kampala</p>
-                <p><strong>Focus: </strong> {`Education Programs, Youth camps, HIV / TB protection`}</p>
+                <p><strong>Focus: </strong> Education Programs, Youth camps, HIV / TB protection</p>
                 </div>
 
                 <div style={{margin: '15px'}}>
                 <h2 style={{fontStyle: 'italic', fontWeight: '15px'}}>Kenya</h2>
                 <p><strong>Head office in </strong> Kampala</p>
-                <p><strong>Focus: </strong> {`Education Programs, Youth camps, HIV / TB protection`}</p>
+                <p><strong>Focus: </strong> Education Programs, Youth camps, HIV / TB protection</p>
                 </div>
 
                 <div style={{margin: '15px'}}>
                 <h2 style={{fontStyle: 'italic', fontWeight: '15px'}}>Ghana</h2>
                 <p><strong>Head office in </strong> Kampala</p>
-                <p><strong>Focus: </strong> {`Education Programs, Youth camps, HIV / TB protection`}</p>
+                <p><strong>Focus: </strong> Education Programs, Youth camps, HIV / TB protection</p>
                 </div>
 
                 <div style={{margin: '15px'}}>
                 <h2 style={{fontStyle: 'italic', fontWeight: '15px'}}>Nigeria</h2>
                 <p><strong>Head office in </strong> Kampala</p>
-                <p><strong>Focus: </strong> {`Education Programs, Youth camps, HIV / TB protection`}</p>
+                <p><strong>Focus: </strong> Education Programs, Youth camps, HIV / TB protection</p>
                 </div>
 
             </div>

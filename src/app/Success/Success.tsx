@@ -5,7 +5,6 @@ import Image from "next/image";
 export default function
 Success (){
     const router =useRouter();
-
     return(
         <div id="Success"
         className={
@@ -20,9 +19,9 @@ Success (){
             className={
                 styles.previewtext
             }>
-                <h3 className={styles.headings}>&quot;Success Stories&quot;</h3>
+                <h3 className={styles.headings}>Success Stories</h3>
                 <p>
-                    'In our daily life, we often come across the term 'lifestyle'...'
+                    In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
                     router.push('/Successs')

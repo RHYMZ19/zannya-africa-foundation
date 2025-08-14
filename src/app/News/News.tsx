@@ -24,7 +24,7 @@ News (){
             }>
                 <h3 className={styles.headings}>Events</h3>
                 <p>
-                    &quot;In our daily life, we often come across the term 'lifestyle'...&quot;
+                    In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
                     router.push('/Newsp')

@@ -25,7 +25,7 @@ GetInvolve (){
             }>
                 <h3 className={styles.headings}>Get Involved</h3>
                 <p>
-                    &quot;In our daily life, we often come across the term 'lifestyle'...&quot;
+                    In our daily life, we often come across the term lifestyle...
                 </p>
                 <button 
                 onClick={() =>

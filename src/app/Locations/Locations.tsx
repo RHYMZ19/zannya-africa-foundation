@@ -25,7 +25,7 @@ Locations (){
             }>
                 <h3 className={styles.headings}>Locations</h3>
                 <p>
-                    'In our daily life, we often come across the term 'lifestyle'...'
+                    In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
                     router.push('/notes')

@@ -20,11 +20,11 @@ Success (){
             }>
                 <h3 className={styles.headings}>How Zannya Africa Foundation Is Transforming Lives Through Sports</h3>
                 <p>
-                    &quot;Zannya Africa Foundation (ZAF) is using sports because of its positive values to help the unprivileged children, youths and women in Uganda.
+                    Zannya Africa Foundation (ZAF) is using sports because of its positive values to help the unprivileged children, youths and women in Uganda.
 
 The foundation commenced its activities in 2018 but serious work started the following year according to Project Manager Samuel Mugalu.
 
-Zannya, bearing an indigenous name for ‘Play,’ is a sport based Non Government Organization that has provided access to sports and recreational activities to kids not only to play and have fun but also to transform their lives for a better living.
+Zannya, bearing an indigenous name for Play, is a sport based Non Government Organization that has provided access to sports and recreational activities to kids not only to play and have fun but also to transform their lives for a better living.
 
 “We have addressed issues like unemployment, early pregnancies, drug abuse, HIV, climate change, domestic violence among others,” said Mugalu.
 
@@ -35,7 +35,7 @@ The Project Manager revealed that they chose to use Sports because it has a numb
 Zannya Foundation has partnered with JB Caring Hearts and Leto Foundation and are targeting to bring more partners on board that include academies and clubs.
 
 
-                &quot;</p>
+                </p>
                 
             </div>
         </div>

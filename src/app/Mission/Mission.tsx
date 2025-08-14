@@ -24,7 +24,7 @@ Mission (){
             }>
                 <h3 className={styles.headings}>Mission & Vission</h3>
                 <p>
-                    &quot;To change lives and build stronger and healthier communities....&quot;
+                    To change lives and build stronger and healthier communities....
                 </p>
                 <button onClick={() =>
                     router.push('/Missions')

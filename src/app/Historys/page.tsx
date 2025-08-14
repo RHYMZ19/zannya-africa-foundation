@@ -43,7 +43,7 @@ Historys() {
                     HISTORY
                 </h1>
                 <p className={styles.p1}>
-                   &quot; Mission && Vision&quot;
+                    Mission && Vision
                 </p>
                 </header>
             </div>

@@ -10,15 +10,15 @@ Hd() {
             </div>
 
             <div style={{alignContent: 'center', height: '100vh',textAlign: 'center', width: '50vw'}}>
-                <h1 style={{fontSize: '50px', lineHeight: '50px'}}><strong>&quot;ZANNYA AFRICA FOUNDATION&quot;</strong></h1>
-                <h2><strong>&quot;Changing the community through sports&quot;</strong></h2>
+                <h1 style={{fontSize: '50px', lineHeight: '50px'}}><strong>ZANNYA AFRICA FOUNDATION</strong></h1>
+                <h2><strong>Changing the community through sports</strong></h2>
 
-                <p style={{marginTop: '20px'}}>&quot;Changing the community through sports. We work with unprivileged children, 
+                <p style={{marginTop: '20px'}}>Changing the community through sports. We work with unprivileged children, 
                     youth and women for their own development and 
-                    the community at large using sports and recreation activities as the engine!&quot;
+                    the community at large using sports and recreation activities as the engine!
                 </p>
 
-                <p style={{marginTop: '40px'}}>&quot;Follow Us&quot;</p>
+                <p style={{marginTop: '40px'}}>Follow Us</p>
         <div style={{ display: "flex",justifyContent: "center",  gap: "15px", fontSize: "30px",}}>
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
             <FaFacebook />

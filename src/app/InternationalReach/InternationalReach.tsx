@@ -24,7 +24,7 @@ InternationalReach (){
             }>
                 <h3 className={styles.headings}>International Reach</h3>
                 <p>
-                    &quot;In our daily life, we often come across the term 'lifestyle'...&quot;
+                    In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
                     router.push('/InternationalReachpage')
