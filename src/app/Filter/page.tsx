@@ -64,17 +64,11 @@ export default function Filter(){
     const { name, value } = e.target;
     setSearch(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: value
     }));
   };
 
   
-
-  const filtered = filters.filter(item =>
-    (!search.country || item.country === search.country) &&
-    (!search.category || item.category === search.category) &&
-    (!search.subcategory || item.subcategory === search.subcategory)
-  );
 
   const filteredSubcategories = [
   ...new Set(

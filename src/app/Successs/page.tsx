@@ -60,7 +60,7 @@ Successs() {
 
   
   <div className={styles.storycard}>
-    <h3>&quot;From Slums to School: Samuel's Journey&quot;</h3>
+    <h3>'From Slums to School: Samuel's Journey'</h3>
     <p>&quot;Zannya Africa Foundation supported Samuel through education bursaries. Now he’s a teacher helping hundreds of children in Kampala.&quot;</p>
     <a href="Samuel_story.pdf" className={styles.downloadbtn} target="_blank">Download Full Story (PDF)</a>
   </div>

@@ -23,7 +23,7 @@ Donate (){
             }>
                 <h3 className={styles.headings}>Support Us</h3>
                 <p>
-                    &quot;In our daily life, we often come across the term 'lifestyle'...&quot;
+                    'In our daily life, we often come across the term 'lifestyle'...'
                 </p>
                 <button onClick={() =>
                     router.push('/Donates')
