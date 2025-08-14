@@ -22,7 +22,7 @@ Success (){
             }>
                 <h3 className={styles.headings}>&quot;Success Stories&quot;</h3>
                 <p>
-                    "In our daily life, we often come across the term 'lifestyle'..."
+                    &quot;In our daily life, we often come across the term 'lifestyle'...&quot;
                 </p>
                 <button onClick={() =>
                     router.push('/Successs')

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Styles from "./ImageScrollrememberthis.module.css";
+import Image from "next/image";
 
 const images = [
     "/images/car1.jpg",
@@ -48,8 +49,8 @@ ImageScroll() {
             ref={trackRef}>
                 {imageList.map((src, index) =>
                 (
-                    <img key={index} src={src}
-                    className={Styles.image}></img>
+                    <Image key={index} src={src}
+                    className={Styles.image} alt={""}></Image>
                 ))}
             </div>
         </div>

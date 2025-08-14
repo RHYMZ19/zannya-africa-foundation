@@ -18,7 +18,7 @@ Hd() {
                     the community at large using sports and recreation activities as the engine!&quot;
                 </p>
 
-                <p style={{marginTop: '40px'}}>{`Follow Us`}</p>
+                <p style={{marginTop: '40px'}}>&quot;Follow Us&quot;</p>
         <div style={{ display: "flex",justifyContent: "center",  gap: "15px", fontSize: "30px",}}>
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
             <FaFacebook />

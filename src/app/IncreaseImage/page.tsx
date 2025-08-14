@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./IncreaseImage.module.css";
+import Image from "next/image";
 
 type Props = {
   src: string;
@@ -14,7 +15,7 @@ export default function IncreaseImage({ src, alt }: Props) {
   return (
     <>
       {/* Thumbnail Image */}
-      <img
+      <Image
         src={src}
         alt={alt}
         className={styles.thumbnail}

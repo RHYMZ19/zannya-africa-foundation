@@ -10,6 +10,7 @@ import styles from './Historys.module.css';
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import { useState, useEffect } from "react";
 import ContactUs from "../ContactUs/page";
+import Image from "next/image";
 
 export default function
 Historys() {
@@ -33,7 +34,7 @@ Historys() {
                         router.push('')}
                         className={styles.arrowButton}>Donate
                         </button>
-                        < img src='/log.jpg' alt="log" width={100} height={100}></img>
+                        < Image src='/log.jpg' alt="log" width={100} height={100}></Image>
                         </StickyBar>
 
                         <div className={styles.container}>
@@ -42,7 +43,7 @@ Historys() {
                     HISTORY
                 </h1>
                 <p className={styles.p1}>
-                    Mission && Vision
+                   &quot; Mission && Vision&quot;
                 </p>
                 </header>
             </div>

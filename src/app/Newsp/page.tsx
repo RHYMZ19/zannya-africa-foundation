@@ -17,6 +17,7 @@ import db from "../lib/firebase";
 import Image from "next/image";
 
 
+
 type NewsItem = {
     id: string;
   title: string;
@@ -79,7 +80,7 @@ Newsp(){
                     router.push('')}
                     className={styles.arrowButton}>Donate
                     </button>
-                    < img src='/log.jpg' alt="log" width={100} height={100}></img>
+                    < Image src='/log.jpg' alt="log" width={100} height={100}></Image>
                     </StickyBar>
                 </div>
     <div className={styles.container}>
@@ -113,7 +114,7 @@ Newsp(){
       ) : (
         news.map(({ id, title, type, description, image, video, timestamp }) => (
           <div key={id} className={styles.newscard}>
-            {image && <img src={image} alt={title} className={styles.newsimage} />}
+            {image && <Image src={image} alt={title} className={styles.newsimage} />}
             <div className={styles.newscontent}>
               <span className={styles.newstype}>{type}</span>
               <h3 className={styles.newstitle}>{title}</h3>

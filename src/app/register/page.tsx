@@ -47,7 +47,7 @@ RegisterPage() {
             <div className={styles.bucket}>
                 <div className={styles.overlay}></div>
                 <h1 className={styles.title}>Register</h1>
-                <p className={styles.subtitle}>Register with us for more services!</p>
+                <p className={styles.subtitle}>&quot;Register with us for more services!&quot;</p>
             </div>
             
             <form onSubmit={handleRegister}>

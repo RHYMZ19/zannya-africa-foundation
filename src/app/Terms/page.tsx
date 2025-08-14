@@ -3,7 +3,7 @@
 export default function
 Terms() {
     return(
-        <div>{`
+        <div>&quot;
             Privacy Policy for Zannya Africa Foundation
 
 Effective Date: August 5, 2025
@@ -109,7 +109,7 @@ For questions or concerns, contact us at: Zannya Africa Foundation
 Email: [insert email address]
 Phone: [insert phone number]
 
-Thank you for trusting us with your information.`}
+Thank you for trusting us with your information.&quot;
         </div>
     )
 }

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import styles from './Mission.module.css';
+import Image from "next/image";
 
 export default function
 Mission (){
@@ -12,18 +13,18 @@ Mission (){
         className={
             styles.previewcontainer
         }>
-            <img src="/images/pic5.jpg"
+            <Image src="/images/pic5.jpg"
             alt="Preview"
             className={
                 styles.previewimage
-            }></img>
+            }></Image>
             <div 
             className={
                 styles.previewtext
             }>
                 <h3 className={styles.headings}>Mission & Vission</h3>
                 <p>
-                    To change lives and build stronger and healthier communities....
+                    &quot;To change lives and build stronger and healthier communities....&quot;
                 </p>
                 <button onClick={() =>
                     router.push('/Missions')

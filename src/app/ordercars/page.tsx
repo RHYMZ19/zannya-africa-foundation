@@ -14,7 +14,7 @@ SocialButtonsPage() {
             <div className={styles.bucket}>
                 <div className={styles.overlay}></div>
                 <h1 className={styles.title}>OREDR A CAR</h1>
-                <p className={styles.subtitle}>Thanks for ordering!</p>
+                <p className={styles.subtitle}>&quot;Thanks for ordering!&quot;</p>
             </div>
 
             <div className={style.scrollContainer}></div>
@@ -29,7 +29,7 @@ SocialButtonsPage() {
                 </div>
 
             {/* page content here */}
-            <p>Click below to connect with us:</p>
+            <p>&quot;Click below to connect with us:&quot;</p>
 
             {/* Bottom Social Buttons */}
 
@@ -108,14 +108,3 @@ const btnStyle = {
     cursor: 'pointer'
 }
 
-const topRight = {
-    position: 'absolute',
-    top: '10px',
-    right: '10px',
-}
-
-const bottomRight = {
-    position: 'absolute',
-    bottom: '10px',
-    right: '10px',
-}

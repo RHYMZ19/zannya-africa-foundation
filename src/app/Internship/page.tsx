@@ -10,6 +10,7 @@ import StickyBar from "../StickyBar/StickyBar";
 import styles from './Internship.module.css';
 import { useState, useEffect } from "react";
 import ContactUs from "../ContactUs/page";
+import Image from "next/image";
 
 export default function
     Internship() {
@@ -33,7 +34,7 @@ export default function
                                     className={styles.arrowButton}>
                                         Donate
                     </button>
-                    < img src='/log.jpg' alt="log" width={100} height={100}></img>
+                    < Image src='/log.jpg' alt="log" width={100} height={100}></Image>
             </StickyBar>
             <div className={styles.container}>
                             <header className={`header ${visible ? 'show' : ""}`}>
@@ -41,7 +42,7 @@ export default function
                                 OPPORTUNITIES
                             </h1>
                             <p className={styles.p1}>
-                                zannya africa foundation
+                               &quot; zannya africa foundation&quot;
                             </p>
                             </header>
                         </div>
@@ -50,7 +51,7 @@ export default function
                             <section className={styles.c}>
                                 <h2 className={styles.head}>Internship and Career Opportunities</h2>
                                 <p>
-                                    Zannya Africa Foundation is committed to nurturing future leaders by providing internship placements and career development opportunities across its programs and departments.
+                                    &quot;Zannya Africa Foundation is committed to nurturing future leaders by providing internship placements and career development opportunities across its programs and departments.&quot;
                                 </p>
 
                                 <h3>Available Opportunities</h3>
@@ -83,8 +84,8 @@ export default function
 
                                 <h3 style={{paddingTop: '15px'}}><strong>Application Process:</strong></h3>
                                 <p>
-                                    To apply, send your CV and a short cover letter to <a href="mailto:careers@zannyafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>careers@zannyafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
-                                </p>
+                                    &quot;To apply, send your CV and a short cover letter to <a href="mailto:careers@zannyafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>careers@zannyafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
+                                &quot;</p>
                                 
                                 <form className={styles.form}>
                                     <label>
@@ -119,10 +120,10 @@ export default function
 
                                 <h3 style={{paddingTop: '15px'}}><strong>Frequently Asked Questions</strong></h3>
                                 <p><strong>Q: Is this a paid internship?</strong><br/>
-                                A: Some internships may include a stipend, others are voluntary based on the program and funding.</p>
+                                &quot;A: Some internships may include a stipend, others are voluntary based on the program and funding.&quot;</p>
 
                                 <p><strong>Q: Do you accept international applicants?</strong><br/>
-                                A: Yes, we welcome applications from across Africa and beyond, provided applicants meet our criteria.</p>
+                                &quot;A: Yes, we welcome applications from across Africa and beyond, provided applicants meet our criteria.&quot;</p>
                     </section>
 
                 </div>

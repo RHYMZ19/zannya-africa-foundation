@@ -1,12 +1,7 @@
 'use client';
-import BlueStripInput from '../blue/BlueStripInput';
-import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
-import style from './adminpannel.module.css';
-import styles from './adminpannel.module.css';
 import { useRouter } from 'next/navigation';
 import {auth, firestore} from '../lib/firebase';
 import { useEffect, useState } from 'react';
-import router from 'next/router';
 import {onAuthStateChanged, User} from 'firebase/auth';
 import {doc, getDoc} from 'firebase/firestore';
 import ProgAdmin from '../ProgAdmin/page';

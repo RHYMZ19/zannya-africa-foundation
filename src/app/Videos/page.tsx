@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { storage } from "../lib/firebase"; // make sure storage is exported in your firebase config
+import Image from "next/image";
 
 export default function Videos() {
   const [filter, setFilter] = useState("ph"); // 'ph' = photos, 'vd' = videos
@@ -64,7 +65,7 @@ export default function Videos() {
         >
           {items.map((url, idx) =>
             filter === "ph" ? (
-              <img
+              <Image
                 key={idx}
                 src={url}
                 alt={`Gallery Item ${idx + 1}`}

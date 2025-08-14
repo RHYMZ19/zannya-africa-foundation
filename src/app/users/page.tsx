@@ -28,7 +28,7 @@ SocialButtonsPage() {
             </div>
 
             {/* page content here */}
-            <p>Click below to connect with us:</p>
+            <p>&quot;Click below to connect with us:&quot;</p>
 
             {/* Bottom Social Buttons */}
 

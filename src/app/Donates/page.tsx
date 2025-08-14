@@ -10,6 +10,7 @@ import LanguageSelecter from '../LanguageSelecter/LanguageSelecter';
 import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
 import StickyBar from '../StickyBar/StickyBar';
 import { MdEmail } from 'react-icons/md';
+import Image from 'next/image';
 
 export default function Donates() {
   const [amount, setAmount] = useState(25);
@@ -37,7 +38,7 @@ export default function Donates() {
                                 router.push('/Donates')}
                                 className={styles.arrowButton}>Donate
                                 </button>
-                                < img src='/log.jpg' alt="log" width={100} height={100}></img>
+                                < Image src='/log.jpg' alt="log" width={100} height={100}></Image>
                                 </StickyBar>
 
                                 <div className={styles.containers}>
@@ -46,15 +47,15 @@ export default function Donates() {
                     DONATE
                 </h1>
                 <p className={styles.p1}>
-                    Mission && Vision
+                    &quot;Mission && Vision&quot;
                 </p>
                 </header>
             </div>
 
 
     <div className={styles.container}>
-      <h2 className={styles.h2}>Support Our Mission</h2>
-      <p className={styles.p}>Your donation empowers change in education, health, and community development.</p>
+      <h2 className={styles.h2}>&quot;Support Our Mission&quot;</h2>
+      <p className={styles.p}>&quot;Your donation empowers change in education, health, and community development.&quot;</p>
 
       <div className={styles.amounts}>
         {[10, 25, 50, 100].map((val) => (
@@ -77,7 +78,7 @@ export default function Donates() {
       </button>
 
       <div className={styles.trust}>
-        <p>🔒 Secure & Encrypted • 📈 Transparent Use • ❤️ Every Coin Counts</p>
+        <p>&quot;🔒 Secure & Encrypted • 📈 Transparent Use • ❤️ Every Coin Counts&quot;</p>
       </div>
 
       <div className={styles.contact}>

@@ -23,7 +23,7 @@ Contact (){
             }>
                 <h3 className={styles.headings}>Contact Us</h3>
                 <p>
-                    {`In our daily life, we often come across the term 'lifestyle'...`}
+                    &quot;In our daily life, we often come across the term 'lifestyle'...&quot;
                 </p>
                 <button onClick={() =>
                     router.push('/Contacts')

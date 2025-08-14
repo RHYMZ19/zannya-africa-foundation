@@ -42,7 +42,7 @@ Successs() {
                                &quot; SUCCESS STORIES&quot;
                             </h1>
                             <p className={styles.p1}>
-                                "Zannya Africa foundation"
+                                &quot;Zannya Africa foundation&quot;
                             </p>
                             </header>
                         </div>

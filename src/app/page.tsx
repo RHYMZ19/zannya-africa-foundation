@@ -25,6 +25,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ContactUs from "./ContactUs/page";
 import Hd from "./Hd/page";
+import Image from "next/image";
 
 
 
@@ -55,7 +56,7 @@ Home() {
                                     className={styles.arrowButton}>
                                         Donate
                                     </button>
-                    < img src='/log.jpg' alt="log" width={100} height={90}></img>
+                    < Image src='/log.jpg' alt="log" width={100} height={90}></Image>
                 </StickyBar>
                 <ImageScroll></ImageScroll>
                 <Hd></Hd>

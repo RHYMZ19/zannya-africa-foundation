@@ -10,11 +10,10 @@ import styles from './Missions.module.css';
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import { useState, useEffect } from "react";
 import ContactUs from "../ContactUs/page";
-import ImageOverlayViewer from "../IncreaseImage/page";
 import IncreaseImage from "../IncreaseImage/page";
-import IncreaseImageM from "./IncreaseImageM/page";
 import { getDocs, collection } from "firebase/firestore";
 import db from "../lib/firebase";
+import Image from "next/image";
 
 
 interface Leader {
@@ -80,7 +79,7 @@ Missions() {
                     ABOUT US
                 </h1>
                 <p className={styles.p1}>
-                    Mission && Vision
+                    &quot;Mission && Vision&quot;
                 </p>
                 </header>
             </div>
@@ -88,21 +87,21 @@ Missions() {
 
             <div className={styles.mision}>
                 <h1 style={{fontSize: '25px', fontStyle: 'italic'}}>Mission</h1>
-                <p>
+                <p>&quot;
                     Zaanya Africa Foundation exists to 
                     empower young Africans thorugh innovate education, leadership, development and 
                     sustainable community programs that promote health, creativity and opportunity.
-                </p>
+                &quot;</p>
             </div>
 
             <div className={styles.Vision}>
                 <h1 style={{fontSize: '25px', fontStyle: 'italic'}}>Vission</h1>
                 <p>
-                    To change lives and build stronger and healthier communities.
+                    &quot;To change lives and build stronger and healthier communities.&quot;
                 </p>
                 <p>
-                    To create a future where every young African has tools, confidance and 
-                    platforms to lead positive change in their communities and beyond.
+                    &quot;To create a future where every young African has tools, confidance and 
+                    platforms to lead positive change in their communities and beyond.&quot;
                 </p>
             </div>
 
@@ -113,9 +112,9 @@ Missions() {
             <div className={styles.Leaders}>
                 <h1 style={{fontStyle: 'italic', fontSize: '50px'}}>Leadership</h1>
                 <p>
-                    Zannya Africa Foundation is driven by a dedicated leadership team that brings 
+                    &quot;Zannya Africa Foundation is driven by a dedicated leadership team that brings 
                     expertise in youth development,
-                    policy and community emporment.
+                    policy and community emporment.&quot;
                 </p>
 
                 <div>
@@ -125,7 +124,7 @@ Missions() {
         {leaders.map((leader) => (
           <div key={leader.id} className={styles.card}>
             <div className={styles.imageWrapper}>
-              <img src={leader.img} alt={leader.name} className={styles.image} />
+              {leader.img && (<Image src={leader.img} alt={leader.name} className={styles.image} />)}
             </div>
             <h3 className={styles.name}>{leader.name}</h3>
             <p className={styles.role}>{leader.role}</p>
@@ -133,12 +132,12 @@ Missions() {
             <div className={styles.socials}>
               {leader.linkedin && (
                 <a href={leader.linkedin} target="_blank" rel="noreferrer">
-                  <img src="/icons/linkedin.svg" alt="LinkedIn" />
+                  <Image src="/icons/linkedin.svg" alt="LinkedIn" />
                 </a>
               )}
               {leader.twitter && (
                 <a href={leader.twitter} target="_blank" rel="noreferrer">
-                  <img src="/icons/twitter.svg" alt="Twitter" />
+                  <Image src="/icons/twitter.svg" alt="Twitter" />
                 </a>
               )}
             </div>
@@ -161,8 +160,8 @@ Missions() {
                 <section className={styles.partnerssection}>
   <h2 className={styles.sectiontitle}>Our Partners & Affiliations</h2>
 
-  <p className={styles.intro}>
-    Zannya Africa Foundation collaborates with local and international partners to drive social innovation and sustainable development. These partnerships enhance our ability to create lasting change across Africa.
+  <p className={styles.intro}>&quot;
+    Zannya Africa Foundation collaborates with local and international partners to drive social innovation and sustainable development. These partnerships enhance our ability to create lasting change across Africa.&quot;
   </p>
 
   <div className={styles.partnertypes}>
@@ -201,7 +200,7 @@ Missions() {
   </div>
 
   <div className={styles.ctabox}>
-    <p>Interested in partnering with us?</p>
+    <p>&quot;Interested in partnering with us?&quot;</p>
     <a className={styles.ctabutton} href="/contact">Contact Us</a>
   </div>
 </section>

@@ -130,7 +130,7 @@ export default function Filter(){
 
       <div className={styles.resultslist}>
         {filteredData.length === 0 ? (
-          <p>No results found.</p>
+          <p>&quot;No results found.&quot;</p>
         ) : (
           filteredData.map(item => (
             <div key={item.id} className={styles.resultcard}>

@@ -1,5 +1,6 @@
 'use client';
 import styles from './Uganda.module.css';
+import Image from 'next/image';
 
 export default function
 Success (){
@@ -8,18 +9,18 @@ Success (){
         className={
             styles.previewcontainer
         }>
-            <img src="/images/pic5.jpg"
+            <Image src="/images/pic5.jpg"
             alt="Preview"
             className={
                 styles.previewimage
-            }></img>
+            }></Image>
             <div 
             className={
                 styles.previewtext
             }>
                 <h3 className={styles.headings}>How Zannya Africa Foundation Is Transforming Lives Through Sports</h3>
                 <p>
-                    Zannya Africa Foundation (ZAF) is using sports because of its positive values to help the unprivileged children, youths and women in Uganda.
+                    &quot;Zannya Africa Foundation (ZAF) is using sports because of its positive values to help the unprivileged children, youths and women in Uganda.
 
 The foundation commenced its activities in 2018 but serious work started the following year according to Project Manager Samuel Mugalu.
 
@@ -34,7 +35,7 @@ The Project Manager revealed that they chose to use Sports because it has a numb
 Zannya Foundation has partnered with JB Caring Hearts and Leto Foundation and are targeting to bring more partners on board that include academies and clubs.
 
 
-                </p>
+                &quot;</p>
                 
             </div>
         </div>

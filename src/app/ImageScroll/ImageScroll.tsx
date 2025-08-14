@@ -66,7 +66,7 @@ ImageScroll() {
                         <h2 style={{color: 'black',fontSize: '70px',lineHeight: '1',
                         fontStyle: 'italic',marginBottom: '20px',
                              fontWeight: 'bolder'}}> FOUNDATION</h2>
-                             <p>"Changing the community through sports."</p>
+                             <p>&quot;Changing the community through sports.&quot;</p>
       </div>
       </div>
     )
