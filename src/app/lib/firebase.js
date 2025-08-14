@@ -26,6 +26,7 @@ let analytics;
 if (typeof window !== 'undefined') {
   analytics = getAnalytics(app)
 }
+export { analytics };
 export const auth = getAuth(app);
 export const firestore = getFirestore(app);
 export const storage = getStorage(app);

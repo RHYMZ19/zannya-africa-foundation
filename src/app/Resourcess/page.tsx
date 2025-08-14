@@ -11,16 +11,17 @@ import styles from './Resourcess.module.css';
 import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
 import { useRouter } from 'next/navigation';
 import ContactUs from '../ContactUs/page';
+import Image from 'next/image';
 
 const resources = [
   {
-    title: 'Youth Innovation Case Study – 2024',
+    title: 'Youth Innovation Case Study  2024',
     description: 'An in-depth case study on youth-led innovation hubs.',
     file: '/pdfs/Case Study-WPS Office.pdf',
     category: 'Case Studies'
   },
   {
-    title: 'Annual Report – 2023',
+    title: 'Annual Report 2023',
     description: 'Summary of our yearly activities and outcomes.',
     file: '/pdfs/Zannya Africa F-WPS Office.pdf',
     category: 'Reports'
@@ -66,7 +67,7 @@ export default function Resourcess() {
               router.push('')}
               className={styles.arrowButton}>Donate
             </button>
-        < img src='/log.jpg' alt="log" width={100} height={100}></img>
+        < Image src='/log.jpg' alt="log" width={100} height={100}></Image>
       </StickyBar>
 
                   <div className={styles.container}>
@@ -82,7 +83,7 @@ export default function Resourcess() {
 
                               <div style={{width: '100%', height: '500px',justifyContent: 'center',backgroundColor: '#f5fafac7', 
             margin: 0,display: 'flex', padding: '0px', paddingBottom: '150px'}}>
-                                <img src="./camp/camp1.jpg" alt="image" style={{width: '100%', height: '500px', display: 'block'}}></img>
+                                <Image src="./camp/camp1.jpg" alt="image" style={{width: '100%', height: '500px', display: 'block'}}></Image>
                               </div>
 
     <div style={{ padding: '40px', maxWidth: '1000px', margin: 'auto' }}>

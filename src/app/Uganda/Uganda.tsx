@@ -1,12 +1,8 @@
 'use client';
-
-import { useRouter } from "next/navigation";
 import styles from './Uganda.module.css';
 
 export default function
 Success (){
-    const router =useRouter();
-
     return(
         <div 
         className={

@@ -7,9 +7,7 @@ import GetInvolved from "../GetInvolved/GetInvolved";
 import LanguageSelecter from "../LanguageSelecter/LanguageSelecter";
 import StickyBar from "../StickyBar/StickyBar";
 import styles from './Programs.module.css';
-import FilterBars from "../FilterBars/FilterBars";
 import { useRouter } from "next/navigation";
-import Countries from "../countries/[country]/page";
 import Filter from "../Filter/page";
 import React,{ useEffect, useState } from "react";
 import AOS from 'aos';
@@ -17,9 +15,10 @@ import 'aos/dist/aos.css';
 import ContactUs from "../ContactUs/page";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import IncreaseImage from "../IncreaseImage/page";
+import Image from "next/image";
 
 export default function
-programs(){
+Programs(){
     const router = useRouter();
     const [visible, setVisible] = useState(false);
 
@@ -56,9 +55,9 @@ programs(){
             
             <div style={{width: '70vw', height: '75vh',justifyItems: 'center',gap: '1%', margin: '0%',display: 'flex',flexDirection: 'row',
                 padding: '1%', paddingBottom: '0%'}}>
-                <img src='/images/pic3.jpg' alt="pic" style={{display: 'block', height: '70vh', width: '30vw'}}></img>
-                <img src='/images/pic1.jpg' alt="pic" style={{display: 'block', height: '70vh', width: '30vw'}}></img>
-                <img src='/images/pic2.jpg' alt="pic" style={{display: 'block', height: '70vh', width: '40vw'}}></img>
+                <Image src='/images/pic3.jpg' alt="pic" style={{display: 'block', height: '70vh', width: '30vw'}}></Image>
+                <Image src='/images/pic1.jpg' alt="pic" style={{display: 'block', height: '70vh', width: '30vw'}}></Image>
+                <Image src='/images/pic2.jpg' alt="pic" style={{display: 'block', height: '70vh', width: '40vw'}}></Image>
             </div>
 
             <div style={{height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white'}}>
@@ -81,6 +80,3 @@ programs(){
     )
 }
 
-function Programs() {
-    throw new Error("Function not implemented.");
-}

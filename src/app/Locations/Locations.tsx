@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import styles from './Locations.module.css';
+import Image from "next/image";
 
 export default function
 Locations (){
@@ -13,18 +14,18 @@ Locations (){
         className={
             styles.previewcontainer
         }>
-            <img src="/images/pic5.jpg"
+            <Image src="/images/pic5.jpg"
             alt="Preview"
             className={
                 styles.previewimage
-            }></img>
+            }></Image>
             <div 
             className={
                 styles.previewtext
             }>
                 <h3 className={styles.headings}>Locations</h3>
                 <p>
-                    In our daily life, we often come across the term 'lifestyle'...
+                    {`In our daily life, we often come across the term 'lifestyle'...`}
                 </p>
                 <button onClick={() =>
                     router.push('/notes')

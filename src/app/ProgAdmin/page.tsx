@@ -59,7 +59,7 @@ export default function AdminFilterForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement >) => {
     e.preventDefault();
-    const { country, category, name, description, image, video } = formData;
+    const { country, category, name, description } = formData;
     if (!country || !category || !name || !description) {
       return alert('All required fields must be filled.');
     }

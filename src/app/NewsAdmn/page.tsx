@@ -2,9 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { db, storage } from "../lib/firebase";
-import { addDoc, collection, getDocs, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, getDocs, serverTimestamp, Timestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import styles from './NewsAdmn.module.css';
+import Image from "next/image";
 
 
 interface NewsFormData {
@@ -22,7 +23,7 @@ interface NewsItem {
   description: string;
   image?: string;
   video?: string;
-  timestamp?: any;
+  timestamp?: Timestamp;
 }
 
 const NewsAdmn = () => {
@@ -168,7 +169,7 @@ const NewsAdmn = () => {
             <h3>{item.title}</h3>
             <p><strong>Type:</strong> {item.type}</p>
             <p>{item.description}</p>
-            {item.image && <img src={item.image} alt={item.title} style={{ maxWidth: '100%', borderRadius: 8 }} />}
+            {item.image && <Image src={item.image} alt={item.title} style={{ maxWidth: '100%', borderRadius: 8 }} />}
             {item.video && (
               <video controls style={{ maxWidth: '100%', marginTop: 8 }}>
                 <source src={item.video} type="video/mp4" />

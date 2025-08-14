@@ -2,11 +2,9 @@
 'use client';
 import { useRouter } from "next/navigation";
 import styles from './styles/CarList.module.css';
-import CurvedPage from "./CurvedPage/CurvedPage";
 import ImageScroll from "./ImageScroll/ImageScroll";
 import StickyBar from "./StickyBar/StickyBar";
 import HamburgerIcon from "./HamburgerIcon/HamburgerIcon";
-import PreviewNotes from "./PreviewNotes/PreviewNotes";
 import OptionalFeatures from "./OptionalFeatures/OptionalFeatures";
 import Divider from './Divider/Divider';
 import LanguageSelecter from "./LanguageSelecter/LanguageSelecter";
@@ -21,10 +19,6 @@ import Success from "./Success/Success";
 import Donate from "./Donate/Donate";
 import Contact from "./Contact/Contact";
 import GetInvolve from "./GetInvolve/GetInvolve";
-import Leadership from "./Leadership/Leadership";
-import Partners from "./Partners/Partners";
-import Locations from "./Locations/Locations";
-import Histories from "./Histories/Histories";
 import DividerAboutUs from "./DividerAboutUs/DividerAboutUs";
 import React,{ useEffect } from "react";
 import AOS from 'aos';
@@ -41,9 +35,6 @@ export default function
 Home() {
     
     const router = useRouter();
-    const images = [
-        '/images/pic1.png', '/images/pic2.png', '/images/pic3.png', '/images/pic4.png',
-    ]
     useEffect(() => {
             AOS.init({duration: 1000});
             }, []);

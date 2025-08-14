@@ -12,8 +12,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import ContactUs from "../ContactUs/page";
-import { query, collection, orderBy, onSnapshot, getDocs } from "firebase/firestore";
+import {  collection,  onSnapshot, Timestamp,  } from "firebase/firestore";
 import db from "../lib/firebase";
+import Image from "next/image";
 
 
 type NewsItem = {
@@ -23,8 +24,9 @@ type NewsItem = {
   description: string;
   image?: string;
   video?: string;
-  timestamp?: any; // or use Firebase Timestamp type if you import it
+  timestamp?: Timestamp; // or use Firebase Timestamp type if you import it
 }
+
 
 export default function
 Newsp(){
@@ -60,6 +62,8 @@ Newsp(){
 
     return () => unsubscribe();
   }, []);
+
+  
   
     
     return(
@@ -84,14 +88,14 @@ Newsp(){
                     NEWS && UPDATES
                 </h1>
                 <p className={styles.p1}>
-                    Zannya Africa Foundation
+                    {`Zannya Africa Foundation`}
                 </p>
                 </header>
              </div>
 
           <div style={{width: '100%', height: 'auto',justifyContent: 'center',backgroundColor: '#f5fafac7', 
             margin: 0,display: 'flex', padding: 150, }}>
-            <img src='/climate/climate1.jpg' alt="pic" style={{width: '100%', height: 'auto', display: 'block'}}></img>
+            <Image src='/climate/climate1.jpg' alt="pic" style={{width: '100%', height: 'auto', display: 'block'}}></Image>
          </div>
 
          <div style={{height: '0px', width: '100%', justifyItems: 'center', backgroundColor: '#1e3c72'}}>
@@ -102,10 +106,10 @@ Newsp(){
          
     <div className={styles.newslistcontainer}>
       {loading ? (
-        <p>Loading...</p>
+        <p>{`Loading...`}</p>
       ) :
       news.length === 0 ? (
-        <p className={styles.nonews}>No news available.</p>
+        <p className={styles.nonews}>{`No news available.`}</p>
       ) : (
         news.map(({ id, title, type, description, image, video, timestamp }) => (
           <div key={id} className={styles.newscard}>
@@ -117,14 +121,14 @@ Newsp(){
               {video && (
                 <video controls className={styles.newsvideo}>
                   <source src={video} type="video/mp4" />
-                  Your browser does not support the video tag.
+                  {`Your browser does not support the video tag.`}
                 </video>
               )}
               {timestamp && (
-                <small className={styles.newsdate}>
-                  {timestamp.toDate().toLocaleDateString()}
-                </small>
-              )}
+  <small className={styles.newsdate}>
+    {timestamp.toDate().toLocaleDateString()}
+  </small>
+)}
             </div>
           </div>
         ))
@@ -154,10 +158,10 @@ Newsp(){
       zIndex: 9999
     }}
     onClick={() =>setSelectedImage(null)}>
-      <img
+      <Image
       src={SelectedImage}
       alt="Enlarged"
-      style={{maxHeight: '90%', maxWidth: '90%', borderRadius: '10px'}}></img>
+      style={{maxHeight: '90%', maxWidth: '90%', borderRadius: '10px'}}></Image>
     </div>)}
 </div>
     )

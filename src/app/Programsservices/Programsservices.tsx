@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import styles from './Programsservices.module.css';
+import Image from "next/image";
 
 export default function
 Programsservices (){
@@ -12,18 +13,18 @@ Programsservices (){
         className={
             styles.previewcontainer
         }>
-            <img src="/images/pic6.jpg"
+            <Image src="/images/pic6.jpg"
             alt="Preview"
             className={
                 styles.previewimage
-            }></img>
+            }></Image>
             <div 
             className={
                 styles.previewtext
             }>
                 <h3 className={styles.headings}>Programs</h3>
                 <p>
-                    In our daily life, we often come across the term 'lifestyle'...
+                    {`In our daily life, we often come across the term 'lifestyle'...`}
                 </p>
                 <button onClick={() =>
                     router.push('/Programs')
@@ -36,6 +37,4 @@ Programsservices (){
     )
 }
 
-function services() {
-    throw new Error("Function not implemented.");
-}
+

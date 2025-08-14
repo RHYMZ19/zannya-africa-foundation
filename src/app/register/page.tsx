@@ -4,7 +4,8 @@ import style from '../styles/auth.module.css';
 import styles from './register.module.css';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { auth } from "../lib/firebase";
+import db, { auth } from "../lib/firebase";
+import { setDoc, doc } from "firebase/firestore";
 
 export default function
 RegisterPage() {
@@ -22,8 +23,17 @@ RegisterPage() {
         e.preventDefault();
         
         try {
-            await
-            createUserWithEmailAndPassword(auth, email, password);
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // Save extra data to Firestore
+    await setDoc(doc(db, "users", user.uid), {
+      fullName,
+      place,
+      phone,
+      email,
+      createdAt: new Date(),
+    });
             alert('Account Created!');
             router.push('/login');
         } catch (error: any) {

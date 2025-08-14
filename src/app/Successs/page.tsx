@@ -10,6 +10,7 @@ import StickyBar from "../StickyBar/StickyBar";
 import styles from './Successs.module.css';
 import { useState, useEffect } from "react";
 import ContactUs from "../ContactUs/page";
+import Image from "next/image";
 
 export default function
 Successs() {
@@ -32,7 +33,7 @@ Successs() {
                         router.push('')}
                         className={styles.arrowButton}>Donate
                         </button>
-                        < img src='/log.jpg' alt="log" width={100} height={100}></img>
+                        < Image src='/log.jpg' alt="log" width={100} height={100}></Image>
             </StickyBar>
 
             <div className={styles.container}>
@@ -60,7 +61,7 @@ Successs() {
   
   <div className={styles.storycard}>
     <h3>From Slums to School: Samuel's Journey</h3>
-    <p>Zannya Africa Foundation supported Samuel through education bursaries. Now he’s a teacher helping hundreds of children in Kampala.</p>
+    <p>Zannya Africa Foundation supported Samuel through education bursaries. {`Now he’s a teacher helping hundreds of children in Kampala.`}</p>
     <a href="Samuel_story.pdf" className={styles.downloadbtn} target="_blank">Download Full Story (PDF)</a>
   </div>
 

@@ -26,10 +26,14 @@ LoginPage() {
             console.log('Login successful:', userCredential.user);
             alert('Login successful');
             router.push('/adminpannel')
-        } catch (error: any) {
-            console.error('Login failed:', error.message);
-            setErrorMsg(error.message);
-        }
+        } catch (error: unknown) {
+    if (error instanceof Error) {
+        console.error('Login failed:', error.message);
+        setErrorMsg(error.message);
+    } else {
+        console.error('Login failed:', String(error));
+    }
+}
         
     };
 
@@ -40,7 +44,7 @@ LoginPage() {
             }
         });
         return () => unsubscribe();
-    }, []);
+    }, [router]);
 
     return (
         <div className={style.container}>
@@ -59,7 +63,7 @@ LoginPage() {
                 <button type="submit">LogIn</button>
             </form>
             <div className={style.link}>
-                Don't have an account?{''}
+                Don&apos;t have an account?{' '}
                 <a onClick={() =>
                     router.push('/register')
                 }

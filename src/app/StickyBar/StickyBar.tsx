@@ -1,7 +1,6 @@
 'use client';
 
 import React, { ReactNode, useEffect, useState } from "react";
-import HamburgerIcon from "../HamburgerIcon/HamburgerIcon";
 
 type Props = {
     children: ReactNode;
