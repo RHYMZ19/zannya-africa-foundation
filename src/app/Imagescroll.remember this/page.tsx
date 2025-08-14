@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from "react";
-import Styles from "./ImageScroll.module.css";
+import Styles from "./ImageScrollrememberthis.module.css";
 
 const images = [
     "/images/car1.jpg",
