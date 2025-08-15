@@ -19,14 +19,24 @@ import Image from "next/image";
 
 
 
+
 export default function
 InternationalReachPage() {
+    
+
     const router = useRouter();
     const [visible, setVisible] = useState(false);
         
             useEffect(() => {
                 setTimeout(() =>
-            setVisible(true), 100);}, [])
+            setVisible(true), 100);}, []);
+
+                useEffect(() => {
+  if (typeof window !== "undefined") {
+    console.log(window.innerWidth);
+  }
+}, []);
+
     return(
         <div>
             <StickyBar>
