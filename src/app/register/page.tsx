@@ -36,9 +36,13 @@ RegisterPage() {
     });
             alert('Account Created!');
             router.push('/login');
-        } catch (error: any) {
-            alert('Registration failed:' + error.message);
-        };
+        } catch (error: unknown) {
+    if (error instanceof Error) {
+        alert(`Registration failed: ${error.message}`);
+    } else {
+        alert("Registration failed: Unknown error");
+    }
+}
         
     };
 
