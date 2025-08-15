@@ -22,7 +22,7 @@ import dynamic from "next/dynamic";
 
 export default function
 InternationalReachPage() {
-    const Maps = dynamic(() => import ("../Maps/page"), { ssr: false });
+    const Maps = dynamic(() => import ("../components/Maps"), { ssr: false });
     const Graphs = dynamic(() => import("../Graphs/page"), { ssr: false });
 
     const router = useRouter();
