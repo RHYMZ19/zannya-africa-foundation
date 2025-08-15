@@ -14,7 +14,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ContactUs from "../ContactUs/page";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
-import IncreaseImage from "../IncreaseImage/page";
+import IncreaseImage from "../components/IncreaseImage";
 import Image from "next/image";
 
 export default function

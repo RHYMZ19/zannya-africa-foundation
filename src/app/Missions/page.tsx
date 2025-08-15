@@ -10,7 +10,7 @@ import styles from './Missions.module.css';
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import { useState, useEffect } from "react";
 import ContactUs from "../ContactUs/page";
-import IncreaseImage from "../IncreaseImage/page";
+import IncreaseImage from "../components/IncreaseImage";
 import { getDocs, collection } from "firebase/firestore";
 import db from "../lib/firebase";
 import Image from "next/image";

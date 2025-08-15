@@ -1,4 +1,4 @@
-"use client"; // if using Next.js App Router
+"use client"; //if using Next.js App Router
 
 import { useState } from "react";
 import styles from "./IncreaseImage.module.css";
@@ -25,7 +25,7 @@ export default function IncreaseImage({ src, alt }: Props) {
       {/* Overlay */}
       {open && (
         <div className={styles.overlay} onClick={() => setOpen(false)}>
-          <img
+          <Image
             src={src}
             alt={alt}
             className={styles.overlayImage}
