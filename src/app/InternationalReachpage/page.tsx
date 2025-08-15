@@ -5,9 +5,9 @@ import { FaHome } from "react-icons/fa";
 import Divider from "../Divider/Divider";
 import Gallery from "../Gallery/Gallery";
 import GetInvolved from "../GetInvolved/GetInvolved";
-import Graphs from "../Graphs/page";
+
 import LanguageSelecter from "../LanguageSelecter/LanguageSelecter";
-import Maps from "../Maps/page";
+
 import StickyBar from "../StickyBar/StickyBar";
 import Uganda from "../Uganda/Uganda";
 import styles from './page.module.css';
@@ -16,13 +16,14 @@ import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import { useState, useEffect } from "react";
 import ContactUs from "../ContactUs/page";
 import Image from "next/image";
-
+import dynamic from "next/dynamic";
 
 
 
 export default function
 InternationalReachPage() {
-    
+    const Maps = dynamic(() => import ("../Maps/page"), { ssr: false });
+    const Graphs = dynamic(() => import("../Graphs/page"), { ssr: false });
 
     const router = useRouter();
     const [visible, setVisible] = useState(false);
@@ -30,12 +31,7 @@ InternationalReachPage() {
             useEffect(() => {
                 setTimeout(() =>
             setVisible(true), 100);}, []);
-
-                useEffect(() => {
-  if (typeof window !== "undefined") {
-    console.log(window.innerWidth);
-  }
-}, []);
+                
 
     return(
         <div>
