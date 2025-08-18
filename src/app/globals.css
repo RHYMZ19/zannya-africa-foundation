@@ -32,4 +32,48 @@ html, body, #root {
     height: 100%;
     margin: 0;
     scroll-behavior: smooth;
+    padding: 0;
+}
+
+/* all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* container should not exceed screen width */
+.container {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* small screen (phones) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 22px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+}
+
+@media(min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  word-wrap: break-word;
 }

@@ -30,7 +30,7 @@ Programsservices (){
                     router.push('/Programs')
                 }
                 className={styles.arrowButton}>
-                    Read More
+                    Read More /Programs
                 </button>
             </div>
         </div>

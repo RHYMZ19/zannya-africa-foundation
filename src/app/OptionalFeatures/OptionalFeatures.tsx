@@ -2,24 +2,31 @@
 
 import React from "react";
 import styles from './OptionalFeatures.module.css';
+import Developer from "../Developer/page";
 
 // icons
 import {
-    FaNewspaper, FaCar, FaShoppingCart, FaLightbulb,
-    FaStar, FaBookOpen, FaTag, FaShieldAlt, FaBalanceScale
+    FaBullhorn, 
+    FaShieldAlt, FaBalanceScale,
+    FaCalendar,
+    FaBlog,
+    FaPhotoVideo,
+    FaHandHoldingHeart,
+    FaEnvelope,
+    FaUsers
 } from "react-icons/fa";
-import Developer from "../Developer/Developer";
+
 
 
 
 const features = [ 
-    {label: 'News', icon: <FaNewspaper />},
-    {label: 'Car', icon: <FaCar />},
-    {label: 'Buy', icon: <FaShoppingCart />},
-    {label: 'Tips', icon: <FaLightbulb />},
-    {label: 'Review', icon: <FaStar />},
-    {label: 'Guides', icon: <FaBookOpen />},
-    {label: 'Offers', icon: <FaTag />},
+    {label: 'News', icon: <FaBullhorn />},
+    {label: 'Events', icon: <FaCalendar />},
+    {label: 'Blogs', icon: <FaBlog />},
+    {label: 'Media', icon: <FaPhotoVideo />},
+    {label: 'Donate', icon: <FaHandHoldingHeart />},
+    {label: 'Contact Us', icon: <FaEnvelope />},
+    {label: 'Get Involved', icon: <FaUsers />},
     {label: 'Safety', icon: <FaShieldAlt />},
     {label: 'Compare', icon: <FaBalanceScale />},
 ];
@@ -33,7 +40,7 @@ OptionalFeaturesPage(){
 
     return (
         <div className={styles.container}>
-            <h2 className={styles.heading}>Optional Features</h2>
+            <h2 className={styles.heading}></h2>
             <div className={styles.grid}>
                 {features.map((item, index) => (
                     <div key={index}
@@ -45,10 +52,11 @@ OptionalFeaturesPage(){
                         <span
                             className={styles.label}>{item.label}</span>
                             </div>
-                            
                 ))}
             </div>
+            <div>
             <Developer></Developer>
+            </div>
         </div>
     );
 }

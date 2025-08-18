@@ -27,10 +27,10 @@ Mission (){
                     To change lives and build stronger and healthier communities....
                 </p>
                 <button onClick={() =>
-                    router.push('/Missions')
+                    router.push('')
                 }
                 className={styles.arrowButton}>
-                    Read More
+                    Read More /Missions
                 </button>
             </div>
         </div>

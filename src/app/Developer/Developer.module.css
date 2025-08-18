@@ -2,11 +2,10 @@
     height: 80px;
     overflow: hidden;
     padding: 100;
-    border: opx;
     border-radius: 10px;
     width: auto;
     background-color: black;
-    opacity: 0px;
+    opacity: 1px;
     display: flex;
     flex-direction: row;
     margin-top: 20px;

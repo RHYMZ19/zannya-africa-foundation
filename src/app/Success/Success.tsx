@@ -24,10 +24,10 @@ Success (){
                     In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
-                    router.push('/Successs')
+                    router.push('')
                 }
                 className={styles.arrowButton}>
-                    Read More
+                    Read More /Successs
                 </button>
             </div>
         </div>

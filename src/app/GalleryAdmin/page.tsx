@@ -5,6 +5,7 @@ import styles from './Gallery.module.css';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { storage, db } from '../lib/firebase'; // adjust path to your project
+import Image from 'next/image';
 
 type MediaType = 'photo' | 'video';
 
@@ -134,7 +135,7 @@ export default function GalleryAdmin() {
           {files.map((f, i) => (
             <div key={i} className={styles.previewItem}>
               {mediaType === 'photo' ? (
-                <img src={URL.createObjectURL(f)} alt={f.name} />
+                <Image src={URL.createObjectURL(f)} alt={f.name} />
               ) : (
                 <video src={URL.createObjectURL(f)} controls />
               )}

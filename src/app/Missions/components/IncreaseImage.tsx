@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./IncreaseImage.module.css";
+import Image from "next/image";
 
 type Props = {
   src: string;
@@ -14,7 +15,7 @@ export default function IncreaseImageM({ src, alt }: Props) {
   return (
     <>
       {/* Thumbnail Image */}
-      <img
+      <Image
         src={src}
         alt={alt}
         className={styles.thumbnail}
@@ -24,7 +25,7 @@ export default function IncreaseImageM({ src, alt }: Props) {
       {/* Overlay */}
       {open && (
         <div className={styles.overlay} onClick={() => setOpen(false)}>
-          <img
+          <Image
             src={src}
             alt={alt}
             className={styles.overlayImage}

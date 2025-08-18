@@ -29,10 +29,10 @@ GetInvolve (){
                 </p>
                 <button 
                 onClick={() =>
-                    router.push('/Internship')
+                    router.push('')
                 }
                 className={styles.arrowButton}>
-                    Read More
+                    Read More /Internship
                 </button>
             </div>
         </div>
