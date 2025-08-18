@@ -27,7 +27,7 @@ Programsservices (){
                     In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
-                    router.push('/Programs')
+                    router.push('')
                 }
                 className={styles.arrowButton}>
                     Read More /Programs
