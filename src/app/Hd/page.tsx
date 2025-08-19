@@ -6,7 +6,7 @@ Hd() {
     return(
         <div style={{display: 'flex',justifyContent: 'center', flexDirection: 'column',height: '100%',width: '100%', alignItems: 'center'}}>
             <div style={{justifyItems: 'center', width: '70%',borderColor: 'red', height: '100%', paddingBottom: '5rem', paddingTop: '5rem'}}>
-                < Image src='/log.jpg' alt="log" style={{width: '70%', height: '100%',}}></Image>
+                < Image src='/log.jpg' alt="log" style={{width: '90%', height: '100%',}}></Image>
             </div>
 
             <div style={{alignContent: 'center', height: '100%',textAlign: 'center', width: '70%', paddingBottom: '5rem', paddingTop: '5rem'}}>
@@ -21,7 +21,7 @@ Hd() {
 
                 <h2 style={{
                   color: 'black',
-                  fontSize: '70px',
+                  fontSize: '45px',
                   lineHeight: '1',
                   fontStyle: 'italic',
                   marginBottom: '20px',
