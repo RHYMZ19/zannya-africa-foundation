@@ -99,17 +99,9 @@ ImageScroll() {
           overflow: 'hidden'
         }}
       >
-        <h1 style={{color: 'rgb(128, 12, 12)',fontSize: '70px',
-                        fontStyle: 'italic',marginBottom: '0', lineHeight: '1',
-                             fontWeight: 'bolder'}}>
-                            ZANNYA AFRICA 
-                        </h1>
-                        <h2 style={{color: 'black',fontSize: '70px',lineHeight: '1',
-                        fontStyle: 'italic',marginBottom: '20px',
-                             fontWeight: 'bolder'}}> FOUNDATION</h2>
-                             <p>Changing the community through sports.</p>
+        STILL UNDER DEVELOPMENT!
       </div>
-
+      
       <div
       style={{
           position: "absolute",
