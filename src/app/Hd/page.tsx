@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function
 Hd() {
     return(
-        <div style={{display: 'flex',justifyContent: 'center', flexDirection: 'column',height: '100%',width: '1270px', alignItems: 'center'}}>
+        <div style={{display: 'flex',justifyContent: 'center', flexDirection: 'column',height: '100%',width: '100%', alignItems: 'center'}}>
             <div style={{justifyItems: 'center', width: '70%',borderColor: 'red', height: '100%', paddingBottom: '5rem', paddingTop: '5rem'}}>
                 < Image src='/log.jpg' alt="log" style={{width: '70%', height: '100%',}}></Image>
             </div>
