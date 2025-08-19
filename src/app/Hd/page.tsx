@@ -16,12 +16,13 @@ Hd() {
                 fontStyle: 'italic',
                 marginBottom: '0', 
                 lineHeight: '1',
-                fontWeight: 'bolder'
+                fontWeight: 'bolder',
+                marginTop: '0'
                 }}>ZANNYA AFRICA </h1>
 
                 <h2 style={{
                   color: 'black',
-                  fontSize: '45px',
+                  fontSize: '40px',
                   lineHeight: '1',
                   fontStyle: 'italic',
                   marginBottom: '20px',

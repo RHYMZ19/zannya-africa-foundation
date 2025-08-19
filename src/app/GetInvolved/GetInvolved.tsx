@@ -15,7 +15,6 @@ GetInvolved () {
         style={{
             display: 'inline-block',
             position: 'relative',
-            overflow: 'hidden'
         }}>
         <button
         onClick={() => router.push('')}
