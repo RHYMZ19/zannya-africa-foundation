@@ -4,15 +4,15 @@ import Image from "next/image";
 export default function
 Hd() {
     return(
-        <div style={{display: 'flex', flexDirection: 'column',height: '100%'}}>
-            <div style={{justifyItems: 'center', width: '50%', height: '100%', paddingBottom: '5rem', paddingTop: '5rem'}}>
-                < Image src='/log.jpg' alt="log" style={{width: '50%', height: '100%',}}></Image>
+        <div style={{display: 'flex',justifyContent: 'center', flexDirection: 'column',height: '100%',width: '1270px', alignItems: 'center'}}>
+            <div style={{justifyItems: 'center', width: '70%',borderColor: 'red', height: '100%', paddingBottom: '5rem', paddingTop: '5rem'}}>
+                < Image src='/log.jpg' alt="log" style={{width: '70%', height: '100%',}}></Image>
             </div>
 
-            <div style={{alignContent: 'center', height: '100%',textAlign: 'center', width: '50%', paddingBottom: '5rem', paddingTop: '5rem'}}>
+            <div style={{alignContent: 'center', height: '100%',textAlign: 'center', width: '70%', paddingBottom: '5rem', paddingTop: '5rem'}}>
               <h1 style={{
                 color: 'rgb(128, 12, 12)',
-                fontSize: '70px',
+                fontSize: '40px',
                 fontStyle: 'italic',
                 marginBottom: '0', 
                 lineHeight: '1',
