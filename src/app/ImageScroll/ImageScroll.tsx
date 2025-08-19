@@ -70,7 +70,7 @@ ImageScroll() {
             clearInterval(interval);
     }, []);
     return (
-      <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+      <div style={{ position: "relative", width: "100%",height: '500px'}}>
         <div className={Styles.scroll}>
             {images.map((src, index) => (
                 <Image
@@ -96,6 +96,7 @@ ImageScroll() {
           backdropFilter: "blur(1px)",
           zIndex: 2,
           textAlign: "center",
+          overflow: 'hidden'
         }}
       >
         <h1 style={{color: 'rgb(128, 12, 12)',fontSize: '70px',
@@ -117,7 +118,7 @@ ImageScroll() {
           transform: "translateX(-50%)",
           width: "80%",
           
-          color: "red",
+          color: "blue",
           padding: "20px",
           borderRadius: "12px",
           backdropFilter: "blur(1px)",

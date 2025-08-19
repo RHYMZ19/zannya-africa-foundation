@@ -4,12 +4,12 @@ import Image from "next/image";
 export default function
 Hd() {
     return(
-        <div style={{display: 'flex', flexDirection: 'row',}}>
-            <div style={{justifyItems: 'center', backgroundColor: 'red'}}>
-                < Image src='/log.jpg' alt="log" style={{width: '80vw', height: '100vh'}}></Image>
+        <div style={{display: 'flex', flexDirection: 'row',height: '100%'}}>
+            <div style={{justifyItems: 'center', width: '50%', height: '100%', paddingBottom: '5rem', paddingTop: '5rem'}}>
+                < Image src='/log.jpg' alt="log" style={{width: '50%', height: '100%',}}></Image>
             </div>
 
-            <div style={{alignContent: 'center', height: '100vh',textAlign: 'center', width: '50vw'}}>
+            <div style={{alignContent: 'center', height: '100%',textAlign: 'center', width: '50%', paddingBottom: '5rem', paddingTop: '5rem'}}>
                 <h1 style={{fontSize: '50px', lineHeight: '50px'}}><strong>ZANNYA AFRICA FOUNDATION</strong></h1>
                 <h2><strong>Changing the community through sports</strong></h2>
 

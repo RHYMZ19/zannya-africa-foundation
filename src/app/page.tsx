@@ -56,7 +56,7 @@ Home() {
                                     className={styles.arrowButton}>
                                         Donate
                                     </button>
-                    < Image src='/log.jpg' alt="log" width={100} height={90}></Image>
+                    < Image src='/log.jpg' alt="log" style={{width: '10%', height: '120%',overflow: 'hidden'}}></Image>
                 </StickyBar>
                 <ImageScroll></ImageScroll>
                 <Hd></Hd>

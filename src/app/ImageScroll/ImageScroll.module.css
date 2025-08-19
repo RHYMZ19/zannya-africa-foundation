@@ -1,10 +1,10 @@
 .scroll {
     position: relative;
-    height: 70vh;
+    height: 70%;
     border-radius: 5px;
     width: 100%;
-    overflow: hidden;
     padding: 5px 0;
+    overflow: hidden;
     
 }
 
@@ -17,10 +17,11 @@
 .image {
     position: absolute;
     width: 100%;
-    height: auto;
+    height: 100%;
     opacity: 0;
     transition: opacity 0.005s ease-in-out;
     object-fit: cover;
+    overflow: hidden;
     
 }
 

@@ -4,7 +4,8 @@ export default function
 LanguageSelecter() {
     return (
         <div style={{
-            marginBottom: '20px'
+            marginBottom: '10px',
+            overflow: 'hidden'
         }}>
             <label htmlFor="language">
                 Choose Language:

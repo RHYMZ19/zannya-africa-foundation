@@ -14,7 +14,8 @@ GetInvolved () {
         onMouseLeave={() => setShowPage(false)}
         style={{
             display: 'inline-block',
-            position: 'relative'
+            position: 'relative',
+            overflow: 'hidden'
         }}>
         <button
         onClick={() => router.push('')}
