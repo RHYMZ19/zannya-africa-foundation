@@ -17,7 +17,8 @@ Hd() {
                 marginBottom: '0', 
                 lineHeight: '1',
                 fontWeight: 'bolder',
-                marginTop: '0'
+                marginTop: '0',
+                paddingTop: '1rem'
                 }}>ZANNYA AFRICA </h1>
 
                 <h2 style={{

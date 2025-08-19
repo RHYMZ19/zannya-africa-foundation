@@ -94,6 +94,8 @@
     border-radius: 6px;
     cursor: pointer;
     overflow: hidden;
+    width: 10%;
+    height: 70%;
 }
 
 .bun {

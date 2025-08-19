@@ -45,7 +45,9 @@ StickyBar({children}: Props) {
             justifyContent: 'space-between',
             alignItems: 'center',
             display: 'flex',
-            height: '100px'
+            height: '100px',
+            gap: '2%',
+            width: '100%'
         }}> {children}
             
             
