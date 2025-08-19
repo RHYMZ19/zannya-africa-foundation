@@ -23,7 +23,7 @@ export default function Divider ({title}: Props) {
                 top: '-30px',
                 left: '5%',
                 transform: 'translateX(-50%)',
-                background: 'white',
+                background: 'transparent',
                 padding: '0 12px',
                 fontSize: '16px',
                 fontWeight: 'bold',

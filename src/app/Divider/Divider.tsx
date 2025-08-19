@@ -34,15 +34,9 @@ export default function Divider ({title}: Props) {
                 transform: 'translateX(-50%)',
                 top: '-40px',
                 right: '2%',
-                padding: '6px 12px',
-                backgroundColor: '#0070f3',
-                color: 'white',
-                border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer',
             }} onClick={() =>
                 console.log('Rahim')
-            }> Read more</button>
+            }> </button>
         </div>
     )
 }
