@@ -120,8 +120,8 @@ ImageScroll() {
         }}>
         
 
-      <div style={{ fontSize: "24px", fontWeight: "bold" , right: '20%'}}>
-      👀 Visitors: {display}
+      <div style={{ fontSize: "50px", fontWeight: "bolder" , right: '20%'}}>
+      👀 <strong>STILL UNDER DEVELOPMENT!!!!</strong>: {display}
       </div>
 
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>

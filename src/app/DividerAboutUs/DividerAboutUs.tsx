@@ -44,8 +44,8 @@ export default function Divider ({title}: Props) {
                 borderRadius: '4px',
                 cursor: 'pointer',
             }} onClick={() =>
-                router.push('/AboutUs')
-            }> Read more</button>
+                router.push('')
+            }> Read more(/AboutUs)</button>
         </div>
     )
 }
