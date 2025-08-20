@@ -126,15 +126,15 @@ ImageScroll() {
 
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
       <ul>
-      <li><a href="malito: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
-      <li><a href="malito: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
+      <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
+      <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
       </ul>
     </div>
 
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '10px', marginTop: '10px'}}>
       <ul>
-      <li><a href="malito: contact@zannyaafricafoundation.org">contact@zannyaafricafoundation.org</a></li>
-      <li><a href="malito: admin@zannyaafricafoundation.org">admin@zannyaafricafoundation.org</a></li>
+      <li><a href="mailto: contact@zannyaafricafoundation.org">contact@zannyaafricafoundation.org</a></li>
+      <li><a href="mailto: admin@zannyaafricafoundation.org">admin@zannyaafricafoundation.org</a></li>
       </ul>
     </div>
     </div>
