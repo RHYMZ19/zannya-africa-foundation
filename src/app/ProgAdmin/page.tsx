@@ -1,9 +1,11 @@
 'use client';
 
 import db from "../lib/firebase";
-import React, { useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore';
+import React, {  useState } from 'react';
+import { collection, addDoc,  } from 'firebase/firestore';
 import styles from './ProgAdmin.module.css';
+import CloudinaryUploader from "../CloudinaryUploader";
+import Image from "next/image";
 
 
 
@@ -29,23 +31,26 @@ const categories: Record<CategoryType, string[]>= {
 };
 
 
+
+
 export default function AdminFilterForm() {
+  
   const [formData, setFormData] = useState<{
-    country: '',
-    category: CategoryType | '',
-    subcategory: '',
-    name: '',
-    description: '',
-    image: '',
-    video: ''
+    country: '';
+    category: CategoryType | '';
+    subcategory: '';
+    name: '';
+    description: '';
+    images: string[];
+    videos: string[];
   }>({
     country: '',
     category: '',
     subcategory: '',
     name: '',
     description: '',
-    image: '',
-    video: ''
+    images: [] ,
+    videos: [] ,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement>) => {
@@ -71,6 +76,17 @@ export default function AdminFilterForm() {
       console.error('Error saving filter:', error);
     }
   };
+
+  
+
+  
+  const handleUploadComplete = async (url: string, type: "image" | "video", ) => {
+      setFormData(prev => ({
+    ...prev,
+    [type === "image" ? "images" : "videos"]: [
+      ...(type === "image" ? prev.images : prev.videos), url ], // automatically sets formData.image or formData.video
+  }));
+    };
 
   return (
     <div className={styles.filtercontainer}>
@@ -107,10 +123,27 @@ export default function AdminFilterForm() {
         <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Brief description" required />
 
         <label>Image URL</label>
-        <input type="url" name="image" value={formData.image} onChange={handleChange} placeholder="https://..." />
+        <CloudinaryUploader onUploadComplete={(url) => handleUploadComplete(url, "image")} 
+              folder="zannya/uploads" 
+              category="teachings" />
+              {/* Optional: show all uploaded images */}
+                  {formData.images.map((img, i) => (
+                    <div key={i} style={{ width: '150px', height: '100px', margin: '5px' }}>
+                      <Image src={img} alt={`Image ${i}`} width={150} height={100} style={{ objectFit: 'cover' }} />
+                   </div>    
+                  ))}
+        
 
         <label>Video URL</label>
-        <input type="url" name="video" value={formData.video} onChange={handleChange} placeholder="https://..." />
+        <CloudinaryUploader onUploadComplete={(url) => handleUploadComplete(url, "video")} 
+              folder="zannya/uploads" 
+              category="teachings" />
+              {formData.videos.map((vid, i) => (
+                <video key={i} controls style={{ width: '200px', margin: '5px' }}>
+                  <source src={vid} type="video/mp4" />
+                </video>
+              ))}
+        
 
         <button type="submit">Save Filter</button>
       </form>

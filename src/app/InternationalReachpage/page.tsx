@@ -31,7 +31,6 @@ InternationalReachPage() {
             useEffect(() => {
                 setTimeout(() =>
             setVisible(true), 100);}, []);
-                
 
     return(
         <div>

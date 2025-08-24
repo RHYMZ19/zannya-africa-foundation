@@ -6,7 +6,8 @@ import React, { useEffect, useState } from 'react';
 import { db } from '../lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import styles from './Filter.module.css';
-import Image from 'next/image';
+import IncreaseImag from './components/IncreaseImag';
+import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 
 type FilterItem ={
   id: string;
@@ -15,8 +16,8 @@ type FilterItem ={
   category: string;
   subcategory?: string;
   description: string;
-  image?: string;
-  video?: string;
+  images?: string [];
+  videos?: string [];
 }
 
 export default function Filter(){
@@ -121,7 +122,6 @@ export default function Filter(){
             </select>
           )}
       </div>
-      
 
       <div className={styles.resultslist}>
         {filteredData.length === 0 ? (
@@ -134,13 +134,42 @@ export default function Filter(){
               {item.subcategory && <p><strong></strong> {item.subcategory}</p>}
               <p>{item.description}</p>
               <p><strong></strong> {item.country}</p>
-              {item.image && <Image src={item.image} alt={item.name} style={{ maxWidth: '100%', borderRadius: '8px' }} />}
-              {item.video && (
-                <video controls style={{ maxWidth: '100%', marginTop: '10px' }}>
-                  <source src={item.video} type="video/mp4" />
-                  Your browser does not support the video tag.
+              <div style={{ display: 'flex',flexWrap: 'wrap', flexDirection: 'initial',overflow: 'hidden', justifyContent: 'center',}}>
+              {item.images?.map((img: string, i: number) => (
+                <IncreaseImag key={i} src={img} alt={`Image ${i}`}  />
+                     ))}
+              
+              {item.videos?.map((vid: string, i: number) => (
+                <video key={i} controls style={{  marginTop: '10px', height: '30%', width: '30%'  }}>
+                  <              source src={vid} type="video/mp4" />
                 </video>
-              )}
+              ))}
+              </div>
+              <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Programs and services you can follow us on our socialplatforms:</strong></p>
+              <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
+                        <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
+                          <FaFacebook />
+                        </a>
+                        <a href="https://instagram.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
+                          <FaInstagram />
+                        </a>
+                        <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                          <FaTiktok />
+                        </a>
+                        <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                          <FaTwitter />
+                        </a>
+                        <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
+                          <FaWhatsapp />
+                        </a>
+                      </div>
+                      <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
+                      <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
+                  <ul>
+                  <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
+                  <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
+                  </ul>
+                </div>
             </div>
           ))
         )}

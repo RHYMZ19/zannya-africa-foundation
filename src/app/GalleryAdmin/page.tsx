@@ -1,163 +1,53 @@
 'use client';
 
-import React, { useState } from 'react';
-import styles from './Gallery.module.css';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { storage, db } from '../lib/firebase'; // adjust path to your project
-import Image from 'next/image';
+import React, { useEffect, useState } from "react";
+import { db } from "../lib/firebase";
+import { collection, addDoc, getDocs, Timestamp } from "firebase/firestore";
+import CloudinaryUploader from "../CloudinaryUploader";
+import MediaGallery from "../components/mediaGallery";
 
-type MediaType = 'photo' | 'video';
+interface MediaItem {
+  url: string;
+  type: "image" | "video";
+  category: string;
+  createdAt: Date | Timestamp;
+}
 
-export default function GalleryAdmin() {
-  const [files, setFiles] = useState<File[]>([]);
-  const [mediaType, setMediaType] = useState<MediaType>('photo');
-  const [uploading, setUploading] = useState(false);
-  const [progress, setProgress] = useState<number>(0);
-  const [message, setMessage] = useState<string | null>(null);
+const GalleryAdmin = () => {
+  const [media, setMedia] = useState<MediaItem[]>([]);
 
-  const handleFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) return;
-    setFiles(Array.from(e.target.files));
-    setMessage(null);
+  const fetchMedia = async () => {
+    const snap = await getDocs(collection(db, "media"));
+    const data = snap.docs.map(doc => doc.data() as MediaItem);
+    setMedia(data);
   };
 
-  const validateFile = (f: File) => {
-    if (mediaType === 'photo' && !f.type.startsWith('image/')) return false;
-    if (mediaType === 'video' && !f.type.startsWith('video/')) return false;
-    return true;
-  };
+  useEffect(() => {
+    fetchMedia();
+  }, []);
 
-  const handleUpload = async () => {
-    if (files.length === 0) {
-      setMessage('Select at least one file.');
-      return;
-    }
-
-    setUploading(true);
-    setProgress(0);
-    setMessage(null);
-
-    try {
-      const uploadedUrls: string[] = [];
-
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        if (!validateFile(file)) {
-          setMessage(`Invalid file type: ${file.name}`);
-          continue;
-        }
-
-        // Create a unique path: gallery/<type>/<timestamp>-<filename>
-        const path = `gallery/${mediaType}/${Date.now()}-${file.name.replace(/\s/g, '_')}`;
-        const storageRef = ref(storage, path);
-        const uploadTask = uploadBytesResumable(storageRef, file);
-
-        // await progress and completion
-        await new Promise<void>((resolve, reject) => {
-          uploadTask.on(
-            'state_changed',
-            (snapshot) => {
-              const pct = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-              setProgress(Math.round(((i + pct / 100) / files.length) * 100));
-            },
-            (error) => {
-              console.error('Upload failed', error);
-              reject(error);
-            },
-            async () => {
-              const url = await getDownloadURL(uploadTask.snapshot.ref);
-              uploadedUrls.push(url);
-              resolve();
-            }
-          );
-        });
-      }
-
-      // Save each URL as a document in Firestore 'gallery' collection
-      for (const url of uploadedUrls) {
-        await addDoc(collection(db, 'gallery'), {
-          url,
-          type: mediaType,
-          uploadedAt: serverTimestamp(),
-          // optionally add title, alt text or uploadedBy user id
-        });
-      }
-
-      setMessage('Upload complete!');
-      setFiles([]);
-      setProgress(0);
-    } catch (err) {
-      console.error(err);
-      setMessage('Upload failed. Check console.');
-    } finally {
-      setUploading(false);
-    }
+  const handleUploadComplete = async (url: string, type: "image" | "video", category: string) => {
+    await addDoc(collection(db, "media"), { url, type,category, createdAt: new Date() });
+    fetchMedia(); // refresh list
   };
 
   return (
-    <div className={styles.container}>
-      <h3 className={styles.title}>Admin Gallery Upload</h3>
+    <div>
+      <h2>Upload Media</h2>
+      <CloudinaryUploader onUploadComplete={handleUploadComplete} 
+      folder="zannya/uploads" 
+      category="teachings" />
 
-      <div className={styles.controls}>
-        <label className={styles.radio}>
-          <input
-            type="radio"
-            name="mediaType"
-            value="photo"
-            checked={mediaType === 'photo'}
-            onChange={() => setMediaType('photo')}
-          />
-          Photos
-        </label>
-        <label className={styles.radio}>
-          <input
-            type="radio"
-            name="mediaType"
-            value="video"
-            checked={mediaType === 'video'}
-            onChange={() => setMediaType('video')}
-          />
-          Videos
-        </label>
-      </div>
+      <CloudinaryUploader onUploadComplete={handleUploadComplete} 
+      folder="zannya/uploads" 
+      category="weather" />
 
-      <input
-        type="file"
-        accept={mediaType === 'photo' ? 'image/*' : 'video/*'}
-        multiple
-        onChange={handleFiles}
-        className={styles.fileInput}
-      />
-
-      {files.length > 0 && (
-        <div className={styles.preview}>
-          {files.map((f, i) => (
-            <div key={i} className={styles.previewItem}>
-              {mediaType === 'photo' ? (
-                <Image src={URL.createObjectURL(f)} alt={f.name} />
-              ) : (
-                <video src={URL.createObjectURL(f)} controls />
-              )}
-              <div className={styles.filename}>{f.name}</div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      <div className={styles.actions}>
-        <button disabled={uploading} onClick={handleUpload} className={styles.uploadBtn}>
-          {uploading ? `Uploading ${progress}%` : 'Upload'}
-        </button>
-      </div>
-
-      {uploading && (
-        <div className={styles.progress}>
-          <div className={styles.progressBar} style={{ width: `${progress}%` }} />
-        </div>
-      )}
-
-      {message && <div className={styles.message}>{message}</div>}
+      <h2>Gallery</h2>
+      <MediaGallery 
+      items={media} 
+      category="teachings"/>
     </div>
   );
-}
+};
+
+export default GalleryAdmin;
