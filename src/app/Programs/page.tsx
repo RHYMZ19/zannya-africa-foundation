@@ -28,6 +28,7 @@ Programs(){
     setVisible(true), 100);}, []);
     return(
         <div>
+            <div style={{justifyItems: 'center', gap: '2%'}}>
             <StickyBar>
             <FaHome style={{width: '40%', height: '40%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
             Home</FaHome>
@@ -39,6 +40,7 @@ Programs(){
             </button>
             < IncreaseIma src='/log.jpg' alt="log" ></IncreaseIma>
             </StickyBar>
+            </div>
             
 
             <div className={styles.container}>
