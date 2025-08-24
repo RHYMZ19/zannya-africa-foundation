@@ -61,7 +61,7 @@ Programs(){
             </div>
 
             <div style={{height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white'}}>
-                <h1 style={{fontSize: '60%',color: 'red',  margin: '20px',fontWeight: 'bold'}}>
+                <h1 style={{fontSize: '80%',color: 'red',  margin: '20px',fontWeight: 'bold'}}>
                     WHAT WE OFFER
                 </h1>
                 <div data-aos='fade-up' style={{ width: '100%', justifyItems: 'center'}}>
