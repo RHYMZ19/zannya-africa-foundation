@@ -32,7 +32,6 @@ Programs(){
             <FaHome style={{width: '40%', height: '40%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
             Home</FaHome>
             <GetInvolved />
-            <LanguageSelecter />
             <Gallery />
             <button onClick={() =>
             router.push('')}
@@ -61,7 +60,7 @@ Programs(){
             </div>
 
             <div style={{height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white'}}>
-                <h1 style={{fontSize: '50px',color: 'red',  margin: '20px',fontWeight: 'bold'}}>
+                <h1 style={{fontSize: '30px',color: 'red',  margin: '20px',fontWeight: 'bold'}}>
                     WHAT WE OFFER
                 </h1>
                 <div data-aos='fade-up' style={{ width: '100%', justifyItems: 'center'}}>
