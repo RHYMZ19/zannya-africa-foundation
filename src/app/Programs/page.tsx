@@ -26,8 +26,8 @@ Programs(){
         setTimeout(() =>
     setVisible(true), 100);}, []);
     return(
-        <div>
-            <div style={{justifyItems: 'center', gap: '1%', overflow: 'hidden'}}>
+        <div style={{overflow: 'hidden'}}>
+            <div style={{justifyItems: 'center', gap: '1%'}}>
             <StickyBar>
             <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
             Home</FaHome>
