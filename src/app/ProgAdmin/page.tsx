@@ -22,7 +22,7 @@ type CategoryType =
 
 const categories: Record<CategoryType, string[]>= {
   'Education Programs': ['Scholarships', 'Literacy Training'],
-  'Health & Wellness Programs': ['Nutrition', 'HIV Awareness'],
+  'Health & Wellness Programs': ['Nutrition', 'HIV Awareness', 'TB Awareness'],
   'Climate & Environmental Programs': ['Tree Planting', 'Clean Water'],
   'Youth Empowerment Programs': ['Football', 'Volleyball', 'Athletics'],
   'Community Support Programs': ['Food Aid', 'Women Empowerment'],
