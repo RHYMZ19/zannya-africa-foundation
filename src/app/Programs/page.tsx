@@ -26,7 +26,7 @@ Programs(){
         setTimeout(() =>
     setVisible(true), 100);}, []);
     return(
-        <div>
+        <div style={{overflow: 'hidden'}}>
             <div style={{justifyItems: 'center', gap: '1%', overflow: 'hidden'}}>
             <StickyBar>
             <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
@@ -67,11 +67,11 @@ Programs(){
                 <Filter data-aos='slide-right'></Filter>
                 </div>
             </div>
-            <div style={{margin: '3%'}}>
+            <div style={{margin: '3%',width: '100%'}}>
             <ContactUs></ContactUs>
             </div>
 
-            <div style={{margin: '0%'}}>
+            <div style={{margin: '0%', width: '100%'}}>
             <OptionalFeatures></OptionalFeatures>
             </div>
 
