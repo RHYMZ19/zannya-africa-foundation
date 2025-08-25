@@ -4,7 +4,6 @@
 import { FaHome } from "react-icons/fa";
 import Gallery from "../Gallery/Gallery";
 import GetInvolved from "../GetInvolved/GetInvolved";
-import LanguageSelecter from "../LanguageSelecter/LanguageSelecter";
 import StickyBar from "../StickyBar/StickyBar";
 import styles from './Programs.module.css';
 import { useRouter } from "next/navigation";
@@ -30,7 +29,7 @@ Programs(){
         <div>
             <div style={{justifyItems: 'center', gap: '2%'}}>
             <StickyBar>
-            <FaHome width={20} color="black" cursor='pointer' onClick={() => router.push('/')} >
+            <FaHome style={{width: '10px', height: '10px'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
             Home</FaHome>
             <GetInvolved />
             <Gallery />
