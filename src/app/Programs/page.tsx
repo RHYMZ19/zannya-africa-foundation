@@ -29,7 +29,7 @@ Programs(){
         <div>
             <div style={{justifyItems: 'center', gap: '2%'}}>
             <StickyBar>
-            <FaHome style={{width: '5%', height: '5%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
+            <FaHome style={{width: '15%', height: '15%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
             Home</FaHome>
             <GetInvolved />
             <Gallery />
@@ -60,7 +60,7 @@ Programs(){
             </div>
 
             <div style={{height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white'}}>
-                <h1 style={{fontSize: '40px',color: 'red',  margin: '20px',fontWeight: 'bold'}}>
+                <h1 style={{fontSize: '50%',color: 'red',  margin: '20px',fontWeight: 'bold'}}>
                     WHAT WE OFFER
                 </h1>
                 <div data-aos='fade-up' style={{ width: '100%', justifyItems: 'center'}}>
