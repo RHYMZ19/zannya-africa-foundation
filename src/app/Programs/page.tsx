@@ -29,7 +29,7 @@ Programs(){
         <div>
             <div style={{justifyItems: 'center', gap: '2%'}}>
             <StickyBar>
-            <FaHome style={{width: '10px', height: '10px'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
+            <FaHome style={{width: '5%', height: '5%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
             Home</FaHome>
             <GetInvolved />
             <Gallery />
