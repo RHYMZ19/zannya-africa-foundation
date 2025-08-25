@@ -17,7 +17,7 @@ Developer() {
         >Privacy Policy and Legal Terms(/Terms)</p>
         <p 
         style={{cursor: 'pointer'}}
-        onClick={() => router.push('')}
+        onClick={() => router.push('/adminpannel')}
         >Admin(/adminpannel)</p>
         <div className={styles.contactContainer}>
               <h2></h2>

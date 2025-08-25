@@ -24,7 +24,7 @@ Programsservices (){
             }>
                 <h3 className={styles.headings}>Programs</h3>
                 <p>
-                    In our daily life, we often come across the term lifestyle...
+                    ZAF is dedicated to serving the community through its different programs and servi...
                 </p>
                 <button onClick={() =>
                     router.push('/Programs')
