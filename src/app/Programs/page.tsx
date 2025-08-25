@@ -54,9 +54,9 @@ Programs(){
             
             <div style={{width: '100%', height: '50%',justifyItems: 'center',gap: '1%', margin: '0%',display: 'flex',flexDirection: 'row',
                 padding: '1%', paddingBottom: '0%'}}>
-                <Image src='/images/pic3.jpg' alt="pic" style={{display: 'block', height: '100%', width: '33%'}}></Image>
-                <Image src='/images/pic1.jpg' alt="pic" style={{display: 'block', height: '100%', width: '33%'}}></Image>
-                <Image src='/images/pic4.jpg' alt="pic" style={{display: 'block', height: '100%', width: '33%'}}></Image>
+                <Image src='/images/pic3.jpg' alt="pic" style={{display: 'block', height: '100%', width: '32%'}}></Image>
+                <Image src='/images/pic1.jpg' alt="pic" style={{display: 'block', height: '100%', width: '32%'}}></Image>
+                <Image src='/images/pic4.jpg' alt="pic" style={{display: 'block', height: '100%', width: '32%'}}></Image>
             </div>
 
             <div style={{height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white'}}>
