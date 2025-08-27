@@ -1,10 +1,9 @@
 'use client';
 
 import  { useRouter } from "next/navigation";
-import { FaHome } from "react-icons/fa";
+import { FaFacebook, FaHome, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Gallery from "../Gallery/Gallery";
 import GetInvolved from "../GetInvolved/GetInvolved";
-import LanguageSelecter from "../LanguageSelecter/LanguageSelecter";
 import StickyBar from "../StickyBar/StickyBar";
 import styles from './Missions.module.css';
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
@@ -14,6 +13,7 @@ import IncreaseImage from "../components/IncreaseImage";
 import { getDocs, collection } from "firebase/firestore";
 import db from "../lib/firebase";
 import Image from "next/image";
+import IncreaseImge from "./components/IncreaseImge";
 
 
 interface Leader {
@@ -24,6 +24,7 @@ interface Leader {
   img?: string;
   linkedin?: string;
   twitter?: string;
+  facebook?: string;
 }
 
 export default function
@@ -58,19 +59,20 @@ Missions() {
 
 
     return(
-        <div>
+        <div style={{overflow: 'hidden'}}>
+          <div style={{justifyItems: 'center', gap: '1%'}}>
             <StickyBar>
-            <FaHome size={24} color="black" cursor='pointer' onClick={() => router.push('/')} >
+            <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
             Home</FaHome>
             <GetInvolved />
-            <LanguageSelecter />
             <Gallery />
             <button onClick={() =>
             router.push('/Donates')}
             className={styles.arrowButton}>Donate
             </button>
-            < IncreaseImage src='/log.jpg' alt="log"  ></IncreaseImage>
+            < IncreaseImge src='/log.jpg' alt="log"  ></IncreaseImge>
             </StickyBar>
+            </div>
 
 
             <div className={styles.container}>
@@ -84,31 +86,90 @@ Missions() {
                 </header>
             </div>
 
+            <div className={styles.test}>
+              <div className={styles.test2}></div>
+              <div className={styles.test1}>
+                <p style={{fontWeight: 'bold', fontSize: '60px', marginLeft: '5%',}}>ZANNYA</p>
+                <p style={{fontWeight: 'bold',  fontSize: "60px", marginLeft: '5%',lineHeight: '55%'}}>AFRICA FOUNDATION (ZAF)</p>
+                <p style={{fontSize: '50px', marginLeft: '5%'}}>PROFILE</p>
 
-            <div className={styles.mision}>
-                <h1 style={{fontSize: '25px', fontStyle: 'italic'}}>Mission</h1>
-                <p>
-                    Zaanya Africa Foundation exists to 
-                    empower young Africans thorugh innovate education, leadership, development and 
-                    sustainable community programs that promote health, creativity and opportunity.
-                </p>
+                <div className={styles.we}>
+                <div className={styles.em}>
+                  <p>plot 2 kati House, Nakasero, Ground Floor,</p>
+                  <p>P.O.Box 168040 Kampala, Uganda</p>
+                </div>
+
+                <div className={styles.em}>
+                  <p>Phone:+256 786797963</p>
+                  <p>Mobile:+256 700340576</p>
+                </div>
+
+                <div className={styles.em}>
+                  <p>Email:<a href="mailto: zannyaafricafoundation@gmail.com">zannyaafricafoundation@gmail.com</a></p>
+                  <p>Website:www.zannyaafrica.org</p>
+                </div>
+                </div>
+              </div>
             </div>
 
-            <div className={styles.Vision}>
-                <h1 style={{fontSize: '25px', fontStyle: 'italic'}}>Vission</h1>
-                <p>
-                    &quot;To change lives and build stronger and healthier communities.&quot;
-                </p>
-                <p>
-                    To create a future where every young African has tools, confidance and 
-                    platforms to lead positive change in their communities and beyond.
-                </p>
+            <div className={styles.intro1}>
+              <div className={styles.intro2}>
+                <h1 style={{fontWeight: 'bold', fontSize: '60px'}}>INTRODUCTION</h1>
+                <p style={{}}>Zannya Africa Foundation (ZAF) is a non-profit organization dedicated to empowering the community using sports and
+                   recreation activities for social economic development and sustainability in Uganda. Established in 2018 and registered in 2019,
+                   Reg No; 80020002286206, with a vision to change lives and build stronger, healthier communities, ZAF provides access to
+                   sports and recreation activities to foster transformative skilling for youths and women through play, fun, learning, and catalyzing engagement in life promoting activities. Our work cascades into the SDGs and other international aspirations.We use
+                   strategic sportive and recreational activities to leverage structured community activities that involve whole communities. We
+                    operate in Urban and rural areas of Uganda.
+                    </p>
+              </div>
+              <div className={styles.intro3}></div>
             </div>
 
-            <div className={styles.History}>
-                <h1 style={{fontSize: '25px', fontStyle: 'italic'}}>History</h1>
+            <div className={styles.vis}>
+              <p style={{marginLeft: '2%', marginTop: '10%'}}>
+                <h1 style={{color: 'white'}}>Vision</h1>
+                <p style={{fontSize: '100%', fontFamily: 'initial'}}>To change lives and build stronger and healthier communities</p>
+              </p>
+
+              <p style={{marginLeft: '2%', marginTop: '2.5%'}}>
+                <h1 style={{color: 'white'}}>Mission</h1>
+                <p style={{fontSize: '100%', fontFamily: 'initial'}}>To use sports as a tool for community development, empowerment, and sustainability.</p>
+              </p>
+
+              <p style={{marginLeft: '2%', marginTop: '5%'}}>
+                <h1 style={{color: 'white'}}>Main Objective</h1>
+                <p style={{fontSize: '100%', fontFamily: 'initial'}}>To create contexts fostering growth and development for women and young people through sports,
+                  enabling them to achieve their full potential.
+                </p>
+                <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Area of operation: </strong>Urban slums of Uganda specifically central region of Kawempe,
+                Bwaise, Ndeeba, and outreaches in rural areas of Uganda.</p>
+              </p>
+
+              <p style={{marginLeft: '2%', marginTop: '5%'}}>
+                <h1 style={{color: 'white'}}>Core Values</h1>
+                <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Integrity:  </strong>We upholds the highest standards of honesty and transparency in all our actions.</p>
+                <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Inclusiveness: </strong>We believe in creating opportunities for everyone, regardless of their background.</p>
+                <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Teamwork:  </strong>We work collaboratively tp achieve our goal and support each other.</p>
+                <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Diversity:  </strong>We embrace and celebrate differances, promoting equality and understanding.</p>
+                <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Sports for All: </strong>We believe that everyone should have the opportunity to participate in sports.</p>
+              </p>
             </div>
 
+            <div className={styles.le}>
+              <h1 style={{color: 'maroon', fontSize: '35px', marginTop: '2%'}}>ZAF Organisation Structure</h1>
+              <div className={styles.line}></div>
+              <div className={styles.cir1}>EXECUTIVE COUCIL/ BOARD OF DIRECTORS</div>
+              <div className={styles.cir2}>EXECUTIVE DIRECTOR</div>
+              <div className={styles.cir3}>FINANCIAL MANAGER</div>
+              <div className={styles.cir4}>TRAINING ASISTANTS, FIELD STUFF CONSULTANTS & VOLUNTEERS</div>
+              <div className={styles.cir5}>COMMUNICATIONS MANAGER</div>
+              <div className={styles.cir6}>SOCIAL MEDIA HANDLER</div>
+              <div className={styles.cir7}>OPERATIONS & PROGRAMS MANAGER</div>
+              <div className={styles.cir8}>PROGRAMS CO-ORDINATOR</div>
+            </div>
+
+  
             <div className={styles.Leaders}>
                 <h1 style={{fontStyle: 'italic', fontSize: '50px'}}>Leadership</h1>
                 <p>
@@ -117,14 +178,18 @@ Missions() {
                     policy and community emporment.
                 </p>
 
-                <div>
-                    <section className={styles.leadershipSection}>
-      <h2 className={styles.title}>Our Leadership</h2>
+                <div style={{width: '80%', display: 'flex', flexDirection: 'column',height: '100%'}}>
+        <section className={styles.leadershipSection}>
+      <h2 className={styles.title}>Our Leaders</h2>
       <div className={styles.grid}>
         {leaders.map((leader) => (
+          <div key={leader.id} style={{display: 'flex', flexDirection: 'row', gap:'2%'}}>
+          <div style={{ height: '100%', width: '50%' }}>
+            {leader.img && (<Image src={leader.img} alt={leader.name} className={styles.image} loading="lazy" />)}
+          </div>
           <div key={leader.id} className={styles.card}>
             <div className={styles.imageWrapper}>
-              {leader.img && (<Image src={leader.img} alt={leader.name} className={styles.image} />)}
+              {leader.img && (<Image src={leader.img} alt={leader.name} className={styles.image} loading="lazy" />)}
             </div>
             <h3 className={styles.name}>{leader.name}</h3>
             <p className={styles.role}>{leader.role}</p>
@@ -132,16 +197,21 @@ Missions() {
             <div className={styles.socials}>
               {leader.linkedin && (
                 <a href={leader.linkedin} target="_blank" rel="noreferrer">
-                  <Image src="/icons/linkedin.svg" alt="LinkedIn" />
+                  <FaLinkedin style={{ color: "#0077B5", fontSize: "24px" }} />
                 </a>
               )}
               {leader.twitter && (
                 <a href={leader.twitter} target="_blank" rel="noreferrer">
-                  <Image src="/icons/twitter.svg" alt="Twitter" />
+                  <FaTwitter style={{ color: "#1DA1F2", fontSize: "24px" }} />
+                </a>
+              )}
+              {leader.facebook && (
+                <a href={leader.facebook} target="_blank" rel="noreferrer">
+                  <FaFacebook style={{ color: "#1877F2", fontSize: "24px" }} />
                 </a>
               )}
             </div>
-          </div>
+          </div></div>
         ))}
       </div>
     </section>
@@ -151,8 +221,8 @@ Missions() {
             <div style={{display: 'flex', margin: '30px'}}>
                 <h1 style={{color: 'red', fontStyle: 'italic',textDecoration: 'underline', 
                     cursor: 'pointer',
-                    }} onClick={() => router.push('/InternationalReachpage')}>
-                    Grobal Presence
+                    }} onClick={() => router.push('')}>
+                    Grobal Presence (/InternationalReachpage)
                 </h1>
             </div>
 
@@ -204,6 +274,27 @@ Missions() {
     <a className={styles.ctabutton} href="/contact">Contact Us</a>
   </div>
 </section>
+            </div>
+
+            <div className={styles.conc}>
+              <div className={styles.conc1}>
+                <p style={{marginLeft: '3%'}}>
+                  <h1 style={{marginTop: '1.5%'}}>Conclusion</h1>
+                  <p style={{color: ' #ccc'}}>Zannya Africa Foundation (ZAF) is at the forefront of using sports as a powerful tool for driving community engagement, empowerment,
+                     development and sustainability. With a clear vision, dedicated mission and a set of core values guiding its efforts. ZAF is 
+                     making a tangible difference in the lives of underprivileged individuals. through our comprehensive programs and unwavering
+                     commitment, ZAF continues to build stronger, healthier, an dmore resilient communities in Uganda.
+                  </p>
+                </p>
+
+                <p style={{marginLeft: '5%',marginTop: '1.5%'}}>
+                  <p><strong>To join or to support us please contact us:</strong></p>
+                  <div className={styles.line1}></div>
+                  <p><strong>Tel:+256786797963 / +256700340576</strong></p>
+                  <p><strong>Email:<a href="mailto: zannyaafricafoundation@gmail.com">zannyaafricafoundation@gmail.com</a></strong></p>
+                </p>
+              </div>
+
             </div>
             <ContactUs></ContactUs>
             <OptionalFeatures></OptionalFeatures>

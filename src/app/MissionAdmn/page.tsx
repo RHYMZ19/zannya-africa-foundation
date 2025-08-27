@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../lib/firebase"; // Adjust path as needed
 import styles from "./MissionAdmn.module.css";
+import CloudinaryUploader from "../CloudinaryUploader";
+import Image from "next/image";
 
 interface Leader {
   id?: string;
@@ -13,6 +15,7 @@ interface Leader {
   img?: string;
   linkedin?: string;
   twitter?: string;
+  facebook?: string;
 }
 
 export default function MissionAdmn() {
@@ -24,6 +27,7 @@ export default function MissionAdmn() {
     img: "",
     linkedin: "",
     twitter: "",
+    facebook: "",
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -58,7 +62,7 @@ export default function MissionAdmn() {
     try {
       await addDoc(collection(db, "leadership"), form);
       setMessage("Leader added successfully!");
-      setForm({ name: "", role: "", bio: "", img: "", linkedin: "", twitter: "" });
+      setForm({ name: "", role: "", bio: "", img: "", linkedin: "", twitter: "", facebook: ""});
       fetchLeaders();
     } catch (error) {
       console.error("Error adding leader:", error);
@@ -88,6 +92,14 @@ export default function MissionAdmn() {
     setLoading(false);
   };
 
+  const handleUploadComplete = (url: string) => {
+  setForm(prev => ({
+    ...prev,
+    img: url, // just store the uploaded image url here
+  }));
+  setMessage("Image uploaded successfully!");
+};
+
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Leadership Admin Panel</h1>
@@ -98,9 +110,28 @@ export default function MissionAdmn() {
         <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name" required />
         <input name="role" value={form.role} onChange={handleChange} placeholder="Role/Position" required />
         <textarea name="bio" value={form.bio} onChange={handleChange} placeholder="Biography" rows={4} />
-        <input name="img" value={form.img} onChange={handleChange} placeholder="Image URL" />
+        {/* ✅ Reusable CloudinaryUploader */}
+        <label>Upload Leader Image</label>
+        <CloudinaryUploader
+          onUploadComplete={(url) => handleUploadComplete(url)}
+          folder="zannya/leaders" category={""}        />
+
+        {/* Show preview if uploaded */}
+        {form.img && (
+          <div style={{ marginTop: "10px" }}>
+            <Image
+              src={form.img}
+              alt="Preview"
+              width={120}
+              height={120}
+              style={{ objectFit: "cover", borderRadius: "8px" }}
+            />
+          </div>
+        )}
+        
         <input name="linkedin" value={form.linkedin} onChange={handleChange} placeholder="LinkedIn URL" />
         <input name="twitter" value={form.twitter} onChange={handleChange} placeholder="Twitter URL" />
+        <input name="facebook" value={form.facebook} onChange={handleChange} placeholder="Facebook URL" />
         <button type="submit" disabled={loading}>Add Leader</button>
       </form>
 

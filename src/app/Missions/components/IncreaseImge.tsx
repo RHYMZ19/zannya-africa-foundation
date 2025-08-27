@@ -1,7 +1,7 @@
 "use client"; // if using Next.js App Router
 
 import { useState } from "react";
-import styles from "./IncreaseImage.module.css";
+import styles from "./IncreaseImge.module.css";
 import Image from "next/image";
 
 type Props = {
