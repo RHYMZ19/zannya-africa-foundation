@@ -172,13 +172,13 @@ Missions() {
   
             <div className={styles.Leaders}>
                 <h1 style={{fontStyle: 'italic', fontSize: '50px'}}>Leadership</h1>
-                <p>
+                <p style={{width: '100%'}}>
                     Zannya Africa Foundation is driven by a dedicated leadership team that brings 
                     expertise in youth development,
                     policy and community emporment.
                 </p>
 
-                <div style={{width: '80%', display: 'flex', flexDirection: 'column',height: '100%'}}>
+                <div style={{width: '100%', display: 'flex', flexDirection: 'column',height: '100%'}}>
         <section className={styles.leadershipSection}>
       <h2 className={styles.title}>Our Leaders</h2>
       <div className={styles.grid}>
