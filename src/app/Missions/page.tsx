@@ -90,10 +90,11 @@ Missions() {
               <div className={styles.test2}></div>
               <div className={styles.test1}>
                 <div className={styles.pro}>
-                <p style={{fontWeight: 'bold', fontSize: '60px', marginLeft: '5%',}}>ZANNYA</p>
-                <p style={{fontWeight: 'bold',  fontSize: "60px", marginLeft: '5%',lineHeight: '55%'}}>AFRICA FOUNDATION (ZAF)</p>
-                <p style={{fontSize: '50px', marginLeft: '5%'}}>PROFILE</p>
+                <p style={{fontWeight: 'bold', fontSize: '100%', marginLeft: '5%',}}>ZANNYA</p>
+                <p style={{fontWeight: 'bold',  fontSize: "100%", marginLeft: '5%',lineHeight: '55%'}}>AFRICA FOUNDATION (ZAF)</p>
+                <p style={{fontSize: '50%', marginLeft: '5%'}}>PROFILE</p>
                 </div>
+              </div>
 
                 <div className={styles.we}>
                 <div className={styles.em}>
@@ -111,7 +112,6 @@ Missions() {
                   <p>Website:www.zannyaafrica.org</p>
                 </div>
                 </div>
-              </div>
             </div>
 
             <div className={styles.intro1}>
