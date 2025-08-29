@@ -167,14 +167,14 @@ Missions() {
               <div style={{justifyItems: 'center'}}>
               <div className={styles.cir2}>EXECUTIVE DIRECTOR</div>
               </div>
-              <div style={{display: 'flex', flexDirection: 'row', justifyItems: 'center'}}>
+              <div style={{display: 'flex', flexDirection: 'row', justifyItems: 'center', gap: '1%'}}>
               <div className={styles.cir3}>FINANCIAL MANAGER</div>
-              <div className={styles.cir4}>TRAINING ASISTANTS, FIELD STUFF CONSULTANTS & VOLUNTEERS</div>
+              <div className={styles.cir7}>OPERATIONS & PROGRAMS MANAGER</div>
               <div className={styles.cir5}>COMMUNICATIONS MANAGER</div>
               </div>
-              <div style={{display: 'flex', flexDirection: 'row', justifyItems: 'center'}}>
+              <div style={{display: 'flex', flexDirection: 'row', justifyItems: 'center', gap: '1%'}}>
               <div className={styles.cir6}>SOCIAL MEDIA HANDLER</div>
-              <div className={styles.cir7}>OPERATIONS & PROGRAMS MANAGER</div>
+              <div className={styles.cir4}>TRAINING ASISTANTS, FIELD STUFF CONSULTANTS & VOLUNTEERS</div>
               <div className={styles.cir8}>PROGRAMS CO-ORDINATOR</div>
               </div>
             </div>
