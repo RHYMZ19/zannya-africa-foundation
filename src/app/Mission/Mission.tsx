@@ -13,7 +13,7 @@ Mission (){
         className={
             styles.previewcontainer
         }>
-            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756115378/zannya/uploads/lodarcpovidhux7eeiil.jpg"
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756298852/zannya/uploads/ehcnujtmidgrp96pmxpl.jpg"
             alt="Preview"
             className={
                 styles.previewimage
