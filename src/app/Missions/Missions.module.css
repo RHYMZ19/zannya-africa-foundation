@@ -314,7 +314,6 @@
   height: 20%;
   border-top-right-radius: 40px;
   background-color: rgba(255, 255, 255, 0.7);
-  margin-left: 0%;
   margin-bottom: 20%;
 
   color: maroon;
@@ -342,24 +341,23 @@
 .em{
   display: flex;
   flex-direction: column;
-  height: 5%;
+  height: 0.5%;
   width: 30%;
   background-color: transparent;
   color: white;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
 }
 
 .pro{
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 1%;
 }
 
 .we{
   display: flex;
   flex-direction: row;
-  height: 10%;
+  height: 5%;
   width: 70%;
   background-color: transparent;
   color: white;
@@ -367,8 +365,8 @@
   margin-left: 1.5%;
   margin-top: 1.5%;
   gap: 1%;
-  font-size: 80%;
-  margin-bottom: 10%;
+  font-size: 60%;
+  margin-bottom: 2%;
 }
 
 .intro1{
