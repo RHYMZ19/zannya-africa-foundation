@@ -193,7 +193,7 @@ Missions() {
       <h2 className={styles.title}>Our Leaders</h2>
       <div className={styles.grid}>
         {leaders.map((leader) => (
-          <div key={leader.id} style={{display: 'flex', flexDirection: 'column', gap:'2%', alignItems: 'center'}}>
+          <div key={leader.id} style={{display: 'flex', flexDirection: 'column', gap:'2%', alignItems: 'center', marginBottom: '4%'}}>
           <div style={{ height: '100%', width: '85%',borderRadius: '23px' }}>
             {leader.img && (<Image src={leader.img} alt={leader.name} className={styles.image} loading="lazy" />)}
           </div>
@@ -302,6 +302,7 @@ Missions() {
                   <div className={styles.line1}></div>
                   <p><strong>Tel:+256786797963 / +256700340576</strong></p>
                   <p><strong>Email:<a href="mailto: zannyaafricafoundation@gmail.com">zannyaafricafoundation@gmail.com</a></strong></p>
+                  <p><strong>Email:<a href="mailto: contact@zannyaafricafoundation.org">contact@zannyaafricafoundation.org</a></strong></p>
                 </p>
               </div>
 
