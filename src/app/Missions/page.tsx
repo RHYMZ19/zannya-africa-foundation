@@ -90,11 +90,11 @@ Missions() {
               <div className={styles.test2}></div>
               <div className={styles.test1}>
                 <div className={styles.pro}>
-                <p style={{fontWeight: 'bold', fontSize: '60px', marginLeft: '5%',}}>ZANNYA</p>
+                <p style={{fontWeight: 'bold', fontSize: '30px', marginLeft: '5%',}}>ZANNYA</p>
                 <div style={{width: '100%'}}>
-                <p style={{fontWeight: 'bold',  fontSize: "100%", marginLeft: '5%',lineHeight: '55%'}}>AFRICA FOUNDATION (ZAF)</p>
+                <p style={{fontWeight: 'bold',  fontSize: "50px", marginLeft: '5%',lineHeight: '55%'}}>AFRICA FOUNDATION (ZAF)</p>
                 </div>
-                <p style={{fontSize: '50%', marginLeft: '5%', marginBottom: '5%'}}>PROFILE</p>
+                <p style={{fontSize: '10px', marginLeft: '5%', marginBottom: '5%'}}>PROFILE</p>
                 </div>
               </div>
 
@@ -118,7 +118,7 @@ Missions() {
 
             <div className={styles.intro1}>
               <div className={styles.intro2}>
-                <h1 style={{fontWeight: 'bold', fontSize: '100px'}}>INTRODUCTION</h1>
+                <h1 style={{fontWeight: 'bold', fontSize: '35px'}}>INTRODUCTION</h1>
                 <p style={{}}>Zannya Africa Foundation (ZAF) is a non-profit organization dedicated to empowering the community using sports and
                    recreation activities for social economic development and sustainability in Uganda. Established in 2018 and registered in 2019,
                    Reg No; 80020002286206, with a vision to change lives and build stronger, healthier communities, ZAF provides access to
@@ -169,12 +169,12 @@ Missions() {
               <div style={{justifyItems: 'center',marginTop: '3%'}}>
               <div className={styles.cir2}>EXECUTIVE DIRECTOR</div>
               </div>
-              <div style={{display: 'flex', flexDirection: 'row', justifyItems: 'center', gap: '4%',marginTop: '1%'}}>
+              <div style={{display: 'flex', flexDirection: 'row', justifyItems: 'center', gap: '4%',marginTop: '3%'}}>
               <div className={styles.cir3}>FINANCIAL MANAGER</div>
               <div className={styles.cir7}>OPERATIONS & PROGRAMS MANAGER</div>
               <div className={styles.cir5}>COMMUNICATIONS MANAGER</div>
               </div>
-              <div style={{display: 'flex',marginBottom: '2%', flexDirection: 'row', justifyItems: 'center', gap: '4%',marginTop: '1%'}}>
+              <div style={{display: 'flex',marginBottom: '2%', flexDirection: 'row', justifyItems: 'center', gap: '4%',marginTop: '3%'}}>
               <div className={styles.cir6}>SOCIAL MEDIA HANDLER</div>
               <div className={styles.cir4}>TRAINING ASISTANTS, FIELD STUFF CONSULTANTS & VOLUNTEERS</div>
               <div className={styles.cir8}>PROGRAMS CO-ORDINATOR</div>

@@ -302,7 +302,7 @@
   width: 100%;
   position: relative;
   min-height: 600px;
-  margin-left: 1.5%;
+  margin: 1%;
 
   /* background image */
   background-image: url('/Profile-pic/Profile-pic1.jpg');
@@ -310,9 +310,8 @@
   background-position: center;  /* Keep image centered */
   background-repeat: no-repeat; /* Prevent tiling */
   border-radius: 5px;          /* Optional rounded corners */
-  padding: 40px;                /* Space inside so text isn't flush to edges */
-  color: white;
-  padding-left: 0%;    
+  padding: 2%;                /* Space inside so text isn't flush to edges */
+  color: white;  
 }
 
 .test1{
@@ -614,7 +613,8 @@
   background-repeat: no-repeat; /* Prevent tiling */
   border-radius: 5px;          /* Optional rounded corners */
   padding: 40px;                /* Space inside so text isn't flush to edges */
-  color: white;    
+  color: white; 
+  margin: 1%;   
 }
 
 .conc1{
