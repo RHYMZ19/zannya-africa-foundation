@@ -116,7 +116,7 @@ Missions() {
 
             <div className={styles.intro1}>
               <div className={styles.intro2}>
-                <h1 style={{fontWeight: 'bold', fontSize: '60px'}}>INTRODUCTION</h1>
+                <h1 style={{fontWeight: 'bold', fontSize: '100%'}}>INTRODUCTION</h1>
                 <p style={{}}>Zannya Africa Foundation (ZAF) is a non-profit organization dedicated to empowering the community using sports and
                    recreation activities for social economic development and sustainability in Uganda. Established in 2018 and registered in 2019,
                    Reg No; 80020002286206, with a vision to change lives and build stronger, healthier communities, ZAF provides access to
