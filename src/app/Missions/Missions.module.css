@@ -537,7 +537,7 @@
   transform: translateY(-8px);
 }
 .cir6{
-  margin-top: 30%;
+  margin-top: 35%;
   margin-right: 60%;
   border-radius: 55px;
   width: 95px;
@@ -555,8 +555,8 @@
   transform: translateY(-8px);
 }
 .cir7{
-  margin-top: -60%;
-  margin-left: 55%;
+  margin-top: -75%;
+  margin-left: 60%;
   border-radius: 55px;
   width: 95px;
   height: 95px;
@@ -574,7 +574,7 @@
 }
 .cir8{
   margin-top: 10%;
-  margin-left: 55%;
+  margin-left: 60%;
   border-radius: 55px;
   width: 95px;
   height: 95px;
