@@ -159,20 +159,20 @@ Missions() {
             </div>
 
             <div className={styles.le}>
-              <h1 style={{color: 'maroon', fontSize: '80%', marginTop: '2%'}}>ZAF Organisation Structure</h1>
+              <h1 style={{color: 'maroon', fontSize: '100%', marginTop: '2%'}}>ZAF Organisation Structure</h1>
               <div className={styles.line}></div>
               <div style={{justifyItems: 'center',marginTop: '1%'}}>
               <div className={styles.cir1}>EXECUTIVE COUCIL/ BOARD OF DIRECTORS</div>
               </div>
-              <div style={{justifyItems: 'center',marginTop: '1%'}}>
+              <div style={{justifyItems: 'center',marginTop: '3%'}}>
               <div className={styles.cir2}>EXECUTIVE DIRECTOR</div>
               </div>
-              <div style={{display: 'flex', flexDirection: 'row', justifyItems: 'center', gap: '1%',marginTop: '1%'}}>
+              <div style={{display: 'flex', flexDirection: 'row', justifyItems: 'center', gap: '3%',marginTop: '1%'}}>
               <div className={styles.cir3}>FINANCIAL MANAGER</div>
               <div className={styles.cir7}>OPERATIONS & PROGRAMS MANAGER</div>
               <div className={styles.cir5}>COMMUNICATIONS MANAGER</div>
               </div>
-              <div style={{display: 'flex', flexDirection: 'row', justifyItems: 'center', gap: '1%',marginTop: '1%'}}>
+              <div style={{display: 'flex',marginBottom: '2%', flexDirection: 'row', justifyItems: 'center', gap: '3%',marginTop: '1%'}}>
               <div className={styles.cir6}>SOCIAL MEDIA HANDLER</div>
               <div className={styles.cir4}>TRAINING ASISTANTS, FIELD STUFF CONSULTANTS & VOLUNTEERS</div>
               <div className={styles.cir8}>PROGRAMS CO-ORDINATOR</div>
@@ -194,7 +194,7 @@ Missions() {
       <div className={styles.grid}>
         {leaders.map((leader) => (
           <div key={leader.id} style={{display: 'flex', flexDirection: 'row', gap:'2%'}}>
-          <div style={{ height: '80%', width: '80%%' }}>
+          <div style={{ height: '100%', width: '80%' }}>
             {leader.img && (<Image src={leader.img} alt={leader.name} className={styles.image} loading="lazy" />)}
           </div>
           <div key={leader.id} className={styles.card}>

@@ -238,7 +238,7 @@
   border-radius: 16px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
-  height: auto;
+  height: 100%;
   width: 100%;
 }
 
@@ -302,6 +302,7 @@
   width: 100%;
   position: relative;
   min-height: 600px;
+  margin-left: 1.5%;
 
   /* background image */
   background-image: url('/Profile-pic/Profile-pic1.jpg');
@@ -316,7 +317,7 @@
 
 .test1{
   width: 70%;
-  height: 80%;
+  height: 60px;
   border-top-right-radius: 40px;
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.5%;
@@ -353,7 +354,7 @@
   background-color: transparent;
   color: white;
   margin-bottom: 0.1%;
-  font-size: 5%;
+  font-size: 40%;
 }
 
 .pro{
@@ -396,12 +397,10 @@
 
 .intro3{
   margin-left: 1.5%;
-  border-top-left-radius: 3%;
   border-color: #555;
-  min-height: 800px;
+  min-height: 600px;
   width: 100%;
   bottom: 1%;
-  clip-path: inset(0 round 40px);
 
   /* backgorund image */
   background-image: url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756115378/zannya/uploads/lodarcpovidhux7eeiil.jpg');
