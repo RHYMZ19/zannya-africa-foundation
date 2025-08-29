@@ -346,7 +346,7 @@
   color: white;    
 }
 
-.em{
+.em1{
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -354,15 +354,36 @@
   background-color: transparent;
   color: white;
   margin-bottom: 0.1%;
-  font-size: 80%;
-  margin-left: 10%;
+  font-size: 100%;
+  margin-left: 20%;
+  
 }
 
-.pro{
-  width: 100%;
+.em2{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  margin-bottom: 0.1%;
+  font-size: 100%;
+  
 }
+
+.em3{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  margin-bottom: 0.1%;
+  font-size: 100%;
+  
+}
+
+
 
 .we{
   display: flex;
@@ -397,11 +418,10 @@
 
 
 .intro3{
-  margin-left: 1.5%;
   border-color: #555;
   min-height: 600px;
   width: 100%;
-  bottom: 1%;
+  margin-bottom: 1%;
 
   /* backgorund image */
   background-image: url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756115378/zannya/uploads/lodarcpovidhux7eeiil.jpg');
@@ -409,7 +429,7 @@
   background-position: center;  /* Keep image centered */
   background-repeat: no-repeat; /* Prevent tiling */
   border-radius: 1px;          /* Optional rounded corners */
-  padding: 40px;                /* Space inside so text isn't flush to edges */
+  margin: 1%;                /* Space inside so text isn't flush to edges */
   color: white; 
 
 }

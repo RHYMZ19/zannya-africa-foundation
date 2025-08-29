@@ -97,17 +97,17 @@ Missions() {
               </div>
 
                 <div className={styles.we}>
-                <div className={styles.em}>
+                <div className={styles.em1}>
                   <p>plot 2 kati House, Nakasero, Ground Floor,</p>
                   <p>P.O.Box 168040 Kampala, Uganda</p>
                 </div>
 
-                <div className={styles.em}>
+                <div className={styles.em2}>
                   <p>Phone:+256 786797963</p>
                   <p>Mobile:+256 700340576</p>
                 </div>
 
-                <div className={styles.em}>
+                <div className={styles.em3}>
                   <p>Email:<a href="mailto: zannyaafricafoundation@gmail.com">zannyaafricafoundation@gmail.com</a></p>
                   <p>Website:www.zannyaafrica.org</p>
                 </div>
