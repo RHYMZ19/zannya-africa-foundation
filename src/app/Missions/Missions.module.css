@@ -355,7 +355,7 @@
   color: white;
   margin-bottom: 0.1%;
   font-size: 10px;
-  margin-left: 15%;
+  margin-left: 25%;
   
 }
 
@@ -501,9 +501,9 @@
 }
 .cir3{
   
-  border-radius: 55px;
-  width: 95px;
-  height: 95px;
+  border-radius: 60px;
+  width: 100px;
+  height: 100px;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid lightseagreen;
   font-size: 48%;
@@ -518,9 +518,9 @@
 }
 .cir4{
   
-  border-radius: 55px;
-  width: 95px;
-  height: 95px;
+  border-radius: 60px;
+  width: 100px;
+  height: 100px;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid orangered;
   font-size: 25%;
@@ -535,9 +535,9 @@
 }
 .cir5{
   
-  border-radius: 55px;
-  width: 95px;
-  height: 95px;
+  border-radius: 60px;
+  width: 100px;
+  height: 100px;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid lightseagreen;
   font-size: 40%;
@@ -552,9 +552,9 @@
 }
 .cir6{
   
-  border-radius: 55px;
-  width: 95px;
-  height: 95px;
+  border-radius: 60px;
+  width: 100px;
+  height: 100px;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid orangered;
   font-size: 48%;
@@ -569,9 +569,9 @@
 }
 .cir7{
   
-  border-radius: 55px;
-  width: 95px;
-  height: 95px;
+  border-radius: 60px;
+  width: 100px;
+  height: 100px;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid lightseagreen;
   font-size: 35%;
@@ -586,9 +586,9 @@
 }
 .cir8{
   
-  border-radius: 55px;
-  width: 95px;
-  height: 95px;
+  border-radius: 60px;
+  width: 100px;
+  height: 100px;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid orangered;
   font-size: 48%;
