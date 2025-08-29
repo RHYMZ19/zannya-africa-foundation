@@ -314,7 +314,7 @@
   height: 20%;
   border-top-right-radius: 40px;
   background-color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 20%;
+  margin-bottom: 0.5%;
 
   color: maroon;
   display: flex;
@@ -345,7 +345,8 @@
   width: 30%;
   background-color: transparent;
   color: white;
-  margin-bottom: 1%;
+  margin-bottom: 0.1%;
+  font-size: 10%;
 }
 
 .pro{
@@ -362,7 +363,6 @@
   background-color: transparent;
   color: white;
   justify-content: center;
-  margin-left: 1.5%;
   margin-top: 1.5%;
   gap: 1%;
   font-size: 60%;
@@ -417,13 +417,14 @@
 }
 
 .le{
-  min-height: 700px;
+  height: 100%;
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
+  gap: 1%;
 }
 
 .line{
@@ -441,13 +442,14 @@
   border-radius: 65px;
   width: 105px;
   height: 105px;
-  position: absolute;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid maroon;
   font-size: 40%;
   text-align: center;
   align-content: center;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
 }
 .cir1:hover {
   transform: translateY(-8px);
@@ -458,13 +460,14 @@
   border-radius: 65px;
   width: 105px;
   height: 105px;
-  position: absolute;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid maroon;
   font-size: 48%;
   text-align: center;
   align-content: center;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
 }
 .cir2:hover {
   transform: translateY(-8px);
@@ -475,13 +478,14 @@
   border-radius: 55px;
   width: 95px;
   height: 95px;
-  position: absolute;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid lightseagreen;
   font-size: 48%;
   text-align: center;
   align-content: center;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
 }
 .cir3:hover {
   transform: translateY(-8px);
@@ -492,13 +496,14 @@
   border-radius: 55px;
   width: 95px;
   height: 95px;
-  position: absolute;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid orangered;
   font-size: 25%;
   text-align: center;
   align-content: center;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
 }
 .cir4:hover {
   transform: translateY(-8px);
@@ -509,13 +514,14 @@
   border-radius: 55px;
   width: 95px;
   height: 95px;
-  position: absolute;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid lightseagreen;
   font-size: 40%;
   text-align: center;
   align-content: center;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
 }
 .cir5:hover {
   transform: translateY(-8px);
@@ -526,13 +532,14 @@
   border-radius: 55px;
   width: 95px;
   height: 95px;
-  position: absolute;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid orangered;
   font-size: 48%;
   text-align: center;
   align-content: center;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
 }
 .cir6:hover {
   transform: translateY(-8px);
@@ -543,13 +550,14 @@
   border-radius: 55px;
   width: 95px;
   height: 95px;
-  position: absolute;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid lightseagreen;
   font-size: 35%;
   text-align: center;
   align-content: center;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
 }
 .cir7:hover {
   transform: translateY(-8px);
@@ -560,13 +568,14 @@
   border-radius: 55px;
   width: 95px;
   height: 95px;
-  position: absolute;
   box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.4);
   border: 10px solid orangered;
   font-size: 48%;
   text-align: center;
   align-content: center;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
 }
 .cir8:hover {
   transform: translateY(-8px);

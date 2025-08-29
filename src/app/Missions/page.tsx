@@ -159,7 +159,7 @@ Missions() {
             </div>
 
             <div className={styles.le}>
-              <h1 style={{color: 'maroon', fontSize: '35px', marginTop: '2%'}}>ZAF Organisation Structure</h1>
+              <h1 style={{color: 'maroon', fontSize: '80%', marginTop: '2%'}}>ZAF Organisation Structure</h1>
               <div className={styles.line}></div>
               <div className={styles.cir1}>EXECUTIVE COUCIL/ BOARD OF DIRECTORS</div>
               <div className={styles.cir2}>EXECUTIVE DIRECTOR</div>
