@@ -423,8 +423,6 @@
   min-height: 600px;
   width: 100%;
   margin-bottom: 1%;
-  margin-top: 20%;
-  margin-right: 35%;
 
   /* backgorund image */
   background-image: url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756115378/zannya/uploads/lodarcpovidhux7eeiil.jpg');
@@ -434,7 +432,7 @@
   border-radius: 1px;          /* Optional rounded corners */
   margin: 1%;                /* Space inside so text isn't flush to edges */
   color: white; 
-  
+
 }
 
 .vis{
