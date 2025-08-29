@@ -227,16 +227,11 @@
 .grid {
   display: grid;
   flex-wrap: wrap;
-  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
   gap: 30px;
   width: 100%;
 }
 
-@media (max-width: 100%) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 .card {
   background: white;
@@ -321,7 +316,7 @@
 
 .test1{
   width: 70%;
-  height: 40%;
+  height: 80%;
   border-top-right-radius: 40px;
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.5%;
@@ -331,7 +326,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin-right: 10%;
-  top: 80%;
+  margin-top: 80%;
 }
 
 .test2 {
@@ -370,7 +365,7 @@
 .we{
   display: flex;
   flex-direction: row;
-  height: 20%;
+  height: 60%;
   width: 70%;
   background-color: transparent;
   color: white;
