@@ -331,8 +331,8 @@
 }
 
 .test2 {
-  margin-top: 1%;
-  margin-left: 55%;
+  margin-top: 5%;
+  margin-left: 60%;
   border-radius: 45px;
   width: 85px;
   height: 85px;
@@ -354,7 +354,7 @@
   background-color: transparent;
   color: white;
   margin-bottom: 0.1%;
-  font-size: 8px;
+  font-size: 10px;
   margin-left: 10%;
   
 }
@@ -367,7 +367,7 @@
   background-color: transparent;
   color: white;
   margin-bottom: 0.1%;
-  font-size: 8px;
+  font-size: 10px;
   
 }
 
@@ -379,7 +379,7 @@
   background-color: transparent;
   color: white;
   margin-bottom: 0.1%;
-  font-size: 8px;
+  font-size: 10px;
   
 }
 
