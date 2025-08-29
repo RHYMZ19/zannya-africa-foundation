@@ -310,12 +310,12 @@
   background-position: center;  /* Keep image centered */
   background-repeat: no-repeat; /* Prevent tiling */
   border-radius: 5px;          /* Optional rounded corners */
-  padding-left: 0%;                /* Space inside so text isn't flush to edges */
+  padding: 2%;                /* Space inside so text isn't flush to edges */
   color: white;  
 }
 
 .test1{
-  width: 70%;
+  width: 80%;
   height: 100px;
   border-top-right-radius: 40px;
   background-color: rgba(255, 255, 255, 0.7);
