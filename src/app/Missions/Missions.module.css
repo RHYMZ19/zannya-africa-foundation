@@ -232,7 +232,7 @@
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 100%) {
   .grid {
     grid-template-columns: 1fr;
   }
@@ -520,8 +520,8 @@
   transform: translateY(-8px);
 }
 .cir5{
-  margin-top: -6%;
-  margin-right: 25%;
+  margin-top: -30%;
+  margin-right: 35%;
   border-radius: 55px;
   width: 95px;
   height: 95px;
