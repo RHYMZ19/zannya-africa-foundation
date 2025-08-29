@@ -310,7 +310,7 @@
   background-position: center;  /* Keep image centered */
   background-repeat: no-repeat; /* Prevent tiling */
   border-radius: 5px;          /* Optional rounded corners */
-  padding: 2%;                /* Space inside so text isn't flush to edges */
+  padding-left: 0%;                /* Space inside so text isn't flush to edges */
   color: white;  
 }
 
