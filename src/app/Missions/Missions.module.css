@@ -111,12 +111,13 @@
 .Leaders {
     
     background-color: #f8fcfdef;
-    padding: 150px;
-    margin: 30px;
+    padding: 10%;
+    margin: 5%;
     justify-items: center;
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
 
 }
 
@@ -212,6 +213,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 
 }
 
@@ -341,12 +343,12 @@
 .em{
   display: flex;
   flex-direction: column;
-  height: 0.5%;
+  height: 0.1%;
   width: 30%;
   background-color: transparent;
   color: white;
   margin-bottom: 0.1%;
-  font-size: 10%;
+  font-size: 5%;
 }
 
 .pro{
@@ -424,7 +426,6 @@
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1%;
 }
 
 .line{

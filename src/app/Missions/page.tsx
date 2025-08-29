@@ -90,9 +90,9 @@ Missions() {
               <div className={styles.test2}></div>
               <div className={styles.test1}>
                 <div className={styles.pro}>
-                <p style={{fontWeight: 'bold', fontSize: '100%', marginLeft: '5%',}}>ZANNYA</p>
-                <p style={{fontWeight: 'bold',  fontSize: "100%", marginLeft: '5%',lineHeight: '55%'}}>AFRICA FOUNDATION (ZAF)</p>
-                <p style={{fontSize: '50%', marginLeft: '5%'}}>PROFILE</p>
+                <p style={{fontWeight: 'bold', fontSize: '100%', marginLeft: '1%',}}>ZANNYA</p>
+                <p style={{fontWeight: 'bold',  fontSize: "100%", marginLeft: '1%',lineHeight: '55%'}}>AFRICA FOUNDATION (ZAF)</p>
+                <p style={{fontSize: '50%', marginLeft: '1%'}}>PROFILE</p>
                 </div>
               </div>
 
