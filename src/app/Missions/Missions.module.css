@@ -229,6 +229,7 @@
   flex-wrap: wrap;
   grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
   gap: 30px;
+  width: 100%;
 }
 
 .card {
@@ -238,7 +239,7 @@
   padding: 20px;
   transition: transform 0.3s ease;
   height: 100%;
-  width: 50%;
+  width: 100%;
 }
 
 .card:hover {
@@ -317,7 +318,7 @@
   border-top-right-radius: 40px;
   background-color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.5%;
-
+  margin-left: 1px;
   color: maroon;
   display: flex;
   flex-direction: column;
@@ -369,20 +370,23 @@
   gap: 1%;
   font-size: 60%;
   margin-bottom: 2%;
+  margin-left: 1px;
 }
 
 .intro1{
   margin-left: 1.5%;
   width: 100%;
-  min-height: 900px;
+  height: 100%;
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .intro2{
   margin-left: 1.5%;
   height: 50%;
   width: 85%;
-  position: absolute;
+
 }
 
 
@@ -392,7 +396,6 @@
   border-color: #555;
   height: 70%;
   width: 100%;
-  position: absolute;
   bottom: 1%;
   clip-path: inset(0 round 40px);
 
@@ -523,6 +526,7 @@
   transition: transform 0.3s ease;
   display: flex;
   flex-wrap: wrap;
+  position: absolute;
 }
 .cir5:hover {
   transform: translateY(-8px);
@@ -541,6 +545,7 @@
   transition: transform 0.3s ease;
   display: flex;
   flex-wrap: wrap;
+  position: absolute;
 }
 .cir6:hover {
   transform: translateY(-8px);
@@ -559,6 +564,7 @@
   transition: transform 0.3s ease;
   display: flex;
   flex-wrap: wrap;
+  position: absolute;
 }
 .cir7:hover {
   transform: translateY(-8px);
@@ -577,6 +583,7 @@
   transition: transform 0.3s ease;
   display: flex;
   flex-wrap: wrap;
+  position: absolute;
 }
 .cir8:hover {
   transform: translateY(-8px);
