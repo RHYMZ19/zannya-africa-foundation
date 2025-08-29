@@ -30,7 +30,7 @@ Mission (){
                     router.push('/Missions')
                 }
                 className={styles.arrowButton}>
-                    Read More
+                    Read More /Missions
                 </button>
             </div>
         </div>
