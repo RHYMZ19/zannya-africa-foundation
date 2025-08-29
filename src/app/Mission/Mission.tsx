@@ -13,7 +13,7 @@ Mission (){
         className={
             styles.previewcontainer
         }>
-            <Image src="/images/pic5.jpg"
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756115378/zannya/uploads/lodarcpovidhux7eeiil.jpg"
             alt="Preview"
             className={
                 styles.previewimage
@@ -24,7 +24,7 @@ Mission (){
             }>
                 <h3 className={styles.headings}>Mission & Vission</h3>
                 <p>
-                    To change lives and build stronger and healthier communities....
+                    Zannya Africa Foundation (ZAF) is a non-profit organization dedicated to empowering the community....
                 </p>
                 <button onClick={() =>
                     router.push('/Missions')
