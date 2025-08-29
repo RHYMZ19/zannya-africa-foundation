@@ -232,6 +232,12 @@
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card {
   background: white;
   border-radius: 16px;
@@ -239,7 +245,7 @@
   padding: 0.5%;
   transition: transform 0.3s ease;
   height: 100%;
-  width: 50%;
+  width: 100%;
 }
 
 .card:hover {
@@ -514,7 +520,7 @@
   transform: translateY(-8px);
 }
 .cir5{
-  margin-top: 1%;
+  margin-top: -6%;
   margin-right: 25%;
   border-radius: 55px;
   width: 95px;
@@ -532,7 +538,7 @@
   transform: translateY(-8px);
 }
 .cir6{
-  margin-top: 36%;
+  margin-top: -6%;
   margin-right: 25%;
   border-radius: 55px;
   width: 95px;
@@ -550,7 +556,7 @@
   transform: translateY(-8px);
 }
 .cir7{
-  margin-top: 25%;
+  margin-top: -12%;
   margin-left: 40%;
   border-radius: 55px;
   width: 95px;
@@ -568,7 +574,7 @@
   transform: translateY(-8px);
 }
 .cir8{
-  margin-top: 36%;
+  margin-top: -12%;
   margin-left: 40%;
   border-radius: 55px;
   width: 95px;
