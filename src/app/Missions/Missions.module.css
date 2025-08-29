@@ -243,7 +243,7 @@
   border-radius: 16px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
-  height: 100%;
+  height: auto;
   width: 100%;
 }
 
@@ -306,7 +306,7 @@
 .test{
   width: 100%;
   position: relative;
-  min-height: 800px;
+  min-height: 600px;
 
   /* background image */
   background-image: url('/Profile-pic/Profile-pic1.jpg');
@@ -315,7 +315,8 @@
   background-repeat: no-repeat; /* Prevent tiling */
   border-radius: 5px;          /* Optional rounded corners */
   padding: 40px;                /* Space inside so text isn't flush to edges */
-  color: white;    
+  color: white;
+  padding-left: 0%;    
 }
 
 .test1{
@@ -330,6 +331,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin-right: 10%;
+  top: 80%;
 }
 
 .test2 {
