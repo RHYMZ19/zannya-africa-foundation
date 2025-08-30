@@ -19,6 +19,9 @@ type CategoryType =
   | 'Community Support Programs'
   | 'Technology & Innovation Programs'
   | 'Cultural & Entertainment Programs'
+  | 'Skilling and Livelihood'
+  | 'Reproductive & Physical Health Awareness'
+  | 'Climate Justice Advocacy'
 
 const categories: Record<CategoryType, string[]>= {
   'Education Programs': ['Scholarships', 'Literacy Training'],
@@ -27,7 +30,28 @@ const categories: Record<CategoryType, string[]>= {
   'Youth Empowerment Programs': ['Football', 'Volleyball', 'Athletics'],
   'Community Support Programs': ['Food Aid', 'Women Empowerment'],
   'Technology & Innovation Programs': ['ICT Bootcamp', 'Innovation Hubs'],
-  'Cultural & Entertainment Programs': ['Music', 'Dance', 'EcoFit Camp']
+  'Cultural & Entertainment Programs': ['Music', 'Dance', 'EcoFit Camp'],
+  'Skilling and Livelihood': ['Vocational Training', 'Income Generating Activities', 'Sports Skilling', 'Mentorship on Life Skills'],
+  'Reproductive & Physical Health Awareness': [
+    'Sexual and REproductive Health Education',
+    'Menstrual Health Management',
+    'Family Planning, career guidance and counselling',
+    'Organized sports and fitness',
+    'Nutrition & Health Eating',
+    'Disease Prevention and Management',
+    'Community Outreaches',
+    'Partnerships and Collaborations',
+    'Advocacy efforts'
+  ],
+  'Climate Justice Advocacy': [
+    'Climate Change Awareness and Education',
+    'Advocacy and Policy Influence',
+    'The ZAF Ecofit Camp',
+    'Climate Initiative in School',
+    'Sports Clubs for Community Cleaning',
+    'Fruit Tree Plant per Home Initiative',
+    'Community-Led Climate Action'
+  ]
 };
 
 

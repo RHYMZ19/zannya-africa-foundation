@@ -98,7 +98,7 @@ export default function Filter(){
         
 
         <select name="category" value={search.category} onChange={handleChange}>
-          <option value="">All Categories</option>
+          <option value="">All Programs</option>
           <option value="Education Programs">Education Programs</option>
           <option value="Health & Wellness Programs">Health & Wellness Programs</option>
           <option value="Climate & Environmental Programs">Climate & Environmental Programs</option>
@@ -106,6 +106,9 @@ export default function Filter(){
           <option value="Community Support Programs">Community Support Programs</option>
           <option value="Technology & Innovation Programs">Technology & Innovation Programs</option>
           <option value="Cultural & Entertainment Programs">Cultural & Entertainment Programs</option>
+          <option value="Skilling and Livelihood">Skilling and Livelihood</option>
+          <option value="Reproductive & Physical Health Awareness">Reproductive & Physical Health Awareness</option>
+          <option value="Climate Justice Advocacy">Climate Justice Advocacy</option>
         </select>
 
         {/* Show subcategory ONLY if category is selected */}
@@ -115,7 +118,7 @@ export default function Filter(){
               value={search.subcategory}
               onChange={handleChange}
             >
-              <option value="">All Subcategories</option>
+              <option value="">All Activities</option>
               {filteredSubcategories.map(sub => (
                 <option key={sub} value={sub}>{sub}</option>
               ))}

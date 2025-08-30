@@ -44,7 +44,7 @@ Programs(){
             <div className={styles.container}>
                 <header className={`header ${visible ? 'show' : ""}`}>
                 <h1 className={styles.h1}>
-                    PROGRAMS AND SERVICES
+                    PROGRAMS AND ACTIVITIES
                 </h1>
                 <p className={styles.p1}>
                     Zannya Africa Foundation
@@ -61,8 +61,13 @@ Programs(){
 
             <div style={{height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white'}}>
                 <h1 style={{fontSize: '40px',color: 'red',  margin: '20px',fontWeight: 'bold'}}>
-                    WHAT WE OFFER
+                    Programs and Activities
                 </h1>
+                <p>
+                    ZAF has developed a variety of programs and activities designed to address
+                    key social issues and transform the socio-economic status of individuals living
+                    in slums and impoverished communities. These programs include:
+                </p>
                 <div data-aos='fade-up' style={{ width: '100%', justifyItems: 'center'}}>
                 <Filter data-aos='slide-right'></Filter>
                 </div>
