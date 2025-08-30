@@ -32,7 +32,6 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 
   /* background image */
-  background-image: url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756298852/zannya/uploads/ehcnujtmidgrp96pmxpl.jpg');
   background-size: cover;       /* Make image cover the whole area */
   background-position: center;  /* Keep image centered */
   background-repeat: no-repeat; /* Prevent tiling */
@@ -42,7 +41,8 @@
   margin: 1%; 
   background: linear-gradient(to bottom,
   rgba(255, 255, 255, 0.9),
-  rgba(255, 255, 255, 0),);
+  rgba(255, 255, 255, 0),),
+  url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756298852/zannya/uploads/ehcnujtmidgrp96pmxpl.jpg');
   
 }
 
