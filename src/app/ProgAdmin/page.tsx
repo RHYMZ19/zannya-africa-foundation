@@ -12,25 +12,13 @@ import Image from "next/image";
 const countries = ['Kenya', 'Uganda', 'Nigeria', 'Ghana'];
 
 type CategoryType =
-  | 'Education Programs'
-  | 'Health & Wellness Programs'
-  | 'Climate & Environmental Programs'
-  | 'Youth Empowerment Programs'
-  | 'Community Support Programs'
-  | 'Technology & Innovation Programs'
-  | 'Cultural & Entertainment Programs'
+
   | 'Skilling and Livelihood'
   | 'Reproductive & Physical Health Awareness'
   | 'Climate Justice Advocacy'
 
 const categories: Record<CategoryType, string[]>= {
-  'Education Programs': ['Scholarships', 'Literacy Training'],
-  'Health & Wellness Programs': ['Nutrition', 'HIV Awareness', 'TB Awareness'],
-  'Climate & Environmental Programs': ['Tree Planting', 'Clean Water'],
-  'Youth Empowerment Programs': ['Football', 'Volleyball', 'Athletics'],
-  'Community Support Programs': ['Food Aid', 'Women Empowerment'],
-  'Technology & Innovation Programs': ['ICT Bootcamp', 'Innovation Hubs'],
-  'Cultural & Entertainment Programs': ['Music', 'Dance', 'EcoFit Camp'],
+
   'Skilling and Livelihood': ['ABOUT','Vocational Training', 'Income Generating Activities', 'Sports Skilling', 'Mentorship on Life Skills'],
   'Reproductive & Physical Health Awareness': [
     'ABOUT',
