@@ -20,12 +20,13 @@ type FilterItem ={
   videos?: string [];
 }
 
+
 export default function Filter(){
   const [filters, setFilters] = useState<FilterItem[]>([]);
   const [search, setSearch] = useState({
   country: 'Uganda',
-  category: 'Climate & Environmental Programs',
-  subcategory: 'Tree Planting'
+  category: 'Climate Justice Advocacy',
+  subcategory: 'The ZAF Ecofit Camp'
   });
 
   const [filteredData, setFilteredData] = useState<FilterItem[]>([]);
