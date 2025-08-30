@@ -63,7 +63,7 @@ Programs(){
                 <h1 style={{fontSize: '40px',color: 'red',  margin: '20px',fontWeight: 'bold'}}>
                     Programs and Activities
                 </h1>
-                <p style={{paddingLeft: '15%', paddingRight: '15%'}}>
+                <p style={{paddingLeft: '10%', paddingRight: '10%'}}>
                     ZAF has developed a variety of programs and activities designed to address
                     key social issues and transform the socio-economic status of individuals living
                     in slums and impoverished communities. These programs include:
