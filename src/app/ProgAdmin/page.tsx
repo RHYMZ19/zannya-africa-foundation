@@ -31,8 +31,9 @@ const categories: Record<CategoryType, string[]>= {
   'Community Support Programs': ['Food Aid', 'Women Empowerment'],
   'Technology & Innovation Programs': ['ICT Bootcamp', 'Innovation Hubs'],
   'Cultural & Entertainment Programs': ['Music', 'Dance', 'EcoFit Camp'],
-  'Skilling and Livelihood': ['Vocational Training', 'Income Generating Activities', 'Sports Skilling', 'Mentorship on Life Skills'],
+  'Skilling and Livelihood': ['ABOUT','Vocational Training', 'Income Generating Activities', 'Sports Skilling', 'Mentorship on Life Skills'],
   'Reproductive & Physical Health Awareness': [
+    'ABOUT',
     'Sexual and REproductive Health Education',
     'Menstrual Health Management',
     'Family Planning, career guidance and counselling',
@@ -44,6 +45,7 @@ const categories: Record<CategoryType, string[]>= {
     'Advocacy efforts'
   ],
   'Climate Justice Advocacy': [
+    'ABOUT',
     'Climate Change Awareness and Education',
     'Advocacy and Policy Influence',
     'The ZAF Ecofit Camp',
