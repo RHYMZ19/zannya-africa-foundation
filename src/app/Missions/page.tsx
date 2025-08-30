@@ -194,7 +194,7 @@ Missions() {
       <div className={styles.grid}>
         {leaders.map((leader) => (
           <div key={leader.id} style={{display: 'flex', flexDirection: 'column', gap:'2%', alignItems: 'center', marginBottom: '4%'}}>
-          <div style={{ height: '100%', width: '85%',borderRadius: '23px' }}>
+          <div style={{ height: '50%', width: '50%',borderRadius: '23px' }}>
             {leader.img && (<Image src={leader.img} alt={leader.name} className={styles.image} loading="lazy" />)}
           </div>
           <div key={leader.id} className={styles.card}>
