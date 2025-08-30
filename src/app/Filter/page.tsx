@@ -141,7 +141,7 @@ export default function Filter(){
                 </video>
               ))}
               </div>
-              <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Programs and services you can follow us on our socialplatforms:</strong></p>
+              <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Programs and activities you can follow us on our socialplatforms:</strong></p>
               <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
                         <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
                           <FaFacebook />
