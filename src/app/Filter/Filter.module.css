@@ -37,10 +37,9 @@
   background-repeat: no-repeat; /* Prevent tiling */
   border-radius: 5px;          /* Optional rounded corners */
   padding: 40px;                /* Space inside so text isn't flush to edges */
-  color: white; 
   margin: 1%; 
   background: linear-gradient(to bottom,
-  rgba(255, 255, 255, 0.4),
+  rgba(255, 255, 255, 0.1),
   rgba(255, 255, 255, 0),),
   url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756298852/zannya/uploads/ehcnujtmidgrp96pmxpl.jpg');
   
