@@ -18,25 +18,40 @@ const images = [
 
 export default function 
 ImageScroll() {
- const [views, setViews] = useState<number | null>(null);
+ const [displayCount, setDisplayCount] = useState<number>(0); // animated number
   useEffect(() => {
     const updateViews = async () => {
-      const docRef = doc(db, "siteStats", "views");
+      try {
+        const docRef = doc(db, "siteStats", "views");
 
-      // increment by 1 every time page loads
-      await updateDoc(docRef, {
-        count: increment(1),
-      });
+        // 🔹 Increase count in Firestore by 1
+        await updateDoc(docRef, { count: increment(1) });
 
-      // fetch the updated value
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setViews(docSnap.data().count);
+        // 🔹 Get updated value
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const newCount = docSnap.data().count;
+
+          // 🔹 Animate count-up
+          let current = 0;
+          const step = Math.ceil(newCount / 50); // number increments per step
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= newCount) {
+              current = newCount;
+              clearInterval(interval);
+            }
+            setDisplayCount(current);
+          }, 30); // speed (ms per step)
+        }
+      } catch (error) {
+        console.error("Error updating views:", error);
       }
     };
 
     updateViews();
   }, []);
+
 
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -103,7 +118,7 @@ ImageScroll() {
         
 
       <div style={{ textAlign: "center", marginTop: "20px",fontSize: "30px", fontWeight: "bolder" , right: '20%' }}>
-      <p>👀 <strong>STILL UNDER DEVELOPMENT!!!!</strong>: {views ?? "Loading..."}</p>
+      <p>👀 <strong>STILL UNDER DEVELOPMENT!!!!</strong>: {displayCount}</p>
     </div>
 
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
