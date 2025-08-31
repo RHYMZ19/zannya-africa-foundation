@@ -28,8 +28,9 @@
 
 .resultcard {
   background-color: transparent;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 10px;
+  font-size: 3%;
   
 }
 
