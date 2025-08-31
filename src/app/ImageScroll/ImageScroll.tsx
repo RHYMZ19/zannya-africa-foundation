@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Styles from "./ImageScroll.module.css";
 import Image from "next/image";
+import { db } from "../lib/firebase";
+import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
 
 const images = [
     "/images/pic2.jpg",
@@ -16,51 +18,30 @@ const images = [
 
 export default function 
 ImageScroll() {
-
-  const [display, setDisplay] = useState(0);
-  const [count, setCount] = useState(0);
+ const [views, setViews] = useState<number | null>(null);
   useEffect(() => {
-    // Fetch visitor count from API
-    fetch('/api/increment-visitor')
-      .then(res => res.json())
-      .then(data => {
-        setCount(data.count); // final count
+    const updateViews = async () => {
+      const docRef = doc(db, "siteStats", "views");
+
+      // increment by 1 every time page loads
+      await updateDoc(docRef, {
+        count: increment(1),
       });
+
+      // fetch the updated value
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setViews(docSnap.data().count);
+      }
+    };
+
+    updateViews();
   }, []);
 
 
-  
-  useEffect(() => {
-    if (count > 0) {
-      let start = 0;
-      const step = Math.ceil(count / 50); // speed (50 steps)
-      const interval = setInterval(() => {
-        start += step;
-        if (start >= count) {
-          setDisplay(count);
-          clearInterval(interval);
-        } else {
-          setDisplay(start);
-        }
-      }, 30); // update every 30ms
-      return () => clearInterval(interval);
-    }
-  }, [count]);
-
-  
-
-
-
-    const [currentIndex, 
-        setCurrentIndex
-    ] = useState(0);
-
-    
-
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-
-       
         const interval = setInterval(() =>
          {
             setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -69,6 +50,7 @@ ImageScroll() {
          return () => 
             clearInterval(interval);
     }, []);
+
     return (
       <div style={{ position: "relative", width: "100%",height: '500px'}}>
         <div className={Styles.scroll}>
@@ -120,9 +102,9 @@ ImageScroll() {
         }}>
         
 
-      <div style={{ fontSize: "50px", fontWeight: "bolder" , right: '20%'}}>
-      👀 <strong>STILL UNDER DEVELOPMENT!!!!</strong>: {display}
-      </div>
+      <div style={{ textAlign: "center", marginTop: "20px",fontSize: "30px", fontWeight: "bolder" , right: '20%' }}>
+      <p>👀 <strong>STILL UNDER DEVELOPMENT!!!!</strong>: {views ?? "Loading..."}</p>
+    </div>
 
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
       <ul>

@@ -20,8 +20,6 @@
   justify-content: center;
   align-items: center;
   z-index: 999;
-  width: auto;          /* don’t stretch */
-  height: 100vh;         /* fixed height independent of container */
 }
 
 .overlayImage {
