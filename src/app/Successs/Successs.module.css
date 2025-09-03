@@ -18,6 +18,7 @@
     font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     height: 20px;
+    width: 100%;
 }
 
 .header {
@@ -127,5 +128,50 @@
 
 .donatebutton:hover {
   background-color: #388E3C;
+}
+
+.imageH{
+    
+        width: 100%;
+        min-height: 700px;
+        justify-content: center;
+        background-color: f5fafac7;
+        margin: 0;
+        display: flex;
+        padding: 0px;
+        padding-bottom: 5px;
+    
+}
+
+.Y{
+  width: 100%;
+  position: relative;
+  min-height: 600px;
+  margin: 1%;
+
+  /* background image */
+  background-size: cover;       /* Make image cover the whole area */
+  background-position: center;  /* Keep image centered */
+  background-repeat: no-repeat; /* Prevent tiling */
+  border-radius: 5px;          /* Optional rounded corners */
+  padding: 2%;                /* Space inside so text isn't flush to edges */
+  color: white;  
+  padding-left: 15%;
+  padding-top: 15%;
+  background: linear-gradient(to bottom,
+  rgba(255, 255, 255, 0.3),
+  rgba(255, 255, 255, 0.7),
+  rgba(255, 255, 255, 0.95),
+  rgba(255, 255, 255, 1)),
+  url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827092/zannya/uploads/i8t2ni57m9gzvoxojfxu.jpg');
+}
+
+.p{
+  color: black;
+}
+
+.pp{
+  color: black;
+  margin-bottom: 5%;
 }
 

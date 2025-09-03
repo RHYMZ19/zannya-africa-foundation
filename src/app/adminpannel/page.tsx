@@ -8,6 +8,8 @@ import ProgAdmin from '../ProgAdmin/page';
 import NewsAdmn from '../NewsAdmn/page';
 import GalleryAdmin from '../GalleryAdmin/page';
 import MissionAdmn from '../MissionAdmn/page';
+import SuccessAdmin from '../SuccessAdmin/page';
+import ResoAdmin from '../ResoAdmin/page';
 
 
 
@@ -54,6 +56,15 @@ if (loading) {
         <div>
             <MissionAdmn></MissionAdmn>
         </div>
+
+        <div>
+            <SuccessAdmin></SuccessAdmin>
+        </div>
+
+        <div>
+            <ResoAdmin></ResoAdmin>
+        </div>
+
         </>
     )
 }

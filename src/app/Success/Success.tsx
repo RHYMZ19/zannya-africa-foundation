@@ -21,13 +21,13 @@ Success (){
             }>
                 <h3 className={styles.headings}>Success Stories</h3>
                 <p>
-                    In our daily life, we often come across the term lifestyle...
+                    ZAF’s efforts have resulted in significant positive...
                 </p>
                 <button onClick={() =>
-                    router.push('')
+                    router.push('/Successs')
                 }
                 className={styles.arrowButton}>
-                    Read More /Successs
+                    Read More 
                 </button>
             </div>
         </div>

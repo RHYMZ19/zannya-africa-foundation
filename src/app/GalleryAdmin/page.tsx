@@ -26,7 +26,7 @@ const GalleryAdmin = () => {
     fetchMedia();
   }, []);
 
-  const handleUploadComplete = async (url: string, type: "image" | "video", category: string) => {
+  const handleUploadComplete = async (url: string, type: "image" | "video" | "raw", category: string) => {
     await addDoc(collection(db, "media"), { url, type,category, createdAt: new Date() });
     fetchMedia(); // refresh list
   };

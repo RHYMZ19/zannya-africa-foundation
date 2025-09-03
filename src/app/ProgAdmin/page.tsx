@@ -8,7 +8,6 @@ import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
 
 
-
 const countries = ['Kenya', 'Uganda', 'Nigeria', 'Ghana'];
 
 type CategoryType =

@@ -27,10 +27,10 @@ News (){
                     In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
-                    router.push('')
+                    router.push('/Newsp')
                 }
                 className={styles.arrowButton}>
-                    Read More /Newsp
+                    Read More 
                 </button>
             </div>
         </div>

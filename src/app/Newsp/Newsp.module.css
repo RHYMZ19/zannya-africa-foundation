@@ -9,16 +9,15 @@
 }
 
 .container {
-    
 
-    background: linear-gradient(to right, #3e3ee9, #2a5298);
+    background: linear-gradient(to right, #1e3c72, #2a5298);
     
     padding: 9em 1em;
     color: white;
     font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     height: 20px;
-    
+    width: 100%;
 }
 
 .c {
@@ -131,6 +130,11 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.newscard:hover {
+  transform: translateY(-8px);
 }
 
 .newsimage {
@@ -194,6 +198,17 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   .newsdescription {
     font-size: 14px;
   }
+}
+
+.imageH{
+  width: 100%;
+        min-height: 700px;
+        justify-content: center;
+        background-color: f5fafac7;
+        margin: 0;
+        display: flex;
+        padding: 0px;
+        padding-bottom: 5px;
 }
 
 

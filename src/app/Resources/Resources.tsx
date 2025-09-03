@@ -27,10 +27,10 @@ Resources (){
                     In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
-                    router.push('')
+                    router.push('/Resourcess')
                 }
                 className={styles.arrowButton}>
-                    Read More /Resourcess
+                    Read More 
                 </button>
             </div>
         </div>

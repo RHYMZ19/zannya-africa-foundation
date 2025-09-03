@@ -19,6 +19,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+
 // Signature endpoint with optional folder query
 app.get("/sign-upload", (req, res) => {
   const timestamp = Math.floor(Date.now() / 1000);

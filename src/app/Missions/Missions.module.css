@@ -601,6 +601,7 @@
   transition: transform 0.3s ease;
   display: flex;
   flex-wrap: wrap;
+  
 }
 .cir8:hover {
   transform: translateY(-8px);

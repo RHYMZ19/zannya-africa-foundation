@@ -58,7 +58,7 @@ Programs(){
                 <Image src='/images/pic1.jpg' alt="pic" style={{display: 'block', height: '100%', width: '33%'}}></Image>
                 <Image src='/images/pic4.jpg' alt="pic" style={{display: 'block', height: '100%', width: '33%'}}></Image>
             </div>
-
+            
             <div style={{height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white'}}>
                 <h1 style={{fontSize: '40px',color: 'red',  margin: '20px',fontWeight: 'bold'}}>
                     Programs and Activities

@@ -1,19 +1,18 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { db, storage } from "../lib/firebase";
+import { db } from "../lib/firebase";
 import { addDoc, collection, getDocs, serverTimestamp, Timestamp } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import styles from './NewsAdmn.module.css';
+import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
-
 
 interface NewsFormData {
   title: string;
   type: string;
   description: string;
-  image: File | null;
-  video: string;
+  images: string[]; // multiple Cloudinary URLs
+  video: string;    // single video URL
 }
 
 interface NewsItem {
@@ -21,7 +20,7 @@ interface NewsItem {
   title: string;
   type: string;
   description: string;
-  image?: string;
+  images?: string[];
   video?: string;
   timestamp?: Timestamp;
 }
@@ -31,15 +30,13 @@ const NewsAdmn = () => {
     title: "",
     type: "",
     description: "",
-    image: null,
+    images: [],
     video: "",
   });
 
   const [uploading, setUploading] = useState(false);
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
-
-
 
   const fetchNews = async () => {
     setLoading(true);
@@ -49,6 +46,13 @@ const NewsAdmn = () => {
         id: doc.id,
         ...(doc.data() as Omit<NewsItem, 'id'>)
       }));
+
+      // ✅ Sort newest first
+items.sort((a, b) => {
+  const aTime = a.timestamp ? a.timestamp.toMillis() : 0;
+  const bTime = b.timestamp ? b.timestamp.toMillis() : 0;
+  return bTime - aTime;
+});
       setNewsItems(items);
     } catch (error) {
       console.error("Error fetching news:", error);
@@ -61,16 +65,20 @@ const NewsAdmn = () => {
     fetchNews();
   }, []);
 
+  // Handles Cloudinary upload completion
+  const handleUploadComplete = (url: string, field: "image" | "video") => {
+    if (field === "image") {
+      setFormData(prev => ({ ...prev, images: [...prev.images, url] }));
+    } else if (field === "video") {
+      setFormData(prev => ({ ...prev, video: url }));
+    }
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    const { name, value, files } = e.target as HTMLInputElement;
-
-    if (name === "image" && files) {
-      setFormData({ ...formData, image: files[0] });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -78,39 +86,28 @@ const NewsAdmn = () => {
     setUploading(true);
 
     try {
-      let imageUrl = "";
-
-      if (formData.image) {
-        const imageRef = ref(storage, `news/${Date.now()}-${formData.image.name}`);
-        await uploadBytes(imageRef, formData.image);
-        imageUrl = await getDownloadURL(imageRef);
-      }
-
       const docData = {
         title: formData.title,
         type: formData.type,
         description: formData.description,
+        images: formData.images,
         video: formData.video,
-        image: imageUrl,
         timestamp: serverTimestamp(),
       };
 
       await addDoc(collection(db, "newsUpdates"), docData);
 
       alert("News uploaded!");
-      setFormData({ title: "", type: "", description: "", image: null, video: "" });
+      setFormData({ title: "", type: "", description: "", images: [], video: "" });
 
-      // Reload news items after upload
-      fetchNews();
+      fetchNews(); // reload news items
     } catch (err) {
       console.error(err);
-      alert("Error uploading.");
+      alert("Error uploading news.");
     } finally {
       setUploading(false);
     }
   };
-
-  
 
   return (
     <div className={styles.formcontainer}>
@@ -141,15 +138,42 @@ const NewsAdmn = () => {
           required
         ></textarea>
 
-        <input type="file" name="image" accept="image/*" onChange={handleChange} />
-
-        <input
-          type="text"
-          name="video"
-          placeholder="Video URL (optional)"
-          value={formData.video}
-          onChange={handleChange}
+        {/* Cloudinary Image Upload */}
+        <label>Upload Images</label>
+        <CloudinaryUploader
+          onUploadComplete={(url) => handleUploadComplete(url, "image")}
+          folder="zannya/uploads"
+          category="news"
         />
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: 8 }}>
+          {formData.images.map((img, i) => (
+            <Image
+              key={i}
+              src={img}
+              alt={`Image ${i}`}
+              width={150}
+              height={100}
+              style={{ objectFit: "cover", borderRadius: 6 }}
+            />
+          ))}
+        </div>
+
+        {/* Cloudinary Video Upload */}
+        <label>Upload Video</label>
+        <CloudinaryUploader
+          onUploadComplete={(url) => handleUploadComplete(url, "video")}
+          folder="zannya/uploads"
+          category="news"
+          resourceType="video"
+        />
+
+        {formData.video && (
+          <video controls style={{ maxWidth: "300px", marginTop: 8 }}>
+            <source src={formData.video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
 
         <button type="submit" disabled={uploading}>
           {uploading ? "Uploading..." : "Submit"}
@@ -169,12 +193,24 @@ const NewsAdmn = () => {
             <h3>{item.title}</h3>
             <p><strong>Type:</strong> {item.type}</p>
             <p>{item.description}</p>
-            {item.image && <Image src={item.image} alt={item.title} style={{ maxWidth: '100%', borderRadius: 8 }} />}
+            {item.images?.map((img, idx) => (
+              <Image
+                key={idx}
+                src={img}
+                alt={item.title}
+                style={{ maxWidth: '100%', borderRadius: 8, marginTop: 8 }}
+              />
+            ))}
             {item.video && (
               <video controls style={{ maxWidth: '100%', marginTop: 8 }}>
                 <source src={item.video} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+            )}
+            {item.timestamp && (
+              <small style={{ display: "block", marginTop: 4 }}>
+                {item.timestamp.toDate().toLocaleDateString()}
+              </small>
             )}
             <hr />
           </div>
