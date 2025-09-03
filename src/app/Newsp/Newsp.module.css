@@ -202,7 +202,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
 
 .imageH{
   width: 100%;
-        min-height: 600px;
+        min-height: 300px;
         justify-content: center;
         background-color: f5fafac7;
         margin: 0;
