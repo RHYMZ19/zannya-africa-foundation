@@ -76,7 +76,7 @@ export default function Resourcess() {
       </div>
 
       <div className={styles.imageH}>
-        <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756829071/zannya/uploads/kngkholnlp6wvmzq4pa8.jpg" alt="image" style={{ width: '100%', height: '600px', display: 'block' }}></Image>
+        <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756829071/zannya/uploads/kngkholnlp6wvmzq4pa8.jpg" alt="image" style={{ width: '100%', height: 'auto', display: 'block' }}></Image>
       </div>
 
       <div style={{ padding: '40px', maxWidth: '1000px', margin: 'auto' }}>

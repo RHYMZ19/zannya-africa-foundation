@@ -86,7 +86,7 @@ export default function Newsp() {
       </div>
 
       <div className={styles.imageH}>
-        <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827150/zannya/uploads/huanavmdp4e1fksdwde1.jpg" alt="image" style={{ width: '100%', height: '600px', display: 'block' }}></Image>
+        <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827150/zannya/uploads/huanavmdp4e1fksdwde1.jpg" alt="image" style={{ width: '100%', height: 'auto', display: 'block' }}></Image>
       </div>
 
       <div style={{ height: '0px', width: '100%', justifyItems: 'center', backgroundColor: '#1e3c72' }}>
