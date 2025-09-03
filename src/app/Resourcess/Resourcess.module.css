@@ -15,7 +15,7 @@
     color: white;
     font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    height: 20px;
+    height: 10%;
     width: 100%;
 }
 
@@ -73,7 +73,7 @@
 .imageH{
     
         width: 100%;
-        min-height: 700px;
+        min-height: 600px;
         justify-content: center;
         background-color: f5fafac7;
         margin: 0;

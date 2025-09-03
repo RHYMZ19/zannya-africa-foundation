@@ -69,7 +69,7 @@ export default function Successs() {
       </div>
 
       <div className={styles.imageH}>
-              <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg" alt="image" style={{ width: '100%', height: '700px', display: 'block' }}></Image>
+              <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg" alt="image" style={{ width: '100%', height: '600px', display: 'block' }}></Image>
             </div>
 
 
