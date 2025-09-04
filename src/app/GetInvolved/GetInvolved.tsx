@@ -33,11 +33,11 @@ GetInvolved () {
                 <p style={{color: 'blue', fontWeight: 'bold'}}>Be part of the change!!</p>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('')}>Testimonial or Quote(/Successs)</p>
+                    <p onClick={() => router.push('/Successs')}>Testimonial or Quote</p>
                 </h3>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('')}>Stay Connected / Newsletter(/Newsp)</p>
+                    <p onClick={() => router.push('/Newsp')}>Stay Connected / Newsletter</p>
                 </h3>
 
                 <h3 className={styles.Q}>
@@ -49,11 +49,11 @@ GetInvolved () {
                 </h3>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('')}>Join Our Campaigns / Events (/Newsp)</p>
+                    <p onClick={() => router.push('/Newsp')}>Join Our Campaigns / Events</p>
                 </h3>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('')}>Partnerships & Sponsorships (/Missions)</p>
+                    <p onClick={() => router.push('/Missions')}>Partnerships & Sponsorships</p>
                 </h3>
 
                 <h3 className={styles.Q}>
