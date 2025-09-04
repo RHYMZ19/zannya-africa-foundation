@@ -1,5 +1,5 @@
 'use client';
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query, Timestamp } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../lib/firebase";
 
@@ -7,7 +7,7 @@ interface Comment {
   id: string;
   text: string;
   userId: string;
-  timestamp?: any;
+  timestamp?: Timestamp;
 }
 
 export default function CommentList({ newsId }: { newsId: string }) {
