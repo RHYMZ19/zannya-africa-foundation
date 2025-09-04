@@ -10,56 +10,50 @@ import React, { useEffect, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ContactUs from "../ContactUs/page";
-import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import Image from "next/image";
 import IncreaseIma from "./components/IncreaseIma";
 
-// Import the same categories structure
+import db from "../lib/firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
+
 const categories = {
-  'Skilling and Livelihood': {
-    title: 'Skilling and Livelihood',
-    description: 'Programs aimed at improving skills, income, and community engagement.',
-    subcategories: ['Vocational Training', 'Income Generating Activities', 'Sports Skilling', 'Mentorship on Life Skills']
-  },
-  'Reproductive & Physical Health Awareness': {
-    title: 'Reproductive & Physical Health Awareness',
-    description: 'Programs focused on health education, family planning, and fitness.',
-    subcategories: [
-      'Sexual and Reproductive Health Education',
-      'Menstrual Health Management',
-      'Family Planning, Career Guidance and Counselling',
-      'Organized Sports and Fitness',
-      'Nutrition & Healthy Eating',
-      'Disease Prevention and Management',
-      'Community Outreaches',
-      'Partnerships and Collaborations',
-      'Advocacy Efforts'
-    ]
-  },
-  'Climate Justice Advocacy': {
-    title: 'Climate Justice Advocacy',
-    description: 'Programs to promote climate awareness and community-led action.',
-    subcategories: [
-      'Climate Change Awareness and Education',
-      'Advocacy and Policy Influence',
-      'The ZAF Ecofit Camp',
-      'Climate Initiative in Schools',
-      'Sports Clubs for Community Cleaning',
-      'Fruit Tree Plant per Home Initiative',
-      'Community-Led Climate Action'
-    ]
-  }
+  'Skilling and Livelihood': 'Skilling and Livelihood',
+  'Reproductive & Physical Health Awareness': 'Reproductive & Physical Health Awareness',
+  'Climate Justice Advocacy': 'Climate Justice Advocacy'
 };
 
 export default function Programs() {
   const router = useRouter();
   const [visible, setVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [programs, setPrograms] = useState<any[]>([]);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
     setTimeout(() => setVisible(true), 100);
   }, []);
+
+  // Fetch programs from Firestore when category changes
+  useEffect(() => {
+    if (!selectedCategory) return;
+
+    const fetchPrograms = async () => {
+      try {
+        const q = query(
+          collection(db, "filters"),
+          where("category", "==", selectedCategory)
+        );
+        const snapshot = await getDocs(q);
+        const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setPrograms(data);
+      } catch (error) {
+        console.error("Error fetching programs:", error);
+      }
+    };
+
+    fetchPrograms();
+  }, [selectedCategory]);
 
   return (
     <div style={{ overflow: 'hidden' }}>
@@ -117,61 +111,71 @@ export default function Programs() {
         </p>
 
         <div data-aos='fade-up' style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-  <div style={{
-    width: '90%',
-    maxWidth: '800px',
-    backgroundColor: '#f9f9f9',
-    padding: '20px',
-    borderRadius: '12px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-  }}>
-    {/* Category Selection */}
-    <label style={{ fontWeight: 'bold', fontSize: '18px', display: 'block', marginBottom: '10px' }}>
-      Select Program Category
-    </label>
-    <select
-  value={selectedCategory}
-  onChange={(e) => setSelectedCategory(e.target.value)}
-  style={{
-    width: '100%',
-    padding: '10px',
-    borderRadius: '8px',
-    border: '1px solid #ccc',
-    fontSize: '16px',
-    marginBottom: '20px'
-  }}
->
-  <option value="">-- Select Category --</option>
-  {(Object.keys(categories) as (keyof typeof categories)[]).map(cat => (
-    <option key={cat} value={cat}>{categories[cat].title}</option>
-  ))}
-</select>
+          <div style={{
+            width: '90%',
+            maxWidth: '800px',
+            backgroundColor: '#f9f9f9',
+            padding: '20px',
+            borderRadius: '12px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          }}>
+            {/* Category Selection */}
+            <label style={{ fontWeight: 'bold', fontSize: '18px', display: 'block', marginBottom: '10px' }}>
+              Select Program Category
+            </label>
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '10px',
+                borderRadius: '8px',
+                border: '1px solid #ccc',
+                fontSize: '16px',
+                marginBottom: '20px'
+              }}
+            >
+              <option value="">-- Select Category --</option>
+              {(Object.keys(categories) as (keyof typeof categories)[]).map(cat => (
+                <option key={cat} value={cat}>{categories[cat]}</option>
+              ))}
+            </select>
 
-{selectedCategory && (
-  <div style={{ marginTop: '20px' }}>
-    <div style={{
-      backgroundColor: '#fff',
-      padding: '20px',
-      borderRadius: '10px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-    }}>
-      <h2 style={{ fontSize: '24px', color: '#d32f2f', marginBottom: '10px' }}>
-        {categories[selectedCategory as keyof typeof categories].title}
-      </h2>
-      <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '15px' }}>
-        {categories[selectedCategory as keyof typeof categories].description}
-      </p>
-      <h3 style={{ fontSize: '18px', marginBottom: '10px', fontWeight: '600' }}>Subcategories:</h3>
-      <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-        {categories[selectedCategory as keyof typeof categories].subcategories.map(sub => (
-          <li key={sub} style={{ marginBottom: '6px', fontSize: '15px' }}>{sub}</li>
-        ))}
-      </ul>
-    </div>
-  </div>
-)}
-  </div>
-</div>
+            {/* Render admin-added programs */}
+            {selectedCategory && programs.map(program => (
+              <div key={program.id} style={{
+                backgroundColor: '#fff',
+                padding: '20px',
+                borderRadius: '10px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                marginBottom: '20px'
+              }}>
+                <h2 style={{ fontSize: '24px', color: '#d32f2f', marginBottom: '10px' }}>{program.name}</h2>
+                <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '15px' }}>{program.description}</p>
+
+                <h3 style={{ fontSize: '18px', marginBottom: '10px', fontWeight: '600' }}>Subcategories:</h3>
+                <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                  {program.subcategories?.map((sub: any, i: number) => (
+                    <li key={i} style={{ marginBottom: '10px', fontSize: '15px' }}>
+                      <strong>{sub.name}:</strong> {sub.description || 'No description provided.'}
+                    </li>
+                  ))}
+                </ul>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '10px' }}>
+                  {program.images?.map((img: any, i: number) => (
+                    <Image key={i} src={img} alt={`Image ${i}`} width={150} height={100} style={{ objectFit: 'cover' }} />
+                  ))}
+                  {program.videos?.map((vid: any, i: number) => (
+                    <video key={i} controls style={{ width: '200px', margin: '5px' }}>
+                      <source src={vid} type="video/mp4" />
+                    </video>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div style={{ margin: '3%', width: '100%' }}>
