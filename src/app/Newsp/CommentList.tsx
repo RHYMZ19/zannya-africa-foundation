@@ -7,6 +7,7 @@ interface Comment {
   id: string;
   text: string;
   userId: string;
+  userName?: string;
   timestamp?: Timestamp;
 }
 
@@ -32,7 +33,7 @@ export default function CommentList({ newsId }: { newsId: string }) {
       ) : (
         comments.map((c) => (
   <p key={c.id}>
-    <strong>{(c as any).userName || c.userId}</strong>: {c.text}
+    <strong>{c.userName || c.userId}</strong>: {c.text}
   </p>
 ))
       )}
