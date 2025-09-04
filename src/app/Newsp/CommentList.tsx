@@ -31,10 +31,10 @@ export default function CommentList({ newsId }: { newsId: string }) {
         <p>No comments yet</p>
       ) : (
         comments.map((c) => (
-          <p key={c.id}>
-            <strong>{c.userId}</strong>: {c.text}
-          </p>
-        ))
+  <p key={c.id}>
+    <strong>{(c as any).userName || c.userId}</strong>: {c.text}
+  </p>
+))
       )}
     </div>
   );

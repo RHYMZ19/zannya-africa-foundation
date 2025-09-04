@@ -7,8 +7,9 @@ import { getGuestId } from "./getGuestId";
 export default function LikeButton({ newsId }: { newsId: string }) {
   const [likeCount, setLikeCount] = useState(0);
   const [liked, setLiked] = useState(false);
-  const userId = getGuestId(); // use guest ID
+  const userId = getGuestId();
 
+  // listen to likes changes
   useEffect(() => {
     const unsub = onSnapshot(collection(db, "newsUpdates", newsId, "likes"), (snap) => {
       setLikeCount(snap.size);
@@ -18,23 +19,15 @@ export default function LikeButton({ newsId }: { newsId: string }) {
   }, [newsId, userId]);
 
   const toggleLike = async () => {
-    const q = query(
-      collection(db, "newsUpdates", newsId, "likes"),
-      where("userId", "==", userId)
-    );
-
+    const likesCol = collection(db, "newsUpdates", newsId, "likes");
+    const q = query(likesCol, where("userId", "==", userId));
     const snap = await getDocs(q);
 
-  if (snap.empty) {
-    // Add like
-    await addDoc(collection(db, "newsUpdates", newsId, "likes"), {
-      userId,
-      timestamp: Date.now(),
-    });
-  } else {
-    // Remove like
-    await deleteDoc(doc(db, "newsUpdates", newsId, "likes", snap.docs[0].id));
-  }
+    if (snap.empty) {
+      await addDoc(likesCol, { userId, timestamp: Date.now() });
+    } else {
+      await deleteDoc(doc(db, "newsUpdates", newsId, "likes", snap.docs[0].id));
+    }
   };
 
   return (
