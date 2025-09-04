@@ -1,7 +1,7 @@
 'use client';
 import { addDoc, collection, deleteDoc, doc, onSnapshot, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import  db  from "../lib/firebase";
+import { db } from "../lib/firebase";
 
 export default function LikeButton({ newsId }: { newsId: string }) {
   const [likeCount, setLikeCount] = useState(0);
