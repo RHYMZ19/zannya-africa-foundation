@@ -1,13 +1,13 @@
 'use client';
-import { collection, onSnapshot, orderBy, query, Timestamp } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { db }  from "../lib/firebase";
+import { db } from "../lib/firebase";
 
 interface Comment {
   id: string;
   text: string;
   userId: string;
-  timestamp?: Timestamp;
+  timestamp?: any;
 }
 
 export default function CommentList({ newsId }: { newsId: string }) {
@@ -32,13 +32,8 @@ export default function CommentList({ newsId }: { newsId: string }) {
       ) : (
         comments.map((c) => (
           <p key={c.id}>
-    <strong>{c.userId}</strong>: {c.text}
-    {c.timestamp && (
-      <small style={{ marginLeft: "8px" }}>
-        {c.timestamp.toDate().toLocaleString()}
-      </small>
-    )}
-  </p>
+            <strong>{c.userId}</strong>: {c.text}
+          </p>
         ))
       )}
     </div>

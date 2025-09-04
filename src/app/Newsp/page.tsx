@@ -17,6 +17,7 @@ import IncreaseIma from "./components/IncreaseIma";
 import Image from "next/image";
 import CommentList from "./CommentList";
 import LikeButton from "./LikeButton";
+import { getGuestId } from "./getGuestId";
 
 type NewsItem = {
   id: string;
@@ -165,10 +166,10 @@ export default function Newsp() {
       if (!input.value.trim()) return;
 
       await addDoc(collection(db, "newsUpdates", id, "comments"), {
-        text: input.value,
-        userId: "demoUser", // 🔑 replace with auth user
-        timestamp: serverTimestamp(),
-      });
+  text: input.value,
+  userId: getGuestId(), // use guest ID
+  timestamp: serverTimestamp(),
+});
 
       input.value = "";
     }}
