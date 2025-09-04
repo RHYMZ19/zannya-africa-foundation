@@ -11,10 +11,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import ContactUs from "../ContactUs/page";
-import { collection, onSnapshot, Timestamp } from "firebase/firestore";
+import { addDoc, collection, onSnapshot, serverTimestamp, Timestamp } from "firebase/firestore";
 import db from "../lib/firebase";
 import IncreaseIma from "./components/IncreaseIma";
 import Image from "next/image";
+import CommentList from "./CommentList";
+import LikeButton from "./LikeButton";
 
 type NewsItem = {
   id: string;
@@ -131,6 +133,55 @@ export default function Newsp() {
                   </small>
                 )}
               </div>
+              {/* Like, Share & Comment Section */}
+<div className={styles.actions}>
+  {/* Like Button */}
+  <LikeButton newsId={id} />
+
+  {/* Share Buttons */}
+  <div className={styles.share}>
+    <a
+      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Share on Facebook
+    </a>
+    <a
+      href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${title}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Share on Twitter
+    </a>
+  </div>
+
+  {/* Comment Form */}
+  <form
+    onSubmit={async (e) => {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const input = form.elements.namedItem("comment") as HTMLInputElement;
+      if (!input.value.trim()) return;
+
+      await addDoc(collection(db, "newsUpdates", id, "comments"), {
+        text: input.value,
+        userId: "demoUser", // 🔑 replace with auth user
+        timestamp: serverTimestamp(),
+      });
+
+      input.value = "";
+    }}
+  >
+    <input type="text" name="comment" placeholder="Write a comment..." />
+    <button type="submit">Post</button>
+  </form>
+
+  {/* Display Comments */}
+  <div className={styles.comments}>
+    <CommentList newsId={id} />
+  </div>
+</div>
             </div>
           ))
         )}
