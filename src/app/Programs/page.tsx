@@ -17,17 +17,34 @@ import db from "../lib/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 
+// Category titles
 const categories = {
   'Skilling and Livelihood': 'Skilling and Livelihood',
   'Reproductive & Physical Health Awareness': 'Reproductive & Physical Health Awareness',
   'Climate Justice Advocacy': 'Climate Justice Advocacy'
 };
 
+// Define proper types
+interface Subcategory {
+  name: string;
+  description?: string;
+}
+
+interface Program {
+  id: string;
+  name: string;
+  description: string;
+  subcategories?: Subcategory[];
+  images?: string[];
+  videos?: string[];
+  category: string;
+}
+
 export default function Programs() {
   const router = useRouter();
   const [visible, setVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const [programs, setPrograms] = useState<any[]>([]);
+  const [programs, setPrograms] = useState<Program[]>([]);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -45,7 +62,10 @@ export default function Programs() {
           where("category", "==", selectedCategory)
         );
         const snapshot = await getDocs(q);
-        const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const data: Program[] = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as Program[];
         setPrograms(data);
       } catch (error) {
         console.error("Error fetching programs:", error);
@@ -155,7 +175,7 @@ export default function Programs() {
 
                 <h3 style={{ fontSize: '18px', marginBottom: '10px', fontWeight: '600' }}>Subcategories:</h3>
                 <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-                  {program.subcategories?.map((sub: any, i: number) => (
+                  {program.subcategories?.map((sub: Subcategory, i: number) => (
                     <li key={i} style={{ marginBottom: '10px', fontSize: '15px' }}>
                       <strong>{sub.name}:</strong> {sub.description || 'No description provided.'}
                     </li>
@@ -163,10 +183,10 @@ export default function Programs() {
                 </ul>
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '10px' }}>
-                  {program.images?.map((img: any, i: number) => (
+                  {program.images?.map((img: string, i: number) => (
                     <Image key={i} src={img} alt={`Image ${i}`} width={150} height={100} style={{ objectFit: 'cover' }} />
                   ))}
-                  {program.videos?.map((vid: any, i: number) => (
+                  {program.videos?.map((vid: string, i: number) => (
                     <video key={i} controls style={{ width: '200px', margin: '5px' }}>
                       <source src={vid} type="video/mp4" />
                     </video>
