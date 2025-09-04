@@ -18,6 +18,7 @@ import Image from "next/image";
 import CommentList from "./CommentList";
 import LikeButton from "./LikeButton";
 import { getGuestId, getGuestName } from "./getGuestId";
+import ShareButton from "./ShareButton";
 
 type NewsItem = {
   id: string;
@@ -141,21 +142,8 @@ export default function Newsp() {
 
   {/* Share Buttons */}
   <div className={styles.share}>
-    <a
-      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Share on Facebook
-    </a>
-    <a
-      href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${title}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Share on Twitter
-    </a>
-  </div>
+  <ShareButton title={title} url={window.location.href} />
+</div>
 
   {/* Comment Form */}
   <form

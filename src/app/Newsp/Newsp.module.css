@@ -230,4 +230,9 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   font-size: 14px;
 }
 
+.share button:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
 
