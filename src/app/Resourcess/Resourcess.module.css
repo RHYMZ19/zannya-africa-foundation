@@ -73,12 +73,13 @@
 .imageH{
     
         width: 100%;
-        min-height: 300px;
+        min-height: 200px;
         justify-content: center;
         background-color: f5fafac7;
         margin: 0;
         display: flex;
         padding: 0px;
         padding-bottom: 5px;
+        padding-top: 2.5%;
     
 }
