@@ -156,7 +156,7 @@ export default function Newsp() {
       await addDoc(collection(db, "newsUpdates", id, "comments"), {
   text: input.value,
   userId: getGuestId(),
-  userName: getGuestName(), // <- store readable name
+  userName: getGuestName(),
   timestamp: serverTimestamp(),
 });
 
