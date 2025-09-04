@@ -155,7 +155,7 @@ export default function Programs() {
                 marginBottom: '20px'
               }}
             >
-              <option value="">-- Select Category --</option>
+              <option value="">-- Select a program --</option>
               {(Object.keys(categories) as (keyof typeof categories)[]).map(cat => (
                 <option key={cat} value={cat}>{categories[cat]}</option>
               ))}
@@ -173,7 +173,7 @@ export default function Programs() {
                 <h2 style={{ fontSize: '24px', color: '#d32f2f', marginBottom: '10px' }}>{program.name}</h2>
                 <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '15px' }}>{program.description}</p>
 
-                <h3 style={{ fontSize: '18px', marginBottom: '10px', fontWeight: '600' }}>Subcategories:</h3>
+                <h3 style={{ fontSize: '18px', marginBottom: '10px', fontWeight: '600' }}>Activities:</h3>
                 <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
                   {program.subcategories?.map((sub: Subcategory, i: number) => (
                     <li key={i} style={{ marginBottom: '10px', fontSize: '15px' }}>
