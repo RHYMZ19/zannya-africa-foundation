@@ -1,6 +1,6 @@
 'use client';
 
-import { FaHome } from "react-icons/fa";
+import { FaFacebook, FaHome, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import Gallery from "../Gallery/Gallery";
 import GetInvolved from "../GetInvolved/GetInvolved";
 import StickyBar from "../StickyBar/StickyBar";
@@ -115,9 +115,9 @@ export default function Programs() {
         padding: '1%',
         paddingBottom: '0%'
       }}>
-        <Image src='/images/pic3.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
-        <Image src='/images/pic1.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
-        <Image src='/images/pic4.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
+        <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757057864/zannya/uploads/ftkcoeguewlnojkm6soy.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
+        <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
+        <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064620/zannya/uploads/ejgjcw3ws23cdxuckncn.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
       </div>
 
       <div style={{ height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white' }}>
@@ -184,7 +184,7 @@ export default function Programs() {
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '10px' }}>
                   {program.images?.map((img: string, i: number) => (
-                    <Image key={i} src={img} alt={`Image ${i}`} width={150} height={100} style={{ objectFit: 'cover' }} />
+                    <IncreaseIma key={i} src={img} alt={`Image ${i}`}  />
                   ))}
                   {program.videos?.map((vid: string, i: number) => (
                     <video key={i} controls style={{ width: '200px', margin: '5px' }}>
@@ -197,6 +197,32 @@ export default function Programs() {
           </div>
         </div>
       </div>
+
+      <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Resources and Publications you can follow us on our socialplatforms:</strong></p>
+                          <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
+                                    <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
+                                      <FaFacebook />
+                                    </a>
+                                    <a href="https://instagram.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
+                                      <FaInstagram />
+                                    </a>
+                                    <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                      <FaTiktok />
+                                    </a>
+                                    <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                      <FaTwitter />
+                                    </a>
+                                    <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
+                                      <FaWhatsapp />
+                                    </a>
+                                  </div>
+                                  <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
+                                  <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
+                              <ul>
+                              <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
+                              <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
+                              </ul>
+                            </div>
 
       <div style={{ margin: '3%', width: '100%' }}>
         <ContactUs />
