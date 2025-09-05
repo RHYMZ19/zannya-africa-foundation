@@ -115,9 +115,9 @@ export default function Programs() {
         padding: '1%',
         paddingBottom: '0%'
       }}>
-        <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757057864/zannya/uploads/ftkcoeguewlnojkm6soy.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
+        <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064544/zannya/uploads/ioeyybvowmrjwoe0llpl.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
         <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
-        <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064620/zannya/uploads/ejgjcw3ws23cdxuckncn.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
+        <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064571/zannya/uploads/lpux4wqm27omuk9u15ei.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
       </div>
 
       <div style={{ height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white' }}>
@@ -198,7 +198,7 @@ export default function Programs() {
         </div>
       </div>
 
-      <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Resources and Publications you can follow us on our socialplatforms:</strong></p>
+      <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Programs and Activities you can follow us on our socialplatforms:</strong></p>
                           <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
                                     <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
                                       <FaFacebook />
