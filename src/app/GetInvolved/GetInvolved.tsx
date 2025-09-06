@@ -33,15 +33,15 @@ GetInvolved () {
                 <p style={{color: 'blue', fontWeight: 'bold'}}>Be part of the change!!</p>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('/Successs')}>Testimonial or Quote</p>
+                    <p onClick={() => router.push('/Successs')}>Testimonial</p>
                 </h3>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('/Newsp')}>Stay Connected / Newsletter</p>
+                    <p onClick={() => router.push('/Newsp')}>Stay Connected</p>
                 </h3>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('')}>Internships or Career Opportunities (/Internship)</p>
+                    <p onClick={() => router.push('/Internship')}> Career Opportunities</p>
                 </h3>
 
                 <h3 className={styles.Q}>
@@ -49,7 +49,7 @@ GetInvolved () {
                 </h3>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('/Newsp')}>Join Our Campaigns / Events</p>
+                    <p onClick={() => router.push('/Newsp')}>Join Our Campaigns</p>
                 </h3>
 
                 <h3 className={styles.Q}>
@@ -61,7 +61,7 @@ GetInvolved () {
                 </h3>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('')}>Volunteer Opportunities (/Internship)</p>
+                    <p onClick={() => router.push('/Internship')}>Volunteer Opportunities</p>
                 </h3>
 
                 

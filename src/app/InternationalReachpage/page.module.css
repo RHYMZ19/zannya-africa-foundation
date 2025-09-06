@@ -17,7 +17,8 @@
     color: white;
     font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    height: 20px;
+    height: 10%;
+    width: 100%;  
 }
 
 .header {
@@ -56,3 +57,43 @@
         transform: scale(1);
     }
 }
+
+.containers {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .h11 {
+      color: #0e2a47;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info, .contact-form {
+      margin-bottom: 2rem;
+    }
+
+    .contact-info p, .contact-info a {
+      font-size: 1rem;
+      margin: 0.3rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: crimson;
+      text-decoration: underline;
+    }
+
+    .social-links a {
+      margin-right: 1rem;
+      font-weight: bold;
+      color: #0e2a47;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.05);
+      color: crimson;
+    }

@@ -26,10 +26,10 @@ Contact (){
                     In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
-                    router.push('')
+                    router.push('/Contacts')
                 }
                 className={styles.arrowButton}>
-                    Read More /Contacts
+                    Read More
                 </button>
             </div>
         </div>

@@ -1,16 +1,16 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import { FaHome } from "react-icons/fa";
+import { FaFacebook, FaHome, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import Gallery from "../Gallery/Gallery";
 import GetInvolved from "../GetInvolved/GetInvolved";
-import LanguageSelecter from "../LanguageSelecter/LanguageSelecter";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import StickyBar from "../StickyBar/StickyBar";
 import styles from './Internship.module.css';
 import { useState, useEffect } from "react";
 import ContactUs from "../ContactUs/page";
-import Image from "next/image";
+import IncreaseImaa from "./components/IncreaseImaa";
+
 
 export default function
     Internship() {
@@ -20,13 +20,37 @@ export default function
          useEffect(() => {
            setTimeout(() =>
            setVisible(true), 100);}, []);
+           
+
+           const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.currentTarget);
+
+  const res = await fetch("/api/sendMail", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: formData.get("name"),
+      email: formData.get("email"),
+      motivation: formData.get("motivation"),
+    }),
+  });
+
+  if (res.ok) {
+    alert("Application submitted successfully!");
+    e.currentTarget.reset();
+  } else {
+    alert("Failed to send application. Try again.");
+  }
+};
         return(
-           <div>
+           <div style={{ overflow: 'hidden' }}>
+            <div style={{ justifyItems: 'center', gap: '1%' }}>
              <StickyBar>
-                <FaHome size={24} color="black" cursor='pointer' onClick={() => router.push('/')} >Home
+                <FaHome style={{ width: '25%', height: '25%' }} color="black" cursor='pointer' onClick={() => router.push('/')} >Home
                 </FaHome>
                     <GetInvolved />
-                    <LanguageSelecter />
                     <Gallery />
                     <button onClick={() =>
                                         router.push('')
@@ -34,8 +58,9 @@ export default function
                                     className={styles.arrowButton}>
                                         Donate
                     </button>
-                    < Image src='/log.jpg' alt="log" width={100} height={100}></Image>
+                    <IncreaseImaa src='/log.jpg' alt="log" />
             </StickyBar>
+            </div>
             <div className={styles.container}>
                             <header className={`header ${visible ? 'show' : ""}`}>
                             <h1 className={styles.h1}>
@@ -62,7 +87,7 @@ export default function
                                     <li>Communications Intern</li>
                                     <li>Research & Data Intern</li>
                                     <li>
-                                        <a href="/pdfs/Zannya Africa F-WPS Offices.pdf"
+                                        <a href="https://res.cloudinary.com/dpwuym7xg/raw/upload/v1757161753/zannya/success/x1hmb0jzowoxbnakleb2.pdf"
                                         download
                                         className={styles.DW}>download internship_description</a>
                                     </li>
@@ -84,26 +109,24 @@ export default function
 
                                 <h3 style={{paddingTop: '15px'}}><strong>Application Process:</strong></h3>
                                 <p>
-                                    To apply, send your CV and a short cover letter to <a href="mailto:careers@zannyafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>careers@zannyafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
+                                    To apply, send your CV and a short cover letter to <a href="mailto:rahimssenabulya@zannyafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>rahimssenabulya@zannyafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
                                 </p>
                                 
-                                <form className={styles.form}>
-                                    <label>
-                                        Full Name:...
-                                        <input type='text' name='name' required />
-                                    </label>
-                                    <label>
-                                        Email:...
-                                        <input type='text' name='email' required />
-                                    </label>
-                                    <label>
-                                        Why are you intrested?
-                                        <textarea name='motivation'
-                                        rows={4} required></textarea>
-                                    </label>
-                                    <button type="submit" className={styles.btn}> Submit Application</button>
-                                </form>
-
+                                <form className={styles.form} onSubmit={handleSubmit}>
+  <label>
+    Full Name:
+    <input type='text' name='name' required />
+  </label>
+  <label>
+    Email:
+    <input type='text' name='email' required />
+  </label>
+  <label>
+    Why are you interested?
+    <textarea name='motivation' rows={4} required></textarea>
+  </label>
+  <button type="submit" className={styles.btn}>Submit Application</button>
+</form>
                                 <h3 style={{paddingTop: '15px'}}><strong>Internship Benefits:</strong></h3>
                                 <ul>
                                     <li>Mentorship from experienced professionals</li>
@@ -127,6 +150,33 @@ export default function
                     </section>
 
                 </div>
+
+                <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Opportunities you can follow us on our socialplatforms:</strong></p>
+                                          <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
+                                                    <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
+                                                      <FaFacebook />
+                                                    </a>
+                                                    <a href="https://instagram.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
+                                                      <FaInstagram />
+                                                    </a>
+                                                    <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                                      <FaTiktok />
+                                                    </a>
+                                                    <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                                      <FaTwitter />
+                                                    </a>
+                                                    <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
+                                                      <FaWhatsapp />
+                                                    </a>
+                                                  </div>
+                                                  <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
+                                                  <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
+                                              <ul>
+                                              <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
+                                              <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
+                                              </ul>
+                                            </div>
+                                            
                 <ContactUs></ContactUs>
             <OptionalFeatures></OptionalFeatures>
         </div> 

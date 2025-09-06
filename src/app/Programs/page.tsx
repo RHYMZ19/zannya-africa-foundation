@@ -96,7 +96,7 @@ export default function Programs() {
           <IncreaseIma src='/log.jpg' alt="log" />
         </StickyBar>
       </div>
-
+      
       <div className={styles.container}>
         <header className={`header ${visible ? 'show' : ""}`}>
           <h1 className={styles.h1}>PROGRAMS AND ACTIVITIES</h1>
