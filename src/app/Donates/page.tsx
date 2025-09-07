@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import { FaFacebook, FaHome, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 import Gallery from '../Gallery/Gallery';
 import GetInvolved from '../GetInvolved/GetInvolved';
-import LanguageSelecter from '../LanguageSelecter/LanguageSelecter';
 import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
 import StickyBar from '../StickyBar/StickyBar';
 import { MdEmail } from 'react-icons/md';
