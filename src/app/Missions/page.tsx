@@ -281,7 +281,7 @@ Missions() {
 
   <div className={styles.ctabox}>
     <p>Interested in partnering with us?</p>
-    <a className={styles.ctabutton} href="/contact">Contact Us</a>
+    <a className={styles.ctabutton} href="/Contacts">Contact Us</a>
   </div>
 </section>
             </div>
