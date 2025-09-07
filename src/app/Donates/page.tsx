@@ -40,7 +40,7 @@ export default function Donates() {
                                 <div className={styles.containers}>
                 <header className={`header ${visible ? 'show' : ""}`}>
                 <h1 className={styles.h1}>
-                    DONATE / SUPPORT
+                    DONATE
                 </h1>
                 <p className={styles.p1}>
                     Zannya Africa foundation
