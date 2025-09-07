@@ -1,6 +1,6 @@
 .thumbnail {
-  width: 30%;
-  height: auto;
+  width: 25%;
+  height: 70%;
   cursor: pointer;
   transition: transform 0.3s ease;
   overflow: hidden;
