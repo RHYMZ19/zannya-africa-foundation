@@ -24,7 +24,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ContactUs from "./ContactUs/page";
 import Hd from "./Hd/page";
-import Image from "next/image";
 import IncreaseImages from "./components/IncreaseImages";
 
 
