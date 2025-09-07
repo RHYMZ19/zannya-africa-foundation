@@ -26,10 +26,10 @@ Donate (){
                     In our daily life, we often come across the term lifestyle...
                 </p>
                 <button onClick={() =>
-                    router.push('')
+                    router.push('/Donates')
                 }
                 className={styles.arrowButton}>
-                    Read More /Donates
+                    Read More
                 </button>
             </div>
         </div>

@@ -7,7 +7,6 @@ import StickyBar from "./StickyBar/StickyBar";
 import HamburgerIcon from "./HamburgerIcon/HamburgerIcon";
 import OptionalFeatures from "./OptionalFeatures/OptionalFeatures";
 import Divider from './Divider/Divider';
-import LanguageSelecter from "./LanguageSelecter/LanguageSelecter";
 import Gallery from "./Gallery/Gallery";
 import GetInvolved from "./GetInvolved/GetInvolved";
 import Programsservices from "./Programsservices/Programsservices";
@@ -26,6 +25,7 @@ import 'aos/dist/aos.css';
 import ContactUs from "./ContactUs/page";
 import Hd from "./Hd/page";
 import Image from "next/image";
+import IncreaseImages from "./components/IncreaseImages";
 
 
 
@@ -45,10 +45,11 @@ Home() {
 
     
     return (
-        <div><StickyBar>
+        <div style={{ overflow: 'hidden' }}>
+            <div style={{ justifyItems: 'center', gap: '1%' }}>
+            <StickyBar>
                     <HamburgerIcon />
                     <GetInvolved />
-                    <LanguageSelecter />
                     <Gallery />
                     <button onClick={() =>
                                         router.push('')
@@ -56,8 +57,9 @@ Home() {
                                     className={styles.arrowButton}>
                                         Donate
                                     </button>
-                    < Image src='/log.jpg' alt="log" style={{width: '20%', height: '120%',overflow: 'hidden'}}></Image>
+                    <IncreaseImages src='/log.jpg' alt="log" />
                 </StickyBar>
+                </div>
                 <ImageScroll></ImageScroll>
                 <Hd></Hd>
         

@@ -168,14 +168,6 @@ HamburgerIcon() {
                         }}>GetInvolve</a>
                         </li>
 
-                        <li><a href='#InternationalReach' style={{
-                            color: '#fff',
-                            lineHeight: '3',
-                            textDecorationLine: 'underline',
-                            textDecoration: "none"
-                        }}>International Reach</a>
-                        </li>
-
 
                         <li><a href='#Contact' style={{
                             color: '#fff',
