@@ -16,6 +16,7 @@ import IncreaseImagi from "./components/IncreaseImagi";
 import db from "../lib/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
+import IncreaseIma from "./components/IncreaseIma";
 
 // Category titles
 const categories = {
@@ -93,7 +94,7 @@ export default function Programs() {
             onClick={() => router.push('/Donates')}
             className={styles.arrowButton}>Donate
           </button>
-          <IncreaseImagi src='/log.jpg' alt="log" />
+          <IncreaseIma src='/log.jpg' alt="log" />
         </StickyBar>
       </div>
       
