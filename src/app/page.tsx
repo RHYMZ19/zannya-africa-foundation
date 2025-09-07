@@ -67,8 +67,6 @@ Home() {
                     <Mission data-aos='slide-right'></Mission>
              <Divider title="Services"/>
              <Programsservices data-aos='fade-up'/>
-             <Divider title="International Reach"/>
-            <InternationalReach></InternationalReach>
             <Divider title="News & Updates"/>
             <News></News>
             <Divider title="Resources"/>

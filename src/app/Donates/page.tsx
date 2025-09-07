@@ -11,12 +11,13 @@ import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
 import StickyBar from '../StickyBar/StickyBar';
 import { MdEmail } from 'react-icons/md';
 import Image from 'next/image';
+import IncreaseI from './components/IncreaseI';
 
 export default function Donates() {
   const [amount, setAmount] = useState(25);
 
   const handleDonation = () => {
-    alert(`Redirecting to payment for $${amount}`);
+    alert(`Currently unavailable, kindly use mobile money bellow for $${amount}`);
     // integrate Pesapal or other payment API here
   };
 
@@ -27,19 +28,20 @@ export default function Donates() {
               setVisible(true), 100);}, []);
 
   return (
-    <div>
+    <div style={{ overflow: 'hidden' }}>
+      <div style={{ justifyItems: 'center', gap: '1%' }}>
         <StickyBar>
-                                <FaHome size={24} color="black" cursor='pointer' onClick={() => router.push('/')} >
+                                <FaHome style={{ width: '25%', height: '25%' }} color="black" cursor='pointer' onClick={() => router.push('/')} >
                                 Home</FaHome>
                                 <GetInvolved />
-                                <LanguageSelecter />
                                 <Gallery />
                                 <button onClick={() =>
                                 router.push('/Donates')}
                                 className={styles.arrowButton}>Donate
                                 </button>
-                                < Image src='/log.jpg' alt="log" width={100} height={100}></Image>
+                                <IncreaseI src='/log.jpg' alt="log" />
                                 </StickyBar>
+                                </div>
 
                                 <div className={styles.containers}>
                 <header className={`header ${visible ? 'show' : ""}`}>
@@ -83,8 +85,9 @@ export default function Donates() {
 
       <div className={styles.contact}>
         <h4>Have questions or want to donate in-kind?</h4>
-        <p>Email: <a href="mailto:donate@zannya.org">donate@zannya.org</a></p>
-        <p>WhatsApp: <a href="https://wa.me/256700340576">+256 700340576</a></p>
+        <p>Email: <a href="mailto:support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></p>
+        <p>WhatsApp: <a href="https://wa.me/256786797963">+256 786797963</a></p>
+        <p>Mobile: <a href="https://wa.me/256700340576">+256 700 340 576</a></p>
       </div>
     </div>
 
@@ -92,16 +95,16 @@ export default function Donates() {
           <h2>Contact Us</h2>
     
           <div className={styles.iconRow}>
-            <a href="https://facebook.com/zannya" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+            <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
               <FaFacebook />
             </a>
-            <a href="https://twitter.com/zannya" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+            <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
               <FaTwitter />
             </a>
-            <a href="mailto:info@zannya.org" className={styles.iconLink}>
+            <a href="mailto:info@zannyaafricafoundation.org" className={styles.iconLink}>
               <MdEmail />
             </a>
-            <a href="https://wa.me/256700000000" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+            <a href="https://wa.me/256786797963" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
               <FaWhatsapp />
             </a>
           </div>
