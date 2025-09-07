@@ -205,9 +205,9 @@ export default function Programs() {
         <p style={{marginTop: '1.5%'}}><strong>Our methodology involves:</strong></p>
         <p>. Community Engagement: We engage with local communities, leaders, and stakeholders to identify needs, priorities, and potential
              solutions.</p>
-        <p>. Participatory Needs Assessment: We conduct participatory needs assessments to understand the community's specific challenges
+        <p>. Participatory Needs Assessment: We conduct participatory needs assessments to understand the communitys specific challenges
              and aspirations.</p>
-        <p>. Inclusive Program Design: We design programs that are inclusive, responsive, and relevant to the community's needs, with a focus
+        <p>. Inclusive Program Design: We design programs that are inclusive, responsive, and relevant to the communitys needs, with a focus
              on marginalized groups.</p>
         <p>. Capacity Building: We build the capacity of local community members, leaders, and organizations to implement, manage, and
              sustain programs.</p>
