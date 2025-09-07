@@ -202,7 +202,7 @@ export default function Programs() {
         <h1>Participatory Methodology/Approach:</h1>
         <p><strong>Zannya Africa Foundation adopts a participatory approach that empowers communities
              to take ownership of their development.</strong></p>
-        <p style={{marginTop: '1.5%'}}><strong>Our methodology involves:</strong></p>
+        <p style={{marginTop: '2.5%'}}><strong>Our methodology involves:</strong></p>
         <p>. Community Engagement: We engage with local communities, leaders, and stakeholders to identify needs, priorities, and potential
              solutions.</p>
         <p>. Participatory Needs Assessment: We conduct participatory needs assessments to understand the communitys specific challenges
@@ -217,7 +217,7 @@ export default function Programs() {
              progress, identify challenges, and inform program adjustments.</p>
         <p>. Partnerships and Collaborations: We foster partnerships and collaborations with local organizations, government agencies, and
              stakeholders to leverage resources, expertise, and support.</p>
-        <p style={{marginTop: '1.5%'}}><strong>By adopting this participatory approach, Zannya Africa Foundation ensures that our programs are community-driven, effective, and
+        <p style={{marginTop: '2.5%'}}><strong>By adopting this participatory approach, Zannya Africa Foundation ensures that our programs are community-driven, effective, and
              sustainable, ultimately contributing to the empowerment and well-being of marginalized communities in Uganda.</strong></p>
       </div>
 
