@@ -198,6 +198,29 @@ export default function Programs() {
         </div>
       </div>
 
+      <div className={styles.c1}>
+        <h1>Participatory Methodology/Approach:</h1>
+        <p><strong>Zannya Africa Foundation adopts a participatory approach that empowers communities
+             to take ownership of their development.</strong></p>
+        <p style={{marginTop: '1.5%'}}><strong>Our methodology involves:</strong></p>
+        <p>. Community Engagement: We engage with local communities, leaders, and stakeholders to identify needs, priorities, and potential
+             solutions.</p>
+        <p>. Participatory Needs Assessment: We conduct participatory needs assessments to understand the community's specific challenges
+             and aspirations.</p>
+        <p>. Inclusive Program Design: We design programs that are inclusive, responsive, and relevant to the community's needs, with a focus
+             on marginalized groups.</p>
+        <p>. Capacity Building: We build the capacity of local community members, leaders, and organizations to implement, manage, and
+             sustain programs.</p>
+        <p>. Community-Led Implementation: We support community-led implementation of programs, ensuring that local ownership and
+             decision-making are prioritized.</p>
+        <p>. Monitoring, Evaluation, and Learning: We establish participatory monitoring, evaluation, and learning mechanisms to track
+             progress, identify challenges, and inform program adjustments.</p>
+        <p>. Partnerships and Collaborations: We foster partnerships and collaborations with local organizations, government agencies, and
+             stakeholders to leverage resources, expertise, and support.</p>
+        <p style={{marginTop: '1.5%'}}><strong>By adopting this participatory approach, Zannya Africa Foundation ensures that our programs are community-driven, effective, and
+             sustainable, ultimately contributing to the empowerment and well-being of marginalized communities in Uganda.</strong></p>
+      </div>
+
       <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Programs and Activities you can follow us on our socialplatforms:</strong></p>
                           <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
                                     <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
