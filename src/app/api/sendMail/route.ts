@@ -9,6 +9,11 @@ export async function POST(req: Request) {
   }
 
   try {
+
+     // 🔹 Debug: check if environment variables are loaded
+    console.log("EMAIL_USER:", process.env.EMAIL_USER);
+    console.log("EMAIL_PASS exists:", !!process.env.EMAIL_PASS);
+    
     const transporter = nodemailer.createTransport({
       service: "gmail", // you can also configure SMTP manually
       auth: {
