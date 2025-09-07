@@ -56,7 +56,7 @@ export default function Successs() {
         <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >Home</FaHome>
         <GetInvolved />
         <Gallery />
-        <button onClick={() => router.push('')} className={styles.arrowButton}>Donate</button>
+        <button onClick={() => router.push('/Donates')} className={styles.arrowButton}>Donate</button>
         < IncreaseIma src='/log.jpg' alt="log" ></IncreaseIma>
       </StickyBar>
       </div>
@@ -119,7 +119,7 @@ export default function Successs() {
 
           <div className={styles.cta}>
             <p>Want to support more success stories like these?</p>
-            <a href="/donate" className={styles.donatebutton}>Donate Now</a>
+            <a href="/Donates" className={styles.donatebutton}>Donate Now</a>
           </div>
         </section>
       </div>

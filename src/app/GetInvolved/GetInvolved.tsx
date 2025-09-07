@@ -57,7 +57,7 @@ GetInvolved () {
                 </h3>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('')}>Support Financially</p>
+                    <p onClick={() => router.push('/Donates')}>Support Financially</p>
                 </h3>
 
                 <h3 className={styles.Q}>

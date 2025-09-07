@@ -90,7 +90,7 @@ export default function Programs() {
           <GetInvolved />
           <Gallery />
           <button
-            onClick={() => router.push('')}
+            onClick={() => router.push('/Donates')}
             className={styles.arrowButton}>Donate
           </button>
           <IncreaseIma src='/log.jpg' alt="log" />

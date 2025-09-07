@@ -34,7 +34,7 @@ export default function InternationalReachPage() {
         <GetInvolved />
         <Gallery />
         <button 
-          onClick={() => router.push('')}
+          onClick={() => router.push('/Donates')}
           className={styles.arrowButton}>
           Donate
         </button>

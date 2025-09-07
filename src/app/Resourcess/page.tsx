@@ -63,7 +63,7 @@ export default function Resourcess() {
         </FaHome>
         <GetInvolved />
         <Gallery />
-        <button onClick={() => router.push('')} className={styles.arrowButton}>Donate</button>
+        <button onClick={() => router.push('/Donates')} className={styles.arrowButton}>Donate</button>
         < IncreaseIma src='/log.jpg' alt="log" ></IncreaseIma>
       </StickyBar>
       </div>

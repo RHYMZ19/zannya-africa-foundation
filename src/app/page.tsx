@@ -50,7 +50,7 @@ Home() {
                     <GetInvolved />
                     <Gallery />
                     <button onClick={() =>
-                                        router.push('')
+                                        router.push('/Donates')
                                     }
                                     className={styles.arrowButton}>
                                         Donate

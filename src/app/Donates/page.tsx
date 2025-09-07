@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import styles from './Donates.module.css';
 import { useRouter } from 'next/navigation';
-import { FaFacebook, FaHome, FaTwitter, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaHome, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 import Gallery from '../Gallery/Gallery';
 import GetInvolved from '../GetInvolved/GetInvolved';
 import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
@@ -88,6 +88,32 @@ export default function Donates() {
         <p>Mobile: <a href="https://wa.me/256700340576">+256 700 340 576</a></p>
       </div>
     </div>
+
+    <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong> You can follow us on our socialplatforms:</strong></p>
+                                          <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
+                                                    <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
+                                                      <FaFacebook />
+                                                    </a>
+                                                    <a href="https://instagram.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
+                                                      <FaInstagram />
+                                                    </a>
+                                                    <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                                      <FaTiktok />
+                                                    </a>
+                                                    <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                                      <FaTwitter />
+                                                    </a>
+                                                    <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
+                                                      <FaWhatsapp />
+                                                    </a>
+                                                  </div>
+                                                  <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
+                                                  <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
+                                              <ul>
+                                              <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
+                                              <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
+                                              </ul>
+                                            </div>
 
     <div className={styles.contactContainer}>
           <h2>Contact Us</h2>
