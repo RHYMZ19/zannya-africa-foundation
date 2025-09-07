@@ -11,7 +11,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ContactUs from "../ContactUs/page";
 import Image from "next/image";
-import IncreaseIma from "./components/IncreaseIma";
+import IncreaseImagi from "./components/IncreaseImagi";
 
 import db from "../lib/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -93,7 +93,7 @@ export default function Programs() {
             onClick={() => router.push('/Donates')}
             className={styles.arrowButton}>Donate
           </button>
-          <IncreaseIma src='/log.jpg' alt="log" />
+          <IncreaseImagi src='/log.jpg' alt="log" />
         </StickyBar>
       </div>
       
@@ -184,7 +184,7 @@ export default function Programs() {
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '10px' }}>
                   {program.images?.map((img: string, i: number) => (
-                    <IncreaseIma key={i} src={img} alt={`Image ${i}`}  />
+                    <IncreaseImagi key={i} src={img} alt={`Image ${i}`}  />
                   ))}
                   {program.videos?.map((vid: string, i: number) => (
                     <video key={i} controls style={{ width: '200px', margin: '5px' }}>
