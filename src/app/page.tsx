@@ -11,7 +11,6 @@ import Gallery from "./Gallery/Gallery";
 import GetInvolved from "./GetInvolved/GetInvolved";
 import Programsservices from "./Programsservices/Programsservices";
 import Mission from "./Mission/Mission";
-import InternationalReach from "./InternationalReach/InternationalReach";
 import News from "./News/News";
 import Resources from "./Resources/Resources";
 import Success from "./Success/Success";

@@ -10,7 +10,6 @@ import LanguageSelecter from '../LanguageSelecter/LanguageSelecter';
 import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
 import StickyBar from '../StickyBar/StickyBar';
 import { MdEmail } from 'react-icons/md';
-import Image from 'next/image';
 import IncreaseI from './components/IncreaseI';
 
 export default function Donates() {
