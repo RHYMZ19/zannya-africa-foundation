@@ -33,10 +33,6 @@ export default function Donates() {
                                 Home</FaHome>
                                 <GetInvolved />
                                 <Gallery />
-                                <button onClick={() =>
-                                router.push('/Donates')}
-                                className={styles.arrowButton}>Donate
-                                </button>
                                 <IncreaseI src='/log.jpg' alt="log" />
                                 </StickyBar>
                                 </div>
