@@ -53,7 +53,7 @@ GetInvolved () {
                 </h3>
 
                 <h3 className={styles.Q}>
-                    <p onClick={() => router.push('/Missions')}>Partnerships & Sponsorships</p>
+                    <p onClick={() => router.push('/Missions')}>Partnerships</p>
                 </h3>
 
                 <h3 className={styles.Q}>
