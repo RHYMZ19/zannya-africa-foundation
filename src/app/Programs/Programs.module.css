@@ -78,6 +78,8 @@
 }
 
 .c1{
+    width: 100%;
+    height: 500px;
     padding: 20%;
     background-color: rgb(163, 45, 2);
     color: black;
