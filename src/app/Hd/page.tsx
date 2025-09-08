@@ -5,7 +5,7 @@ export default function
 Hd() {
     return(
         <div style={{display: 'flex',justifyContent: 'center', flexDirection: 'column',height: '100%',width: '100%', alignItems: 'center'}}>
-            <div style={{justifyItems: 'center', width: '70%',borderColor: 'red', height: '100%', paddingBottom: '5rem', paddingTop: '5rem'}}>
+            <div style={{justifyItems: 'center', width: '70%',borderColor: 'red', height: '100%', marginBottom: '0%', marginTop: '0%'}}>
                 < Image src='/log.jpg' alt="log" style={{width: '90%', height: '100%',}}></Image>
             </div>
 

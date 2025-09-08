@@ -67,7 +67,7 @@ ImageScroll() {
     }, []);
 
     return (
-      <div style={{ position: "relative", width: "100%",height: '500px'}}>
+      <div style={{ position: "relative", width: "100%",height: '600px'}}>
         <div className={Styles.scroll}>
             {images.map((src, index) => (
                 <Image
