@@ -14,11 +14,11 @@ Hd() {
                 color: 'rgb(128, 12, 12)',
                 fontSize: '40px',
                 fontStyle: 'italic',
-                marginBottom: '0', 
+                marginBottom: '0%', 
                 lineHeight: '1',
                 fontWeight: 'bolder',
-                marginTop: '0',
-                paddingTop: '1rem'
+                marginTop: '0%',
+                paddingTop: '0%'
                 }}>ZANNYA AFRICA </h1>
 
                 <h2 style={{
