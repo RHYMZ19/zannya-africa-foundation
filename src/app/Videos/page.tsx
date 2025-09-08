@@ -1,32 +1,32 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "../lib/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import Image from "next/image";
 
 interface MediaItem {
   url: string;
   type: "image" | "video";
-  category: string;
   createdAt: any;
 }
 
 export default function Videos() {
-  const [filter, setFilter] = useState("image"); // default: images
+  const [filter, setFilter] = useState<"image" | "video">("image");
   const [items, setItems] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(false);
 
+  // Load from Firestore
   useEffect(() => {
-    const loadMedia = async () => {
+    const loadItems = async () => {
       setLoading(true);
       try {
-        const snap = await getDocs(collection(db, "media"));
-        const allMedia = snap.docs.map(doc => doc.data() as MediaItem);
+        const q = query(collection(db, "media"), orderBy("createdAt", "desc"));
+        const snap = await getDocs(q);
+        const data = snap.docs.map(doc => doc.data() as MediaItem);
 
-        // Filter by type (image or video)
-        const filtered = allMedia.filter(item => item.type === filter);
-        setItems(filtered);
+        // filter by type (image/video)
+        setItems(data.filter(item => item.type === filter));
       } catch (err) {
         console.error("Error loading media:", err);
       } finally {
@@ -34,7 +34,7 @@ export default function Videos() {
       }
     };
 
-    loadMedia();
+    loadItems();
   }, [filter]);
 
   return (
@@ -43,7 +43,7 @@ export default function Videos() {
       <div style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}>
         <select
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(e) => setFilter(e.target.value as "image" | "video")}
           style={{
             padding: "8px 14px",
             borderRadius: "8px",
@@ -58,7 +58,7 @@ export default function Videos() {
         </select>
       </div>
 
-      {/* Gallery */}
+      {/* Gallery Display */}
       {loading ? (
         <p style={{ textAlign: "center" }}>Loading...</p>
       ) : (
@@ -74,7 +74,7 @@ export default function Videos() {
               <Image
                 key={idx}
                 src={item.url}
-                alt={`Gallery Item ${idx + 1}`}
+                alt={`Media ${idx + 1}`}
                 width={400}
                 height={250}
                 style={{
@@ -83,7 +83,15 @@ export default function Videos() {
                   objectFit: "cover",
                   borderRadius: "12px",
                   boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+                  cursor: "pointer",
+                  transition: "transform 0.3s ease",
                 }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.transform = "scale(1.05)")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.transform = "scale(1)")
+                }
               />
             ) : (
               <video
