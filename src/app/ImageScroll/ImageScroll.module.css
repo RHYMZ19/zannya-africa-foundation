@@ -1,9 +1,9 @@
 .scroll {
     position: relative;
-    height: 70%;
+    height: 100%;
     border-radius: 5px;
     width: 100%;
-    padding: 5px 0;
+    padding: 5%;
     overflow: hidden;
     
 }
@@ -26,5 +26,5 @@
 }
 
 .visible {
-    opacity: 0.5;
+    opacity: 0;
 }

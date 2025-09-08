@@ -7,13 +7,13 @@ import { db } from "../lib/firebase";
 import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
 
 const images = [
-    "/images/pic2.jpg",
-    "/images/pic4.jpg",
-    "/images/pic5.jpg",
-    "/images/pic6.jpg",
-    "/images/pic7.jpg",
-    "/images/pic1.jpg",
-    "/images/pic3.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757057898/zannya/uploads/m9ebdklwcommooi4nw9a.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063652/zannya/uploads/wltcagth08xzlisn6ml0.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064620/zannya/uploads/ejgjcw3ws23cdxuckncn.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063466/zannya/uploads/taqmtxdd6npqgelioy94.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063238/zannya/uploads/xy9oaj6ycymkmofgv32k.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064720/zannya/uploads/o9ae2psqodkanafrqm9q.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063282/zannya/uploads/pryfzrizykeqtm06dmxv.jpg",
 ]
 
 export default function 

@@ -12,6 +12,7 @@ import GetInvolved from "../GetInvolved/GetInvolved";
 import IncreaseIma from "../Newsp/components/IncreaseIma";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import StickyBar from "../StickyBar/StickyBar";
+import IncreaseImagis from "./components/IncreaseImagis";
 
 interface MediaItem {
   url: string;
@@ -98,28 +99,13 @@ export default function Videos() {
         >
           {items.map((item, idx) =>
             item.type === "image" ? (
-              <Image
-                key={idx}
-                src={item.url}
-                alt={`Media ${idx + 1}`}
-                width={400}
-                height={250}
-                style={{
-                  width: "100%",
-                  height: "200px",
-                  objectFit: "cover",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-                  cursor: "pointer",
-                  transition: "transform 0.3s ease",
-                }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style.transform = "scale(1.05)")
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style.transform = "scale(1)")
-                }
-              />
+              <IncreaseImagis
+  key={idx}
+  src={item.url}
+  alt={`Media ${idx + 1}`}
+  
+  
+/>
             ) : (
               <video
                 key={idx}
