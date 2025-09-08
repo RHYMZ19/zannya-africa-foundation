@@ -7,7 +7,7 @@ import { db } from "../lib/firebase";
 import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
 
 const images = [
-    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333612/zannya/uploads/em3iow5lknqcm6g54ev0.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756890840/zannya/success/mfh1xjdphnjokfqxtwqp.jpg",
     "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333654/zannya/uploads/iyhvqvfahonojwp3lnqy.jpg",
     "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333734/zannya/uploads/xmfqh5bypbq8nwahzcpi.jpg",
     "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333840/zannya/uploads/efccpnjlewe1z851po9r.jpg",
@@ -82,7 +82,7 @@ ImageScroll() {
         <div
         style={{
           position: "absolute",
-          top: "20%",
+          top: "35%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "80%",
