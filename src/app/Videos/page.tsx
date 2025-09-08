@@ -1,34 +1,40 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import { getDownloadURL, listAll, ref } from "firebase/storage";
-import { storage } from "../lib/firebase"; // make sure storage is exported in your firebase config
+import { db } from "../lib/firebase";
+import { collection, getDocs } from "firebase/firestore";
 import Image from "next/image";
 
+interface MediaItem {
+  url: string;
+  type: "image" | "video";
+  category: string;
+  createdAt: any;
+}
+
 export default function Videos() {
-  const [filter, setFilter] = useState("ph"); // 'ph' = photos, 'vd' = videos
-  const [items, setItems] = useState<string[]>([]);
+  const [filter, setFilter] = useState("image"); // default: images
+  const [items, setItems] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // Load items based on filter
   useEffect(() => {
-    const loadItems = async () => {
+    const loadMedia = async () => {
       setLoading(true);
       try {
-        const folder = filter === "ph" ? "photos" : "videos"; // folders in Firebase Storage
-        const listRef = ref(storage, folder);
-        const res = await listAll(listRef);
+        const snap = await getDocs(collection(db, "media"));
+        const allMedia = snap.docs.map(doc => doc.data() as MediaItem);
 
-        const urls = await Promise.all(res.items.map(item => getDownloadURL(item)));
-        setItems(urls);
+        // Filter by type (image or video)
+        const filtered = allMedia.filter(item => item.type === filter);
+        setItems(filtered);
       } catch (err) {
-        console.error("Error loading gallery:", err);
+        console.error("Error loading media:", err);
       } finally {
         setLoading(false);
       }
     };
 
-    loadItems();
+    loadMedia();
   }, [filter]);
 
   return (
@@ -44,15 +50,15 @@ export default function Videos() {
             border: "1px solid #ccc",
             fontSize: "16px",
             background: "#fff",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
-          <option value="ph">Photos</option>
-          <option value="vd">Videos</option>
+          <option value="image">Photos</option>
+          <option value="video">Videos</option>
         </select>
       </div>
 
-      {/* Gallery Display */}
+      {/* Gallery */}
       {loading ? (
         <p style={{ textAlign: "center" }}>Loading...</p>
       ) : (
@@ -60,38 +66,36 @@ export default function Videos() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-            gap: "15px"
+            gap: "15px",
           }}
         >
-          {items.map((url, idx) =>
-            filter === "ph" ? (
+          {items.map((item, idx) =>
+            item.type === "image" ? (
               <Image
                 key={idx}
-                src={url}
+                src={item.url}
                 alt={`Gallery Item ${idx + 1}`}
+                width={400}
+                height={250}
                 style={{
                   width: "100%",
                   height: "200px",
                   objectFit: "cover",
                   borderRadius: "12px",
                   boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-                  cursor: "pointer",
-                  transition: "transform 0.3s ease"
                 }}
-                onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
               />
             ) : (
               <video
                 key={idx}
-                src={url}
+                src={item.url}
                 controls
                 style={{
                   width: "100%",
                   height: "200px",
                   objectFit: "cover",
                   borderRadius: "12px",
-                  boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
+                  boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
                 }}
               />
             )
