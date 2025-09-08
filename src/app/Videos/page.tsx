@@ -4,6 +4,14 @@ import React, { useEffect, useState } from "react";
 import { db } from "../lib/firebase";
 import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
 import Image from "next/image";
+import styles from './Videos.module.css';
+import router from "next/router";
+import { FaHome } from "react-icons/fa";
+import ContactUs from "../ContactUs/page";
+import GetInvolved from "../GetInvolved/GetInvolved";
+import IncreaseIma from "../Newsp/components/IncreaseIma";
+import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
+import StickyBar from "../StickyBar/StickyBar";
 
 interface MediaItem {
   url: string;
@@ -38,6 +46,25 @@ export default function Videos() {
   }, [filter]);
 
   return (
+    <div style={{ overflow: 'hidden' }}>
+    <div style={{ justifyItems: 'center', gap: '1%' }}>
+                  <StickyBar>
+                    <FaHome
+                      style={{ width: '25%', height: '25%' }}
+                      color="black"
+                      cursor='pointer'
+                      onClick={() => router.push('/')}
+                    >
+                      Home
+                    </FaHome>
+                    <GetInvolved />
+                    <button
+                      onClick={() => router.push('/Donates')}
+                      className={styles.arrowButton}>Donate
+                    </button>
+                    <IncreaseIma src='/log.jpg' alt="log" />
+                  </StickyBar>
+                </div>
     <div style={{ padding: "20px", maxWidth: "900px", margin: "0 auto" }}>
       {/* Filter */}
       <div style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}>
@@ -110,6 +137,14 @@ export default function Videos() {
           )}
         </div>
       )}
+    </div>
+    <div style={{ margin: '3%', width: '100%' }}>
+            <ContactUs />
+          </div>
+    
+          <div style={{ margin: '0%', width: '100%' }}>
+            <OptionalFeatures />
+          </div>
     </div>
   );
 }
