@@ -8,7 +8,7 @@ import Image from "next/image";
 interface MediaItem {
   url: string;
   type: "image" | "video";
-  createdAt: any;
+  createdAt: Timestamp | Date;
 }
 
 export default function Videos() {
