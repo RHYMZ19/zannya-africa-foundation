@@ -15,16 +15,16 @@
 }
 
 .image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.005s ease-in-out;
-    object-fit: cover;
-    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* start hidden */
+  transition: opacity 0.3s ease-in-out; /* longer so you can see fade */
+  object-fit: cover;
+  overflow: hidden;
     
 }
 
 .visible {
-    opacity: 0;
+    opacity: 1;
 }
