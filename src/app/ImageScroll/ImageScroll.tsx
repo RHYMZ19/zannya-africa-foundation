@@ -7,13 +7,13 @@ import { db } from "../lib/firebase";
 import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
 
 const images = [
-    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757057898/zannya/uploads/m9ebdklwcommooi4nw9a.jpg",
-    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063652/zannya/uploads/wltcagth08xzlisn6ml0.jpg",
-    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064620/zannya/uploads/ejgjcw3ws23cdxuckncn.jpg",
-    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063466/zannya/uploads/taqmtxdd6npqgelioy94.jpg",
-    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063238/zannya/uploads/xy9oaj6ycymkmofgv32k.jpg",
-    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064720/zannya/uploads/o9ae2psqodkanafrqm9q.jpg",
-    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063282/zannya/uploads/pryfzrizykeqtm06dmxv.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333612/zannya/uploads/em3iow5lknqcm6g54ev0.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333654/zannya/uploads/iyhvqvfahonojwp3lnqy.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333734/zannya/uploads/xmfqh5bypbq8nwahzcpi.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333840/zannya/uploads/efccpnjlewe1z851po9r.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333929/zannya/uploads/rtguco09opxu1ayzksej.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757334022/zannya/uploads/m9ca4yojq1ryx6sehkg2.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757334062/zannya/uploads/yjpj7fwg6mbpeydigzr1.png",
 ]
 
 export default function 

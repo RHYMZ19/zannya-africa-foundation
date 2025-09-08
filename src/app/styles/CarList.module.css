@@ -108,7 +108,6 @@
     height: 60vh;
     margin-left: 1%;
     margin-right: 5%;
-    overflow: hidden;
 
     /* Background image styles */
   background-image: url('/climate/climate2.jpg'); /* Replace with your image path */
