@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../lib/firebase";
 import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
-import Image from "next/image";
 import styles from './Videos.module.css';
 import router from "next/router";
 import { FaHome } from "react-icons/fa";
