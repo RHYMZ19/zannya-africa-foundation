@@ -90,19 +90,19 @@ ImageScroll() {
           color: "white",
           padding: "20px",
           borderRadius: "12px",
-          backdropFilter: "blur(1px)",
+          backdropFilter: "blur(0px)",
           zIndex: 2,
           textAlign: "center",
           overflow: 'hidden'
         }}
       >
-        STILL UNDER DEVELOPMENT!
+        ZANNYA AFRICA FOUNDATION
       </div>
       
       <div
       style={{
           position: "absolute",
-          bottom: "-10%",
+          bottom: "-1%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "80%",
