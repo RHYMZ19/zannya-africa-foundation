@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import styles from './OptionalFeatures.module.css';
 import Developer from "../Developer/page";
 
@@ -16,46 +17,48 @@ import {
     FaUsers
 } from "react-icons/fa";
 
-
-
-
+// ✅ Added `path` for each feature
 const features = [ 
-    {label: 'News', icon: <FaBullhorn />},
-    {label: 'Events', icon: <FaCalendar />},
-    {label: 'Blogs', icon: <FaBlog />},
-    {label: 'Media', icon: <FaPhotoVideo />},
-    {label: 'Donate', icon: <FaHandHoldingHeart />},
-    {label: 'Contact Us', icon: <FaEnvelope />},
-    {label: 'Get Involved', icon: <FaUsers />},
-    {label: 'Safety', icon: <FaShieldAlt />},
-    {label: 'Compare', icon: <FaBalanceScale />},
+    {label: 'News', icon: <FaBullhorn />, path: '/Newsp'},
+    {label: 'Events', icon: <FaCalendar />, path: '/Newsp'},
+    {label: 'Blogs', icon: <FaBlog />, path: '/Newsp'},
+    {label: 'Media', icon: <FaPhotoVideo />, path: '/Videos'},
+    {label: 'Donate', icon: <FaHandHoldingHeart />, path: '/Donates'},
+    {label: 'Contact Us', icon: <FaEnvelope />, path: '/ContactUs'},
+    {label: 'Get Involved', icon: <FaUsers />, path: '/GetInvolved'},
+    {label: 'Safety', icon: <FaShieldAlt />, path: ''},
+    {label: 'Compare', icon: <FaBalanceScale />, path: ''},
 ];
 
-export default function 
-OptionalFeaturesPage(){
+export default function OptionalFeaturesPage() {
+    const router = useRouter();
 
-    const handleClick = (label: string)=> {
-        alert(`${label}`);
-    }
+    const handleClick = (path: string) => {
+        router.push(path); // ✅ navigate to the page
+    };
 
     return (
         <div className={styles.container}>
             <h2 className={styles.heading}></h2>
             <div className={styles.grid}>
                 {features.map((item, index) => (
-                    <div key={index}
+                    <div 
+                        key={index}
                         className={styles.item}
-                        onClick={()=> handleClick(item.label)}> <span
-                            className={styles.icon}>
+                        onClick={() => handleClick(item.path)} // ✅ navigate instead of alert
+                    > 
+                        <span className={styles.icon}>
                             {item.icon}
                         </span>
-                        <span
-                            className={styles.label}>{item.label}</span>
-                            </div>
+                        <span className={styles.label}>
+                            {item.label}
+                        </span>
+                    </div>
                 ))}
             </div>
+
             <div>
-            <Developer></Developer>
+                <Developer />
             </div>
         </div>
     );

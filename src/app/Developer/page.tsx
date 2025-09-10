@@ -18,7 +18,7 @@ Developer() {
         <p 
         style={{cursor: 'pointer'}}
         onClick={() => router.push('/adminpannel')}
-        >Admin(/adminpannel)</p>
+        >Admin</p>
         <div className={styles.contactContainer}>
               <h2></h2>
         

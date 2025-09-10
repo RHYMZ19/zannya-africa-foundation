@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../lib/firebase";
 import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
 import styles from './Videos.module.css';
-import router from "next/router";
+import { useRouter } from "next/navigation";
 import { FaHome } from "react-icons/fa";
 import ContactUs from "../ContactUs/page";
 import GetInvolved from "../GetInvolved/GetInvolved";
@@ -23,6 +23,7 @@ export default function Videos() {
   const [filter, setFilter] = useState<"image" | "video">("image");
   const [items, setItems] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(false);
+  const router = useRouter(); 
 
   // Load from Firestore
   useEffect(() => {

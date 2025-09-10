@@ -1,6 +1,6 @@
 'use client';
 
-import router from "next/router";
+import { useRouter } from "next/navigation"; 
 import { FaHome, FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import ContactUs from "../ContactUs/page";
 import Gallery from "../Gallery/Gallery";
@@ -12,6 +12,7 @@ import styles from './Terms.module.css';
 
 export default function
 Terms() {
+  const router = useRouter(); 
     return(
         <div style={{ overflow: 'hidden' }}>
         <div style={{ justifyItems: 'center', gap: '1%' }}>
