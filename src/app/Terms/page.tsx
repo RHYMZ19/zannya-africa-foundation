@@ -33,7 +33,7 @@ Terms() {
             <IncreaseIma src='/log.jpg' alt="log" />
           </StickyBar>
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', padding: '10%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', padding: '10%' }}>
           <h1>Privacy Policy for Zannya Africa Foundation</h1>
 
           <p><strong>Effective Date: August 5, 2025</strong></p>
