@@ -1,9 +1,39 @@
 'use client';
 
+import router from "next/router";
+import { FaHome, FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import ContactUs from "../ContactUs/page";
+import Gallery from "../Gallery/Gallery";
+import GetInvolved from "../GetInvolved/GetInvolved";
+import IncreaseIma from "../Newsp/components/IncreaseIma";
+import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
+import StickyBar from "../StickyBar/StickyBar";
+import styles from './Terms.module.css';
+
 export default function
 Terms() {
     return(
-        <div>
+        <div style={{ overflow: 'hidden' }}>
+            <div style={{ justifyItems: 'center', gap: '1%' }}>
+        <StickyBar>
+          <FaHome
+            style={{ width: '25%', height: '25%' }}
+            color="black"
+            cursor='pointer'
+            onClick={() => router.push('/')}
+          >
+            Home
+          </FaHome>
+          <GetInvolved />
+          <Gallery />
+          <button
+            onClick={() => router.push('/Donates')}
+            className={styles.arrowButton}>Donate
+          </button>
+          <IncreaseIma src='/log.jpg' alt="log" />
+        </StickyBar>
+      </div>
+        <div style={{display: 'flex', flexWrap: 'wrap', padding: '20%'}}>
             Privacy Policy for Zannya Africa Foundation
 
 Effective Date: August 5, 2025
@@ -104,6 +134,40 @@ Email: [insert email address]
 Phone: [insert phone number]
 
 Thank you for trusting us with your information.
+        </div>
+        <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more you can follow us on our socialplatforms:</strong></p>
+                                  <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
+                                            <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
+                                              <FaFacebook />
+                                            </a>
+                                            <a href="https://instagram.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
+                                              <FaInstagram />
+                                            </a>
+                                            <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                              <FaTiktok />
+                                            </a>
+                                            <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                              <FaTwitter />
+                                            </a>
+                                            <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
+                                              <FaWhatsapp />
+                                            </a>
+                                          </div>
+                                          <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
+                                          <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
+                                      <ul>
+                                      <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
+                                      <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
+                                      </ul>
+                                    </div>
+        
+              <div style={{ margin: '3%', width: '100%' }}>
+                <ContactUs />
+              </div>
+        
+              <div style={{ margin: '0%', width: '100%' }}>
+                <OptionalFeatures />
+              </div>
         </div>
     )
 }
