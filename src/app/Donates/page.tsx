@@ -48,7 +48,6 @@ export default function Donates() {
                 </header>
             </div>
 
-
     <div className={styles.container}>
       <h2 className={styles.h2}>Support Our Mission</h2>
       <p className={styles.p}>Your donation empowers change in education, health, and community development.</p>

@@ -11,14 +11,14 @@
 .container {
     
 
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    width: 100%;
+   background: linear-gradient(to right, #1e3c72, #2a5298);
     
     padding: 9em 1em;
     color: white;
     font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    height: 20px;
+    height: 10%;
+    width: 100%;
 }
 
 .header {
