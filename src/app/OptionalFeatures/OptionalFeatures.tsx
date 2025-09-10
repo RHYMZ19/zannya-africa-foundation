@@ -24,8 +24,8 @@ const features = [
     {label: 'Blogs', icon: <FaBlog />, path: '/Newsp'},
     {label: 'Media', icon: <FaPhotoVideo />, path: '/Videos'},
     {label: 'Donate', icon: <FaHandHoldingHeart />, path: '/Donates'},
-    {label: 'Contact Us', icon: <FaEnvelope />, path: '/ContactUs'},
-    {label: 'Get Involved', icon: <FaUsers />, path: '/GetInvolved'},
+    {label: 'Contact Us', icon: <FaEnvelope />, path: '/Contacts'},
+    {label: 'Get Involved', icon: <FaUsers />, path: '/Internship'},
     {label: 'Safety', icon: <FaShieldAlt />, path: ''},
     {label: 'Compare', icon: <FaBalanceScale />, path: ''},
 ];
