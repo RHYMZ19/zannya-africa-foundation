@@ -200,6 +200,7 @@ export default function Programs() {
         </div>
       </div>
 
+      <div style={{justifyContent: 'center'}}>
       <div className={styles.c1}>
         <h1>Participatory Methodology/Approach:</h1>
         <p><strong>Zannya Africa Foundation adopts a participatory approach that empowers communities
@@ -221,6 +222,7 @@ export default function Programs() {
              stakeholders to leverage resources, expertise, and support.</p>
         <p style={{marginTop: '2.5%'}}><strong>By adopting this participatory approach, Zannya Africa Foundation ensures that our programs are community-driven, effective, and
              sustainable, ultimately contributing to the empowerment and well-being of marginalized communities in Uganda.</strong></p>
+      </div>
       </div>
 
       <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Programs and Activities you can follow us on our socialplatforms:</strong></p>

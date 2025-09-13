@@ -9,7 +9,16 @@ Developer() {
     const router =useRouter();
     return (
      <div className={styles.container}>
-        <p className={styles.words}>Developed by eng.SSENABULYA RAHIM Tel: 0743878261</p>
+        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+          <p><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></p>
+          <p><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></p>
+          </div>
+          <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+          <p><a href="mailto: career@zannyaafricafoundation.org">career@zannyaafricafoundation.org</a></p>
+          <p><a href="mailto: contact@zannyaafricafoundation.org">contact@zannyaafricafoundation.org</a></p>
+          </div>
+
+          <p className={styles.words}>Developed by eng.SSENABULYA RAHIM Tel: 0743878261</p>
         <p 
         style={{cursor: 'pointer'}}
         onClick={() => router.push('/Terms')}
@@ -18,12 +27,6 @@ Developer() {
         style={{cursor: 'pointer'}}
         onClick={() => router.push('/adminpannel')}
         >Admin</p>
-
-        
-          <p><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></p>
-          <p><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></p>
-          <p><a href="mailto: career@zannyaafricafoundation.org">career@zannyaafricafoundation.org</a></p>
-          <p><a href="mailto: contact@zannyaafricafoundation.org">contact@zannyaafricafoundation.org</a></p>
         
         
        </div>
