@@ -230,10 +230,10 @@ export default function Programs() {
                                     <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
                                       <FaFacebook />
                                     </a>
-                                    <a href="https://instagram.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
+                                    <a href="https://instagram.com/zannya_africa_foundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
                                       <FaInstagram />
                                     </a>
-                                    <a href="https://tiktok.com/zannyaafricaFDN" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                    <a href="https://tiktok.com/@zannyaafricafdn" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                       <FaTiktok />
                                     </a>
                                     <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
