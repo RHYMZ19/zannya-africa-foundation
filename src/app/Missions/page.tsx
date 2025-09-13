@@ -1,7 +1,7 @@
 'use client';
 
 import  { useRouter } from "next/navigation";
-import { FaFacebook, FaHome, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaHome, FaInstagram, FaLinkedin, FaTiktok, FaTwitter } from "react-icons/fa";
 import Gallery from "../Gallery/Gallery";
 import GetInvolved from "../GetInvolved/GetInvolved";
 import StickyBar from "../StickyBar/StickyBar";
@@ -14,6 +14,7 @@ import { getDocs, collection } from "firebase/firestore";
 import db from "../lib/firebase";
 import Image from "next/image";
 import IncreaseImge from "./components/IncreaseImge";
+import { FaXTwitter } from "react-icons/fa6";
 
 
 interface Leader {
@@ -307,6 +308,31 @@ Missions() {
               </div>
 
             </div>
+
+            <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more News updates you can follow us on our socialplatforms:</strong></p>
+                                      <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
+                                                <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
+                                                  <FaFacebook />
+                                                </a>
+                                                <a href="https://instagram.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
+                                                  <FaInstagram />
+                                                </a>
+                                                <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                                  <FaTiktok />
+                                                </a>
+                                                <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
+                                                    <FaXTwitter />   
+                                                </a>
+                                                
+                                              </div>
+                                              <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
+                                              <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
+                                          <ul>
+                                          <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
+                                          <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
+                                          </ul>
+                                        </div>
+            
             <ContactUs></ContactUs>
             <OptionalFeatures></OptionalFeatures>
         </div>

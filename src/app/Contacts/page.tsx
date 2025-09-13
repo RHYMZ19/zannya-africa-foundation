@@ -3,13 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Contacts.module.css';
 import { useRouter } from 'next/navigation';
-import { FaFacebook, FaHome, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaHome, FaInstagram, FaPhone, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 import Gallery from '../Gallery/Gallery';
 import GetInvolved from '../GetInvolved/GetInvolved';
 import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
 import StickyBar from '../StickyBar/StickyBar';
 import { MdEmail } from 'react-icons/md';
 import IncreaseImai from './components/IncreaseImai';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export default function ContactPage() {
 
@@ -114,12 +115,10 @@ export default function ContactPage() {
                                         <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                           <FaTiktok />
                                         </a>
-                                        <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                          <FaTwitter />
+                                        <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
+                                            <FaXTwitter />   
                                         </a>
-                                        <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
-                                          <FaWhatsapp />
-                                        </a>
+                                        
                                       </div>
                                       <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
                                       <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
@@ -134,19 +133,17 @@ export default function ContactPage() {
       <h2>Contact Us</h2>
 
       <div className={styles.iconRow}>
-        <a href="https://facebook.com/zannya" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-          <FaFacebook />
-        </a>
-        <a href="https://twitter.com/zannya" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-          <FaTwitter />
-        </a>
-        <a href="mailto:info@zannya.org" className={styles.iconLink}>
-          <MdEmail />
-        </a>
-        <a href="https://wa.me/256700000000" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-          <FaWhatsapp />
-        </a>
-      </div>
+                
+                <a href="mailto:info@zannyaafricafoundation.org" className={styles.iconLink}>
+                  <MdEmail />
+                </a>
+                <a href="https://wa.me/256786797963" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                  <FaWhatsapp />
+                </a>
+                <a href="tel:+256786797963" className={styles.iconLink}>
+                    <FaPhone />
+                </a>
+              </div>
     </div>
     <OptionalFeatures></OptionalFeatures>
     </div>

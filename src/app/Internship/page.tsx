@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import { FaFacebook, FaHome, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaHome, FaInstagram, FaTiktok } from "react-icons/fa";
 import Gallery from "../Gallery/Gallery";
 import GetInvolved from "../GetInvolved/GetInvolved";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
@@ -10,6 +10,7 @@ import styles from './Internship.module.css';
 import { useState, useEffect } from "react";
 import ContactUs from "../ContactUs/page";
 import IncreaseImaa from "./components/IncreaseImaa";
+import { FaXTwitter } from "react-icons/fa6";
 
 
 export default function
@@ -109,7 +110,7 @@ export default function
 
                                 <h3 style={{paddingTop: '15px'}}><strong>Application Process:</strong></h3>
                                 <p>
-                                    To apply, send your CV and a short cover letter to <a href="mailto:rahimssenabulya@zannyafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>rahimssenabulya@zannyafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
+                                    To apply, send your CV and a short cover letter to <a href="mailto:careers@zannyaafricafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>careers@zannyaafricafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
                                 </p>
                                 
                                 <form className={styles.form} onSubmit={handleSubmit}>
@@ -162,12 +163,10 @@ export default function
                                                     <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                                       <FaTiktok />
                                                     </a>
-                                                    <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                                      <FaTwitter />
+                                                    <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
+                                                        <FaXTwitter />   
                                                     </a>
-                                                    <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
-                                                      <FaWhatsapp />
-                                                    </a>
+                                                    
                                                   </div>
                                                   <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
                                                   <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>

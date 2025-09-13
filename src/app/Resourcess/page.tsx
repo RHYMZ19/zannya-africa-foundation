@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { FaFacebook, FaHome, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaHome, FaInstagram, FaTiktok } from 'react-icons/fa';
 import Gallery from '../Gallery/Gallery';
 import GetInvolved from '../GetInvolved/GetInvolved';
 import StickyBar from '../StickyBar/StickyBar';
@@ -13,6 +13,7 @@ import db from '../lib/firebase';
 import { collection, onSnapshot, Timestamp } from 'firebase/firestore';
 import IncreaseIma from './components/IncreaseIma';
 import Image from 'next/image';
+import { FaXTwitter } from 'react-icons/fa6';
 
 type Resource = {
   id: string;
@@ -129,12 +130,10 @@ export default function Resourcess() {
                               <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                 <FaTiktok />
                               </a>
-                              <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                <FaTwitter />
+                              <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
+                                  <FaXTwitter />   
                               </a>
-                              <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
-                                <FaWhatsapp />
-                              </a>
+                              
                             </div>
                             <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
                             <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
