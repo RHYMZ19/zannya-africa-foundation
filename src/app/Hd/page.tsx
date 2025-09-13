@@ -1,6 +1,7 @@
 'use client';
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
+import { FaXTwitter } from "react-icons/fa6";
 export default function
 Hd() {
     return(
@@ -48,8 +49,8 @@ Hd() {
           <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
             <FaTwitter />
           </a>
-          <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
-            <FaWhatsapp />
+          <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
+              <FaXTwitter />   
           </a>
         </div>
             </div>

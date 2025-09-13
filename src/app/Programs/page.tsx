@@ -236,7 +236,7 @@ export default function Programs() {
                                     <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                       <FaTiktok />
                                     </a>
-                                    <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                                    <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
                                         <FaXTwitter />   
                                     </a>
                                     
