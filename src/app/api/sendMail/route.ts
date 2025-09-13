@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"Zannya Careers" <${process.env.EMAIL_USER}>`,
-      to: "career@zannyafoundation.org", // replace with your real inbox
+      to: "career@zannyaafricafoundation.org", // replace with your real inbox
       subject: "New Internship Application",
       text: `
         Name: ${name}
