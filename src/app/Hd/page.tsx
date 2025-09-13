@@ -1,5 +1,5 @@
 'use client';
-import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";
 import Image from "next/image";
 import { FaXTwitter } from "react-icons/fa6";
 export default function
