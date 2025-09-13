@@ -1,5 +1,5 @@
 'use client';
-import { FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaPhone, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import styles from './ContactUs.module.css';
 
@@ -10,17 +10,15 @@ ContactUs() {
               <h2>Contact Us</h2>
         
               <div className={styles.iconRow}>
-                <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-                  <FaFacebook />
-                </a>
-                <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-                  <FaTwitter />
-                </a>
+                
                 <a href="mailto:info@zannyaafricafoundation.org" className={styles.iconLink}>
                   <MdEmail />
                 </a>
-                <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                <a href="https://wa.me/256786797963" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
                   <FaWhatsapp />
+                </a>
+                <a href="tel:+256786797963" className={styles.iconLink}>
+                    <FaPhone />
                 </a>
               </div>
             </div>

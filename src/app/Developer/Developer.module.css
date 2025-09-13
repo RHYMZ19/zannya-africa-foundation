@@ -1,15 +1,16 @@
 .container {
-    height: 80px;
+    height: 100px;
     overflow: hidden;
-    padding: 100;
+    padding: 10%;
     border-radius: 10px;
-    width: auto;
+    width: 100%;
     background-color: black;
     opacity: 1px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 20px;
     gap: 10px;
+    justify-content: center;
 }
 
 .title {

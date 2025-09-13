@@ -17,6 +17,7 @@ import db from "../lib/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import IncreaseIma from "./components/IncreaseIma";
+import { FaXTwitter } from "react-icons/fa6";
 
 // Category titles
 const categories = {
@@ -233,12 +234,10 @@ export default function Programs() {
                                     <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                       <FaTiktok />
                                     </a>
-                                    <a href="https://twitter.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                      <FaTwitter />
+                                    <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                                        <FaXTwitter />   
                                     </a>
-                                    <a href="https://wa.me/256743878261" target="_blank" rel="noopener noreferrer" style={{ color: 'green' }}>
-                                      <FaWhatsapp />
-                                    </a>
+                                    
                                   </div>
                                   <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
                                   <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
