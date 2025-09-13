@@ -14,7 +14,7 @@ Developer() {
           <p><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></p>
           </div>
           <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '5%'}}>
-          <p><a href="mailto: career@zannyaafricafoundation.org">career@zannyaafricafoundation.org</a></p>
+          <p><a href="mailto: career@zannyaafricafoundation.org">careers@zannyaafricafoundation.org</a></p>
           <p><a href="mailto: contact@zannyaafricafoundation.org">contact@zannyaafricafoundation.org</a></p>
           </div>
 

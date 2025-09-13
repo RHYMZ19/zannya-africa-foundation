@@ -110,7 +110,7 @@ export default function
 
                                 <h3 style={{paddingTop: '15px'}}><strong>Application Process:</strong></h3>
                                 <p>
-                                    To apply, send your CV and a short cover letter to <a href="mailto:careers@zannyaafricafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>careers@zannyaafricafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
+                                    To apply, send your CV and a short cover letter to <a href="mailto:career@zannyaafricafoundation.org"><p style={{color: 'red', textDecoration:'underline'}}><strong>careers@zannyaafricafoundation.org</strong></p></a> with the position title as the subject line. Please include your availability and location.
                                 </p>
                                 
                                 <form className={styles.form} onSubmit={handleSubmit}>
