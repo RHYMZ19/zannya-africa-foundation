@@ -9,11 +9,11 @@ Developer() {
     const router =useRouter();
     return (
      <div className={styles.container}>
-        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '5%'}}>
           <p><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></p>
           <p><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></p>
           </div>
-          <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+          <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '5%'}}>
           <p><a href="mailto: career@zannyaafricafoundation.org">career@zannyaafricafoundation.org</a></p>
           <p><a href="mailto: contact@zannyaafricafoundation.org">contact@zannyaafricafoundation.org</a></p>
           </div>

@@ -200,7 +200,7 @@ export default function Programs() {
         </div>
       </div>
 
-      <div style={{justifyContent: 'center'}}>
+      <div style={{justifyItems: 'center'}}>
       <div className={styles.c1}>
         <h1>Participatory Methodology/Approach:</h1>
         <p><strong>Zannya Africa Foundation adopts a participatory approach that empowers communities
