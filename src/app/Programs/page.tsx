@@ -1,6 +1,6 @@
 'use client';
 
-import { FaFacebook, FaHome, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaHome, FaInstagram, FaTiktok,  } from "react-icons/fa";
 import Gallery from "../Gallery/Gallery";
 import GetInvolved from "../GetInvolved/GetInvolved";
 import StickyBar from "../StickyBar/StickyBar";
