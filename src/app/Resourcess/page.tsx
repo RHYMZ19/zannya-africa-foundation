@@ -127,10 +127,10 @@ export default function Resourcess() {
                               <a href="https://instagram.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
                                 <FaInstagram />
                               </a>
-                              <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                              <a href="https://tiktok.com/zannyaafricaFDN" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                 <FaTiktok />
                               </a>
-                              <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
+                              <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                   <FaXTwitter />   
                               </a>
                               

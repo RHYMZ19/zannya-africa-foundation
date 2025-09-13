@@ -58,8 +58,8 @@ export default function ContactPage() {
         <p><strong>Website:</strong>www.zannyaafrica.org</p>
 
         <div className={styles.socialLinks}>
-          <a href="https://facebook.com/zannyaafrica" target="_blank">Facebook</a>
-          <a href="https://twitter.com/zannyaafrica" target="_blank">Twitter/X</a>
+          <a href="https://facebook.com/zannyaafricafoundation" target="_blank">Facebook</a>
+          <a href="https://twitter.com/zannyaafrica" target="_blank">X</a>
           <a href="https://instagram.com/zannyaafrica" target="_blank">Instagram</a>
           <a href="https://linkedin.com/company/zannyaafrica" target="_blank">LinkedIn</a>
         </div>
@@ -112,10 +112,10 @@ export default function ContactPage() {
                                         <a href="https://instagram.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
                                           <FaInstagram />
                                         </a>
-                                        <a href="https://tiktok.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                        <a href="https://tiktok.com/zannyaafricaFDN" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                           <FaTiktok />
                                         </a>
-                                        <a href="https://x.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
+                                        <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
                                             <FaXTwitter />   
                                         </a>
                                         
