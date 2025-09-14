@@ -10,6 +10,7 @@
     margin: auto;
     border-left: 5px solid #0059c1;
     transition: all 0.9s ease;
+    overflow: hidden;
 }
 
 .previewcontainer:hover {
