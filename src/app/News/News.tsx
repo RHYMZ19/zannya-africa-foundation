@@ -24,7 +24,7 @@ News (){
             }>
                 <h3 className={styles.headings}>Events</h3>
                 <p>
-                    "Discover whats happening at Zannya Africa Foundation read our latest news, follow our events, explore insightful blogs, and see how our work is featured in the media.
+                    Discover whats happening at Zannya Africa Foundation read our latest news, follow our events, explore insightful blogs, and see how our work is featured in the media.
                 </p>
                 <button onClick={() =>
                     router.push('/Newsp')
