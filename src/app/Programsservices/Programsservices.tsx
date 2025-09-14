@@ -23,7 +23,7 @@ Programsservices (){
                 styles.previewtext
             }>
                 <h3 className={styles.headings}>Programs</h3>
-                <p>
+                <p style={{overflow: 'hidden'}}>
                     We run diverse programs in climate justice, health, education, and livelihoods to uplift marginalized communities and build a brighter future.
                 </p>
                 <button onClick={() =>

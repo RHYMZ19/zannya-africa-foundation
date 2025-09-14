@@ -20,7 +20,7 @@ Success (){
                 styles.previewtext
             }>
                 <h3 className={styles.headings}>Success Stories</h3>
-                <p>
+                <p style={{overflow: 'hidden'}}>
                     Read inspiring stories of transformation and impact from communities we serve.
                 </p>
                 <button onClick={() =>

@@ -22,7 +22,7 @@ Contact (){
                 styles.previewtext
             }>
                 <h3 className={styles.headings}>Contact Us</h3>
-                <p>
+                <p style={{overflow: 'hidden'}}>
                     Contact us today to learn more about our programs, activities, and how you can be part of creating lasting change.
                 </p>
                 <button onClick={() =>

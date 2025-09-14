@@ -23,7 +23,7 @@ Resources (){
                 styles.previewtext
             }>
                 <h3 className={styles.headings}>Resources</h3>
-                <p>
+                <p style={{overflow: 'hidden'}}>
                     Explore our resources, including reports, publications, research papers, and toolkits designed to share knowledge, promote advocacy, and support sustainable community development.
                 </p>
                 <button onClick={() =>

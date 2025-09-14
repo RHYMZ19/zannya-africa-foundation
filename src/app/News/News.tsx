@@ -23,7 +23,7 @@ News (){
                 styles.previewtext
             }>
                 <h3 className={styles.headings}>Events</h3>
-                <p>
+                <p style={{overflow: 'hidden'}}>
                     Discover whats happening at Zannya Africa Foundation read our latest news, follow our events, explore insightful blogs, and see how our work is featured in the media.
                 </p>
                 <button onClick={() =>
