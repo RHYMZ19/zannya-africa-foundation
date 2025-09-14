@@ -24,11 +24,9 @@ Mission (){
             }>
                 <h3 className={styles.headings}>Mission & Vission</h3>
                 <p style={{overflow: 'hidden'}}>
-                    MISSION: To use sports as a tool for community development, empowerment, and sustainability.
+                     To use sports as a tool for community development, empowerment, and sustainability.
                 </p>
-                <p style={{overflow: 'hidden'}}>
-                    VISSION: To change lives and build stronger and healthier communities
-                </p>
+                
                 <button onClick={() =>
                     router.push('/Missions')
                 }

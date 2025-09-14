@@ -25,7 +25,7 @@ GetInvolve (){
             }>
                 <h3 className={styles.headings}>Get Involved</h3>
                 <p>
-                    Be part of the change! Join Zannya Africa Foundation in empowering communities through your time, skills, or resources. Whether you volunteer, partner, or donate, your involvement helps us create lasting impact.
+                    Be part of the change! Join Zannya Africa Foundation in empowering communities through your time, skills, or resources...
                 </p>
                 <button 
                 onClick={() =>

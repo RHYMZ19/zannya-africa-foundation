@@ -24,7 +24,7 @@ Programsservices (){
             }>
                 <h3 className={styles.headings}>Programs</h3>
                 <p style={{overflow: 'hidden'}}>
-                    We run diverse programs in climate justice, health, education, and livelihoods to uplift marginalized communities and build a brighter future.
+                    We run diverse programs in climate justice, health, education, and livelihoods to...
                 </p>
                 <button onClick={() =>
                     router.push('/Programs')

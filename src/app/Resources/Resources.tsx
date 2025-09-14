@@ -24,7 +24,7 @@ Resources (){
             }>
                 <h3 className={styles.headings}>Resources</h3>
                 <p style={{overflow: 'hidden'}}>
-                    Explore our resources, including reports, publications, research papers, and toolkits designed to share knowledge, promote advocacy, and support sustainable community development.
+                    Explore our resources, including reports, publications, research papers...
                 </p>
                 <button onClick={() =>
                     router.push('/Resourcess')

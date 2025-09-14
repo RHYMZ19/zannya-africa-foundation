@@ -23,7 +23,7 @@ Donate (){
             }>
                 <h3 className={styles.headings}>Support Us</h3>
                 <p style={{overflow: 'hidden'}}>
-                    Together, we can transform lives. By donating today, you become part of a movement that uplifts communities and gives hope to those who need it most....
+                    Together, we can transform lives. By donating today, you become part of a movement that uplifts communities... 
                 </p>
                 <button onClick={() =>
                     router.push('/Donates')
