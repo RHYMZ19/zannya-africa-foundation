@@ -110,13 +110,18 @@
     margin-right: 5%;
 
     /* Background image styles */
-  background-image: url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1757856069/zannya/uploads/otzyxuituddnljimi6lv.jpg'); /* Replace with your image path */
   background-size: cover;       /* Make image cover the whole area */
   background-position: center;  /* Keep image centered */
   background-repeat: no-repeat; /* Prevent tiling */
   border-radius: 12px;          /* Optional rounded corners */
   padding: 40px;                /* Space inside so text isn't flush to edges */
   color: white;    
+
+   background: linear-gradient(
+      rgba(0, 0, 0, 0.5),   /* black with 50% opacity */
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1757856069/zannya/uploads/otzyxuituddnljimi6lv.jpg');
 }
 
 
