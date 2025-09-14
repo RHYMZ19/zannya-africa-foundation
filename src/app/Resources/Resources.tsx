@@ -13,7 +13,7 @@ Resources (){
         className={
             styles.previewcontainer
         }>
-            <Image src="/images/pic5.jpg"
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757057739/zannya/uploads/ramv1oxyxz7ajwormsgj.jpg"
             alt="Preview"
             className={
                 styles.previewimage
@@ -24,7 +24,7 @@ Resources (){
             }>
                 <h3 className={styles.headings}>Resources</h3>
                 <p>
-                    In our daily life, we often come across the term lifestyle...
+                    Explore our resources, including reports, publications, research papers, and toolkits designed to share knowledge, promote advocacy, and support sustainable community development.
                 </p>
                 <button onClick={() =>
                     router.push('/Resourcess')

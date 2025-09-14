@@ -110,7 +110,7 @@ ImageScroll() {
           color: "blue",
           padding: "20px",
           borderRadius: "12px",
-          backdropFilter: "blur(1px)",
+          backdropFilter: "blur(0px)",
           zIndex: 2,
           textAlign: "center",
           height: '30vh',

@@ -10,7 +10,7 @@ Success (){
         className={
             styles.previewcontainer
         }>
-            <Image src="/images/pic5.jpg"
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756890840/zannya/success/mfh1xjdphnjokfqxtwqp.jpg"
             alt="Preview"
             className={
                 styles.previewimage
@@ -21,7 +21,7 @@ Success (){
             }>
                 <h3 className={styles.headings}>Success Stories</h3>
                 <p>
-                    ZAF’s efforts have resulted in significant positive...
+                    Read inspiring stories of transformation and impact from communities we serve.
                 </p>
                 <button onClick={() =>
                     router.push('/Successs')

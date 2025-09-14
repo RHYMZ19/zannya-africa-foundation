@@ -14,7 +14,7 @@ GetInvolve (){
         className={
             styles.previewcontainer
         }>
-            <Image src="/images/pic5.jpg"
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756887367/zannya/success/rfnvysjav4f8i6potawj.jpg"
             alt="Preview"
             className={
                 styles.previewimage
@@ -25,7 +25,7 @@ GetInvolve (){
             }>
                 <h3 className={styles.headings}>Get Involved</h3>
                 <p>
-                    In our daily life, we often come across the term lifestyle...
+                    Be part of the change! Join Zannya Africa Foundation in empowering communities through your time, skills, or resources. Whether you volunteer, partner, or donate, your involvement helps us create lasting impact.
                 </p>
                 <button 
                 onClick={() =>

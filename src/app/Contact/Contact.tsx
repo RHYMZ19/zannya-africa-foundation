@@ -12,7 +12,7 @@ Contact (){
         className={
             styles.previewcontainer
         }>
-            <Image src="/images/pic5.jpg"
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757057933/zannya/uploads/x7wbc9fihssmebwha84c.jpg"
             alt="Preview"
             className={
                 styles.previewimage
@@ -23,7 +23,7 @@ Contact (){
             }>
                 <h3 className={styles.headings}>Contact Us</h3>
                 <p>
-                    In our daily life, we often come across the term lifestyle...
+                    Contact us today to learn more about our programs, activities, and how you can be part of creating lasting change.
                 </p>
                 <button onClick={() =>
                     router.push('/Contacts')

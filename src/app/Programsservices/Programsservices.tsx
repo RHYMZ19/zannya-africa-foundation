@@ -13,7 +13,7 @@ Programsservices (){
         className={
             styles.previewcontainer
         }>
-            <Image src="/images/pic6.jpg"
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064771/zannya/uploads/aohdz0ljs7ozcaetx3iq.jpg"
             alt="Preview"
             className={
                 styles.previewimage
@@ -24,7 +24,7 @@ Programsservices (){
             }>
                 <h3 className={styles.headings}>Programs</h3>
                 <p>
-                    ZAF is dedicated to serving the community through its different programs and servi...
+                    We run diverse programs in climate justice, health, education, and livelihoods to uplift marginalized communities and build a brighter future.
                 </p>
                 <button onClick={() =>
                     router.push('/Programs')

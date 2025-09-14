@@ -13,7 +13,7 @@ Mission (){
         className={
             styles.previewcontainer
         }>
-            <Image src="/images/pic5.jpg"
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063282/zannya/uploads/pryfzrizykeqtm06dmxv.jpg"
             alt="Preview"
             className={
                 styles.previewimage
@@ -24,7 +24,10 @@ Mission (){
             }>
                 <h3 className={styles.headings}>Mission & Vission</h3>
                 <p>
-                    To change lives and build stronger and healthier communities....
+                    MISSION: To use sports as a tool for community development, empowerment, and sustainability.
+                </p>
+                <p>
+                    VISSION: To change lives and build stronger and healthier communities
                 </p>
                 <button onClick={() =>
                     router.push('/Missions')

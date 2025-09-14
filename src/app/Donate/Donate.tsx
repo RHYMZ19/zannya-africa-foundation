@@ -12,7 +12,7 @@ Donate (){
         className={
             styles.previewcontainer
         }>
-            <Image src="/images/pic5.jpg"
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg"
             alt="Preview"
             className={
                 styles.previewimage
@@ -23,7 +23,7 @@ Donate (){
             }>
                 <h3 className={styles.headings}>Support Us</h3>
                 <p>
-                    In our daily life, we often come across the term lifestyle...
+                    Together, we can transform lives. By donating today, you become part of a movement that uplifts communities and gives hope to those who need it most....
                 </p>
                 <button onClick={() =>
                     router.push('/Donates')
