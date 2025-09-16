@@ -54,7 +54,7 @@ const GalleryAdmin = () => {
         marginTop: "7%",
       }}
     >
-      <h2 style={{ marginBottom: "20px" }}>Gallery Upload</h2>
+      <h2 style={{ marginBottom: "20px" }}>Gallery Upload.</h2>
 
       {/* Upload Images */}
       <div style={{ marginBottom: "30px" }}>
