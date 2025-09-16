@@ -58,21 +58,24 @@ export default function Programs() {
     if (!selectedCategory) return;
 
     const fetchPrograms = async () => {
-      try {
-        const q = query(
-          collection(db, "filters"),
-          where("category", "==", selectedCategory)
-        );
-        const snapshot = await getDocs(q);
-        const data: Program[] = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Program[];
-        setPrograms(data);
-      } catch (error) {
-        console.error("Error fetching programs:", error);
-      }
-    };
+  try {
+    const q = query(
+      collection(db, "filters"),
+      where("category", "==", selectedCategory)
+    );
+    const snapshot = await getDocs(q);
+    const data: Program[] = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+    })) as Program[];
+
+    // ✅ Show new programs at the bottom
+    setPrograms(data.reverse());
+  } catch (error) {
+    console.error("Error fetching programs:", error);
+  }
+};
+
 
     fetchPrograms();
   }, [selectedCategory]);
@@ -122,7 +125,7 @@ export default function Programs() {
         <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064571/zannya/uploads/lpux4wqm27omuk9u15ei.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
       </div>
 
-      <div style={{ height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white' }}>
+      <div style={{ height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white', marginBottom: '1%' }}>
         <h1 style={{ fontSize: '40px', color: 'red', margin: '20px', fontWeight: 'bold' }}>
           Programs and Activities
         </h1>

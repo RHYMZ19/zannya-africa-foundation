@@ -46,16 +46,18 @@ export default function Filter(){
  }, [filters, search]); // run once when Firestore data loads
 
   const fetchFilters = async () => {
-    const snapshot = await getDocs(collection(db, 'filters'));
-    const data : FilterItem[] = snapshot.docs.map(doc => { const docData = doc.data
-      () as Omit<FilterItem, 'id'>;
-      return {
-        id: doc.id,
-        ...docData,
-      };
-    
+  const snapshot = await getDocs(collection(db, 'filters'));
+  const data: FilterItem[] = snapshot.docs.map(doc => {
+    const docData = doc.data() as Omit<FilterItem, 'id'>;
+    return {
+      id: doc.id,
+      ...docData,
+    };
   });
-  setFilters(data);}
+
+  // ✅ Show new programs at the bottom
+  setFilters(data.reverse());
+ };
 
   useEffect(() => {
     fetchFilters();
