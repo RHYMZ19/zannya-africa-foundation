@@ -1,8 +1,10 @@
 .container {
-  max-width: 600px;
+  max-width: 500px;
   margin: auto;
   padding: 1rem;
   font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .h1 {
@@ -29,7 +31,7 @@
 
 .form button {
   padding: 0.6rem;
-  background-color: #0070f3;
+  background-color: #008080;
   color: white;
   font-weight: bold;
   border: none;

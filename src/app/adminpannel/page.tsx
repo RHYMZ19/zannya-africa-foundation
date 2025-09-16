@@ -43,7 +43,8 @@ if (loading) {
 }
     
     return (
-        <><div>
+        <div style={{justifyItems: "center"}}>
+        <div>
             <ProgAdmin></ProgAdmin>
         </div>
         <div>
@@ -65,7 +66,7 @@ if (loading) {
             <ResoAdmin></ResoAdmin>
         </div>
 
-        </>
+        </div>
     )
 }
 
