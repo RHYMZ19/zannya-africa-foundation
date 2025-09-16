@@ -17,26 +17,26 @@ const GalleryAdmin = () => {
     try {
       if (type === "image") {
         await updateDoc(galleryRef, {
-          images: arrayUnion({ url, createdAt: new Date() })
+          images: arrayUnion({ url, createdAt: new Date() }),
         });
         alert("Image uploaded successfully!");
       } else if (type === "video") {
         await updateDoc(galleryRef, {
-          videos: arrayUnion({ url, createdAt: new Date() })
+          videos: arrayUnion({ url, createdAt: new Date() }),
         });
         alert("Video uploaded successfully!");
       } else {
         await updateDoc(galleryRef, {
-          files: arrayUnion({ url, createdAt: new Date() })
+          files: arrayUnion({ url, createdAt: new Date() }),
         });
         alert("File uploaded successfully!");
       }
-    } catch (err: any) {
+    } catch {
       // If doc doesn't exist yet, create it
       await setDoc(galleryRef, {
         images: type === "image" ? [{ url, createdAt: new Date() }] : [],
         videos: type === "video" ? [{ url, createdAt: new Date() }] : [],
-        files: type === "raw" ? [{ url, createdAt: new Date() }] : []
+        files: type === "raw" ? [{ url, createdAt: new Date() }] : [],
       });
       alert("Gallery created and file uploaded!");
     }
