@@ -44,6 +44,24 @@ if (loading) {
     
     return (
         <div style={{justifyItems: "center", gap: "5%"}}>
+            <div style={{
+               backgroundColor: "#fff3cd",
+               border: "1px solid #ffeeba",
+               color: "#856404",
+               padding: "15px",
+               borderRadius: "8px",
+               marginBottom: "20px"
+             }}>
+               <h3>📌 Admin Notes</h3>
+               <ul style={{ margin: 0, paddingLeft: "20px" }}>
+                 <li>Each <strong>image</strong>, <strong>video</strong>, and <strong>PDF</strong> must be uploaded <strong>first</strong>, before pressing <strong>Submit</strong>.</li>
+                 <li>Only <strong>high-quality images</strong> should be uploaded.</li>
+                 <li>Only <strong>good quality videos</strong> should be uploaded.</li>
+                 <li>Uploading <strong>unwanted or irrelevant videos</strong> will lead to <strong>disqualification as an admin</strong>.</li>
+                 <li><strong>All uploaded content is permanent.</strong></li>
+                 <li>If you want to make changes to already uploaded content, <strong>contact the developer for assistance</strong>.</li>
+               </ul>
+             </div>
         <div>
             <ProgAdmin></ProgAdmin>
         </div>
