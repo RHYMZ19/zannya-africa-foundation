@@ -2,7 +2,7 @@
   max-width: 500px;
   margin: 2rem auto;
   padding: 1.5rem;
-  background-color: #f9fafb;
+  background: #f4f4f4;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
@@ -21,7 +21,7 @@
 }
 
 .filterform button {
-  background-color: #007bff;
+  background-color: #008080;
   color: white;
   border: none;
   cursor: pointer;
@@ -29,5 +29,5 @@
 }
 
 .filterform button:hover {
-  background-color: #0056b3;
+  background-color: #006666;
 }
