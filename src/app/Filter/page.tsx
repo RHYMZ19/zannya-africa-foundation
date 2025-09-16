@@ -47,7 +47,7 @@ export default function Filter(){
 
   const fetchFilters = async () => {
   const q = query(collection(db, "filters"), orderBy("createdAt", "asc")); 
-  const snapshot = await getDocs(collection(db, 'filters'));
+  const snapshot = await getDocs(q);
   const data: FilterItem[] = snapshot.docs.map(doc => {
     const docData = doc.data() as Omit<FilterItem, 'id'>;
     return {
