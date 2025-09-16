@@ -43,7 +43,7 @@ if (loading) {
 }
     
     return (
-        <div style={{justifyItems: "center"}}>
+        <div style={{justifyItems: "center", gap: "5%"}}>
         <div>
             <ProgAdmin></ProgAdmin>
         </div>
