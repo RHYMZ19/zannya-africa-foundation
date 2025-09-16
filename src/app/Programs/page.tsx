@@ -58,7 +58,7 @@ export default function Programs() {
   const fetchPrograms = async () => {
     try {
       // Get all programs ordered by createdAt
-      const q = query(collection(db, "filters"), orderBy("createdAt", "asc"));
+      const q = query(collection(db, "filters"), orderBy("createdAt", "desc"));
       const snapshot = await getDocs(q);
       const data: Program[] = snapshot.docs.map(doc => {
         const docData = doc.data();

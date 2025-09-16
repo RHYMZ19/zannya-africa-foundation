@@ -46,7 +46,7 @@ export default function Filter(){
  }, [filters, search]); // run once when Firestore data loads
 
   const fetchFilters = async () => {
-    const q = query(collection(db, "filters"), orderBy("createdAt", "asc"));
+    const q = query(collection(db, "filters"), orderBy("createdAt", "desc"));
   const snapshot = await getDocs(q);
   const data: FilterItem[] = snapshot.docs.map(doc => {
     const docData = doc.data() as Omit<FilterItem, 'id'>;
