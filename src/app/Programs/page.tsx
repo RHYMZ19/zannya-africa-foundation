@@ -125,7 +125,7 @@ export default function Programs() {
         <Image src='https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064571/zannya/uploads/lpux4wqm27omuk9u15ei.jpg' alt="pic" style={{ display: 'block', height: '100%', width: '33%' }} />
       </div>
 
-      <div style={{ height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white', marginBottom: '1%' }}>
+      <div style={{ height: '40%', width: '100%', justifyItems: 'center', backgroundColor: 'white' }}>
         <h1 style={{ fontSize: '40px', color: 'red', margin: '20px', fontWeight: 'bold' }}>
           Programs and Activities
         </h1>
@@ -203,7 +203,7 @@ export default function Programs() {
         </div>
       </div>
 
-      <div style={{justifyItems: 'center'}}>
+      <div style={{justifyItems: 'center', marginTop: '1%', marginBottom: '1%'}}>
       <div className={styles.c1}>
         <h1>Participatory Methodology/Approach:</h1>
         <p><strong>Zannya Africa Foundation adopts a participatory approach that empowers communities
