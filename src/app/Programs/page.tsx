@@ -14,7 +14,7 @@ import Image from "next/image";
 import IncreaseImagi from "./components/IncreaseImagi";
 
 import db from "../lib/firebase";
-import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import IncreaseIma from "./components/IncreaseIma";
 import { FaXTwitter } from "react-icons/fa6";
@@ -55,31 +55,37 @@ export default function Programs() {
 
   // Fetch programs from Firestore when category changes
   useEffect(() => {
-    if (!selectedCategory) return;
+  const fetchPrograms = async () => {
+    try {
+      // Get all programs ordered by createdAt
+      const q = query(collection(db, "filters"), orderBy("createdAt", "asc"));
+      const snapshot = await getDocs(q);
+      const data: Program[] = snapshot.docs.map(doc => {
+        const docData = doc.data();
+        return {
+          id: doc.id,
+          name: docData.name,
+          description: docData.description,
+          category: docData.category,
+          subcategories: docData.subcategories || [],
+          images: docData.images || [],
+          videos: docData.videos || [],
+        };
+      });
 
-    const fetchPrograms = async () => {
-  try {
-    const q = query(
-      collection(db, "filters"),
-      where("category", "==", selectedCategory),
-      orderBy("createdAt", "asc")
-    );
-    const snapshot = await getDocs(q);
-    const data: Program[] = snapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as Program[];
+      // Show new programs at the bottom
+      const filtered = selectedCategory
+        ? data.filter(p => p.category === selectedCategory)
+        : data;
 
-    // ✅ Show new programs at the bottom
-    setPrograms(data.reverse());
-  } catch (error) {
-    console.error("Error fetching programs:", error);
-  }
-};
+      setPrograms(filtered.reverse());
+    } catch (error) {
+      console.error("Error fetching programs:", error);
+    }
+  };
 
-
-    fetchPrograms();
-  }, [selectedCategory]);
+  fetchPrograms();
+ }, [selectedCategory]);
 
   return (
     <div style={{ overflow: 'hidden' }}>

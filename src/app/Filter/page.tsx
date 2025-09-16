@@ -4,7 +4,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { db } from '../lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import styles from './Filter.module.css';
 import IncreaseImag from './components/IncreaseImag';
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaWhatsapp } from 'react-icons/fa';
@@ -46,7 +46,8 @@ export default function Filter(){
  }, [filters, search]); // run once when Firestore data loads
 
   const fetchFilters = async () => {
-  const snapshot = await getDocs(collection(db, 'filters'));
+    const q = query(collection(db, "filters"), orderBy("createdAt", "asc"));
+  const snapshot = await getDocs(q);
   const data: FilterItem[] = snapshot.docs.map(doc => {
     const docData = doc.data() as Omit<FilterItem, 'id'>;
     return {
