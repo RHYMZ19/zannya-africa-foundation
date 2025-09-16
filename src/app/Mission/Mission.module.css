@@ -1,7 +1,7 @@
 .previewcontainer {
     display: flex;
     gap: 16px;
-    background: #f4f4f4;
+    background-color: transparent;
     padding: 16px;
     border-radius: 12px;
     align-items: center;
@@ -38,7 +38,7 @@
 
 .arrowButton {
     margin-top: 8px;
-    background-color: #008080;
+    background: #0070f3;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -49,7 +49,7 @@
     overflow: hidden;
 }
 .arrowButton:hover {
-     background-color: #006666;
+    background: #0059c1;
 }
 
 .headings {
