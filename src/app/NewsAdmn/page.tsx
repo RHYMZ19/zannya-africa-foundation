@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { db } from "../lib/firebase";
-import { addDoc, collection, getDocs, serverTimestamp, Timestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import styles from './NewsAdmn.module.css';
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
@@ -11,18 +11,8 @@ interface NewsFormData {
   title: string;
   type: string;
   description: string;
-  images: string[]; // multiple Cloudinary URLs
-  video: string;    // single video URL
-}
-
-interface NewsItem {
-  id: string;
-  title: string;
-  type: string;
-  description: string;
-  images?: string[];
-  video?: string;
-  timestamp?: Timestamp;
+  images: string[];
+  video: string;
 }
 
 const NewsAdmn = () => {
@@ -35,35 +25,6 @@ const NewsAdmn = () => {
   });
 
   const [uploading, setUploading] = useState(false);
-  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchNews = async () => {
-    setLoading(true);
-    try {
-      const querySnapshot = await getDocs(collection(db, "newsUpdates"));
-      const items: NewsItem[] = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...(doc.data() as Omit<NewsItem, 'id'>)
-      }));
-
-      // ✅ Sort newest first
-items.sort((a, b) => {
-  const aTime = a.timestamp ? a.timestamp.toMillis() : 0;
-  const bTime = b.timestamp ? b.timestamp.toMillis() : 0;
-  return bTime - aTime;
-});
-      setNewsItems(items);
-    } catch (error) {
-      console.error("Error fetching news:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchNews();
-  }, []);
 
   // Handles Cloudinary upload completion
   const handleUploadComplete = (url: string, field: "image" | "video") => {
@@ -87,23 +48,17 @@ items.sort((a, b) => {
 
     try {
       const docData = {
-        title: formData.title,
-        type: formData.type,
-        description: formData.description,
-        images: formData.images,
-        video: formData.video,
+        ...formData,
         timestamp: serverTimestamp(),
       };
 
       await addDoc(collection(db, "newsUpdates"), docData);
 
-      alert("News uploaded!");
+      alert("✅ News uploaded successfully!");
       setFormData({ title: "", type: "", description: "", images: [], video: "" });
-
-      fetchNews(); // reload news items
     } catch (err) {
       console.error(err);
-      alert("Error uploading news.");
+      alert("❌ Error uploading news.");
     } finally {
       setUploading(false);
     }
@@ -179,43 +134,6 @@ items.sort((a, b) => {
           {uploading ? "Uploading..." : "Submit"}
         </button>
       </form>
-
-      <hr />
-
-      <h2>News Items</h2>
-      {loading ? (
-        <p>Loading news...</p>
-      ) : newsItems.length === 0 ? (
-        <p>No news available.</p>
-      ) : (
-        newsItems.map(item => (
-          <div key={item.id} className={styles.newsItem}>
-            <h3>{item.title}</h3>
-            <p><strong>Type:</strong> {item.type}</p>
-            <p>{item.description}</p>
-            {item.images?.map((img, idx) => (
-              <Image
-                key={idx}
-                src={img}
-                alt={item.title}
-                style={{ maxWidth: '100%', borderRadius: 8, marginTop: 8 }}
-              />
-            ))}
-            {item.video && (
-              <video controls style={{ maxWidth: '100%', marginTop: 8 }}>
-                <source src={item.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            )}
-            {item.timestamp && (
-              <small style={{ display: "block", marginTop: 4 }}>
-                {item.timestamp.toDate().toLocaleDateString()}
-              </small>
-            )}
-            <hr />
-          </div>
-        ))
-      )}
     </div>
   );
 };

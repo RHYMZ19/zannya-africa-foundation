@@ -118,8 +118,8 @@
   color: white;    
 
    background: linear-gradient(
-      rgba(0, 0, 0, 0.5),   /* black with 50% opacity */
-      rgba(0, 0, 0, 0.5)
+      rgba(0, 0, 0, 0.4),   /* black with 50% opacity */
+      rgba(0, 0, 0, 0.4)
     ),
     url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1757856069/zannya/uploads/otzyxuituddnljimi6lv.jpg');
 }
