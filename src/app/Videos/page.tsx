@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { db } from "../lib/firebase";
-import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
+import {  Timestamp } from "firebase/firestore";
 import styles from './Videos.module.css';
 import { useRouter } from "next/navigation";
 import { FaHome } from "react-icons/fa";
@@ -12,6 +12,7 @@ import IncreaseIma from "../Newsp/components/IncreaseIma";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import StickyBar from "../StickyBar/StickyBar";
 import IncreaseImagis from "./components/IncreaseImagis";
+import { doc, getDoc } from "firebase/firestore";
 
 interface MediaItem {
   url: string;
@@ -28,20 +29,33 @@ export default function Videos() {
   // Load from Firestore
   useEffect(() => {
     const loadItems = async () => {
-      setLoading(true);
-      try {
-        const q = query(collection(db, "media"), orderBy("createdAt", "desc"));
-        const snap = await getDocs(q);
-        const data = snap.docs.map(doc => doc.data() as MediaItem);
+  setLoading(true);
+  try {
+    const galleryRef = doc(db, "media", "gallery");
+    const snap = await getDoc(galleryRef);
 
-        // filter by type (image/video)
-        setItems(data.filter(item => item.type === filter));
-      } catch (err) {
-        console.error("Error loading media:", err);
-      } finally {
-        setLoading(false);
+    if (snap.exists()) {
+      const data = snap.data() as {
+        images?: { url: string; createdAt: Date }[];
+        videos?: { url: string; createdAt: Date }[];
+      };
+
+      // filter based on selected type
+      if (filter === "image") {
+        setItems((data.images || []).map(img => ({ ...img, type: "image" })));
+      } else {
+        setItems((data.videos || []).map(video => ({ ...video, type: "video" })));
       }
-    };
+    } else {
+      console.warn("Gallery document not found.");
+      setItems([]);
+    }
+  } catch (err) {
+    console.error("Error loading media:", err);
+  } finally {
+    setLoading(false);
+  }
+};
 
     loadItems();
   }, [filter]);
