@@ -44,7 +44,9 @@ if (loading) {
     
     return (
         <div style={{justifyItems: "center", gap: "5%"}}>
+            <h1 style={{color: 'black', fontWeight: 'bolder', fontSize: '20px', marginTop: '7%'}}>WELCOME TO ZANNYA AFRICA FOUNADTION CONTROL ROOM </h1>
             <div style={{
+                marginTop: '7%',
                backgroundColor: "#fff3cd",
                border: "1px solid #ffeeba",
                color: "#856404",
@@ -60,6 +62,7 @@ if (loading) {
                  <li>Uploading <strong>unwanted or irrelevant videos</strong> will lead to <strong>disqualification as an admin</strong>.</li>
                  <li><strong>All uploaded content is permanent.</strong></li>
                  <li>If you want to make changes to already uploaded content, <strong>contact the developer for assistance</strong>.</li>
+                 <li>Please take note of our  <strong> terms and conditions </strong> before you make any upload.</li>
                </ul>
              </div>
         <div>
@@ -80,7 +83,7 @@ if (loading) {
             <SuccessAdmin></SuccessAdmin>
         </div>
 
-        <div>
+        <div style={{marginBottom: '7%'}}>
             <ResoAdmin></ResoAdmin>
         </div>
 
