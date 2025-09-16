@@ -66,7 +66,7 @@ const NewsAdmn = () => {
 
   return (
     <div className={styles.formcontainer}>
-      <h2>Upload News & Update</h2>
+      <h2> News & Update Upload</h2>
       <form onSubmit={handleSubmit} className={styles.uploadform}>
         <input
           type="text"

@@ -21,7 +21,7 @@ const GalleryAdmin = () => {
 
   return (
     <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
-      <h2 style={{ marginBottom: "20px" }}>Admin Upload</h2>
+      <h2 style={{ marginBottom: "20px" }}>Gallery Upload</h2>
 
       {/* Upload Images */}
       <div style={{ marginBottom: "30px" }}>

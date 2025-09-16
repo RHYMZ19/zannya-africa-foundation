@@ -58,8 +58,8 @@ const SuccessAdmin = () => {
   };
 
   return (
-    <div style={{ padding: 20, maxWidth: '500px' }}>
-      <h2>Add Success Story</h2>
+    <div style={{ padding: 20, maxWidth: '500px', background: '#f4f4f4' }}>
+      <h2>Success Story Upload</h2>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <input
           type="text"

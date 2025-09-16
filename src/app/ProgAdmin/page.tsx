@@ -63,7 +63,7 @@ export default function AdminFilterForm() {
 
   return (
     <div className={styles.filtercontainer}>
-      <h2>Admin Filter Panel</h2>
+      <h2>Program Upload</h2>
       <form onSubmit={handleSubmit} className={styles.filterform}>
 
         <label>Category / Program</label>

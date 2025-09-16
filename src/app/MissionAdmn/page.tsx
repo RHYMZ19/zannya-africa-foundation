@@ -102,7 +102,7 @@ export default function MissionAdmn() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.h1}>Leadership Admin Panel</h1>
+      <h1 className={styles.h1}>Leadership Upload</h1>
 
       {message && <p className={styles.message}>{message}</p>}
 
