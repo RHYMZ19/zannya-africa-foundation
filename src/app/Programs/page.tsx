@@ -14,7 +14,7 @@ import Image from "next/image";
 import IncreaseImagi from "./components/IncreaseImagi";
 
 import db from "../lib/firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import IncreaseIma from "./components/IncreaseIma";
 import { FaXTwitter } from "react-icons/fa6";
@@ -61,7 +61,8 @@ export default function Programs() {
   try {
     const q = query(
       collection(db, "filters"),
-      where("category", "==", selectedCategory)
+      where("category", "==", selectedCategory),
+      orderBy("createdAt", "asc")
     );
     const snapshot = await getDocs(q);
     const data: Program[] = snapshot.docs.map(doc => ({

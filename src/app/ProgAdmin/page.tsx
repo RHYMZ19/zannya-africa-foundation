@@ -2,7 +2,7 @@
 
 import db from "../lib/firebase";
 import React, { useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import styles from './ProgAdmin.module.css';
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
@@ -47,7 +47,7 @@ export default function AdminFilterForm() {
       return alert('All required fields must be filled.');
     }
     try {
-      await addDoc(collection(db, 'filters'), { ...formData, subcategories });
+      await addDoc(collection(db, 'filters'), { ...formData, subcategories, createdAt: serverTimestamp(),  });
       alert('Filter saved!');
     } catch (error) {
       console.error('Error saving filter:', error);
