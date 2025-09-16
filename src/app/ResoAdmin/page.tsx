@@ -50,7 +50,7 @@ const ResoAdmin = () => {
   };
 
   return (
-    <div style={{ padding: 20, maxWidth: '500px', background: '#f4f4f4', marginTop: '2.5%'}}>
+    <div style={{ padding: 20, maxWidth: '500px', background: '#f4f4f4',borderRadius: '12px', marginTop: '7%'}}>
       <h2>Resource Upload</h2>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <input

@@ -20,7 +20,7 @@ const GalleryAdmin = () => {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto", background: '#f4f4f4' }}>
+    <div style={{ padding: "20px", maxWidth: "600px",boxShadow: '0 2px 8px rgba(0,0,0,0.1)', margin: "0 auto",borderRadius: '12px', background: '#f4f4f4', marginTop: '7%' }}>
       <h2 style={{ marginBottom: "20px" }}>Gallery Upload</h2>
 
       {/* Upload Images */}
