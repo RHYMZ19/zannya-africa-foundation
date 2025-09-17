@@ -469,8 +469,12 @@
 }
 
 /* Sections */
-.programSection, .newsSection, .successSection, .supportSection, .getInvolvedSection, .contactSection {
+.programSection, .newsSection, .successSection, .resourcesSection, .supportSection, .getInvolvedSection, .contactSection {
     padding: 60px 20px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow-y: scroll;
 }
 .programSection {
     background: linear-gradient(to right, #e0f7fa, #e1bee7);

@@ -86,6 +86,10 @@ export default function Home() {
                 <NewsA />
                 <NewsE />
                 <NewsM />
+            </section>
+
+            {/* Resources */}
+            <section className={styles.resourcesSection}>
                 <Divider title="Resources" />
                 <Resources />
             </section>
