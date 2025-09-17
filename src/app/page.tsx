@@ -66,7 +66,7 @@ Home() {
                 </div>
                 <ImageScroll></ImageScroll>
                 <Hd></Hd>
-        
+
             <div className={styles.bun}>
                     <DividerAboutUs title='A bout us'/>
                     <Mission data-aos='slide-right'></Mission>
@@ -116,7 +116,7 @@ Home() {
         <h2>Our Programs</h2>
         <div className={styles.programcards}>
           <div className={styles.card}>
-            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064571/zannya/uploads/lpux4wqm27omuk9u15ei.jpg" alt="Education" />
+            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063282/zannya/uploads/pryfzrizykeqtm06dmxv.jpg" alt="Education" />
             <h3>Education</h3>
             <p>Supporting children with access to quality education and mentorship.</p>
           </div>
