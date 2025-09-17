@@ -202,8 +202,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 40px;
-  justify-items: center;
+  justify-content: center;
   margin-top: 20px;
+
 }
 
 .title {

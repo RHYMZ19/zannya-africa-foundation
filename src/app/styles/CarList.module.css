@@ -472,7 +472,31 @@
 .programSection, .newsSection, .successSection, .resourcesSection, .supportSection, .getInvolvedSection, .contactSection {
     padding: 60px 20px;
 }
-.resourcesSection {
+/* Horizontal scroll container for Programs & News */
+.scrollContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;          /* spacing between items */
+    overflow-x: auto;    /* horizontal scroll */
+    scroll-behavior: smooth; /* smooth scrolling */
+    padding-bottom: 10px; /* avoid scrollbar overlap */
+}
+
+/* Optional: hide scrollbar for cleaner look */
+.scrollContainer::-webkit-scrollbar {
+    height: 6px;
+}
+.scrollContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+/* Make child items not shrink too much on mobile */
+.scrollContainer > * {
+    flex: 0 0 auto; /* prevents shrinking */
+    min-width: 250px; /* adjust as needed */
+}
+.newsSection {
     display: flex;
     flex-direction: row;
     position: relative;

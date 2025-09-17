@@ -74,18 +74,22 @@ export default function Home() {
             {/* Programs / Services */}
             <section className={styles.programSection}>
                 <Divider title="Programs & Activities" />
-                <Programsservices />
-                <Programsservices1 />
-                <Programsservices2 />
+                <div className={styles.scrollContainer}>
+                    <Programsservices />
+                    <Programsservices1 />
+                    <Programsservices2 />
+                </div>
             </section>
 
-            {/* News & Resources */}
+            {/* newsSection */}
             <section className={styles.newsSection}>
                 <Divider title="News & Updates" />
-                <News />
-                <NewsA />
-                <NewsE />
-                <NewsM />
+                <div className={styles.scrollContainer}>
+                    <News />
+                    <NewsA />
+                    <NewsE />
+                    <NewsM />
+                </div>
             </section>
 
             {/* Resources */}
