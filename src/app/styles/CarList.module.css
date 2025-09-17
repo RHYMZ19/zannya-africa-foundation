@@ -471,13 +471,23 @@
 /* Sections */
 .programSection, .newsSection, .successSection, .resourcesSection, .supportSection, .getInvolvedSection, .contactSection {
     padding: 60px 20px;
+}
+.resourcesSection {
     display: flex;
     flex-direction: row;
     position: relative;
-    overflow-y: scroll;
+    overflow-x: auto;   /* enables horizontal scroll */
+    white-space: nowrap; /* keeps child elements in a single line */
+    gap: 10%;
 }
 .programSection {
     background: linear-gradient(to right, #e0f7fa, #e1bee7);
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow-x: auto;   /* enables horizontal scroll */
+    white-space: nowrap; /* keeps child elements in a single line */
+    gap: 10%;
 }
 .successSection {
     background: #f8f9fa;
