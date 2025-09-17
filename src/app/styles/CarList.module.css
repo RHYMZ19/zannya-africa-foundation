@@ -474,6 +474,7 @@
 }
 /* Horizontal scroll container for Programs & News */
 .scrollContainer {
+    background-color: transparent;
     display: flex;
     flex-direction: row;
     gap: 20px;          /* spacing between items */
@@ -484,7 +485,7 @@
 
 /* Optional: hide scrollbar for cleaner look */
 .scrollContainer::-webkit-scrollbar {
-    height: 6px;
+    height: 2px;
 }
 .scrollContainer::-webkit-scrollbar-thumb {
     background-color: rgba(0,0,0,0.3);
@@ -494,7 +495,8 @@
 /* Make child items not shrink too much on mobile */
 .scrollContainer > * {
     flex: 0 0 auto; /* prevents shrinking */
-    min-width: 250px; /* adjust as needed */
+    width: 100%; /* adjust as needed */
+    height: 100%;
 }
 .newsSection {
     display: flex;
