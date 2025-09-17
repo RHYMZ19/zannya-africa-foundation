@@ -23,14 +23,12 @@ Developer() {
         style={{cursor: 'pointer'}}
         onClick={() => router.push('/Terms')}
         >Privacy Policy and Legal Terms</p>
-        <footer className={styles.footer}>
-          <p>© {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.</p>
-        </footer>
         <p 
         style={{cursor: 'pointer'}}
         onClick={() => router.push('/adminpannel')}
         >Admin</p>
-        
-        
+        <footer className={styles.footer}>
+          <p>© {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.</p>
+        </footer>
        </div>
 )}
