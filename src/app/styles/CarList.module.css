@@ -371,3 +371,138 @@
 
 
 
+/* Home.module.css */
+
+/* General */
+.homeWrapper {
+    font-family: 'Arial', sans-serif;
+    color: #222;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1757856069/zannya/uploads/otzyxuituddnljimi6lv.jpg') center/cover no-repeat;
+}
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+.heroTitle {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.heroSubtitle {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    max-width: 800px;
+}
+.heroButtons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+.ctaButton {
+    padding: 12px 25px;
+    background: #e63946;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.ctaButton:hover {
+    background: #d62828;
+}
+.ctaButtonSecondary {
+    padding: 12px 25px;
+    background: #0070f3;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.ctaButtonSecondary:hover {
+    background: #0059c1;
+}
+
+/* About Section */
+.aboutSection {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px;
+    gap: 20px;
+    background: #f8f9fa;
+}
+@media(min-width: 768px) {
+    .aboutSection {
+        flex-direction: row;
+    }
+}
+.aboutContent {
+    flex: 1;
+}
+.aboutImage {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+.aboutContentText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Sections */
+.programSection, .newsSection, .successSection, .supportSection, .getInvolvedSection, .contactSection {
+    padding: 60px 20px;
+}
+.programSection {
+    background: linear-gradient(to right, #e0f7fa, #e1bee7);
+}
+.successSection {
+    background: #f8f9fa;
+}
+.supportSection {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    margin: 0 20px;
+    padding: 60px 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+.contactGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+@media(min-width: 768px) {
+    .contactGrid {
+        flex-direction: row;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+.animateFadeIn { animation: fadeIn 1s ease forwards; }
+.delay200 { animation-delay: 0.2s; }
+.delay400 { animation-delay: 0.4s; }

@@ -1,185 +1,112 @@
 // scr/app/page.tsx
 'use client';
+
+import React, { useEffect } from 'react';
 import { useRouter } from "next/navigation";
-import styles from './styles/CarList.module.css';
-import ImageScroll from "./ImageScroll/ImageScroll";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import StickyBar from "./StickyBar/StickyBar";
 import HamburgerIcon from "./HamburgerIcon/HamburgerIcon";
-import OptionalFeatures from "./OptionalFeatures/OptionalFeatures";
-import Divider from './Divider/Divider';
-import Gallery from "./Gallery/Gallery";
-import GetInvolved from "./GetInvolved/GetInvolved";
-import Programsservices from "./Programsservices/Programsservices";
+import IncreaseImages from "./components/IncreaseImages";
+
 import Mission from "./Mission/Mission";
+import Programsservices from "./Programsservices/Programsservices";
 import News from "./News/News";
 import Resources from "./Resources/Resources";
 import Success from "./Success/Success";
 import Donate from "./Donate/Donate";
-import Contact from "./Contact/Contact";
 import GetInvolve from "./GetInvolve/GetInvolve";
-import DividerAboutUs from "./DividerAboutUs/DividerAboutUs";
-import React,{ useEffect } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import ContactUs from "./ContactUs/page";
-import Hd from "./Hd/page";
-import IncreaseImages from "./components/IncreaseImages";
+import Contact from "./Contact/Contact";
+import OptionalFeatures from "./OptionalFeatures/OptionalFeatures";
+import Divider from './Divider/Divider';
 
-// src/pages/Home.js
+import Image from 'next/image';
 
+import styles from './Home.module.css';  // <- Import separate CSS
 
-import { FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaWhatsapp } from "react-icons/fa";
-import Image from "next/image";
-
-
-
-
-
-
-export default function
-Home() {
-    
+export default function Home() {
     const router = useRouter();
+
     useEffect(() => {
-            AOS.init({duration: 1000});
-            }, []);
-    
+        AOS.init({ duration: 1200 });
+    }, []);
 
-    
-
-    
     return (
-        <div style={{ overflow: 'hidden' }}>
-            <div style={{ justifyItems: 'center', gap: '1%' }}>
+        <div className={styles.homeWrapper}>
+
+            {/* Sticky Top Bar */}
             <StickyBar>
-                    <HamburgerIcon />
-                    <GetInvolved />
-                    <Gallery />
-                    <button onClick={() =>
-                                        router.push('/Donates')
-                                    }
-                                    className={styles.arrowButton}>
-                                        Donate
-                                    </button>
-                    <IncreaseImages src='/log.jpg' alt="log" />
-                </StickyBar>
+                <HamburgerIcon />
+                <IncreaseImages src='/log.jpg' alt="Logo" />
+            </StickyBar>
+
+            {/* Hero Section */}
+            <section className={styles.hero}>
+                <div className={styles.heroOverlay}>
+                    <h1 className={`${styles.heroTitle} ${styles.animateFadeIn}`}>Zannya Africa Foundation</h1>
+                    <p className={`${styles.heroSubtitle} ${styles.animateFadeIn} ${styles.delay200}`}>
+                        Changing communities through sports, education, and empowerment.
+                    </p>
+                    <div className={`${styles.heroButtons} ${styles.animateFadeIn} ${styles.delay400}`}>
+                        <button onClick={() => router.push('/GetInvolve')} className={styles.ctaButton}>Get Involved</button>
+                        <button onClick={() => router.push('/Donates')} className={styles.ctaButtonSecondary}>Donate</button>
+                    </div>
                 </div>
-                <ImageScroll></ImageScroll>
-                <Hd></Hd>
+            </section>
 
-            <div className={styles.bun}>
-                    <DividerAboutUs title='A bout us'/>
-                    <Mission data-aos='slide-right'></Mission>
-             <Divider title="Services"/>
-             <Programsservices data-aos='fade-up'/>
-            <Divider title="News & Updates"/>
-            <News></News>
-            <Divider title="Resources"/>
-            <Resources></Resources>
-            <Divider title="Success Stories"/>
-            <Success></Success>
+            {/* About / Mission */}
+            <section className={styles.aboutSection}>
+                <div className={styles.aboutContent} data-aos="fade-right">
+                    <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756887367/zannya/success/rfnvysjav4f8i6potawj.jpg" alt="About us" className={styles.aboutImage}/>
+                </div>
+                <div className={styles.aboutContentText} data-aos="fade-left">
+                    <h2>Who We Are</h2>
+                    <p>Zannya Africa Foundation works with underprivileged children, youth, and women to create opportunities through sports, education, and community development.</p>
+                    <Mission />
+                </div>
+            </section>
 
-            <Divider title="Support Us"/>
-            <Donate></Donate>
+            {/* Programs / Services */}
+            <section className={styles.programSection}>
+                <Divider title="Programs & Services" />
+                <Programsservices />
+            </section>
 
-            <Divider title="Get Involved"/>
-            <GetInvolve></GetInvolve>
+            {/* News & Resources */}
+            <section className={styles.newsSection}>
+                <Divider title="News & Updates" />
+                <News />
+                <Divider title="Resources" />
+                <Resources />
+            </section>
 
-            <Divider title="Contact Us"/>
-            <Contact></Contact>
-            </div>
+            {/* Success Stories */}
+            <section className={styles.successSection}>
+                <Divider title="Success Stories" />
+                <Success />
+            </section>
 
-            
+            {/* Support Us */}
+            <section className={styles.supportSection}>
+                <Divider title="Support Us" />
+                <Donate />
+            </section>
 
+            {/* Get Involved */}
+            <section className={styles.getInvolvedSection}>
+                <Divider title="Get Involved" />
+                <GetInvolve />
+            </section>
 
-    <div className={styles.home}>
-      {/* Hero Section */}
-      <section className={styles.hero}>
-        <div className={styles.overlay}>
-          <h1>Zannya Africa Foundation</h1>
-          <p>Changing the community through sports, education, and empowerment.</p>
-          <button className={styles.ctabtn}>Get Involved</button>
+            {/* Contact & Optional Features */}
+            <section className={styles.contactSection}>
+                <Divider title="Contact & Features" />
+                <div className={styles.contactGrid}>
+                    <Contact />
+                    <OptionalFeatures />
+                </div>
+            </section>
         </div>
-      </section>
-
-      {/* About Section */}
-      <section className={styles.about}>
-        <h2>Who We Are</h2>
-        <p>
-          Zannya Africa Foundation works with underprivileged children, youth, and women to
-          create opportunities through sports, education, and community development.
-        </p>
-      </section>
-
-      {/* Programs Section */}
-      <section className={styles.programs}>
-        <h2>Our Programs</h2>
-        <div className={styles.programcards}>
-          <div className={styles.card}>
-            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063282/zannya/uploads/pryfzrizykeqtm06dmxv.jpg" alt="Education" />
-            <h3>Education</h3>
-            <p>Supporting children with access to quality education and mentorship.</p>
-          </div>
-          <div className={styles.card}>
-            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064544/zannya/uploads/ioeyybvowmrjwoe0llpl.jpg" alt="Sports" />
-            <h3>Sports & Recreation</h3>
-            <p>Using sports to inspire teamwork, discipline, and leadership.</p>
-          </div>
-          <div className={styles.card}>
-            <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg" alt="Community" />
-            <h3>Community Empowerment</h3>
-            <p>Building stronger communities through training and innovation.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Impact Section */}
-      <section className={styles.impact}>
-        <h2>Our Impact</h2>
-        <div className={styles.stats}>
-          <div>
-            <h3>5,000+</h3>
-            <p>Children Reached</p>
-          </div>
-          <div>
-            <h3>20+</h3>
-            <p>Communities Served</p>
-          </div>
-          <div>
-            <h3>10+</h3>
-            <p>Years of Service</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Get Involved Section */}
-      <section className={styles.Involved}>
-        <h2>Get Involved</h2>
-        <p>Join us in making a difference. Support Zannya Africa Foundation today!</p>
-        <div className={styles.btngroup}>
-          <button>Donate</button>
-          <button>Volunteer</button>
-          <button>Partner With Us</button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className={styles.footer}>
-        <p>© {new Date().getFullYear()} Zannya Africa Foundation. All rights reserved.</p>
-        <div className={styles.socialicons}>
-          <a href="#"><FaFacebook /></a>
-          <a href="#"><FaInstagram /></a>
-          <a href="#"><FaTwitter /></a>
-          <a href="#"><FaTiktok /></a>
-          <a href="#"><FaWhatsapp /></a>
-        </div>
-      </footer>
-    </div>
-  
-
-            <ContactUs></ContactUs>
-            <OptionalFeatures></OptionalFeatures>
-            </div>
-            );
-        }
-
+    );
+}
