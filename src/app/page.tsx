@@ -22,8 +22,7 @@ import OptionalFeatures from "./OptionalFeatures/OptionalFeatures";
 import Divider from './Divider/Divider';
 
 import Image from 'next/image';
-
-import styles from './CarList.module.css';  // <- Import separate CSS
+import styles from './styles/CarList.module.css';
 
 export default function Home() {
     const router = useRouter();
