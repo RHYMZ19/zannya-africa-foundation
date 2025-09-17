@@ -18,11 +18,14 @@ Developer() {
           <p><a href="mailto: contact@zannyaafricafoundation.org">contact@zannyaafricafoundation.org</a></p>
           </div>
 
-          <p className={styles.words}>Developed by eng.SSENABULYA RAHIM Tel: 0743878261</p>
+          <p className={styles.words}>Developed by SSENABULYA RAHIM Tel: 0743878261</p>
         <p 
         style={{cursor: 'pointer'}}
         onClick={() => router.push('/Terms')}
         >Privacy Policy and Legal Terms</p>
+        <footer className={styles.footer}>
+          <p>© {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.</p>
+        </footer>
         <p 
         style={{cursor: 'pointer'}}
         onClick={() => router.push('/adminpannel')}
