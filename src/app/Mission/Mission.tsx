@@ -22,10 +22,6 @@ export default function Mission() {
           <h2>Mission</h2>
           To use sports as a tool for community development, empowerment, and sustainability.
         </p>
-        <p>
-          <h2>Vision</h2>
-          To change lives and build stronger and healthier communities.
-        </p>
         <button 
           onClick={() => router.push('/Missions')}
           className={styles.arrowButton}
