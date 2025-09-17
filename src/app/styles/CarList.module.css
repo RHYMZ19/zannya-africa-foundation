@@ -258,3 +258,116 @@
 }
 
 
+.home {
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+/* Hero */
+.hero {
+  background: url("/images/hero-bg.jpg") center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero .overlay {
+  text-align: center;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 40px;
+  border-radius: 10px;
+}
+.cta-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #e63946;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* About */
+.about {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f8f9fa;
+}
+
+/* Programs */
+.programs {
+  padding: 60px 20px;
+  text-align: center;
+}
+.program-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+}
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* Impact */
+.impact {
+  background: #222;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+.stats div h3 {
+  font-size: 32px;
+  color: #e63946;
+}
+
+/* Get Involved */
+.involved {
+  padding: 60px 20px;
+  text-align: center;
+}
+.btn-group button {
+  margin: 10px;
+  padding: 12px 20px;
+  background: #e63946;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.social-icons a {
+  margin: 0 10px;
+  font-size: 20px;
+  color: white;
+}
+
+
+
