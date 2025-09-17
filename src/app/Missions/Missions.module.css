@@ -219,6 +219,7 @@
   grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
   gap: 30px;
   width: 100%;
+  justify-items: center;
 }
 
 
