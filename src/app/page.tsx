@@ -48,7 +48,7 @@ export default function Home() {
                         Changing communities through sports, education, and empowerment.
                     </p>
                     <div className={`${styles.heroButtons} ${styles.animateFadeIn} ${styles.delay400}`}>
-                        <button onClick={() => router.push('/GetInvolve')} className={styles.ctaButton}>Get Involved</button>
+                        <button onClick={() => router.push('/Internship')} className={styles.ctaButton}>Get Involved</button>
                         <button onClick={() => router.push('/Donates')} className={styles.ctaButtonSecondary}>Donate</button>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ export default function Home() {
 
             {/* Programs / Services */}
             <section className={styles.programSection}>
-                <Divider title="Programs & Services" />
+                <Divider title="Programs & Activities" />
                 <Programsservices />
             </section>
 
