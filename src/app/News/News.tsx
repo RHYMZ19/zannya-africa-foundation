@@ -10,7 +10,7 @@ export default function News() {
   return (
     <div id="News" className={styles.card}>
       <Image
-        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064668/zannya/uploads/ayx5sskfqhtpperkxwqq.jpg"
+        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758116572/zannya/uploads/images/au4ofyrzeimna2haoznw.jpg"
         alt="News Preview"
         width={400}
         height={250}

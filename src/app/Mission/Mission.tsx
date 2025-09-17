@@ -19,7 +19,12 @@ export default function Mission() {
       <div className={styles.cardContent}>
         <h3 className={styles.headings}>Mission & Vision</h3>
         <p>
+          <h2>Mission</h2>
           To use sports as a tool for community development, empowerment, and sustainability.
+        </p>
+        <p>
+          <h2>Vision</h2>
+          To change lives and build stronger and healthier communities.
         </p>
         <button 
           onClick={() => router.push('/Missions')}

@@ -28,6 +28,8 @@ import Programsservices2 from './Programsservices2/Programsservices2';
 import NewsA from './NewsA/NewsA';
 import NewsE from './NewsE/NewsE';
 import NewsM from './NewsM/NewsM';
+import Gallery from './Gallery/Gallery';
+import GetInvolved from './GetInvolved/GetInvolved';
 
 export default function Home() {
     const router = useRouter();
@@ -93,10 +95,18 @@ export default function Home() {
         <div className={styles.homeWrapper}>
 
             {/* Sticky Top Bar */}
+            <div style={{justifyItems: 'center', gap: '1%'}}>
             <StickyBar>
                 <HamburgerIcon />
+                <GetInvolved />
+                <Gallery />
+                <button onClick={() =>
+                            router.push('/Donates')}
+                            className={styles.arrowButton}>Donate
+                            </button>
                 <IncreaseImages src='/log.jpg' alt="Logo" />
             </StickyBar>
+            </div>
 
             {/* Hero Section */}
             <section className={styles.hero}>
@@ -119,7 +129,7 @@ export default function Home() {
                 </div>
                 <div className={styles.aboutContentText} data-aos="fade-left">
                     <h2>Who We Are</h2>
-                    <p>Zannya Africa Foundation works with underprivileged children, youth, and women to create opportunities through sports, education, and community development.</p>
+                    <p>Changing the community through sports. We work with unprivileged children, youth and women for their own development and the community at large using sports and recreation activities as an engine.</p>
                     <Mission />
                 </div>
             </section>

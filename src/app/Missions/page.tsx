@@ -58,7 +58,6 @@ Missions() {
         setVisible(true), 100);}, []);
 
 
-
     return(
         <div style={{overflow: 'hidden'}}>
           <div style={{justifyItems: 'center', gap: '1%'}}>
