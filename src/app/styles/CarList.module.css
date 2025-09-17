@@ -525,3 +525,60 @@
 .animateFadeIn { animation: fadeIn 1s ease forwards; }
 .delay200 { animation-delay: 0.2s; }
 .delay400 { animation-delay: 0.4s; }
+
+/* Counters */
+.impactSection {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f0f4ff;
+}
+.counterGrid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.counterCard {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  min-width: 150px;
+}
+.counterCard h3 {
+  font-size: 2rem;
+  color: #0070f3;
+}
+
+/* Scrollable Sections */
+.scrollWrapper {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+}
+.scrollWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll Buttons */
+.scrollControls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.scrollControls button {
+  background: #0070f3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.scrollControls button:hover {
+  background: #0059c1;
+}

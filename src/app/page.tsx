@@ -1,7 +1,7 @@
 // scr/app/page.tsx
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from "next/navigation";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -32,23 +32,41 @@ import NewsM from './NewsM/NewsM';
 export default function Home() {
     const router = useRouter();
     const [counts, setCounts] = useState({ people: 0, projects: 0, partners: 0 });
+    
+
+    // scroll refs
+    const programRef = useRef<HTMLDivElement | null>(null);
+    const newsRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         AOS.init({ duration: 1200 });
 
-        // Animated counters
+        // Animated counters with smoother logic
         const target = { people: 10000, projects: 120, partners: 45 };
-        let start = 0;
-        const interval = setInterval(() => {
-            start += 200;
+        const duration = 2000; // 2s
+        const steps = 60; // 60 frames
+        let frame = 0;
+
+        const counter = setInterval(() => {
+            frame++;
             setCounts({
-                people: Math.min(start * 5, target.people),
-                projects: Math.min(start / 10, target.projects),
-                partners: Math.min(start / 25, target.partners),
+                people: Math.min(Math.floor((target.people / steps) * frame), target.people),
+                projects: Math.min(Math.floor((target.projects / steps) * frame), target.projects),
+                partners: Math.min(Math.floor((target.partners / steps) * frame), target.partners),
             });
-            if (start > 2000) clearInterval(interval);
-        }, 50);
+            if (frame >= steps) clearInterval(counter);
+        }, duration / steps);
     }, []);
+
+    // Scroll function
+    const scroll = (ref: React.RefObject<HTMLDivElement | null>, dir: 'left' | 'right') => {
+  if (ref.current) {
+    ref.current.scrollBy({
+      left: dir === 'left' ? -300 : 300,
+      behavior: 'smooth',
+    });
+  }
+ };
 
     return (
         <div className={styles.homeWrapper}>
@@ -107,7 +125,11 @@ export default function Home() {
             {/* Programs / Services Carousel */}
             <section className={styles.programSection}>
                 <Divider title="Programs & Activities" />
-                <div className={styles.scrollWrapper}>
+                <div className={styles.scrollControls}>
+                    <button onClick={() => scroll(programRef, 'left')}>◀</button>
+                    <button onClick={() => scroll(programRef, 'right')}>▶</button>
+                </div>
+                <div className={styles.scrollWrapper} ref={programRef}>
                     <Programsservices />
                     <Programsservices1 />
                     <Programsservices2 />
@@ -117,7 +139,11 @@ export default function Home() {
             {/* News Section Horizontal Scroll */}
             <section className={styles.newsSection}>
                 <Divider title="News & Updates" />
-                <div className={styles.scrollWrapper}>
+                <div className={styles.scrollControls}>
+                    <button onClick={() => scroll(newsRef, 'left')}>◀</button>
+                    <button onClick={() => scroll(newsRef, 'right')}>▶</button>
+                </div>
+                <div className={styles.scrollWrapper} ref={newsRef}>
                     <News />
                     <NewsA />
                     <NewsE />
