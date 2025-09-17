@@ -92,18 +92,18 @@ Home() {
             
 
 
-    <div className="home">
+    <div className={styles.home}>
       {/* Hero Section */}
-      <section className="hero">
-        <div className="overlay">
+      <section className={styles.hero}>
+        <div className={styles.overlay}>
           <h1>Zannya Africa Foundation</h1>
           <p>Changing the community through sports, education, and empowerment.</p>
-          <button className="cta-btn">Get Involved</button>
+          <button className={styles.ctabtn}>Get Involved</button>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="about">
+      <section className={styles.about}>
         <h2>Who We Are</h2>
         <p>
           Zannya Africa Foundation works with underprivileged children, youth, and women to
@@ -112,20 +112,20 @@ Home() {
       </section>
 
       {/* Programs Section */}
-      <section className="programs">
+      <section className={styles.programs}>
         <h2>Our Programs</h2>
-        <div className="program-cards">
-          <div className="card">
+        <div className={styles.programcards}>
+          <div className={styles.card}>
             <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064571/zannya/uploads/lpux4wqm27omuk9u15ei.jpg" alt="Education" />
             <h3>Education</h3>
             <p>Supporting children with access to quality education and mentorship.</p>
           </div>
-          <div className="card">
+          <div className={styles.card}>
             <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064544/zannya/uploads/ioeyybvowmrjwoe0llpl.jpg" alt="Sports" />
             <h3>Sports & Recreation</h3>
             <p>Using sports to inspire teamwork, discipline, and leadership.</p>
           </div>
-          <div className="card">
+          <div className={styles.card}>
             <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg" alt="Community" />
             <h3>Community Empowerment</h3>
             <p>Building stronger communities through training and innovation.</p>
@@ -134,9 +134,9 @@ Home() {
       </section>
 
       {/* Impact Section */}
-      <section className="impact">
+      <section className={styles.impact}>
         <h2>Our Impact</h2>
-        <div className="stats">
+        <div className={styles.stats}>
           <div>
             <h3>5,000+</h3>
             <p>Children Reached</p>
@@ -153,10 +153,10 @@ Home() {
       </section>
 
       {/* Get Involved Section */}
-      <section className="involved">
+      <section className={styles.Involved}>
         <h2>Get Involved</h2>
         <p>Join us in making a difference. Support Zannya Africa Foundation today!</p>
-        <div className="btn-group">
+        <div className={styles.btngroup}>
           <button>Donate</button>
           <button>Volunteer</button>
           <button>Partner With Us</button>
@@ -164,9 +164,9 @@ Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
+      <footer className={styles.footer}>
         <p>© {new Date().getFullYear()} Zannya Africa Foundation. All rights reserved.</p>
-        <div className="social-icons">
+        <div className={styles.socialicons}>
           <a href="#"><FaFacebook /></a>
           <a href="#"><FaInstagram /></a>
           <a href="#"><FaTwitter /></a>
