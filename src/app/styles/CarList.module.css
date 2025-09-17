@@ -530,7 +530,7 @@
 .impactSection {
   padding: 60px 20px;
   text-align: center;
-  background: #f0f4ff;
+  background: linear-gradient(to right, #e0f7fa, #e1bee7);
 }
 .counterGrid {
   display: flex;

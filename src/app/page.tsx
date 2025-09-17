@@ -41,22 +41,43 @@ export default function Home() {
     useEffect(() => {
         AOS.init({ duration: 1200 });
 
-        // Animated counters with smoother logic
-        const target = { people: 10000, projects: 120, partners: 45 };
-        const duration = 2000; // 2s
-        const steps = 60; // 60 frames
-        let frame = 0;
+        // ---- START: Intersection Observer for counters ----
+        const counterSection = document.querySelector(`.${styles.counterGrid}`);
+        if (counterSection) {
+            const observer = new IntersectionObserver(
+                (entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Trigger the counter animation
+                            const target = { people: 10000, projects: 120, partners: 45 };
+                            const duration = 2000;
+                            const steps = 60;
+                            let frame = 0;
 
-        const counter = setInterval(() => {
-            frame++;
-            setCounts({
-                people: Math.min(Math.floor((target.people / steps) * frame), target.people),
-                projects: Math.min(Math.floor((target.projects / steps) * frame), target.projects),
-                partners: Math.min(Math.floor((target.partners / steps) * frame), target.partners),
-            });
-            if (frame >= steps) clearInterval(counter);
-        }, duration / steps);
+                            const counter = setInterval(() => {
+                                frame++;
+                                setCounts({
+                                    people: Math.min(Math.floor((target.people / steps) * frame), target.people),
+                                    projects: Math.min(Math.floor((target.projects / steps) * frame), target.projects),
+                                    partners: Math.min(Math.floor((target.partners / steps) * frame), target.partners),
+                                });
+                                if (frame >= steps) clearInterval(counter);
+                            }, duration / steps);
+
+                            obs.unobserve(counterSection); // only trigger once
+                        }
+                    });
+                },
+                { threshold: 0.5 }
+            );
+            observer.observe(counterSection);
+
+            return () => observer.disconnect();
+        }
+        // ---- END: Intersection Observer for counters ----
+
     }, []);
+
 
     // Scroll function
     const scroll = (ref: React.RefObject<HTMLDivElement | null>, dir: 'left' | 'right') => {
