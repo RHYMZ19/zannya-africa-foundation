@@ -481,6 +481,10 @@
     overflow-x: auto;    /* horizontal scroll */
     scroll-behavior: smooth; /* smooth scrolling */
     padding-bottom: 10px; /* avoid scrollbar overlap */
+    border: 0%;
+    justify-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 /* Optional: hide scrollbar for cleaner look */
@@ -503,7 +507,6 @@
     flex-direction: row;
     position: relative;
     overflow-x: auto;   /* enables horizontal scroll */
-    white-space: nowrap; /* keeps child elements in a single line */
     gap: 10%;
 }
 .programSection {
@@ -512,7 +515,6 @@
     flex-direction: row;
     position: relative;
     overflow-x: auto;   /* enables horizontal scroll */
-    white-space: nowrap; /* keeps child elements in a single line */
     gap: 10%;
 }
 .successSection {
