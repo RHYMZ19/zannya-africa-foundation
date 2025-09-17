@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import styles from './News.module.css';
+import styles from './NewsM.module.css';
 import Image from "next/image";
 
 export default function News() {
@@ -17,9 +17,9 @@ export default function News() {
         className={styles.cardImage}
       />
       <div className={styles.cardContent}>
-        <h3 className={styles.headings}>News</h3>
+        <h3 className={styles.headings}>Media</h3>
         <p>
-          Stay updated with the latest news from Zannya Africa Foundation  see whats happening in our community and beyond.
+          Explore Zannya Africa Foundation in the media  watch videos, view photos, and see our impact in action.
         </p>
         <button 
           onClick={() => router.push('/Newsp')} 

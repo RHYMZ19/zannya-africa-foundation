@@ -23,6 +23,11 @@ import Divider from './Divider/Divider';
 
 import Image from 'next/image';
 import styles from './styles/CarList.module.css';
+import Programsservices1 from './Programsservices1/Programsservices1';
+import Programsservices2 from './Programsservices2/Programsservices2';
+import NewsA from './NewsA/NewsA';
+import NewsE from './NewsE/NewsE';
+import NewsM from './NewsM/NewsM';
 
 export default function Home() {
     const router = useRouter();
@@ -70,12 +75,17 @@ export default function Home() {
             <section className={styles.programSection}>
                 <Divider title="Programs & Activities" />
                 <Programsservices />
+                <Programsservices1 />
+                <Programsservices2 />
             </section>
 
             {/* News & Resources */}
             <section className={styles.newsSection}>
                 <Divider title="News & Updates" />
                 <News />
+                <NewsA />
+                <NewsE />
+                <NewsM />
                 <Divider title="Resources" />
                 <Resources />
             </section>
