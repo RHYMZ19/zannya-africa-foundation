@@ -23,7 +23,7 @@ import Divider from './Divider/Divider';
 
 import Image from 'next/image';
 
-import styles from './Home.module.css';  // <- Import separate CSS
+import styles from './CarList.module.css';  // <- Import separate CSS
 
 export default function Home() {
     const router = useRouter();
