@@ -1,7 +1,7 @@
 // scr/app/page.tsx
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -31,9 +31,23 @@ import NewsM from './NewsM/NewsM';
 
 export default function Home() {
     const router = useRouter();
+    const [counts, setCounts] = useState({ people: 0, projects: 0, partners: 0 });
 
     useEffect(() => {
         AOS.init({ duration: 1200 });
+
+        // Animated counters
+        const target = { people: 10000, projects: 120, partners: 45 };
+        let start = 0;
+        const interval = setInterval(() => {
+            start += 200;
+            setCounts({
+                people: Math.min(start * 5, target.people),
+                projects: Math.min(start / 10, target.projects),
+                partners: Math.min(start / 25, target.partners),
+            });
+            if (start > 2000) clearInterval(interval);
+        }, 50);
     }, []);
 
     return (
@@ -62,7 +76,7 @@ export default function Home() {
             {/* About / Mission */}
             <section className={styles.aboutSection}>
                 <div className={styles.aboutContent} data-aos="fade-right">
-                    <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756887367/zannya/success/rfnvysjav4f8i6potawj.jpg" alt="About us" className={styles.aboutImage}/>
+                    <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756887367/zannya/success/rfnvysjav4f8i6potawj.jpg" alt="About us" className={styles.aboutImage} width={500} height={300}/>
                 </div>
                 <div className={styles.aboutContentText} data-aos="fade-left">
                     <h2>Who We Are</h2>
@@ -71,20 +85,39 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Programs / Services */}
+            {/* Impact Section */}
+            <section className={styles.impactSection}>
+                <Divider title="Our Impact" />
+                <div className={styles.counterGrid}>
+                    <div className={styles.counterCard}>
+                        <h3>{counts.people.toLocaleString()}+</h3>
+                        <p>Lives Impacted</p>
+                    </div>
+                    <div className={styles.counterCard}>
+                        <h3>{counts.projects}</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div className={styles.counterCard}>
+                        <h3>{counts.partners}</h3>
+                        <p>Partners Worldwide</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Programs / Services Carousel */}
             <section className={styles.programSection}>
                 <Divider title="Programs & Activities" />
-                <div className={styles.scrollContainer}>
+                <div className={styles.scrollWrapper}>
                     <Programsservices />
                     <Programsservices1 />
                     <Programsservices2 />
                 </div>
             </section>
 
-            {/* newsSection */}
+            {/* News Section Horizontal Scroll */}
             <section className={styles.newsSection}>
                 <Divider title="News & Updates" />
-                <div className={styles.scrollContainer}>
+                <div className={styles.scrollWrapper}>
                     <News />
                     <NewsA />
                     <NewsE />

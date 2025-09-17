@@ -407,15 +407,15 @@
     font-size: 1.5rem;
     margin-top: 1rem;
     max-width: 800px;
+    color: #eee;
 }
 .heroButtons {
     margin-top: 2rem;
     display: flex;
     gap: 1rem;
 }
-.ctaButton {
+.ctaButton, .ctaButtonSecondary {
     padding: 12px 25px;
-    background: #e63946;
     border: none;
     border-radius: 5px;
     color: white;
@@ -423,22 +423,10 @@
     font-weight: bold;
     transition: all 0.3s ease;
 }
-.ctaButton:hover {
-    background: #d62828;
-}
-.ctaButtonSecondary {
-    padding: 12px 25px;
-    background: #0070f3;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-.ctaButtonSecondary:hover {
-    background: #0059c1;
-}
+.ctaButton { background: #e63946; }
+.ctaButton:hover { background: #d62828; }
+.ctaButtonSecondary { background: #0070f3; }
+.ctaButtonSecondary:hover { background: #0059c1; }
 
 /* About Section */
 .aboutSection {
@@ -449,12 +437,7 @@
     background: #f8f9fa;
 }
 @media(min-width: 768px) {
-    .aboutSection {
-        flex-direction: row;
-    }
-}
-.aboutContent {
-    flex: 1;
+    .aboutSection { flex-direction: row; }
 }
 .aboutImage {
     width: 100%;
@@ -468,57 +451,53 @@
     gap: 15px;
 }
 
-/* Sections */
+/* Impact Section */
+.impactSection {
+    background: linear-gradient(to right, #e0f7fa, #e1bee7);
+    padding: 60px 20px;
+    text-align: center;
+}
+.counterGrid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.counterCard {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    width: 200px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.counterCard:hover { transform: translateY(-8px); }
+.counterCard h3 {
+    font-size: 2rem;
+    color: #0070f3;
+}
+.counterCard p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Scrollable Sections */
+.scrollWrapper {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-snap-type: x mandatory;
+}
+.scrollWrapper > * {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    min-width: 300px;
+}
+
+/* Other Sections */
 .programSection, .newsSection, .successSection, .resourcesSection, .supportSection, .getInvolvedSection, .contactSection {
     padding: 60px 20px;
-}
-/* Horizontal scroll container for Programs & News */
-.scrollContainer {
-    background-color: transparent;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;          /* spacing between items */
-    overflow-x: auto;    /* horizontal scroll */
-    scroll-behavior: smooth; /* smooth scrolling */
-    padding-bottom: 10px; /* avoid scrollbar overlap */
-    border: 0%;
-    justify-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-/* Optional: hide scrollbar for cleaner look */
-.scrollContainer::-webkit-scrollbar {
-    height: 2px;
-}
-.scrollContainer::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 3px;
-}
-
-/* Make child items not shrink too much on mobile */
-.scrollContainer > * {
-    flex: 0 0 auto; /* prevents shrinking */
-    width: 100%; /* adjust as needed */
-    height: 100%;
-}
-.newsSection {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    overflow-x: auto;   /* enables horizontal scroll */
-    gap: 10%;
-}
-.programSection {
-    background: linear-gradient(to right, #e0f7fa, #e1bee7);
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    overflow-x: auto;   /* enables horizontal scroll */
-    gap: 10%;
-}
-.successSection {
-    background: #f8f9fa;
 }
 .supportSection {
     background: linear-gradient(to right, #6a11cb, #2575fc);
@@ -535,9 +514,7 @@
     gap: 20px;
 }
 @media(min-width: 768px) {
-    .contactGrid {
-        flex-direction: row;
-    }
+    .contactGrid { flex-direction: row; }
 }
 
 /* Animations */
