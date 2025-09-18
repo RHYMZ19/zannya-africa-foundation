@@ -33,7 +33,7 @@ export default async function ContactPage() {
           <FaHome style={{ width: '25%', height: '25%' }} color="black" cursor='pointer' />
           <GetInvolved />
           <Gallery />
-          <a href="/donate" className={styles.arrowButton}>Donate</a> {/* Normal link */}
+          <a href="/Donates" className={styles.arrowButton}>Donate</a> {/* Normal link */}
           <IncreaseImai src='/log.jpg' alt="log" />
         </StickyBar>
       </div>
