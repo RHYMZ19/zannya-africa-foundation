@@ -13,7 +13,11 @@ type Resource = {
 
 const categories = ["All", "Research Papers", "Reports", "Case Studies"];
 
-export default function ResourcesList({ initialResources }: { initialResources: Resource[] }) {
+export default function ResourcesList({
+  initialResources,
+}: {
+  initialResources: Resource[];
+}) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredResources =
@@ -22,9 +26,23 @@ export default function ResourcesList({ initialResources }: { initialResources: 
       : initialResources.filter((res) => res.category === selectedCategory);
 
   return (
-    <div style={{ padding: "40px", maxWidth: "1000px", margin: "auto" }}>
+    <div
+      style={{
+        padding: "40px",
+        maxWidth: "1000px",
+        margin: "auto",
+      }}
+    >
       {/* Category Filters */}
-      <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginBottom: "30px", flexWrap: "wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "20px",
+          marginBottom: "30px",
+          flexWrap: "wrap",
+        }}
+      >
         {categories.map((cat) => (
           <button
             key={cat}
@@ -32,8 +50,12 @@ export default function ResourcesList({ initialResources }: { initialResources: 
             style={{
               padding: "10px 20px",
               borderRadius: "8px",
-              border: selectedCategory === cat ? "2px solid #007bff" : "1px solid #ccc",
-              backgroundColor: selectedCategory === cat ? "#e7f1ff" : "#fff",
+              border:
+                selectedCategory === cat
+                  ? "2px solid #007bff"
+                  : "1px solid #ccc",
+              backgroundColor:
+                selectedCategory === cat ? "#e7f1ff" : "#fff",
               cursor: "pointer",
             }}
           >
@@ -50,7 +72,14 @@ export default function ResourcesList({ initialResources }: { initialResources: 
           <div key={res.id} className={styles.card}>
             <h3>{res.title}</h3>
             <p>{res.description}</p>
-            <a href={res.pdf} download style={{ color: "#007bff", textDecoration: "underline" }}>
+            <a
+              href={res.pdf}
+              download
+              style={{
+                color: "#007bff",
+                textDecoration: "underline",
+              }}
+            >
               Download PDF
             </a>
           </div>
