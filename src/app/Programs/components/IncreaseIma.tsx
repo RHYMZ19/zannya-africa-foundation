@@ -36,3 +36,4 @@ export default function IncreaseImag({ src, alt }: Props) {
     </>
   );
 }
+
