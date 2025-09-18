@@ -1,23 +1,20 @@
-// src/app/Resourcess/page.tsx
-import { FaFacebook, FaHome, FaInstagram, FaTiktok } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import Image from "next/image";
-import Head from "next/head";
-import StickyBar from "../StickyBar/StickyBar";
-import GetInvolved from "../GetInvolved/GetInvolved";
-import Gallery from "../Gallery/Gallery";
-import IncreaseIma from "./components/IncreaseIma";
-import ContactUs from "../ContactUs/page";
-import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
-import ResourcesList from "./ResourcesList";
-import styles from "./Resourcess.module.css";
-import { collection, getDocs, Timestamp } from "firebase/firestore";
-import db from "../lib/firebase";
-import Link from "next/link";
+'use client';
 
-// ----------------------
-// Resource Type
-// ----------------------
+import { useEffect, useState } from 'react';
+import { FaFacebook, FaHome, FaInstagram, FaTiktok } from 'react-icons/fa';
+import Gallery from '../Gallery/Gallery';
+import GetInvolved from '../GetInvolved/GetInvolved';
+import StickyBar from '../StickyBar/StickyBar';
+import styles from './Resourcess.module.css';
+import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
+import { useRouter } from 'next/navigation';
+import ContactUs from '../ContactUs/page';
+import db from '../lib/firebase';
+import { collection, onSnapshot, Timestamp } from 'firebase/firestore';
+import IncreaseIma from './components/IncreaseIma';
+import Image from 'next/image';
+import { FaXTwitter } from 'react-icons/fa6';
+
 type Resource = {
   id: string;
   title: string;
@@ -27,164 +24,127 @@ type Resource = {
   timestamp?: Timestamp;
 };
 
-// ----------------------
-// Server Component with Firestore fetch
-// ----------------------
-export default async function Resourcess() {
-  const snapshot = await getDocs(collection(db, "resources"));
-  const resources: Resource[] = snapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...(doc.data() as Omit<Resource, "id">),
-  }));
+const categories = ['All', 'Research Papers', 'Reports', 'Case Studies'];
+
+export default function Resourcess() {
+  const router = useRouter();
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100);
+  }, []);
+
+  // Fetch resources from Firestore
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, 'resources'), snapshot => {
+      const items: Resource[] = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...(doc.data() as Omit<Resource, 'id'>)
+      }));
+      setResources(items);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const filteredResources = selectedCategory === 'All'
+    ? resources
+    : resources.filter(res => res.category === selectedCategory);
 
   return (
-    <main style={{ overflow: "hidden" }}>
-      {/* SEO Metadata */}
-      <Head>
-        <title>Resources & Publications | Zannya Africa Foundation</title>
-        <meta
-          name="description"
-          content="Access research papers, reports, and case studies empowering communities in Uganda."
-        />
-        <meta
-          name="keywords"
-          content="Zannya Africa Foundation, research papers, reports, case studies, youth empowerment, Uganda"
-        />
-        <meta property="og:title" content="Resources & Publications | Zannya Africa Foundation" />
-        <meta
-          property="og:description"
-          content="Access research papers, reports, and case studies empowering communities in Uganda."
-        />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756829071/zannya/uploads/kngkholnlp6wvmzq4pa8.jpg"
-        />
-        <meta property="og:url" content="https://www.zannyaafricafoundation.org/resources" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-
-      {/* Sticky Bar */}
+    <div style={{overflow: 'hidden'}}>
+      <div style={{justifyItems: 'center', gap: '1%'}}>
       <StickyBar>
-        <FaHome
-          style={{ width: "25%", height: "25%" }}
-          color="black"
-          cursor="pointer"
-        />
+        <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
+          Home
+        </FaHome>
         <GetInvolved />
         <Gallery />
-        <Link href="/Donates" className={styles.arrowButton}>
-          Donate
-        </Link>
-        <IncreaseIma src="/log.jpg" alt="Zannya Africa Foundation Logo" />
+        <button onClick={() => router.push('/Donates')} className={styles.arrowButton}>Donate</button>
+        < IncreaseIma src='/log.jpg' alt="log" ></IncreaseIma>
       </StickyBar>
+      </div>
 
-      {/* Header */}
-      <section className={styles.container}>
-        <header className="header show">
+      <div className={styles.container}>
+        <header className={`header ${visible ? 'show' : ""}`}>
           <h1 className={styles.h1}>RESOURCES AND PUBLICATIONS</h1>
-          <p className={styles.p1}>Zannya Africa Foundation</p>
+          <p className={styles.p1}>Zannya Africa foundation</p>
         </header>
-      </section>
+      </div>
 
-      {/* Banner Image */}
-      <section className={styles.imageH}>
-        <Image
-          src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756829071/zannya/uploads/kngkholnlp6wvmzq4pa8.jpg"
-          alt="Resources banner"
-          style={{ width: "70%", height: "auto", display: "block" }}
-          width={800}
-          height={600}
-        />
-      </section>
+      <div className={styles.imageH}>
+        <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756829071/zannya/uploads/kngkholnlp6wvmzq4pa8.jpg" alt="image" style={{ width: '70%', height: 'auto', display: 'block' }}></Image>
+      </div>
 
-      {/* Intro */}
-      <section style={{ padding: "2rem", textAlign: "center" }}>
-        <h1 style={{ fontSize: "40px", color: "red", fontWeight: "bold" }}>
-          Resources & Publications
-        </h1>
-        <p>
-          Zannya Africa Foundation provides research papers, reports, and case
-          studies to empower communities and support sustainable development
-          initiatives.
-        </p>
-      </section>
+      <div style={{ padding: '40px', maxWidth: '1000px', margin: 'auto' }}>
+        <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Resources & Publications</h1>
 
-      {/* ✅ Resources List */}
-      <ResourcesList initialResources={resources} />
-
-      {/* Social Links */}
-      <section style={{ textAlign: "center", paddingTop: "2rem" }}>
-        <p>
-          <strong>Follow us on:</strong>
-        </p>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "40px",
-            fontSize: "30px",
-          }}
-        >
-          <a
-            href="https://facebook.com/zannyaafricafoundation"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebook />
-          </a>
-          <a
-            href="https://instagram.com/zannya_africa_foundation"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://tiktok.com/@zannyaafricafdn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTiktok />
-          </a>
-          <a
-            href="https://x.com/zannyaafrica"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaXTwitter />
-          </a>
+        {/* Category Filters */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '30px', flexWrap: 'wrap' }}>
+          {categories.map(cat => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              style={{
+                padding: '10px 20px',
+                borderRadius: '8px',
+                border: selectedCategory === cat ? '2px solid #007bff' : '1px solid #ccc',
+                backgroundColor: selectedCategory === cat ? '#e7f1ff' : '#fff',
+                cursor: 'pointer'
+              }}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
 
-        <p style={{ marginTop: "1rem" }}>
-          <strong>Or email us:</strong>
-        </p>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "30px",
-            paddingTop: "10px",
-          }}
-        >
-          <ul>
-            <li>
-              <a href="mailto:info@zannyaafricafoundation.org">
-                info@zannyaafricafoundation.org
+        {/* Resources List */}
+        {loading ? (
+          <p>Loading resources...</p>
+        ) : filteredResources.length === 0 ? (
+          <p>No resources available.</p>
+        ) : (
+          filteredResources.map((res, index) => (
+            <div className={styles.card} key={index} >
+              <h3>{res.title}</h3>
+              <p>{res.description}</p>
+              <a href={res.pdf} download style={{ color: '#007bff', textDecoration: 'underline' }}>
+                Download PDF
               </a>
-            </li>
-            <li>
-              <a href="mailto:support@zannyaafricafoundation.org">
-                support@zannyaafricafoundation.org
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+            </div>
+          ))
+        )}
+      </div>
+      <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong>For more Resources and Publications you can follow us on our socialplatforms:</strong></p>
+                    <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
+                              <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
+                                <FaFacebook />
+                              </a>
+                              <a href="https://instagram.com/zannya_africa_foundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
+                                <FaInstagram />
+                              </a>
+                              <a href="https://tiktok.com/@zannyaafricafdn" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                <FaTiktok />
+                              </a>
+                              <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                  <FaXTwitter />   
+                              </a>
+                              
+                            </div>
+                            <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
+                            <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
+                        <ul>
+                        <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
+                        <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
+                        </ul>
+                      </div>
 
-      {/* Contact & Optional Features */}
       <ContactUs />
       <OptionalFeatures />
-    </main>
+    </div>
   );
 }
