@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../lib/firebase";  // adjust path to your firebase config
-import Donates from "../components/Donates"; // your existing component
+import Donates from "../Donates"; // your existing component
 
 export async function getServerSideProps() {
   const snapshot = await getDocs(collection(db, "skills"));
