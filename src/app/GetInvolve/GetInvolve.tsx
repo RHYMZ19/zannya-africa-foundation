@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from './GetInvolve.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function GetInvolve() {
     const router = useRouter();
@@ -22,12 +23,7 @@ export default function GetInvolve() {
                     Be part of the change! Join Zannya Africa Foundation in empowering 
                     communities through your time, skills, or resources...
                 </p>
-                <button 
-                    onClick={() => router.push('/Internship')}
-                    className={styles.button}
-                >
-                    Read More
-                </button>
+                <Link href="/Internship" className={styles.button}>Read More</Link>
             </div>
         </div>
     );

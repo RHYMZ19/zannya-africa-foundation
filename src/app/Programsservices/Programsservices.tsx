@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from './Programsservices.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Programsservices() {
     const router = useRouter();
@@ -28,12 +29,7 @@ export default function Programsservices() {
                     them with a constructive outlet and a platform to develop essential life skills, 
                     build self-esteem, and foster a sense of belonging.
                 </p>
-                <button 
-                    onClick={() => router.push('/Programs')}
-                    className={styles.button}
-                >
-                    Read More
-                </button>
+                <Link href="/Programs" className={styles.button}>Read More</Link>
             </div>
         </div>
     );

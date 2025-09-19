@@ -2,6 +2,7 @@
 import React from 'react';
 import styles from './Developer.module.css'
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 export default function 
@@ -19,10 +20,14 @@ Developer() {
           </div>
 
           <p className={styles.words}>Developed by SSENABULYA RAHIM Tel: 0743878261</p>
-        <p 
-        style={{cursor: 'pointer'}}
-        onClick={() => router.push('/Terms')}
-        >Privacy Policy and Legal Terms</p>
+          <p>
+          <Link 
+           href="/Terms" 
+           style={{ cursor: "pointer"}}>
+           Privacy Policy and Legal Terms
+         </Link>
+         </p>
+        
         <p 
         style={{cursor: 'pointer'}}
         onClick={() => router.push('/adminpannel')}

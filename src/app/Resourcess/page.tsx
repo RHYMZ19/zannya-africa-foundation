@@ -14,6 +14,7 @@ import { collection, onSnapshot, Timestamp } from 'firebase/firestore';
 import IncreaseIma from './components/IncreaseIma';
 import Image from 'next/image';
 import { FaXTwitter } from 'react-icons/fa6';
+import Link from 'next/link';
 
 type Resource = {
   id: string;
@@ -64,7 +65,9 @@ export default function Resourcess() {
         </FaHome>
         <GetInvolved />
         <Gallery />
-        <button onClick={() => router.push('/Donates')} className={styles.arrowButton}>Donate</button>
+        <Link href="/Donates" className={styles.arrowButton}>
+          Donate
+        </Link>
         < IncreaseIma src='/log.jpg' alt="log" ></IncreaseIma>
       </StickyBar>
       </div>

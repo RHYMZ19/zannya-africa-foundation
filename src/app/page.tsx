@@ -30,6 +30,7 @@ import NewsE from './NewsE/NewsE';
 import NewsM from './NewsM/NewsM';
 import Gallery from './Gallery/Gallery';
 import GetInvolved from './GetInvolved/GetInvolved';
+import Link from 'next/link';
 
 export default function Home() {
     const router = useRouter();
@@ -100,10 +101,9 @@ export default function Home() {
                 <HamburgerIcon />
                 <GetInvolved />
                 <Gallery />
-                <button onClick={() =>
-                            router.push('/Donates')}
-                            className={styles.arrowButton}>Donate
-                            </button>
+                <Link href="/Donates" className={styles.arrowButton}>
+                  Donate
+                </Link>
                 <IncreaseImages src='/log.jpg' alt="Logo" />
             </StickyBar>
             </div>
@@ -116,8 +116,8 @@ export default function Home() {
                         Changing communities through sports, education, and empowerment.
                     </p>
                     <div className={`${styles.heroButtons} ${styles.animateFadeIn} ${styles.delay400}`}>
-                        <button onClick={() => router.push('/Internship')} className={styles.ctaButton}>Get Involved</button>
-                        <button onClick={() => router.push('/Donates')} className={styles.ctaButtonSecondary}>Donate</button>
+                        <Link href="/Internship" className={styles.ctaButton}>Get Involved</Link>
+                        <Link href="/Donates" className={styles.ctaButtonSecondary}>Donate</Link>
                     </div>
                 </div>
             </section>

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from './Mission.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Mission() {
   const router = useRouter();
@@ -22,12 +23,7 @@ export default function Mission() {
           <h2>Mission</h2>
           To use sports as a tool for community development, empowerment, and sustainability.
         </p>
-        <button 
-          onClick={() => router.push('/Missions')}
-          className={styles.arrowButton}
-        >
-          Read More
-        </button>
+        <Link href="/Missions" className={styles.arrowButton}>Read More</Link>
       </div>
     </div>
   );

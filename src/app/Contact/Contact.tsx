@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from './Contact.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Contact() {
   const router = useRouter();
@@ -21,12 +22,7 @@ export default function Contact() {
         <p>
           Contact us today to learn more about our programs, activities, and how you can be part of creating lasting change.
         </p>
-        <button 
-          onClick={() => router.push('/Contacts')} 
-          className={styles.arrowButton}
-        >
-          Read More
-        </button>
+        <Link href="/Contacts" className={styles.arrowButton}>Read More</Link>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from './Success.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Success() {
     const router = useRouter();
@@ -21,12 +22,7 @@ export default function Success() {
                 <p className={styles.text}>
                     Read inspiring stories of transformation and impact from communities we serve.
                 </p>
-                <button 
-                    onClick={() => router.push('/Successs')}
-                    className={styles.button}
-                >
-                    Read More
-                </button>
+                <Link href="/Successs" className={styles.button}>Read More</Link>
             </div>
         </div>
     );

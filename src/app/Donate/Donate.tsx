@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from './Donate.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Donate() {
   const router = useRouter();
@@ -21,12 +22,7 @@ export default function Donate() {
         <p>
           Together, we can transform lives. By donating today, you become part of a movement that uplifts communities...
         </p>
-        <button 
-          onClick={() => router.push('/Donates')} 
-          className={styles.arrowButton}
-        >
-          Read More
-        </button>
+        <Link href="/Donates" className={styles.arrowButton}>Read More</Link>
       </div>
     </div>
   );

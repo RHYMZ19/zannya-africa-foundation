@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from './Programsservices2.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Programsservices() {
     const router = useRouter();
@@ -27,12 +28,7 @@ export default function Programsservices() {
                     foster sustainable lifestyles through sports thus empowering youth to 
                     become climate leaders
                 </p>
-                <button 
-                    onClick={() => router.push('/Programs')}
-                    className={styles.button}
-                >
-                    Read More
-                </button>
+                <Link href="/Programs" className={styles.button}>Read More</Link>
             </div>
         </div>
     );

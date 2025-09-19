@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from './NewsA.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function News() {
   const router = useRouter();
@@ -21,12 +22,7 @@ export default function News() {
         <p>
           Stay informed with Zannya Africa Foundation articles in-depth stories and updates from our programs and projects.
         </p>
-        <button 
-          onClick={() => router.push('/Newsp')} 
-          className={styles.arrowButton}
-        >
-          Read More
-        </button>
+        <Link href="/Newsp" className={styles.arrowButton}>Read More</Link>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import styles from './Resources.module.css';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Resources() {
     const router = useRouter();
@@ -21,12 +22,7 @@ export default function Resources() {
                 <p className={styles.text}>
                     Explore our resources, including reports, publications, research papers...
                 </p>
-                <button 
-                    onClick={() => router.push('/Resourcess')}
-                    className={styles.button}
-                >
-                    Read More
-                </button>
+                <Link href="/Resourcess" className={styles.button}>Read More</Link>
             </div>
         </div>
     );
