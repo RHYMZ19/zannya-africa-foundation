@@ -1,5 +1,3 @@
-'use client';
-
 
 import styles from './Mission.module.css';
 import Image from "next/image";
