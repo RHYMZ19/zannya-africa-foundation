@@ -1,13 +1,12 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+
 import styles from './GetInvolve.module.css';
 import Image from "next/image";
 import Link from "next/link";
 
 export default function GetInvolve() {
-    const router = useRouter();
-
+    
     return (
         <div id="GetInvolve" className={styles.card}>
             <Image 

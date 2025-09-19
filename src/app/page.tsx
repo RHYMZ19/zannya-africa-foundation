@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { useRouter } from "next/navigation";
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -33,7 +33,7 @@ import GetInvolved from './GetInvolved/GetInvolved';
 import Link from 'next/link';
 
 export default function Home() {
-    const router = useRouter();
+    
     const [counts, setCounts] = useState({ people: 0, projects: 0, partners: 0 });
     
 

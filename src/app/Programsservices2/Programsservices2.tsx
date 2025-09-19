@@ -1,13 +1,12 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+
 import styles from './Programsservices2.module.css';
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Programsservices() {
-    const router = useRouter();
-
+    
     return (
         <div id='Programsservices' className={styles.card}>
             <Image 

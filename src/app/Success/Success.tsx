@@ -1,12 +1,12 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+
 import styles from './Success.module.css';
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Success() {
-    const router = useRouter();
+    
 
     return (
         <div id="Success" className={styles.card}>

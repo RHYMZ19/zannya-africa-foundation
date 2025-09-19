@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
+
 import Link from "next/link";
 
 const Gallery = () => {
-  const router = useRouter();
+  
 
   return (
     <div>

@@ -1,12 +1,12 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+
 import styles from './Mission.module.css';
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Mission() {
-  const router = useRouter();
+  
 
   return (
     <div id="Mission" className={styles.card}>

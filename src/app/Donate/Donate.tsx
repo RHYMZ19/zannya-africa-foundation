@@ -1,13 +1,12 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+
 import styles from './Donate.module.css';
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Donate() {
-  const router = useRouter();
-
+  
   return (
     <div id="Donate" className={styles.card}>
       <Image

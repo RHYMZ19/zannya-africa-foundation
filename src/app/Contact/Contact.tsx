@@ -1,12 +1,12 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+
 import styles from './Contact.module.css';
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Contact() {
-  const router = useRouter();
+  
 
   return (
     <div id="Contact" className={styles.card}>
