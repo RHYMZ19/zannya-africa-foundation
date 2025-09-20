@@ -53,7 +53,7 @@ export default function Home() {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             // Trigger the counter animation
-                            const target = { people: 10000, projects: 120, partners: 45 };
+                            const target = { people: 1000, projects: 120, partners: 20 };
                             const duration = 2000;
                             const steps = 60;
                             let frame = 0;
