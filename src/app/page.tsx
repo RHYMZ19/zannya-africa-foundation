@@ -126,7 +126,7 @@ export default function Home() {
             {/* About / Mission */}
             <section className={styles.aboutSection}>
                 <div className={styles.aboutContent} data-aos="fade-right">
-                    <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758374799/zannya/uploads/images/insun2kdxlwor2iqb8va.jpg" alt="About us" className={styles.aboutImage} width={500} height={300}/>
+                    <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758376508/zannya/uploads/images/t614e7cy9pkrpcibktnv.jpg" alt="About us" className={styles.aboutImage} width={500} height={300}/>
                 </div>
                 <div className={styles.aboutContentText} data-aos="fade-left">
                     <h2>Who We Are</h2>
