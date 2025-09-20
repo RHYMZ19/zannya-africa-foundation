@@ -18,7 +18,7 @@ export type NewsItem = {
 };
 
 export default function NewsList() {
-  const [news, setNews] = useState<NewsItem[]>([]);
+  const [news, setNews] = useState<NewsItem | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -35,7 +35,8 @@ export default function NewsList() {
         return bTime - aTime;
       });
 
-      setNews(items);
+      // ✅ Only take the latest one
+      setNews(items[0] || null);
       setLoading(false);
     });
 
@@ -43,45 +44,43 @@ export default function NewsList() {
   }, []);
 
   if (loading) return <p>Loading...</p>;
-  if (news.length === 0) return <p className={styles.nonews}>No news available.</p>;
+  if (!news) return <p className={styles.nonews}>No news available.</p>;
 
   return (
     <div className={styles.newslistcontainer}>
-      {news.map(({ id, title, type, description, images, video, timestamp }) => (
-        <div key={id} className={styles.card}>
-          {images && images.length > 0 && (
-            <Image
-              src={images[0]}
-              alt={title}
-              width={400}
-              height={220}
-              className={styles.cardImage}
-              style={{ cursor: 'pointer' }}
-            />
+      <div className={styles.card}>
+        {news.images && news.images.length > 0 && (
+          <Image
+            src={news.images[0]}
+            alt={news.title}
+            width={400}
+            height={220}
+            className={styles.cardImage}
+            style={{ cursor: 'pointer' }}
+          />
+        )}
+
+        <div className={styles.cardContent}>
+          <span className={styles.newstype}>{news.type}</span>
+          <h3 className={styles.headings}>{news.title}</h3>
+          <p>{news.description}</p>
+
+          {news.video && (
+            <video controls className={styles.newsvideo}>
+              <source src={news.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           )}
 
-          <div className={styles.cardContent}>
-            <span className={styles.newstype}>{type}</span>
-            <h3 className={styles.headings}>{title}</h3>
-            <p>{description}</p>
+          <small className={styles.newsdate}>
+            {news.timestamp ? news.timestamp.toDate().toLocaleDateString() : "Just uploaded"}
+          </small>
 
-            {video && (
-              <video controls className={styles.newsvideo}>
-                <source src={video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            )}
-
-            <small className={styles.newsdate}>
-              {timestamp ? timestamp.toDate().toLocaleDateString() : "Just uploaded"}
-            </small>
-
-            <Link href={`/Newsp/${id}`} className={styles.arrowButton}>
-              Read More
-            </Link>
-          </div>
+          <Link href={`/Newsp/${news.id}`} className={styles.arrowButton}>
+            Read More
+          </Link>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
