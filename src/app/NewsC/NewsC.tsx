@@ -12,7 +12,7 @@ export type NewsItem = {
   description: string;
   images?: string[];
   video?: string;
-  timestamp?: Timestamp;
+  timestamp?: Timestamp | null;
 };
 
 type NewsListProps = {
@@ -21,53 +21,57 @@ type NewsListProps = {
 };
 
 export default function NewsList({ news, loading }: NewsListProps) {
-  // Filter only posts with timestamp and sort by latest
-  const latest = news
-    .filter(n => n.timestamp) // only posts with timestamp
-    .sort((a, b) => b.timestamp!.toMillis() - a.timestamp!.toMillis())[0];
+  // Sort by timestamp if exists, else show new items first
+  const sortedNews = [...news].sort((a, b) => {
+    const aTime = a.timestamp?.toMillis() || 0;
+    const bTime = b.timestamp?.toMillis() || 0;
+    return bTime - aTime;
+  });
 
   return (
     <div className={styles.newslistcontainer}>
       {loading ? (
         <p>Loading...</p>
-      ) : !latest ? (
+      ) : sortedNews.length === 0 ? (
         <p className={styles.nonews}>No news available.</p>
       ) : (
-        <div key={latest.id} className={styles.card}>
-          {latest.images && latest.images.length > 0 && (
-            <Image
-              src={latest.images[0]}
-              alt={latest.title}
-              width={400}
-              height={220}
-              className={styles.cardImage}
-              style={{ cursor: 'pointer' }}
-            />
-          )}
-
-          <div className={styles.cardContent}>
-            <span className={styles.newstype}>{latest.type}</span>
-            <h3 className={styles.headings}>{latest.title}</h3>
-            <p>{latest.description}</p>
-
-            {latest.video && (
-              <video controls className={styles.newsvideo}>
-                <source src={latest.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+        sortedNews.map((item) => (
+          <div key={item.id} className={styles.card}>
+            {item.images && item.images.length > 0 && (
+              <Image
+                src={item.images[0]}
+                alt={item.title}
+                width={400}
+                height={220}
+                className={styles.cardImage}
+                style={{ cursor: 'pointer' }}
+              />
             )}
 
-            {latest.timestamp && (
-              <small className={styles.newsdate}>
-                {latest.timestamp.toDate().toLocaleDateString()}
-              </small>
-            )}
+            <div className={styles.cardContent}>
+              <span className={styles.newstype}>{item.type}</span>
+              <h3 className={styles.headings}>{item.title}</h3>
+              <p>{item.description}</p>
 
-            <Link href={`/Newsp/${latest.id}`} className={styles.arrowButton}>
-              Read More
-            </Link>
+              {item.video && (
+                <video controls className={styles.newsvideo}>
+                  <source src={item.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
+
+              {item.timestamp && (
+                <small className={styles.newsdate}>
+                  {item.timestamp.toDate().toLocaleDateString()}
+                </small>
+              )}
+
+              <Link href={`/Newsp/${item.id}`} className={styles.arrowButton}>
+                Read More
+              </Link>
+            </div>
           </div>
-        </div>
+        ))
       )}
     </div>
   );
