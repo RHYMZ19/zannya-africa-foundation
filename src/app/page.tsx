@@ -31,6 +31,7 @@ import NewsM from './NewsM/NewsM';
 import Gallery from './Gallery/Gallery';
 import GetInvolved from './GetInvolved/GetInvolved';
 import Link from 'next/link';
+import NewsC from './NewsC/NewsC';
 
 export default function Home() {
     
@@ -175,10 +176,12 @@ export default function Home() {
                     <button onClick={() => scroll(newsRef, 'right')}>▶</button>
                 </div>
                 <div className={styles.scrollWrapper} ref={newsRef}>
+                    <NewsC news={[]} loading={false} />
                     <News />
                     <NewsA />
                     <NewsE />
                     <NewsM />
+                    
                 </div>
             </section>
 

@@ -97,7 +97,7 @@ export default function Newsp() {
       <div style={{ height: '0px', width: '100%', justifyItems: 'center', backgroundColor: '#1e3c72' }}>
         <h1 style={{ fontSize: '50px', color: 'white', marginBottom: '0px', marginTop: '20px' }}>What we offer</h1>
       </div>
-
+      
       <div className={styles.newslistcontainer}>
         {loading ? (
           <p>Loading...</p>
