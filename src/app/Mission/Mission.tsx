@@ -9,7 +9,7 @@ export default function Mission() {
   return (
     <div id="Mission" className={styles.card}>
       <Image 
-        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063282/zannya/uploads/pryfzrizykeqtm06dmxv.jpg"
+        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758374780/zannya/uploads/images/dis0ugdin0aos8axxppx.jpg"
         alt="Mission Preview"
         width={400}
         height={250}
@@ -20,6 +20,10 @@ export default function Mission() {
         <p>
           <h2>Mission</h2>
           To use sports as a tool for community development, empowerment, and sustainability.
+        </p>
+        <p>
+        <h2>Vision</h2>
+          To change lives and build stronger and healthier communities.
         </p>
         <Link href="/Missions" className={styles.arrowButton}>Read More</Link>
       </div>
