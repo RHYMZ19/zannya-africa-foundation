@@ -61,6 +61,7 @@ export default function NewsList() {
         )}
 
         <div className={styles.cardContent}>
+          <p style={{color: '#0059c1'}}><strong>HOT & CURRENT UPDATES</strong></p>
           <span className={styles.newstype}>{news.type}</span>
           <h3 className={styles.headings}>{news.title}</h3>
           <p>{news.description}</p>
@@ -78,7 +79,7 @@ export default function NewsList() {
           </small>
 
           <Link href={`/Newsp/${news.id}`} className={styles.arrowButton}>
-            HOT & CURRENT UPDATES
+            Click here for previous updates
           </Link>
           </div>
         </div>
