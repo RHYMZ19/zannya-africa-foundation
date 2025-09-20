@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { collection, onSnapshot, DocumentData, QuerySnapshot } from "firebase/firestore";
-import { db } from "../lib/firebase"; // make sure this is correct
+import db from "../lib/firebase"; // make sure this is correct
 import NewsList, { NewsItem } from "../NewsC/NewsC";
 
 export default function NewsPage() {
