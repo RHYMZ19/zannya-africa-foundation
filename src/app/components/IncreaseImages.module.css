@@ -1,13 +1,28 @@
 .thumbnail {
-  width: 20%;
-  max-height: 300px;
+  width: 120px;           /* fixed base width */
+  height: auto;
+  max-height: 60px;       /* keep it from being too tall */
   cursor: pointer;
   transition: transform 0.3s ease;
-  overflow: hidden;
+  object-fit: contain;    /* ensures logo scales nicely */
 }
 
 .thumbnail:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .thumbnail {
+    width: 90px;          /* smaller logo for tablets/phones */
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail {
+    width: 70px;          /* even smaller for very small phones */
+    max-height: 40px;
+  }
 }
 
 .overlay {

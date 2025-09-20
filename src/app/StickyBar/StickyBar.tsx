@@ -29,28 +29,28 @@ StickyBar({children}: Props) {
 
     return (
         <div 
-        style={{
-            borderRadius: '10px',
-            borderWidth: '2px',
-            borderColor: '#67a8f1ff',
-            top: showBar ? '0' : '-100px',
-            left: 0,
-            right: 0,
-            backgroundColor: 'white',
-            color: 'blue',
-            padding: '15px 20px',
-            textAlign: 'center',
-            transition: 'bottom 0.3s ease-in-out',
-            zIndex: '10000',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            display: 'flex',
-            height: '100px',
-            gap: '2%',
-            width: '100%'
-        }}> {children}
-            
-            
-        </div>
+    style={{
+    position: 'fixed',     // ensures bar stays visible
+    top: showBar ? '0' : '-100px',
+    left: 0,
+    right: 0,
+    borderRadius: '10px',
+    backgroundColor: 'white',
+    color: 'blue',
+    padding: '10px 15px',
+    textAlign: 'center',
+    transition: 'top 0.3s ease-in-out', // fixed "bottom" → should be "top"
+    zIndex: 10000,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: '80px',
+    width: '100%',
+    boxShadow: '0 2px 5px rgba(0,0,0,0.1)' // subtle shadow for clarity
+    }}
+ >
+  {children}
+ </div>
+
     )
 }
