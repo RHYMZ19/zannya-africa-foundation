@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { collection, onSnapshot, QuerySnapshot, DocumentData } from "firebase/firestore";
-import db from "../lib/firebase"; // make sure this matches your export
+import { collection, onSnapshot, DocumentData, QuerySnapshot } from "firebase/firestore";
+import { db } from "../lib/firebase"; // ensure named export matches
 import NewsList, { NewsItem } from "../NewsC/NewsC";
 
 export default function NewsPage() {
@@ -13,32 +13,19 @@ export default function NewsPage() {
     const unsubscribe = onSnapshot(
       collection(db, "newsUpdates"),
       (snapshot: QuerySnapshot<DocumentData>) => {
-        if (!snapshot.empty) {
-          const items: NewsItem[] = snapshot.docs.map(doc => {
-            const data = doc.data();
-            return {
-              id: doc.id,
-              title: data.title || "",
-              type: data.type || "",
-              description: data.description || "",
-              images: data.images || [],
-              video: data.video || "",
-              timestamp: data.timestamp || null, // null if serverTimestamp not yet available
-            };
-          });
+        const items: NewsItem[] = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...(doc.data() as Omit<NewsItem, "id">),
+        }));
 
-          // Sort by timestamp (newest first) or fallback to Firestore order
-          const sorted = [...items].sort((a, b) => {
-            const aTime = a.timestamp?.toMillis() || 0;
-            const bTime = b.timestamp?.toMillis() || 0;
-            return bTime - aTime;
-          });
+        // Sort newest first, handle null timestamps
+        items.sort((a, b) => {
+          const aTime = a.timestamp ? a.timestamp.toMillis() : 0;
+          const bTime = b.timestamp ? b.timestamp.toMillis() : 0;
+          return bTime - aTime;
+        });
 
-          setNews(sorted);
-        } else {
-          setNews([]);
-        }
-
+        setNews(items);
         setLoading(false);
       },
       (error) => {
