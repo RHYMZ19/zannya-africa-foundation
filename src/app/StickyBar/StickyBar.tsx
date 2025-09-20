@@ -47,7 +47,6 @@ StickyBar({children}: Props) {
     height: '80px',
     width: '100%',
     boxShadow: '0 2px 5px rgba(0,0,0,0.1)', // subtle shadow for clarity
-    overflow: 'hidden'
     }}
  >
   {children}
