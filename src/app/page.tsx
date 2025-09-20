@@ -108,19 +108,20 @@ export default function Home() {
                 <IncreaseImages src='/log.jpg' alt="Logo" />
             </StickyBar>
             </div>
-
+            
             {/* Hero Section */}
             <section className={styles.hero}>
-                <div className={styles.heroOverlay}>
-                    <h1 className={`${styles.heroTitle} ${styles.animateFadeIn}`}>Zannya Africa Foundation</h1>
-                    <p className={`${styles.heroSubtitle} ${styles.animateFadeIn} ${styles.delay200}`}>
-                        Changing communities through sports, education, and empowerment.
-                    </p>
-                    <div className={`${styles.heroButtons} ${styles.animateFadeIn} ${styles.delay400}`}>
-                        <Link href="/Internship" className={styles.ctaButton}>Get Involved</Link>
-                        <Link href="/Donates" className={styles.ctaButtonSecondary}>Donate</Link>
-                    </div>
+              <div className="slideshow"></div>
+              <div className={styles.heroOverlay}>
+                <h1 className={styles.heroTitle}>Zannya Africa Foundation</h1>
+                <p className={styles.heroSubtitle}>
+                  Changing communities through sports, education, and empowerment.
+                </p>
+                <div className={styles.heroButtons}>
+                  <Link href="/Internship" className={styles.ctaButton}>Get Involved</Link>
+                  <Link href="/Donates" className={styles.ctaButtonSecondary}>Donate</Link>
                 </div>
+              </div>
             </section>
 
             {/* About / Mission */}

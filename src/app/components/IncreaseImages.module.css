@@ -1,7 +1,7 @@
 .thumbnail {
-  width: 120px;           /* fixed base width */
+  width: 150px;           /* fixed base width */
   height: auto;
-  max-height: 60px;       /* keep it from being too tall */
+  max-height: 70px;       /* keep it from being too tall */
   cursor: pointer;
   transition: transform 0.3s ease;
   object-fit: contain;    /* ensures logo scales nicely */
