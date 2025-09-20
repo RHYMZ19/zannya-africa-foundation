@@ -111,11 +111,17 @@ export default function Home() {
             
             {/* Hero Section */}
             <section className={styles.hero}>
-              <div className="slideshow"></div>
+              <div className="slideshow">
+                <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757856069/zannya/uploads/otzyxuituddnljimi6lv.jpg" alt="Slide 1" />
+                <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064748/zannya/uploads/bra1trnyasl7zdbdlquo.jpg" alt="Slide 2" />
+                <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064620/zannya/uploads/ejgjcw3ws23cdxuckncn.jpg" alt="Slide 3" />
+                <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064513/zannya/uploads/ceojckikdpwpodo5hppe.jpg" alt="Slide 4" />
+              </div>
+
               <div className={styles.heroOverlay}>
                 <h1 className={styles.heroTitle}>Zannya Africa Foundation</h1>
                 <p className={styles.heroSubtitle}>
-                  Changing communities through sports, education, and empowerment.
+                 Changing communities through sports, education, and empowerment.
                 </p>
                 <div className={styles.heroButtons}>
                   <Link href="/Internship" className={styles.ctaButton}>Get Involved</Link>
