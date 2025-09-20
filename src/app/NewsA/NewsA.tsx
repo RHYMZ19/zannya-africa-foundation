@@ -20,8 +20,14 @@ export default function News() {
       <div className={styles.cardContent}>
         <h3 className={styles.headings}>Articles</h3>
         <p>
-          Stay informed with Zannya Africa Foundation articles in-depth stories and updates from our programs and projects.
+          Early and unintended pregnancies among young adolescents is a very common vice in urban slums. 
+          Young boys and girls continue to face challenges during their transition to 
+          adulthood within this harsh environment,  young women are less likely to initiate 
+          sex if they are in school. Parents, Government, non government organizations, 
+          and the community need to sensitize these young boys and girls on sexual and 
+          reproductive health in slums and encourage and support them to stay in school.
         </p>
+        <p>For more of our articles, Click on the link below.</p>
         <Link href="/Newsp" className={styles.arrowButton}>Read More</Link>
       </div>
     </div>

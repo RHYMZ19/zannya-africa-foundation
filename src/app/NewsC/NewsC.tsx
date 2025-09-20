@@ -72,13 +72,15 @@ export default function NewsList() {
             </video>
           )}
 
+          <div style={{display: 'flex', flexDirection: 'column', gap: '1%'}}>
           <small className={styles.newsdate}>
             {news.timestamp ? news.timestamp.toDate().toLocaleDateString() : "Just uploaded"}
           </small>
 
           <Link href={`/Newsp/${news.id}`} className={styles.arrowButton}>
-            Read More
+            HOT & CURRENT UPDATES
           </Link>
+          </div>
         </div>
       </div>
     </div>

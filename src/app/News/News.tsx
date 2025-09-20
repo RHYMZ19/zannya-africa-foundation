@@ -19,9 +19,11 @@ export default function News() {
       />
       <div className={styles.cardContent}>
         <h3 className={styles.headings}>News</h3>
+        <p>Mentorship program at White Angels Primary  School. </p>
         <p>
-          Stay updated with the latest news from Zannya Africa Foundation  see whats happening in our community and beyond.
+          Zannya Africa Foundation in collaboration with Futsal Association Uganda encouraging Education through sports and recreation activities.
         </p>
+        <p>For more of our News, Click in the link below </p>
         <Link href="/Newsp" className={styles.arrowButton}>Read More</Link>
       </div>
     </div>

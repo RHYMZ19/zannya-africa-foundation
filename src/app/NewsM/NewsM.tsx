@@ -18,6 +18,9 @@ export default function News() {
       />
       <div className={styles.cardContent}>
         <h3 className={styles.headings}>Media</h3>
+        <p>Our Technical Manager @givenroberts10 will be live at 3pm #aroundthegame @deependsport  with @vinniejurua </p>
+         <p><strong>DEEP END MEDIA GROUP </strong></p>
+         <p><strong>Do not miss!</strong></p>
         <p>
           Explore Zannya Africa Foundation in the media  watch videos, view photos, and see our impact in action.
         </p>
