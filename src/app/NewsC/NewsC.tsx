@@ -21,7 +21,7 @@ type NewsListProps = {
 };
 
 export default function NewsList({ news, loading }: NewsListProps) {
-  // Sort by timestamp if exists, else show new items first
+  // Sort by timestamp if exists, otherwise newest first
   const sortedNews = [...news].sort((a, b) => {
     const aTime = a.timestamp?.toMillis() || 0;
     const bTime = b.timestamp?.toMillis() || 0;
@@ -60,10 +60,13 @@ export default function NewsList({ news, loading }: NewsListProps) {
                 </video>
               )}
 
-              {item.timestamp && (
+              {/* Display timestamp only if exists */}
+              {item.timestamp ? (
                 <small className={styles.newsdate}>
                   {item.timestamp.toDate().toLocaleDateString()}
                 </small>
+              ) : (
+                <small className={styles.newsdate}>Just uploaded</small>
               )}
 
               <Link href={`/Newsp/${item.id}`} className={styles.arrowButton}>
