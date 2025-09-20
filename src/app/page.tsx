@@ -176,7 +176,7 @@ export default function Home() {
                     <button onClick={() => scroll(newsRef, 'right')}>▶</button>
                 </div>
                 <div className={styles.scrollWrapper} ref={newsRef}>
-                    <NewsC news={[]} loading={false} />
+                    <NewsC />
                     <News />
                     <NewsA />
                     <NewsE />
