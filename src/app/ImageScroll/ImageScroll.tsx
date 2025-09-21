@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const images = [
     "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756890840/zannya/success/mfh1xjdphnjokfqxtwqp.jpg",
-    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333654/zannya/uploads/iyhvqvfahonojwp3lnqy.jpg",
+    "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758446890/zannya/uploads/images/epuilqm5okmehqehuz2h.jpg",
     "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333734/zannya/uploads/xmfqh5bypbq8nwahzcpi.jpg",
     "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333840/zannya/uploads/efccpnjlewe1z851po9r.jpg",
     "https://res.cloudinary.com/dpwuym7xg/image/upload/v1757333929/zannya/uploads/rtguco09opxu1ayzksej.jpg",
