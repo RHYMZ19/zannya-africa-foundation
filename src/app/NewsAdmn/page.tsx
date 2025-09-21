@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { db } from "../lib/firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import styles from './NewsAdmn.module.css';
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
@@ -54,7 +54,49 @@ const NewsAdmn = () => {
 
       await addDoc(collection(db, "newsUpdates"), docData);
 
-      alert("✅ News uploaded successfully!");
+
+      // ✅ Also update "media/gallery"
+    const galleryRef = doc(db, "media", "gallery");
+    const gallerySnap = await getDoc(galleryRef);
+
+    if (gallerySnap.exists()) {
+      const existing = gallerySnap.data();
+
+      // Merge new images + video
+      await setDoc(
+        galleryRef,
+        {
+          images: [
+            ...(existing.images || []),
+            ...formData.images.map((url) => ({
+              url,
+              createdAt: new Date(),
+            })),
+          ],
+          videos: [
+            ...(existing.videos || []),
+            ...(formData.video
+              ? [{ url: formData.video, createdAt: new Date() }]
+              : []),
+          ],
+        },
+        { merge: true }
+      );
+    } else {
+      // Create the gallery doc if missing
+      await setDoc(galleryRef, {
+        images: formData.images.map((url) => ({
+          url,
+          createdAt: new Date(),
+        })),
+        videos: formData.video
+          ? [{ url: formData.video, createdAt: new Date() }]
+          : [],
+      });
+    }
+
+
+      alert("✅ News uploaded successfully and added to gallery!");
       setFormData({ title: "", type: "", description: "", images: [], video: "" });
     } catch (err) {
       console.error(err);

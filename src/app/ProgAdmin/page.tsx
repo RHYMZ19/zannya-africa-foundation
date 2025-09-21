@@ -2,7 +2,7 @@
 
 import db from "../lib/firebase";
 import React, { useState } from 'react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import styles from './ProgAdmin.module.css';
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
@@ -41,6 +41,25 @@ export default function AdminFilterForm() {
     setSubcategories(updated);
   };
 
+  // ✅ Mirror media into "media/gallery"
+  const saveToGallery = async (url: string, type: "image" | "video") => {
+    try {
+      const galleryRef = doc(db, "media", "gallery");
+      const snap = await getDoc(galleryRef);
+
+      if (!snap.exists()) {
+        await setDoc(galleryRef, { images: [], videos: [] });
+      }
+
+      await updateDoc(galleryRef, {
+        [type === "image" ? "images" : "videos"]: 
+          [...(snap.data()?.[type === "image" ? "images" : "videos"] || []), { url, createdAt: serverTimestamp() }]
+      });
+    } catch (err) {
+      console.error("Error saving to gallery:", err);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.category || !formData.name || !formData.description) {
@@ -54,11 +73,13 @@ export default function AdminFilterForm() {
     }
   };
 
-  const handleUploadComplete = (url: string, type: "image" | "video") => {
+  const handleUploadComplete = async (url: string, type: "image" | "video") => {
     setFormData(prev => ({
       ...prev,
       [type === "image" ? "images" : "videos"]: [...(type === "image" ? prev.images : prev.videos), url],
     }));
+    // ✅ Also mirror to gallery
+    await saveToGallery(url, type);
   };
 
   return (
