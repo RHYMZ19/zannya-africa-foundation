@@ -2,7 +2,7 @@
 
 import db from "../lib/firebase";
 import React, { useState } from 'react';
-import { collection, addDoc, serverTimestamp, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, doc, getDoc, setDoc } from 'firebase/firestore';
 import styles from './ProgAdmin.module.css';
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
