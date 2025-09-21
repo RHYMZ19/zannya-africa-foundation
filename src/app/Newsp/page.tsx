@@ -26,6 +26,7 @@ type NewsItem = {
   title: string;
   type: string;
   description: string;
+  moreDetails?: string;
   images?: string[]; // array of image URLs
   video?: string;
   timestamp?: Timestamp;
@@ -104,7 +105,7 @@ export default function Newsp() {
         ) : news.length === 0 ? (
           <p className={styles.nonews}>No news available.</p>
         ) : (
-          news.map(({ id, title, type, description, images, video, timestamp }) => (
+          news.map(({ id, title, type, description, moreDetails, images, video, timestamp }) => (
             <div key={id} className={styles.newscard}>
               {/* Display all images uploaded via Cloudinary */}
               {images?.map((img, idx) => (
@@ -122,6 +123,10 @@ export default function Newsp() {
                 <span className={styles.newstype}>{type}</span>
                 <h3 className={styles.newstitle}>{title}</h3>
                 <p className={styles.newsdescription}>{description}</p>
+
+                {moreDetails && (
+                  <p className={styles.newsdetails}>{moreDetails}</p>
+                )}
 
                 {video && (
                   <video controls className={styles.newsvideo}>

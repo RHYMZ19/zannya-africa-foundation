@@ -11,6 +11,7 @@ interface NewsFormData {
   title: string;
   type: string;
   description: string;
+  moreDetails: string;
   images: string[];
   video: string;
 }
@@ -20,6 +21,7 @@ const NewsAdmn = () => {
     title: "",
     type: "",
     description: "",
+    moreDetails: "",
     images: [],
     video: "",
   });
@@ -97,7 +99,7 @@ const NewsAdmn = () => {
 
 
       alert("✅ News uploaded successfully and added to gallery!");
-      setFormData({ title: "", type: "", description: "", images: [], video: "" });
+      setFormData({ title: "", type: "", description: "",moreDetails: "", images: [], video: "" });
     } catch (err) {
       console.error(err);
       alert("❌ Error uploading news.");
@@ -110,14 +112,17 @@ const NewsAdmn = () => {
     <div className={styles.formcontainer}>
       <h2> News & Update Upload</h2>
       <form onSubmit={handleSubmit} className={styles.uploadform}>
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
+        <div className={styles.formrow}>
+         {/* Left Column */}
+         <div className={styles.leftcol}>
+           <input
+             type="text"
+             name="title"
+             placeholder="Title"
+             value={formData.title}
+             onChange={handleChange}
+             required
+           />
 
         <select name="type" value={formData.type} onChange={handleChange} required>
           <option value="">Select Type</option>
@@ -134,6 +139,19 @@ const NewsAdmn = () => {
           onChange={handleChange}
           required
         ></textarea>
+       </div>
+
+       {/* Right Column */}
+         <div className={styles.rightcol}>
+           <textarea
+             name="moreDetails"
+             placeholder="More Detailed Information..."
+             value={formData.moreDetails}
+             onChange={handleChange}
+             style={{ height: "200px" }}
+           ></textarea>
+         </div>
+       </div>
 
         {/* Cloudinary Image Upload */}
         <label>Upload Images</label>
