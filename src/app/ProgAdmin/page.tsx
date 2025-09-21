@@ -43,22 +43,28 @@ export default function AdminFilterForm() {
 
   // ✅ Mirror media into "media/gallery"
   const saveToGallery = async (url: string, type: "image" | "video") => {
-    try {
-      const galleryRef = doc(db, "media", "gallery");
-      const snap = await getDoc(galleryRef);
+  try {
+    const galleryRef = doc(db, "media", "gallery");
+    const snap = await getDoc(galleryRef);
 
-      if (!snap.exists()) {
-        await setDoc(galleryRef, { images: [], videos: [] });
-      }
+    const existing = snap.exists() ? snap.data() : {};
 
-      await updateDoc(galleryRef, {
-        [type === "image" ? "images" : "videos"]: 
-          [...(snap.data()?.[type === "image" ? "images" : "videos"] || []), { url, createdAt: serverTimestamp() }]
-      });
-    } catch (err) {
-      console.error("Error saving to gallery:", err);
-    }
-  };
+    const field = type === "image" ? "images" : "videos";
+
+    await setDoc(
+      galleryRef,
+      {
+        [field]: [
+          ...(existing[field] || []),
+          { url, createdAt: new Date() }, // ✅ use client-side Date, not serverTimestamp()
+        ],
+      },
+      { merge: true } // ✅ ensures no overwrite
+    );
+  } catch (err) {
+    console.error("Error saving to gallery:", err);
+  }
+ };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
