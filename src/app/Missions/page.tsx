@@ -181,12 +181,7 @@ Missions() {
 
   
             <div className={styles.Leaders}>
-                <h1 style={{fontStyle: 'italic', fontSize: '50px'}}>Leadership</h1>
-                <p style={{width: '100%'}}>
-                    Zannya Africa Foundation is driven by a dedicated leadership team that brings 
-                    expertise in youth development,
-                    policy and community emporment.
-                </p>
+                
 
                 <div style={{width: '100%', display: 'flex', flexDirection: 'column',height: '100%'}}>
         <section className={styles.leadershipSection}>
@@ -228,13 +223,7 @@ Missions() {
                 </div>
             </div>
 
-            <div style={{display: 'flex', margin: '30px'}}>
-                <h1 style={{color: 'red', fontStyle: 'italic',textDecoration: 'underline', 
-                    cursor: 'pointer',
-                    }} onClick={() => router.push('')}>
-                    Grobal Presence (/InternationalReachpage)
-                </h1>
-            </div>
+            
 
             <div>
                 <section className={styles.partnerssection}>
