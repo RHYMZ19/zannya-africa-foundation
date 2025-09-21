@@ -385,9 +385,11 @@
 
 /* Hero Section */
 .hero {
+
     position: relative;
     height: 100vh;
-    background: url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1757856069/zannya/uploads/otzyxuituddnljimi6lv.jpg') center/cover no-repeat;
+    overflow: hidden;
+    
 }
 .heroOverlay {
     position: absolute;
@@ -399,6 +401,7 @@
     align-items: center;
     text-align: center;
     padding: 20px;
+    z-index: 2; /* keep overlay above images */
 }
 .heroTitle {
     font-size: 4rem;

@@ -32,6 +32,7 @@ import Gallery from './Gallery/Gallery';
 import GetInvolved from './GetInvolved/GetInvolved';
 import Link from 'next/link';
 import NewsC from './NewsC/NewsC';
+import ImageScroll from './ImageScroll/ImageScroll';
 
 export default function Home() {
     
@@ -111,6 +112,7 @@ export default function Home() {
             
             {/* Hero Section */}
             <section className={styles.hero}>
+                <ImageScroll />
                 <div className={styles.heroOverlay}>
                     <h1 className={`${styles.heroTitle} ${styles.animateFadeIn}`}>Zannya Africa Foundation</h1>
                     <p className={`${styles.heroSubtitle} ${styles.animateFadeIn} ${styles.delay200}`}>
