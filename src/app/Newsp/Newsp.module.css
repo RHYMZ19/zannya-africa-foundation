@@ -120,6 +120,15 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
     margin-top: 20px;
 }
 
+.moredetailscard {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 15px;
+  border-left: 3px solid #1e3c72;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
 
 .newslistcontainer {
   max-width: 900px;
@@ -127,17 +136,29 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
+}
+
+.newsrow {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
 }
 
 .newscard {
   background: white;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
+
+  flex: 2;
+  
+  padding: 15px;
+  
+  
 }
 
 .newscard:hover {

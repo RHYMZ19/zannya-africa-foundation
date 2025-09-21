@@ -106,6 +106,7 @@ export default function Newsp() {
           <p className={styles.nonews}>No news available.</p>
         ) : (
           news.map(({ id, title, type, description, moreDetails, images, video, timestamp }) => (
+          <div key={id} className={styles.newsrow}>
             <div key={id} className={styles.newscard}>
               {/* Display all images uploaded via Cloudinary */}
               {images?.map((img, idx) => (
@@ -124,9 +125,6 @@ export default function Newsp() {
                 <h3 className={styles.newstitle}>{title}</h3>
                 <p className={styles.newsdescription}>{description}</p>
 
-                {moreDetails && (
-                  <p className={styles.newsdetails}>{moreDetails}</p>
-                )}
 
                 {video && (
                   <video controls className={styles.newsvideo}>
@@ -177,7 +175,16 @@ export default function Newsp() {
   <div className={styles.comments}>
     <CommentList newsId={id} />
   </div>
-</div>
+ </div>
+ </div>
+
+ {/* Right side: More Details card */}
+        {moreDetails && (
+          <div className={styles.moredetailscard}>
+            <h4>More Details</h4>
+            <p>{moreDetails}</p>
+          </div>
+        )}
             </div>
           ))
         )}
