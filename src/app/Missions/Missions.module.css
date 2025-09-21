@@ -21,6 +21,7 @@
   color: white;
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* modern slanted bottom edge */
 }
 
 .header {
@@ -40,6 +41,7 @@
   margin-bottom: 0.2em;
   text-transform: uppercase;
   letter-spacing: 3px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3); /* subtle shadow */
 }
 
 .p1 {
@@ -153,14 +155,22 @@
 }
 
 .partnerlogos img {
-  width: 120px;
-  filter: grayscale(80%);
-  transition: all 0.3s ease;
+  
+  
+  
+
+  width: 140px;  /* slightly bigger */
+  filter: grayscale(60%);
+  transition: all 0.4s ease;
+  border-radius: 12px;
 }
 
 .partnerlogos img:hover {
   filter: grayscale(0%);
-  transform: scale(1.1);
+  
+
+  
+  transform: scale(1.2) rotate(3deg); /* fun tilt */
 }
 
 .ctabox {
@@ -218,11 +228,12 @@
   gap: 20px;
   background: white;
   padding: 20px;
-  border-radius: 15px;
+  
   box-shadow: 0 8px 15px rgba(0,0,0,0.1);
   align-items: center;
   margin-bottom: 20px;
   width: 80%; /* or 100% if you prefer full width */
+  border-radius: 20px; /* softer corners */
 }
 
 .leaderImage {
@@ -230,6 +241,7 @@
   height: 150px;
   border-radius: 50%;
   overflow: hidden;
+  border: 3px solid #ff416c; /* gradient border optional with CSS masks */
 }
 
 .leaderImage img {
@@ -272,6 +284,8 @@
     margin-bottom: 15px;
   }
 
+  
+
   .leaderInfo {
     width: 100%;
   }
@@ -280,6 +294,16 @@
     text-align: center;      /* bio text centered on mobile */
   }
 }
+
+.leaderCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+ }
+
+  .socials a:hover {
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+ }
 
 .title {
   font-size: 2.5rem;
@@ -404,6 +428,7 @@
   flex-wrap: wrap;
   margin-right: 10%;
   margin-top: 80%;
+  backdrop-filter: blur(6px);
 }
 
 .test2 {
@@ -498,26 +523,26 @@
   background-position: center;
   border-radius: 15px;
   min-height: 400px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
 /* Vision / Mission / Core Values */
 .vis {
-  background: #800000;
+  background: linear-gradient(135deg, #800000, #b22222);
+  padding: 60px 20px;
+  border-radius: 20px;
   color: #fff;
-  padding: 60px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .vis h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+  font-size: 2.8em;
+  text-align: center;
 }
 
 .vis p {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 .le{
@@ -691,6 +716,7 @@
   background: rgba(124,19,19,0.8);
   padding: 30px;
   border-radius: 15px;
+  backdrop-filter: blur(5px);
 }
 
 
