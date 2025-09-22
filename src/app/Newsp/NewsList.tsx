@@ -13,12 +13,12 @@ export type NewsItem = {
   timestamp?: string;
 };
 
-// This function fetches news on the server
+// Server-side fetch
 export async function fetchNews(): Promise<NewsItem[]> {
   const q = query(collection(db, "newsUpdates"), orderBy("timestamp", "desc"));
   const snapshot = await getDocs(q);
 
-  const news: NewsItem[] = snapshot.docs.map((doc) => {
+  return snapshot.docs.map(doc => {
     const data = doc.data();
     return {
       id: doc.id,
@@ -27,6 +27,4 @@ export async function fetchNews(): Promise<NewsItem[]> {
         data.timestamp instanceof Timestamp ? data.timestamp.toDate().toISOString() : null,
     } as NewsItem;
   });
-
-  return news;
 }
