@@ -1,6 +1,6 @@
 // app/Newsp/NewsList.tsx
 import { db } from "../lib/firebase";
-import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
+import { collection, getDocs, limit, orderBy, query, Timestamp } from "firebase/firestore";
 
 export type NewsItem = {
   id: string;
@@ -13,9 +13,14 @@ export type NewsItem = {
   timestamp?: string;
 };
 
-// Server-side fetch
+// Server-side fetch from newsUpdates
 export async function fetchNews(): Promise<NewsItem[]> {
-  const q = query(collection(db, "newsUpdates"), orderBy("timestamp", "desc"));
+  const q = query(
+    collection(db, "newsUpdates"),
+    orderBy("timestamp", "desc"),
+    limit(10) // fetch up to 10 latest, then slice in UI if needed
+  );
+
   const snapshot = await getDocs(q);
 
   return snapshot.docs.map(doc => {
