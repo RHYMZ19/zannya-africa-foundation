@@ -299,4 +299,26 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   border-radius: 6px;
 }
 
+/* Inner row to animate */
+.newsrowinner {
+  display: flex;
+  gap: 1rem;
+  animation: scrollLeft 30s linear infinite;
+  /* Pause animation on hover */
+}
+
+.newsrow:hover .newsrowinner {
+  animation-play-state: paused;
+}
+
+/* Continuous scroll animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 
