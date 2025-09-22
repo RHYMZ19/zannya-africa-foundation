@@ -1,7 +1,7 @@
 // app/Newsp/NewsListServer.tsx
 import Image from "next/image";
 import { NewsItem } from "./types"; // reuse type
-import styles from "../Newsp/Newsp.module.css";
+import styles from "./Newsp.module.css";
 
 export default function NewsListServer({ news, setSelectedImage }: { news: NewsItem[], setSelectedImage: (img: string) => void }) {
   return (

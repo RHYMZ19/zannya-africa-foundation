@@ -4,10 +4,10 @@
 import { useEffect, useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import db from "../lib/firebase";
-import LikeButton from "../Newsp/LikeButton";
-import CommentList from "../Newsp/CommentList";
-import ShareButton from "../Newsp/ShareButton";
-import { getGuestId, getGuestName } from "../Newsp/getGuestId";
+import LikeButton from "./LikeButton";
+import CommentList from "./CommentList";
+import ShareButton from "./ShareButton";
+import { getGuestId, getGuestName } from "./getGuestId";
 import { NewsItem } from "./types";
 
 export default function NewsListClient({ news }: { news: NewsItem[] }) {
