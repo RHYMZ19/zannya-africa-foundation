@@ -46,19 +46,19 @@ export default async function NewspPage() {
         ))}
       </div>
 
-      <div className="latest-news">
+      <div className={styles.latestnews}>
   <h2>Latest News</h2>
   {news.slice(0, 5).map(item => (
-    <div key={item.id} className="news-item">
+    <div key={item.id} className={styles.newsitem}>
       {item.type && (
-        <span className={`news-type ${item.type.toLowerCase()}`}>
+        <span className={`${styles.newstype} ${item.type.toLowerCase()}`}>
           {item.type}
         </span>
       )}
-      <h3 className="news-title">{item.title}</h3>
-      <p className="news-description">{item.description}</p>
+      <h3 className={styles.newstitle}>{item.title}</h3>
+      <p className={styles.newsdescription}>{item.description}</p>
       {item.timestamp && (
-        <small className="news-timestamp">
+        <small className={styles.newstimestamp}>
           {new Date(item.timestamp).toLocaleDateString('en-UG', {
             weekday: 'short',
             year: 'numeric',
