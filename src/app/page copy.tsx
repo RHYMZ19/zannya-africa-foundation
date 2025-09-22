@@ -35,7 +35,7 @@ import NewsC from './NewsC/NewsC';
 import ImageScroll from './ImageScroll/ImageScroll';
 
 
-export default async function Home() {
+export default function Home() {
     
     const [counts, setCounts] = useState({ people: 0, projects: 0, partners: 0 });
     
