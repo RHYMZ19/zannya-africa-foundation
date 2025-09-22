@@ -46,6 +46,16 @@ export default async function NewspPage() {
         ))}
       </div>
 
+      <div>
+      <h2>Latest News</h2>
+      {news.slice(0, 3).map(item => (
+        <div key={item.id}>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+       ))}
+      </div>
+
       {/* Social links */}
       <p style={{ textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center', paddingTop: '30px' }}>
         <strong>For more News and updates you can follow us on our social platforms:</strong>
