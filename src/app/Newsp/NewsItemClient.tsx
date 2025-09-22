@@ -28,9 +28,9 @@ export default function NewsItemClient({ newsItem }: Props) {
   }, []);
 
   const { id, title, type, description, moreDetails, images, video, timestamp } = newsItem;
-
+  
   return (
-    <div className={styles.newsrow}>
+    <div className={`${styles.newsrow} ${visible ? styles.show : ""}`}>
       <div className={styles.newscard} data-aos="fade-up">
         {images?.map((img, idx) => (
           <Image

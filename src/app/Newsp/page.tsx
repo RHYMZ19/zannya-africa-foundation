@@ -9,6 +9,7 @@ import ContactUs from "../ContactUs/page";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import styles from './Newsp.module.css';
 import { FaHome, FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import Image from "next/image";
 
 export default async function NewspPage() {
   const news: NewsItem[] = await fetchNews(); // SSR fetch
@@ -31,7 +32,7 @@ export default async function NewspPage() {
       </div>
 
       <div className={styles.imageH}>
-        <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827150/zannya/uploads/huanavmdp4e1fksdwde1.jpg" alt="image" style={{ width: '70%', height: 'auto', display: 'block' }} />
+        <Image src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827150/zannya/uploads/huanavmdp4e1fksdwde1.jpg" alt="image" style={{ width: '70%', height: 'auto', display: 'block' }} />
       </div>
 
       <div className={styles.newslistcontainer}>
