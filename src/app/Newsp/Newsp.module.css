@@ -300,7 +300,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
 
 /* for letest news */
 .latestnews {
-  max-width: 1200px; /* wider for laptops */
+  max-width: 100%;
   margin: 2rem auto;
   padding: 1rem;
   background-color: #f9f9f9;
@@ -313,26 +313,41 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   font-weight: 700;
   color: #222;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Row layout for news items */
-.newslist {
+/* Outer scroll container */
+.newsrow {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Inner row to animate */
+.newsrowinner {
   display: flex;
-  flex-wrap: wrap; /* wrap on smaller screens */
-  gap: 1.5rem;
-  justify-content: center;
+  gap: 1rem;
+  animation: scrollLeft 30s linear infinite;
+}
+
+/* Continuous scroll animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .newsitem {
-  flex: 1 1 300px; /* grow, shrink, basis */
+  flex: 0 0 300px;
   background-color: #fff;
-  padding: 1rem 1.2rem;
+  padding: 1rem;
   border-left: 4px solid #0070f3;
   border-radius: 8px;
+  min-width: 300px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  max-width: 350px;
 }
 
 .newsitem:hover {
@@ -340,6 +355,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+/* Type badge */
 .newstype {
   display: inline-block;
   padding: 3px 10px;
@@ -350,14 +366,13 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   margin-bottom: 0.5rem;
 }
 
-/* Type colors */
 .newstype.event { background-color: #ff7f50; }
 .newstype.update { background-color: #0070f3; }
 .newstype.announcement { background-color: #28a745; }
 .newstype.other { background-color: #6c757d; }
 
 .newstitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #222;
   margin: 0 0 0.5rem 0;
@@ -371,16 +386,16 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
 
 .newstimestamp {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #999;
   margin-top: 0.5rem;
   text-align: right;
 }
 
-/* Responsive adjustments */
+/* Make responsive for smaller screens */
 @media (max-width: 768px) {
   .newsitem {
-    flex: 1 1 100%; /* full width on phones */
-    max-width: 100%;
+    flex: 0 0 250px;
+    min-width: 250px;
   }
 }

@@ -49,28 +49,52 @@ export default async function NewspPage() {
 
       <div className={styles.latestnews}>
   <h2>Latest News</h2>
-  <div className={styles.newslist}>
-    {news.slice(0, 5).map(item => (
-      <div key={item.id} className={styles.newsitem}>
-        {item.type && (
-          <span className={`${styles.newstype} ${item.type.toLowerCase()}`}>
-            {item.type}
-          </span>
-        )}
-        <h3 className={styles.newstitle}>{item.title}</h3>
-        <p className={styles.newsdescription}>{item.description}</p>
-        {item.timestamp && (
-          <small className={styles.newstimestamp}>
-            {new Date(item.timestamp).toLocaleDateString('en-UG', {
-              weekday: 'short',
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric',
-            })}
-          </small>
-        )}
-      </div>
-    ))}
+  <div className={styles.newsrow}>
+    <div className={styles.newsrowinner}>
+      {news.slice(0, 5).map(item => (
+        <div key={item.id} className={styles.newsitem}>
+          {item.type && (
+            <span className={`${styles.newstype} ${item.type.toLowerCase()}`}>
+              {item.type}
+            </span>
+          )}
+          <h3 className={styles.newstitle}>{item.title}</h3>
+          <p className={styles.newsdescription}>{item.description}</p>
+          {item.timestamp && (
+            <small className={styles.newstimestamp}>
+              {new Date(item.timestamp).toLocaleDateString('en-UG', {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+              })}
+            </small>
+          )}
+        </div>
+      ))}
+      {/* Duplicate items for seamless scroll */}
+      {news.slice(0, 5).map(item => (
+        <div key={`dup-${item.id}`} className={styles.newsitem}>
+          {item.type && (
+            <span className={`${styles.newstype} ${item.type.toLowerCase()}`}>
+              {item.type}
+            </span>
+          )}
+          <h3 className={styles.newstitle}>{item.title}</h3>
+          <p className={styles.newsdescription}>{item.description}</p>
+          {item.timestamp && (
+            <small className={styles.newstimestamp}>
+              {new Date(item.timestamp).toLocaleDateString('en-UG', {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+              })}
+            </small>
+          )}
+        </div>
+      ))}
+    </div>
   </div>
 </div>
 
