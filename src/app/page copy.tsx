@@ -103,6 +103,7 @@ export default function Home() {
             <div style={{justifyItems: 'center', gap: '1%'}}>
             <StickyBar>
                 <HamburgerIcon />
+                <GetInvolved />
                 <Gallery />
                 <Link href="/Donates" className={styles.arrowButton}>
                   Donate
