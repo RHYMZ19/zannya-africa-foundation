@@ -1,3 +1,6 @@
+// app/Newsp/page.tsx
+'use client';
+import { useState, useEffect } from "react";
 import StickyBar from "../StickyBar/StickyBar";
 import { FaHome } from "react-icons/fa";
 import Gallery from "../Gallery/Gallery";
@@ -7,30 +10,17 @@ import ContactUs from "../ContactUs/page";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import styles from "../Newsp/Newsp.module.css";
 import NewsListServer from "./NewsListServer";
-import { NewsItem } from "./types";
-import { db } from "../lib/firebase";
-import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
 import NewsListClient from "./NewsListClient";
-import { useState } from "react";
+import { NewsItem } from "./types";
+import { getNews } from "./NewsServer"; // import server fetch
 
-// Fetch news on server
-async function getNews(): Promise<NewsItem[]> {
-  const q = query(collection(db, "newsUpdates"), orderBy("timestamp", "desc"));
-  const snapshot = await getDocs(q);
-
-  return snapshot.docs.map(doc => {
-    const data = doc.data();
-    return {
-      id: doc.id,
-      ...data,
-      timestamp: data.timestamp instanceof Timestamp ? data.timestamp.toDate().toISOString() : null
-    } as NewsItem;
-  });
-}
-
-export default async function Newsp() {
+export default function NewspPage() {
   const [SelectedImage, setSelectedImage] = useState<string | null>(null);
-  const news = await getNews();
+  const [news, setNews] = useState<NewsItem[]>([]);
+
+  useEffect(() => {
+    getNews().then(fetched => setNews(fetched));
+  }, []);
 
   return (
     <div style={{ overflow: 'hidden' }}>
@@ -48,7 +38,6 @@ export default async function Newsp() {
       <ContactUs />
       <OptionalFeatures />
 
-      {/* Image modal */}
       {SelectedImage && (
         <div style={{
           position: 'fixed',

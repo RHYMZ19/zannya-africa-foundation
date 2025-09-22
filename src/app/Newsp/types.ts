@@ -1,5 +1,5 @@
 // app/Newsp/types.ts
-import { Timestamp } from "firebase/firestore";
+
 
 export type NewsItem = {
   id: string;
@@ -9,5 +9,5 @@ export type NewsItem = {
   moreDetails?: string;
   images?: string[];
   video?: string;
-  timestamp?: Timestamp | string;  // ISO string for SSR
+  timestamp?: string | null; // only string (ISO) or null  // ISO string for SSR
 };
