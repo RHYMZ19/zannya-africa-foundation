@@ -46,15 +46,30 @@ export default async function NewspPage() {
         ))}
       </div>
 
-      <div>
-      <h2>Latest News</h2>
-      {news.slice(0, 3).map(item => (
-        <div key={item.id}>
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-        </div>
-       ))}
-      </div>
+      <div className="latest-news">
+  <h2>Latest News</h2>
+  {news.slice(0, 5).map(item => (
+    <div key={item.id} className="news-item">
+      {item.type && (
+        <span className={`news-type ${item.type.toLowerCase()}`}>
+          {item.type}
+        </span>
+      )}
+      <h3 className="news-title">{item.title}</h3>
+      <p className="news-description">{item.description}</p>
+      {item.timestamp && (
+        <small className="news-timestamp">
+          {new Date(item.timestamp).toLocaleDateString('en-UG', {
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })}
+        </small>
+      )}
+    </div>
+  ))}
+</div>
 
       {/* Social links */}
       <p style={{ textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center', paddingTop: '30px' }}>
