@@ -589,3 +589,127 @@
 .scrollControls button:hover {
   background: #0059c1;
 }
+
+/* for letest news */
+.latestnews {
+  max-width: 100%;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.latestnews h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Outer scroll container */
+.newsrow {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Inner row to animate */
+.newsrowinner {
+  display: flex;
+  gap: 1rem;
+  animation: scrollLeft 30s linear infinite;
+}
+
+/* Continuous scroll animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.newsitem {
+  flex: 0 0 300px;
+  background-color: #fff;
+  padding: 1rem;
+  border-left: 4px solid #0070f3;
+  border-radius: 8px;
+  min-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsitem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Type badge */
+.newstype {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.newstype.event { background-color: #ff7f50; }
+.newstype.update { background-color: #0070f3; }
+.newstype.announcement { background-color: #28a745; }
+.newstype.other { background-color: #6c757d; }
+
+.newstitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 0.5rem 0;
+}
+
+.newsdescription {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 0.5rem 0;
+}
+
+.newstimestamp {
+  display: block;
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+/* Make responsive for smaller screens */
+@media (max-width: 768px) {
+  .newsitem {
+    flex: 0 0 250px;
+    min-width: 250px;
+  }
+}
+
+/* Inner row to animate */
+.newsrowinner {
+  display: flex;
+  gap: 1rem;
+  animation: scrollLeft 30s linear infinite;
+  /* Pause animation on hover */
+}
+
+.newsrow:hover .newsrowinner {
+  animation-play-state: paused;
+}
+
+/* Continuous scroll animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
