@@ -10,6 +10,7 @@ import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import styles from './Newsp.module.css';
 import { FaHome, FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function NewspPage() {
   const news: NewsItem[] = await fetchNews(); // SSR fetch
@@ -20,7 +21,9 @@ export default async function NewspPage() {
         <FaHome style={{ width: '25%', height: '25%' }} color="black" />
         <GetInvolved />
         <Gallery />
-        <button onClick={() => window.location.href='/Donates'} className={styles.arrowButton}>Donate</button>
+        <Link href="/Donates" className={styles.arrowButton}>
+          Donate
+        </Link>
         <IncreaseIma src='/log.jpg' alt="log" />
       </StickyBar>
 
