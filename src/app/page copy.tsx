@@ -207,7 +207,7 @@ export default function Home() {
                 <Divider title="Support Us" />
                 <Donate />
             </section>
-
+            
             {/* Get Involved */}
             <section className={styles.getInvolvedSection}>
                 <Divider title="Get Involved" />

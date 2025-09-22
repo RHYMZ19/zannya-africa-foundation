@@ -31,6 +31,7 @@ import Image from 'next/image';
 import styles from './styles/CarList.module.css';
 
 import { NewsItem } from "./Newsp/NewsList";
+import GetInvolved from './GetInvolved/GetInvolved';
 
 type HomeClientProps = {
   news: NewsItem[];
@@ -90,7 +91,7 @@ export default function HomeClient({ news }: HomeClientProps) {
       <div style={{ justifyItems: 'center', gap: '1%' }}>
         <StickyBar>
           <HamburgerIcon />
-          <GetInvolve />
+          <GetInvolved />
           <Gallery />
           <Link href="/Donates" className={styles.arrowButton}>
             Donate
@@ -188,7 +189,7 @@ export default function HomeClient({ news }: HomeClientProps) {
           <h2>Latest News</h2>
           <div className={styles.newsrow}>
             <div className={styles.newsrowinner}>
-              {news.slice(0, 5).map(item => (
+              {news.slice(0, 3).map(item => (
                 <div key={item.id} className={styles.newsitem}>
                   {item.type && <span className={`${styles.newstype} ${item.type.toLowerCase()}`}>{item.type}</span>}
                   <h3 className={styles.newstitle}>{item.title}</h3>
