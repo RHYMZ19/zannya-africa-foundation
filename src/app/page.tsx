@@ -33,10 +33,12 @@ import GetInvolved from './GetInvolved/GetInvolved';
 import Link from 'next/link';
 import NewsC from './NewsC/NewsC';
 import ImageScroll from './ImageScroll/ImageScroll';
+import { fetchNews, NewsItem } from "./Newsp/NewsList";
 
-export default function Home() {
+export default async function Home() {
     
     const [counts, setCounts] = useState({ people: 0, projects: 0, partners: 0 });
+    const news: NewsItem[] = await fetchNews();
     
 
     // scroll refs
@@ -185,6 +187,59 @@ export default function Home() {
                     <NewsM />
                     
                 </div>
+            </section>
+
+            <section className={styles.newsSection}>
+            <div className={styles.latestnews}>
+              <h2>Latest News</h2>
+              <div className={styles.newsrow}>
+                <div className={styles.newsrowinner}>
+                  {news.slice(0, 5).map(item => (
+                    <div key={item.id} className={styles.newsitem}>
+                      {item.type && (
+                        <span className={`${styles.newstype} ${item.type.toLowerCase()}`}>
+                          {item.type}
+                        </span>
+                      )}
+                      <h3 className={styles.newstitle}>{item.title}</h3>
+                      <p className={styles.newsdescription}>{item.description}</p>
+                      {item.timestamp && (
+                        <small className={styles.newstimestamp}>
+                          {new Date(item.timestamp).toLocaleDateString('en-UG', {
+                            weekday: 'short',
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          })}
+                        </small>
+                      )}
+                    </div>
+                  ))}
+                  {/* Duplicate items for seamless scroll */}
+                  {news.slice(0, 5).map(item => (
+                    <div key={`dup-${item.id}`} className={styles.newsitem}>
+                      {item.type && (
+                        <span className={`${styles.newstype} ${item.type.toLowerCase()}`}>
+                          {item.type}
+                        </span>
+                      )}
+                      <h3 className={styles.newstitle}>{item.title}</h3>
+                      <p className={styles.newsdescription}>{item.description}</p>
+                      {item.timestamp && (
+                        <small className={styles.newstimestamp}>
+                          {new Date(item.timestamp).toLocaleDateString('en-UG', {
+                            weekday: 'short',
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          })}
+                        </small>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
             </section>
 
             {/* Resources */}
