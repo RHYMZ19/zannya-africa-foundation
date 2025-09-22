@@ -109,6 +109,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
     line-height: 1.6;
 }
 
+
 .p3 {
     font-size: 16px;
     line-height: 1.6;
@@ -128,7 +129,6 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   white-space: pre-line;
-    
 }
 
 .moredetailscard p {
@@ -136,7 +136,6 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   line-height: 1.6;    /* improves readability */
   font-size: 0.9rem;
 }
-
 
 .newslistcontainer {
   max-width: 900px;
