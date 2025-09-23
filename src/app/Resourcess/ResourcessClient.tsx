@@ -70,7 +70,7 @@ export default function ResourcessClient({ initialResources }: Props) {
       : resources.filter(res => res.category === selectedCategory);
 
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div style={{ overflow: 'hidden', background: 'linear-gradient(to right, #e0f7fa, #e1bee7)', }}>
       {/* Sticky Navbar */}
       <StickyBar>
         <FaHome

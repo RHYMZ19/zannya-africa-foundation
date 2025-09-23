@@ -78,7 +78,7 @@ export default function Videos() {
   }, [filter]);
 
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div style={{ overflow: 'hidden', background: 'linear-gradient(to right, #e0f7fa, #e1bee7)', }}>
       <div style={{ justifyItems: 'center', gap: '1%' }}>
         <StickyBar>
           <FaHome

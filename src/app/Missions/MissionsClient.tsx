@@ -55,7 +55,7 @@ export default function MissionsClient() {
   }, []);
 
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div style={{ overflow: 'hidden',background: 'linear-gradient(to right, #e0f7fa, #e1bee7)', }}>
       {/* Structured Data for AI and SEO */}
             <Script type="application/ld+json" strategy="afterInteractive" id="zaf-structured-data">
               {`
