@@ -76,7 +76,7 @@ export default function Newsp() {
         <StickyBar>
           <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
             Home
-          </FaHome>
+          
           <GetInvolved />
           <Gallery />
           <button onClick={() => router.push('/Donates')} className={styles.arrowButton}>Donate</button>

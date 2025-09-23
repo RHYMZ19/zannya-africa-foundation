@@ -18,7 +18,7 @@ export default async function NewspPage() {
   const initialNews: NewsItem[] = await fetchNews();
 
   return (
-    <div style={{ overflow: 'hidden', color: 'red',background: 'linear-gradient(to right, #e0f7fa, #e1bee7)', }}>
+    <div style={{ overflow: 'hidden', background: 'linear-gradient(to right, #e0f7fa, #e1bee7)', }}>
       {/* Sticky Navbar */}
       <StickyBar>
         <Link href="/" style={{  color: 'black', cursor: 'pointer' }}>
