@@ -57,7 +57,6 @@ export default function Successs() {
       <StickyBar>
         <Link href="/" style={{  color: 'black', cursor: 'pointer' }}>
           <FaHome style={{ width: '25px', height: '25px' }} />
-          <span>Home</span>
         </Link>
         <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >Home</FaHome>
         <GetInvolved />

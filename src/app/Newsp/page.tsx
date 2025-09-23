@@ -23,7 +23,6 @@ export default async function NewspPage() {
       <StickyBar>
         <Link href="/" style={{  color: 'black', cursor: 'pointer' }}>
           <FaHome style={{ width: '25px', height: '25px' }} />
-          <span>Home</span>
         </Link>
         <GetInvolved />
         <Gallery />
