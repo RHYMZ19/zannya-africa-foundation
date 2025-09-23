@@ -18,18 +18,27 @@ export async function fetchNews(): Promise<NewsItem[]> {
   const q = query(
     collection(db, "newsUpdates"),
     orderBy("timestamp", "desc"),
-    limit(10) // fetch up to 10 latest, then slice in UI if needed
+    limit(10)
   );
 
   const snapshot = await getDocs(q);
 
-  return snapshot.docs.map(doc => {
+  // Map Firestore docs to NewsItem
+  const items: NewsItem[] = snapshot.docs.map(doc => {
     const data = doc.data();
     return {
       id: doc.id,
       ...data,
-      timestamp:
-        data.timestamp instanceof Timestamp ? data.timestamp.toDate().toISOString() : null,
+      timestamp: data.timestamp instanceof Timestamp ? data.timestamp.toDate().toISOString() : null,
     } as NewsItem;
   });
+
+  // ✅ Sort newest first
+  items.sort((a, b) => {
+    const aTime = a.timestamp ? new Date(a.timestamp).getTime() : 0;
+    const bTime = b.timestamp ? new Date(b.timestamp).getTime() : 0;
+    return bTime - aTime;
+  });
+
+  return items;
 }
