@@ -6,7 +6,7 @@ import ResourcessClient, { Resource } from "./ResourcessClient";
 export default async function Resources() {
   // SSR fetch initial resources
   const snapshot = await getDocs(collection(db, "resources"));
-  const initialResources: Resource[] = snapshot.docs.map(doc => {
+  const initialResources: Resource[] = snapshot.docs.map((doc) => {
     const data = doc.data();
     return {
       id: doc.id,
@@ -14,9 +14,10 @@ export default async function Resources() {
       description: data.description,
       pdf: data.pdf,
       category: data.category,
-      timestamp: data.timestamp?.toDate
-        ? data.timestamp.toDate().toISOString()
-        : new Date().toISOString(),
+      timestamp:
+        data.timestamp instanceof Timestamp
+          ? data.timestamp.toDate().toISOString()
+          : new Date().toISOString(),
     };
   });
 
