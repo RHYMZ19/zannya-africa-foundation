@@ -211,7 +211,7 @@ export default function MissionsClient() {
             <div className={styles.Leaders}>
                 
 
-                <div style={{width: '100%', display: 'flex', flexDirection: 'column',height: '100%'}}>
+                <div style={{width: '100%', display: 'flex', flexDirection: 'column',height: '100%',background: 'linear-gradient(to right, #e0f7fa, #e1bee7)'}}>
         <section className={styles.leadershipSection}>
       <h2 className={styles.title}>Our Leaders</h2>
       <div className={styles.grid}>
