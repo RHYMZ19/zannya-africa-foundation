@@ -181,6 +181,17 @@ export default function HomeClient({ news }: HomeClientProps) {
           <NewsA />
           <NewsE />
           <NewsM />
+          <section className={styles.newsSection}>
+          <Divider title="News & Updates" />
+          <div className={styles.newsList}>
+            {news.map((item) => (
+              <div key={item.id}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
         </div>
       </section>
 
