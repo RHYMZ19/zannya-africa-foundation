@@ -74,8 +74,8 @@ export default function Newsp() {
     <div style={{overflow: 'hidden'}}>
       <div style={{justifyItems: 'center', gap: '1%'}}>
         <StickyBar>
-          <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
-            Home home
+          <FaHome style={{width: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
+            Home
           </FaHome>
           <GetInvolved />
           <Gallery />
