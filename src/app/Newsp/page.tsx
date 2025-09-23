@@ -11,6 +11,7 @@ import styles from './Newsp.module.css';
 import Image from "next/image";
 import { fetchNews, NewsItem } from "./NewsList";
 import NewsListClient from "./NewsListClient";  // import client component
+import Link from "next/link";
 
 export default async function NewspPage() {
   // Server-side fetch (SEO/AI can see this)
@@ -20,9 +21,13 @@ export default async function NewspPage() {
     <div style={{ overflow: 'hidden' }}>
       {/* Sticky Navbar */}
       <StickyBar>
-        <FaHome style={{ width: '25%', height: '25%' }} color="black" />
+        <Link href="/" style={{  color: 'black', cursor: 'pointer' }}>
+          <FaHome style={{ width: '25px', height: '25px' }} />
+          <span>Home</span>
+        </Link>
         <GetInvolved />
         <Gallery />
+        <Link href="/Donates" className={styles.arrowButton}>Donate</Link>
         <IncreaseIma src='/log.jpg' alt="log" />
       </StickyBar>
 

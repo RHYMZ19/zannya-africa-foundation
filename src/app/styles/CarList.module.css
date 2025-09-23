@@ -505,6 +505,7 @@
 /* Other Sections */
 .programSection, .newsSection, .successSection, .resourcesSection, .supportSection, .getInvolvedSection, .contactSection {
     padding: 60px 20px;
+    background: linear-gradient(to right, #e0f7fa, #e1bee7);
 }
 .supportSection {
     background: linear-gradient(to right, #6a11cb, #2575fc);
@@ -515,6 +516,8 @@
     padding: 60px 20px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
+
+
 .contactGrid {
     display: flex;
     flex-direction: column;

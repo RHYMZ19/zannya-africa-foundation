@@ -14,6 +14,7 @@ import { collection, onSnapshot, Timestamp } from "firebase/firestore";
 import IncreaseIma from "./components/IncreaseIma";
 import Image from "next/image";
 import { FaXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
 type SuccessStory = {
   id: string;
@@ -54,6 +55,10 @@ export default function Successs() {
     <div style={{overflow: 'hidden'}}>
       <div style={{justifyItems: 'center', gap: '1%'}}>
       <StickyBar>
+        <Link href="/" style={{  color: 'black', cursor: 'pointer' }}>
+          <FaHome style={{ width: '25px', height: '25px' }} />
+          <span>Home</span>
+        </Link>
         <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >Home</FaHome>
         <GetInvolved />
         <Gallery />
