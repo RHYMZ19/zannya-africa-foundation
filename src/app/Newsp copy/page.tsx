@@ -75,7 +75,7 @@ export default function Newsp() {
       <div style={{justifyItems: 'center', gap: '1%'}}>
         <StickyBar>
           <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
-            Home
+            Home home
           </FaHome>
           <GetInvolved />
           <Gallery />
