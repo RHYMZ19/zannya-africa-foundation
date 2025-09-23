@@ -37,7 +37,10 @@ export default function ResourcessClient({ initialResources }: Props) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [visible, setVisible] = useState(false);
 
-  useEffect(() => setTimeout(() => setVisible(true), 100), []);
+  useEffect(() => {
+  const timer = setTimeout(() => setVisible(true), 100);
+  return () => clearTimeout(timer); // cleanup on unmount
+}, []);
 
   // Real-time updates from Firestore
   useEffect(() => {
