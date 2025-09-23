@@ -304,30 +304,58 @@
     
 }
 
-.Y{
-  width: 100%;
-  position: relative;
+.Y {
+  width: 90%; /* responsive width */
+  max-width: 1000px; /* optional max width for large screens */
   min-height: 600px;
-  margin: 1%;
+  margin: 40px auto; /* center horizontally with vertical spacing */
+  padding: 40px 20px; /* internal padding */
+  border-radius: 10px; /* rounded corners */
+  color: black; /* text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
+  text-align: center;      /* center text inside */
+  
+  /* background gradient + image */
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 1)
+    ),
+    url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827092/zannya/uploads/i8t2ni57m9gzvoxojfxu.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* optional subtle shadow */
+}
 
-  /* background image */
-  background-size: cover;       /* Make image cover the whole area */
-  background-position: center;  /* Keep image centered */
-  background-repeat: no-repeat; /* Prevent tiling */
-  border-radius: 5px;          /* Optional rounded corners */
-  padding: 2%;                /* Space inside so text isn't flush to edges */
-  color: white; 
-  margin-left: 17%; 
-  margin-right: 17%;
-  justify-items: center;
-  padding-left: 2%;
-  padding-top: 2%;
-  background: linear-gradient(to bottom,
-  rgba(255, 255, 255, 0.3),
-  rgba(255, 255, 255, 0.7),
-  rgba(255, 255, 255, 0.95),
-  rgba(255, 255, 255, 1)),
-  url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827092/zannya/uploads/i8t2ni57m9gzvoxojfxu.jpg');
+/* Make paragraphs inside .Y responsive */
+.Y p {
+  max-width: 800px; /* prevent text from stretching too wide */
+  margin-bottom: 1em;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Responsive text for mobile */
+@media (max-width: 768px) {
+  .Y {
+    width: 95%;
+    padding: 30px 15px;
+    min-height: 500px;
+  }
+
+  .Y p {
+    font-size: 0.95rem;
+  }
+
+  .Y h1 {
+    font-size: 2rem;
+  }
 }
 
 .p{

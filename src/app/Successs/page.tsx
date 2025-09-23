@@ -58,7 +58,7 @@ export default function Successs() {
         <Link href="/" style={{  color: 'black', cursor: 'pointer' }}>
           <FaHome style={{ width: '25px', height: '25px' }} />
         </Link>
-        <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >Home</FaHome>
+        
         <GetInvolved />
         <Gallery />
         <button onClick={() => router.push('/Donates')} className={styles.arrowButton}>Donate</button>
