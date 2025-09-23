@@ -110,7 +110,7 @@
 }
 
 .Leaders {
-  background: #f8fcfd;
+  background: linear-gradient(to right, #e0f7fa, #e1bee7);
   padding: 2% 5%;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
