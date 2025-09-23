@@ -57,7 +57,7 @@ export default function MissionsClient() {
   return (
     <div style={{ overflow: 'hidden' }}>
       {/* Structured Data for AI and SEO */}
-            <Script type="application/ld+json" strategy="afterInteractive">
+            <Script type="application/ld+json" strategy="afterInteractive" id="zaf-structured-data">
               {`
               {
                 "@context": "https://schema.org",
