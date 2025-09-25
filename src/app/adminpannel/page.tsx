@@ -10,6 +10,7 @@ import GalleryAdmin from '../GalleryAdmin/page';
 import MissionAdmn from '../MissionAdmn/page';
 import SuccessAdmin from '../SuccessAdmin/page';
 import ResoAdmin from '../ResoAdmin/page';
+import AdminEvents from '../UpcomingEvents/AdminEvents/AdminEvents';
 
 
 
@@ -85,6 +86,10 @@ if (loading) {
 
         <div style={{marginBottom: '7%'}}>
             <ResoAdmin></ResoAdmin>
+        </div>
+
+        <div>
+            <AdminEvents></AdminEvents>
         </div>
 
         </div>

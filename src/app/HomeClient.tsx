@@ -32,9 +32,20 @@ import styles from './styles/CarList.module.css';
 
 import { NewsItem } from "./Newsp/NewsList";
 import GetInvolved from './GetInvolved/GetInvolved';
+import UpcomingEvents from './UpcomingEvents/UpcomingEvents';
 
 type HomeClientProps = {
   news: NewsItem[];
+};
+
+export const metadata = {
+  title: "Upcoming Events | My Website",
+  description: "Stay updated with our latest upcoming events and countdowns.",
+  openGraph: {
+    title: "Upcoming Events",
+    description: "Check out our upcoming events with live countdowns.",
+    images: ["/seo-banner.png"],
+  },
 };
 
 export default function HomeClient({ news }: HomeClientProps) {
@@ -194,6 +205,9 @@ export default function HomeClient({ news }: HomeClientProps) {
         </section>
         </div>
       </section>
+
+      {/* Upcoming Events Section */}
+      <UpcomingEvents />
 
 
       {/* Resources, Success, Donate, Get Involved, Contact */}
