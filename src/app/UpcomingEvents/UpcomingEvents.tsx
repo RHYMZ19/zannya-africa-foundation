@@ -4,22 +4,14 @@ import { db } from "../lib/firebase";
 import Image from "next/image";
 import styles from "./UpcomingEvents.module.css";
 import Countdown from "../components/Countdown";
+import { UpcomingEvent } from "./types";
 
-type Event = {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  image: string;
-};
-
-// ✅ Server Component (SEO visible)
 export default async function UpcomingEvents() {
   const snapshot = await getDocs(collection(db, "events"));
-  const events: Event[] = snapshot.docs.map((doc) => ({
+  const events: UpcomingEvent[] = snapshot.docs.map((doc) => ({
     id: doc.id,
-    ...doc.data(),
-  })) as Event[];
+    ...(doc.data() as Omit<UpcomingEvent, "id">),
+  }));
 
   return (
     <section className={styles.eventsSection}>
@@ -32,6 +24,7 @@ export default async function UpcomingEvents() {
               alt={event.title}
               width={400}
               height={250}
+              priority
             />
             <h3>{event.title}</h3>
             <p>{event.description}</p>

@@ -33,14 +33,17 @@ import styles from './styles/CarList.module.css';
 import { NewsItem } from "./Newsp/NewsList";
 import GetInvolved from './GetInvolved/GetInvolved';
 import UpcomingEvents from './UpcomingEvents/UpcomingEvents';
+import { UpcomingEvent } from './UpcomingEvents/types';
+
 
 type HomeClientProps = {
   news: NewsItem[];
+  events: UpcomingEvent[]; 
 };
 
 
 
-export default function HomeClient({ news }: HomeClientProps) {
+export default function HomeClient({news }: HomeClientProps) {
   const [counts, setCounts] = useState({ people: 0, projects: 0, partners: 0 });
 
   const programRef = useRef<HTMLDivElement | null>(null);
@@ -198,7 +201,7 @@ export default function HomeClient({ news }: HomeClientProps) {
         </div>
       </section>
 
-      {/* Upcoming Events Section */}
+      {/* Upcoming Events */}
       <UpcomingEvents />
 
 
