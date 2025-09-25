@@ -42,7 +42,7 @@ type HomeClientProps = {
 export default function HomeClient({news, events }: HomeClientProps) {
   const [counts, setCounts] = useState({ people: 0, projects: 0, partners: 0 });
 
-  const programRef = useRef<HTMLDivElement | null>(null);
+  
   const newsRef = useRef<HTMLDivElement | null>(null);
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -170,7 +170,7 @@ export default function HomeClient({news, events }: HomeClientProps) {
         <div className={styles.eventsScrollContainer}>
             {/* Left button */}
             <button className={styles.scrollLeft} onClick={() => scroll('left')}>◀</button>
-        <div className={styles.scrollWrapper} ref={programRef}>
+        <div className={styles.scrollWrapper} ref={newsRef}>
           <Programsservices />
           <Programsservices1 />
           <Programsservices2 />
