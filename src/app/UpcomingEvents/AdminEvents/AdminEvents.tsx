@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { db } from "../../lib/firebase";
 import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
 
-type Event = {
+type MyEvent = {
   id: string;
   title: string;
   description: string;
@@ -18,12 +18,12 @@ export default function AdminEvents() {
   const [desc, setDesc] = useState("");
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
-  const [events, setEvents] = useState<Event[]>([]);
+  const [events, setEvents] = useState<MyEvent[]>([]);
 
 
   const fetchEvents = async () => {
     const snapshot = await getDocs(collection(db, "events"));
-    setEvents(snapshot.docs.map((doc) => ({ id: doc.id, ...(doc.data() as Omit<Event, "id">) })));
+    setEvents(snapshot.docs.map((doc) => ({ id: doc.id, ...(doc.data() as Omit<MyEvent, "id">) })));
   };
 
   useEffect(() => {
