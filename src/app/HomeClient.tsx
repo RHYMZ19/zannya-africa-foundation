@@ -38,15 +38,7 @@ type HomeClientProps = {
   news: NewsItem[];
 };
 
-export const metadata = {
-  title: "Upcoming Events | My Website",
-  description: "Stay updated with our latest upcoming events and countdowns.",
-  openGraph: {
-    title: "Upcoming Events",
-    description: "Check out our upcoming events with live countdowns.",
-    images: ["/seo-banner.png"],
-  },
-};
+
 
 export default function HomeClient({ news }: HomeClientProps) {
   const [counts, setCounts] = useState({ people: 0, projects: 0, partners: 0 });
