@@ -1,81 +1,121 @@
-"use client";
-
-import { useState, useEffect } from "react";
+'use client';
+import { useState } from "react";
+import Image from "next/image";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { db } from "../../lib/firebase";
-import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
-
-type MyEvent = {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  image: string;
-};
-
+import CloudinaryUploader from "../../CloudinaryUploader"; // your reusable uploader
+import styles from "./UpcomingEventsAdmin.module.css";
 
 export default function AdminEvents() {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-  const [date, setDate] = useState("");
-  const [image, setImage] = useState("");
-  const [events, setEvents] = useState<MyEvent[]>([]);
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    date: "",
+    images: [] as string[],
+    video: "",
+  });
 
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
 
-  const fetchEvents = async () => {
-    const snapshot = await getDocs(collection(db, "events"));
-    setEvents(snapshot.docs.map((doc) => ({ id: doc.id, ...(doc.data() as Omit<MyEvent, "id">) })));
+  const handleUploadComplete = (url: string, type: "image" | "video") => {
+    if (type === "image") {
+      setFormData((prev) => ({ ...prev, images: [...prev.images, url] }));
+    } else if (type === "video") {
+      setFormData((prev) => ({ ...prev, video: url }));
+    }
   };
 
-  useEffect(() => {
-    fetchEvents();
-  }, []);
-
-  const addEvent = async () => {
-    if (!title || !date) return alert("Title and date required");
-    await addDoc(collection(db, "events"), {
-      title,
-      description: desc,
-      date,
-      image,
-    });
-    setTitle("");
-    setDesc("");
-    setDate("");
-    setImage("");
-    fetchEvents();
-  };
-
-  const deleteEvent = async (id: string) => {
-    await deleteDoc(doc(db, "events", id));
-    fetchEvents();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await addDoc(collection(db, "events"), {
+        title: formData.title,
+        description: formData.description,
+        date: Timestamp.fromDate(new Date(formData.date)),
+        images: formData.images,
+        video: formData.video || null,
+        createdAt: Timestamp.now(),
+      });
+      setSuccess("Event added successfully!");
+      setFormData({ title: "", description: "", date: "", images: [], video: "" });
+    } catch (err) {
+      console.error(err);
+      setSuccess("Failed to add event.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Manage Upcoming Events</h2>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          addEvent();
-        }}
-        style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "400px" }}
-      >
-        <input placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-        <textarea placeholder="Description" value={desc} onChange={(e) => setDesc(e.target.value)} />
-        <input type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
-        <input placeholder="Image URL" value={image} onChange={(e) => setImage(e.target.value)} />
-        <button type="submit">Add Event</button>
-      </form>
+    <section className={styles.adminSection}>
+      <h2>Add Upcoming Event</h2>
+      <form onSubmit={handleSubmit} className={styles.adminForm}>
+        <label>Title</label>
+        <input
+          type="text"
+          value={formData.title}
+          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+          required
+        />
 
-      <h3>Existing Events</h3>
-      <ul>
-        {events.map((ev) => (
-          <li key={ev.id}>
-            {ev.title} — {new Date(ev.date).toLocaleString()}
-            <button onClick={() => deleteEvent(ev.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <label>Description</label>
+        <textarea
+          value={formData.description}
+          onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+          required
+        />
+
+        <label>Date & Time</label>
+        <input
+          type="datetime-local"
+          value={formData.date}
+          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+          required
+        />
+
+        {/* Images */}
+        <label>Upload Images</label>
+        <CloudinaryUploader
+          onUploadComplete={(url) => handleUploadComplete(url, "image")}
+          folder="zannya/events"
+          category="events"
+          resourceType="image"
+        />
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 6 }}>
+          {formData.images.map((img, i) => (
+            <Image
+              key={i}
+              src={img}
+              alt={`Image ${i}`}
+              width={150}
+              height={100}
+              style={{ objectFit: "cover", borderRadius: 6 }}
+            />
+          ))}
+        </div>
+
+        {/* Video */}
+        <label>Upload Video</label>
+        <CloudinaryUploader
+          onUploadComplete={(url) => handleUploadComplete(url, "video")}
+          folder="zannya/events"
+          category="events"
+          resourceType="video"
+        />
+        {formData.video && (
+          <video controls style={{ maxWidth: 300, marginTop: 8 }}>
+            <source src={formData.video} type="video/mp4" />
+          </video>
+        )}
+
+        <button type="submit" disabled={loading} className={styles.submitButton}>
+          {loading ? "Adding..." : "Add Event"}
+        </button>
+
+        {success && <p style={{ marginTop: 10 }}>{success}</p>}
+      </form>
+    </section>
   );
 }

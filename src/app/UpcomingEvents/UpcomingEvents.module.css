@@ -3,14 +3,20 @@
   text-align: center;
 }
 
+.eventsWrapper {
+  overflow-x: auto; /* allow horizontal scrolling */
+  padding-bottom: 1rem; /* give some space for scrollbar */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
+}
+
 .eventsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
 }
 
 .eventCard {
+  flex: 0 0 280px; /* fixed width, prevents shrinking */
   background: #fff;
   border-radius: 12px;
   padding: 1rem;
@@ -26,4 +32,17 @@
   font-weight: bold;
   color: #e63946;
   margin-top: 0.5rem;
+}
+
+/* Responsive tweaks */
+@media (min-width: 768px) {
+  .eventCard {
+    flex: 0 0 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eventCard {
+    flex: 0 0 350px;
+  }
 }
