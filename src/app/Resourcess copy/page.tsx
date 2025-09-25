@@ -138,7 +138,7 @@ export default function Resourcess() {
                               </a>
                               
                             </div>
-                            <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
+                            <p style={{textDecoration: 'underline', color: 'rgba(218, 118, 118, 1)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
                             <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
                         <ul>
                         <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
