@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Countdown from "../components/Countdown";
 import styles from "./UpcomingEvents.module.css";
-import {  MyEvent } from "../page";
+import { MyEvent } from '../lib/events';
 
 type Props = {
   events: MyEvent[];

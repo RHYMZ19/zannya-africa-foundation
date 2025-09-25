@@ -33,7 +33,7 @@ import styles from './styles/CarList.module.css';
 import { NewsItem } from "./Newsp/NewsList";
 import GetInvolved from './GetInvolved/GetInvolved';
 import UpcomingEvents from './UpcomingEvents/UpcomingEvents';
-import { MyEvent } from './page';
+import { MyEvent } from './lib/events';
 
 
 type HomeClientProps = {
