@@ -11,29 +11,37 @@ type Props = {
 };
 
 export default function UpcomingEvents({ events: serverEvents }: Props) {
-
   const liveEvents = useEvents(); // live Firestore updates
   const eventsToShow = liveEvents.length > 0 ? liveEvents : serverEvents;
   
-  if (!eventsToShow.length) return <p>Loading upcoming events...</p>;
+  if (!eventsToShow.length) return <p className={styles.loading}>Loading upcoming events...</p>;
 
   return (
     <section className={styles.eventsSection}>
       <h2>Upcoming Events</h2>
-      <div className={styles.eventsWrapper}>
-        <div className={styles.eventsGrid}>
-          {eventsToShow.map((event) => (
-            <article key={event.id} className={styles.eventCard}>
-              <Image src={event.image} alt={event.title} width={400} height={250} />
-              <h3>{event.title}</h3>
-              <p>{event.description}</p>
-              <p>
+      <div className={styles.eventsContainer}>
+        {eventsToShow.map((event) => (
+          <div key={event.id} className={styles.card}>
+            {event.image && (
+              <Image
+                src={event.image}
+                alt={event.title}
+                width={400}
+                height={220}
+                className={styles.cardImage}
+              />
+            )}
+            <div className={styles.cardContent}>
+              <span className={styles.eventType}>Upcoming Event</span>
+              <h3 className={styles.headings}>{event.title}</h3>
+              <p className={styles.description}>{event.description}</p>
+              <p className={styles.eventDate}>
                 <strong>Starts:</strong> {new Date(event.date).toLocaleString()}
               </p>
               <Countdown date={event.date} />
-            </article>
-          ))}
-        </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

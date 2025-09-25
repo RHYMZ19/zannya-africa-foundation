@@ -189,13 +189,14 @@ export default function HomeClient({news, events }: HomeClientProps) {
           <section className={styles.newsSection}>
           <Divider title="News & Updates" />
           <div className={styles.newsList}>
-            {news.map((item) => (
-              <div key={item.id}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            ))}
-          </div>
+  {news.map((item) => (
+    <div key={item.id} className={styles.newsItem}>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+      {/* Optional: show date if you have it */}
+    </div>
+  ))}
+</div>
         </section>
         </div>
       </section>
