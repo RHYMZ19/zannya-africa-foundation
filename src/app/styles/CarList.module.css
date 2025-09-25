@@ -755,6 +755,8 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .newsItem:hover {
@@ -774,8 +776,9 @@
 /* Card content */
 .newsItem h3 {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   margin: 10px 0 6px;
+  color: black;
 }
 
 .newsItem p {
@@ -800,6 +803,7 @@
   color: #999;
   font-size: 12px;
   font-style: italic;
+  margin-bottom: 10px;
 }
 
 /* Responsive tweaks */
@@ -811,7 +815,7 @@
 
 @media (min-width: 1024px) {
   .newsItem {
-    flex: 0 0 350px;
+    flex: 0 0 400px;
   }
 }
 
@@ -823,7 +827,7 @@
 }
 
 /* Scroll wrapper horizontal */
-.eventsScrollWrapper {
+.eventsScrollWrapper, .newsScrollWrapper {
   display: flex;
   gap: 20px;
   overflow-x: auto;
@@ -831,6 +835,19 @@
   padding: 10px 0;
 }
 
+.eventsScrollWrapper::-webkit-scrollbar,
+.newsScrollWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.eventsScrollWrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.newsScrollWrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 /* Hide scrollbar */
 .eventsScrollWrapper::-webkit-scrollbar {
   display: none;
