@@ -14,13 +14,25 @@ export async function fetchEvents(): Promise<MyEvent[]> {
   return snapshot.docs.map((doc) => {
     const data = doc.data();
 
+    let dateStr = "";
+    if (data.date) {
+      if (typeof data.date.toDate === "function") {
+        // Firestore Timestamp
+        dateStr = data.date.toDate().toISOString();
+      } else if (data.date.seconds) {
+        // Plain object from Firestore snapshot
+        dateStr = new Date(data.date.seconds * 1000).toISOString();
+      } else if (typeof data.date === "string") {
+        // Already a string
+        dateStr = data.date;
+      }
+    }
+
     return {
       id: doc.id,
-      title: data.title,
-      description: data.description,
-      // Convert Firestore Timestamp to ISO string
-      date: data.date?.toDate().toISOString() || "",
-      // Pick first image from the array
+      title: data.title || "",
+      description: data.description || "",
+      date: dateStr,
       image: Array.isArray(data.images) && data.images.length > 0 ? data.images[0] : "",
     } as MyEvent;
   });
