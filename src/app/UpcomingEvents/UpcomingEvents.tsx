@@ -4,20 +4,25 @@ import Image from "next/image";
 import Countdown from "../components/Countdown";
 import styles from "./UpcomingEvents.module.css";
 import { MyEvent } from '../lib/events';
+import { useEvents } from "../lib/useEvents";
 
 type Props = {
   events: MyEvent[];
 };
 
-export default function UpcomingEvents({ events }: Props) {
-  if (!events.length) return <p>Loading upcoming events...</p>;
+export default function UpcomingEvents({ events: serverEvents }: Props) {
+
+  const liveEvents = useEvents(); // live Firestore updates
+  const eventsToShow = liveEvents.length > 0 ? liveEvents : serverEvents;
+  
+  if (!eventsToShow.length) return <p>Loading upcoming events...</p>;
 
   return (
     <section className={styles.eventsSection}>
       <h2>Upcoming Events</h2>
       <div className={styles.eventsWrapper}>
         <div className={styles.eventsGrid}>
-          {events.map((event) => (
+          {eventsToShow.map((event) => (
             <article key={event.id} className={styles.eventCard}>
               <Image src={event.image} alt={event.title} width={400} height={250} />
               <h3>{event.title}</h3>
