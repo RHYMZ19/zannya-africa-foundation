@@ -187,17 +187,33 @@ export default function HomeClient({news, events }: HomeClientProps) {
           <NewsE />
           <NewsM />
           <section className={styles.newsSection}>
-          <Divider title="News & Updates" />
-          <div className={styles.newsList}>
-  {news.map((item) => (
-    <div key={item.id} className={styles.newsItem}>
-      <h3>{item.title}</h3>
-      <p>{item.description}</p>
-      {/* Optional: show date if you have it */}
-    </div>
-  ))}
-</div>
-        </section>
+  <Divider title="News & Updates" />
+  <div className={styles.newsScrollWrapper}>
+    {news.map((item) => (
+      <div key={item.id} className={styles.newsItem}>
+        {item.images && item.images.length > 0 && (
+          <Image
+            src={item.images[0]}
+            alt={item.title}
+            width={400}
+            height={220}
+            className={styles.newsItemImage}
+          />
+        )}
+
+        <h3>{item.title}</h3>
+        <p>{item.description}</p>
+
+        {item.timestamp && (
+          <small className={styles.newsItemDate}>
+            {new Date(item.timestamp).toLocaleDateString()}{" "}
+            {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+          </small>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
         </div>
       </section>
 

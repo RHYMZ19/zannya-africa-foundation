@@ -3,15 +3,28 @@
   text-align: center;
 }
 
-.eventsContainer {
+/* Horizontal scroll wrapper */
+.eventsScrollWrapper {
   display: flex;
-  flex-direction: column;
-  gap: 30px;
-  max-width: 900px;
-  margin: 0 auto;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
+  scroll-behavior: smooth;
 }
 
+/* Hide scrollbars for cleaner look */
+.eventsScrollWrapper::-webkit-scrollbar {
+  display: none;
+}
+.eventsScrollWrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Card styling */
 .card {
+  flex: 0 0 300px; /* fixed width for horizontal scroll */
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -30,9 +43,10 @@
   width: 100%;
   height: 220px;
   object-fit: cover;
+  border-radius: 10px;
 }
 
-/* Card Content */
+/* Card content */
 .cardContent {
   padding: 16px;
   text-align: center;
@@ -40,13 +54,13 @@
 
 .headings {
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
   margin: 10px 0;
   color: black;
 }
 
 .description {
-  font-size: 15px;
+  font-size: 14px;
   color: #444;
   margin-bottom: 12px;
 }
@@ -64,7 +78,7 @@
 }
 
 .eventDate {
-  font-size: 14px;
+  font-size: 13px;
   font-style: italic;
   color: #666;
   margin-bottom: 10px;
@@ -76,16 +90,10 @@
   margin-top: 2rem;
 }
 
-/* Responsive */
+/* Responsive tweaks */
 @media (min-width: 768px) {
-  .eventsContainer {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .card {
-    flex: 0 0 350px;
+    flex: 0 0 320px;
   }
 }
 

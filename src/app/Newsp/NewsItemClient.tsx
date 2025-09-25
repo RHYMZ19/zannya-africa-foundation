@@ -18,6 +18,7 @@ interface Props {
   newsItem: NewsItem;
 }
 
+
 export default function NewsItemClient({ newsItem }: Props) {
   const [SelectedImage, setSelectedImage] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);

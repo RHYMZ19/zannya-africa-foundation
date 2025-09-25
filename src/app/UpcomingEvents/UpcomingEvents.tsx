@@ -18,31 +18,31 @@ export default function UpcomingEvents({ events: serverEvents }: Props) {
 
   return (
     <section className={styles.eventsSection}>
-      <h2>Upcoming Events</h2>
-      <div className={styles.eventsContainer}>
-        {eventsToShow.map((event) => (
-          <div key={event.id} className={styles.card}>
-            {event.image && (
-              <Image
-                src={event.image}
-                alt={event.title}
-                width={400}
-                height={220}
-                className={styles.cardImage}
-              />
-            )}
-            <div className={styles.cardContent}>
-              <span className={styles.eventType}>Upcoming Event</span>
-              <h3 className={styles.headings}>{event.title}</h3>
-              <p className={styles.description}>{event.description}</p>
-              <p className={styles.eventDate}>
-                <strong>Starts:</strong> {new Date(event.date).toLocaleString()}
-              </p>
-              <Countdown date={event.date} />
-            </div>
-          </div>
-        ))}
+  <h2>Upcoming Events</h2>
+  <div className={styles.eventsScrollWrapper}>
+    {eventsToShow.map((event) => (
+      <div key={event.id} className={styles.card}>
+        {event.image && (
+          <Image
+            src={event.image}
+            alt={event.title}
+            width={400}
+            height={220}
+            className={styles.cardImage}
+          />
+        )}
+        <div className={styles.cardContent}>
+          <span className={styles.eventType}>Upcoming Event</span>
+          <h3 className={styles.headings}>{event.title}</h3>
+          <p className={styles.description}>{event.description}</p>
+          <p className={styles.eventDate}>
+            <strong>Starts:</strong> {new Date(event.date).toLocaleString()}
+          </p>
+          <Countdown date={event.date} />
+        </div>
       </div>
-    </section>
+    ))}
+  </div>
+</section>
   );
 }
