@@ -728,50 +728,60 @@
 }
 
 /* Scrollable wrapper */
-/* Horizontal Scroll Wrapper */
+/* Scrollable wrapper */
 .newsScrollWrapper {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding-bottom: 1rem;
-  -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
+  padding: 10px 0;
+  -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar for a cleaner look */
+/* Hide scrollbar for cleaner look */
 .newsScrollWrapper::-webkit-scrollbar {
   display: none;
 }
 .newsScrollWrapper {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Card Styles */
-.newsCard {
-  flex: 0 0 300px; /* fixed width for scroll */
+/* News card styling */
+.newsItem {
+  flex: 0 0 300px; /* fixed width for horizontal scroll */
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  overflow: hidden;
+  padding: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.newsCard:hover {
+.newsItem:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
-/* Image */
-.newsCardImage {
+/* Image inside card */
+.newsItemImage {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-/* Content */
-.newsCardContent {
-  padding: 12px 16px;
+/* Card content */
+.newsItem h3 {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0 6px;
+}
+
+.newsItem p {
+  color: #444;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .newsType {
@@ -786,34 +796,78 @@
   text-transform: uppercase;
 }
 
-.newsCardTitle {
-  font-weight: bold;
-  font-size: 18px;
-  margin: 6px 0;
-  color: black;
-}
-
-.newsCardContent p {
-  font-size: 14px;
-  color: #444;
-  margin-bottom: 8px;
-}
-
-.newsCardDate {
-  font-size: 12px;
+.newsItemDate {
   color: #999;
+  font-size: 12px;
   font-style: italic;
 }
 
 /* Responsive tweaks */
 @media (min-width: 768px) {
-  .newsCard {
+  .newsItem {
     flex: 0 0 320px;
   }
 }
 
 @media (min-width: 1024px) {
-  .newsCard {
+  .newsItem {
     flex: 0 0 350px;
   }
+}
+
+
+.eventsScrollContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Scroll wrapper horizontal */
+.eventsScrollWrapper {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+/* Hide scrollbar */
+.eventsScrollWrapper::-webkit-scrollbar {
+  display: none;
+}
+.eventsScrollWrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Buttons */
+.scrollLeft,
+.scrollRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.scrollLeft {
+  left: 5px;
+}
+
+.scrollRight {
+  right: 5px;
+}
+
+/* Show buttons on hover */
+.eventsScrollContainer:hover .scrollLeft,
+.eventsScrollContainer:hover .scrollRight {
+  opacity: 1;
 }

@@ -192,34 +192,34 @@ export default function HomeClient({news, events }: HomeClientProps) {
           
           
   
+  
   <div className={styles.newsScrollWrapper}>
     {news.map((item) => (
-      <div key={item.id} className={styles.newsCard}>
+      <div key={item.id} className={styles.newsItem}>
         {item.images && item.images.length > 0 && (
           <Image
             src={item.images[0]}
             alt={item.title}
             width={400}
             height={220}
-            className={styles.newsCardImage}
-            style={{ cursor: "pointer" }}
+            className={styles.newsItemImage}
           />
         )}
 
-        <div className={styles.newsCardContent}>
-          <span className={styles.newsType}>{item.type}</span>
-          <h3 className={styles.newsCardTitle}>{item.title}</h3>
-          <p>{item.description}</p>
-          {item.timestamp && (
-            <small className={styles.newsCardDate}>
-              {new Date(item.timestamp).toLocaleDateString()}{" "}
-              {new Date(item.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-            </small>
-          )}
-        </div>
+        <span className={styles.newsType}>{item.type}</span>
+        <h3>{item.title}</h3>
+        <p>{item.description}</p>
+
+        {item.timestamp && (
+          <small className={styles.newsItemDate}>
+            {new Date(item.timestamp).toLocaleDateString()}{" "}
+            {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+          </small>
+        )}
       </div>
     ))}
   </div>
+
 
         </div>
         {/* Right button */}
