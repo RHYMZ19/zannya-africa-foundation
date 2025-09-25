@@ -218,6 +218,8 @@ const startAutoScroll = (
       {/* News Section */}
       <section className={styles.newsSection}>
         <Divider title="News & Updates" />
+
+        <NewsC />
         
         <div
           className={styles.newsScrollWrapper}
@@ -225,13 +227,6 @@ const startAutoScroll = (
           onMouseEnter={() => stopAutoScroll(newsInterval)}
           onMouseLeave={() => startAutoScroll(newsRef, newsInterval)}
         >
-        
-          <NewsC />
-          
-          
-  
-  
-  
     {news.map((item) => (
       <div key={item.id} className={styles.newsItem}>
         {item.images && item.images.length > 0 && (
