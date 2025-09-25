@@ -32,7 +32,7 @@ import styles from './styles/CarList.module.css';
 
 import { NewsItem } from "./Newsp/NewsList";
 import GetInvolved from './GetInvolved/GetInvolved';
-
+import UpcomingEvents from './UpcomingEvents/UpcomingEvents';
 
 type HomeClientProps = {
   news: NewsItem[];
@@ -198,7 +198,8 @@ export default function HomeClient({ news }: HomeClientProps) {
         </div>
       </section>
 
-      
+      {/* Upcoming Events Section */}
+      <UpcomingEvents />
 
 
       {/* Resources, Success, Donate, Get Involved, Contact */}
