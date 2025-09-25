@@ -185,7 +185,7 @@ export default function HomeClient({news, events }: HomeClientProps) {
         <div className={styles.eventsScrollContainer}>
   <button className={styles.scrollLeft} onClick={() => scroll('left', newsRef)}>◀</button>
         
-        <div className={styles.newsscrollWrapper} ref={newsRef}>
+        <div className={styles.eventsscrollWrapper} ref={newsRef}>
           <NewsC />
           
           
