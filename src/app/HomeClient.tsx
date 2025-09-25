@@ -169,7 +169,7 @@ export default function HomeClient({news, events }: HomeClientProps) {
         <Divider title="Programs & Activities" />
         <div className={styles.eventsScrollContainer}>
         <button className={styles.scrollLeft} onClick={() => scroll('left', programsRef)}>◀</button>
-        <div className={styles.scrollWrapper} ref={programsRef}>
+        <div className={styles.eventsscrollWrapper} ref={programsRef}>
           <Programsservices />
           <Programsservices1 />
           <Programsservices2 />
@@ -185,7 +185,7 @@ export default function HomeClient({news, events }: HomeClientProps) {
         <div className={styles.eventsScrollContainer}>
   <button className={styles.scrollLeft} onClick={() => scroll('left', newsRef)}>◀</button>
         
-        <div className={styles.scrollWrapper} ref={newsRef}>
+        <div className={styles.newsscrollWrapper} ref={newsRef}>
           <NewsC />
           
           
