@@ -1,7 +1,7 @@
 // src/app/HomeClient.tsx
 'use client';
 
-import React, { useState,  useEffect } from 'react';
+import React, { useState,  useEffect, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -41,6 +41,52 @@ type HomeClientProps = {
 
 export default function HomeClient({news, events }: HomeClientProps) {
   const [counts, setCounts] = useState({ people: 0, projects: 0, partners: 0 });
+  const programRef = useRef<HTMLDivElement>(null);
+  const newsRef = useRef<HTMLDivElement>(null);
+  const programInterval = useRef<NodeJS.Timeout | null>(null);
+  const newsInterval = useRef<NodeJS.Timeout | null>(null);
+
+  const scrollByCard = (ref: React.RefObject<HTMLDivElement | null>) => {
+  if (!ref.current) return;
+  const cardWidth = ref.current.firstElementChild instanceof HTMLElement
+    ? ref.current.firstElementChild.clientWidth
+    : 300;
+  ref.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+
+  if (
+    ref.current.scrollLeft + ref.current.clientWidth >=
+    ref.current.scrollWidth
+  ) {
+    setTimeout(() => {
+      ref.current?.scrollTo({ left: 0, behavior: 'smooth' });
+    }, 1000);
+  }
+};
+
+const startAutoScroll = (
+  ref: React.RefObject<HTMLDivElement | null>,
+  intervalRef: React.MutableRefObject<NodeJS.Timeout | null>
+) => {
+  stopAutoScroll(intervalRef);
+  intervalRef.current = setInterval(() => {
+    scrollByCard(ref);
+  }, 3000);
+};
+
+  const stopAutoScroll = (intervalRef: React.MutableRefObject<NodeJS.Timeout | null>) => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+
+  useEffect(() => {
+    startAutoScroll(programRef, programInterval);
+    startAutoScroll(newsRef, newsInterval);
+
+    return () => {
+      stopAutoScroll(programInterval);
+      stopAutoScroll(newsInterval);
+    };
+  }, []);
+
 
   
   
@@ -156,7 +202,12 @@ export default function HomeClient({news, events }: HomeClientProps) {
       <section className={styles.programSection}>
         <Divider title="Programs & Activities" />
         
-        <div className={styles.scrollWrapper} >
+        <div
+          className={styles.scrollWrapper}
+          ref={programRef}
+          onMouseEnter={() => stopAutoScroll(programInterval)}
+          onMouseLeave={() => startAutoScroll(programRef, programInterval)}
+        >
           <Programsservices />
           <Programsservices1 />
           <Programsservices2 />
@@ -168,14 +219,19 @@ export default function HomeClient({news, events }: HomeClientProps) {
       <section className={styles.newsSection}>
         <Divider title="News & Updates" />
         
+        <div
+          className={styles.newsScrollWrapper}
+          ref={newsRef}
+          onMouseEnter={() => stopAutoScroll(newsInterval)}
+          onMouseLeave={() => startAutoScroll(newsRef, newsInterval)}
+        >
         
-        <div className={styles.eventsscrollWrapper} >
           <NewsC />
           
           
   
   
-  <div className={styles.newsScrollWrapper}>
+  
     {news.map((item) => (
       <div key={item.id} className={styles.newsItem}>
         {item.images && item.images.length > 0 && (
@@ -201,11 +257,8 @@ export default function HomeClient({news, events }: HomeClientProps) {
         )}
       </div>
     ))}
-  </div>
 
-
-        
-  </div>
+    </div>
       </section>
 
       {/* Upcoming Events */}
