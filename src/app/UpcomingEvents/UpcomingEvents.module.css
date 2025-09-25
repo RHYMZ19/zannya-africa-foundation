@@ -102,3 +102,24 @@
     flex: 0 0 400px;
   }
 }
+
+.scrollButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.scrollButtons button {
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.scrollButtons button:hover {
+  background-color: #0059c1;
+}

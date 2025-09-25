@@ -13,10 +13,7 @@ import Programsservices from "./Programsservices/Programsservices";
 import Programsservices1 from './Programsservices1/Programsservices1';
 import Programsservices2 from './Programsservices2/Programsservices2';
 import NewsC from './NewsC/NewsC';
-import News from './News/News';
-import NewsA from './NewsA/NewsA';
-import NewsE from './NewsE/NewsE';
-import NewsM from './NewsM/NewsM';
+
 import Resources from './Resources/Resources';
 import Success from './Success/Success';
 import Donate from './Donate/Donate';
@@ -182,34 +179,34 @@ export default function HomeClient({news, events }: HomeClientProps) {
         </div>
         <div className={styles.scrollWrapper} ref={newsRef}>
           <NewsC />
-          <News />
-          <NewsA />
-          <NewsE />
-          <NewsM />
+          
           <section className={styles.newsSection}>
   <Divider title="News & Updates" />
   <div className={styles.newsScrollWrapper}>
     {news.map((item) => (
-      <div key={item.id} className={styles.newsItem}>
+      <div key={item.id} className={styles.newsCard}>
         {item.images && item.images.length > 0 && (
           <Image
             src={item.images[0]}
             alt={item.title}
             width={400}
             height={220}
-            className={styles.newsItemImage}
+            className={styles.newsCardImage}
+            style={{ cursor: "pointer" }}
           />
         )}
 
-        <h3>{item.title}</h3>
-        <p>{item.description}</p>
-
-        {item.timestamp && (
-          <small className={styles.newsItemDate}>
-            {new Date(item.timestamp).toLocaleDateString()}{" "}
-            {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-          </small>
-        )}
+        <div className={styles.newsCardContent}>
+          <span className={styles.newsType}>{item.type}</span>
+          <h3 className={styles.newsCardTitle}>{item.title}</h3>
+          <p>{item.description}</p>
+          {item.timestamp && (
+            <small className={styles.newsCardDate}>
+              {new Date(item.timestamp).toLocaleDateString()}{" "}
+              {new Date(item.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+            </small>
+          )}
+        </div>
       </div>
     ))}
   </div>

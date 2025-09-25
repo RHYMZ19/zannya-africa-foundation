@@ -44,6 +44,7 @@ export default function NewsItemClient({ newsItem }: Props) {
           />
         ))}
 
+
         <div className={styles.newscontent}>
           <span className={styles.newstype}>{type}</span>
           <h3 className={styles.newstitle}>{title}</h3>

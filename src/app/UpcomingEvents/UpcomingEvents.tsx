@@ -5,6 +5,7 @@ import Countdown from "../components/Countdown";
 import styles from "./UpcomingEvents.module.css";
 import { MyEvent } from '../lib/events';
 import { useEvents } from "../lib/useEvents";
+import { useRef } from "react";
 
 type Props = {
   events: MyEvent[];
@@ -13,13 +14,32 @@ type Props = {
 export default function UpcomingEvents({ events: serverEvents }: Props) {
   const liveEvents = useEvents(); // live Firestore updates
   const eventsToShow = liveEvents.length > 0 ? liveEvents : serverEvents;
+
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = scrollRef.current.offsetWidth; // scroll by visible width
+      scrollRef.current.scrollBy({
+        left: direction === 'right' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
   
   if (!eventsToShow.length) return <p className={styles.loading}>Loading upcoming events...</p>;
 
   return (
     <section className={styles.eventsSection}>
   <h2>Upcoming Events</h2>
-  <div className={styles.eventsScrollWrapper}>
+
+  {/* Scroll Buttons */}
+      <div className={styles.scrollButtons}>
+        <button onClick={() => scroll('left')}>◀</button>
+        <button onClick={() => scroll('right')}>▶</button>
+      </div>
+
+  <div className={styles.eventsScrollWrapper} ref={scrollRef}>
     {eventsToShow.map((event) => (
       <div key={event.id} className={styles.card}>
         {event.image && (
