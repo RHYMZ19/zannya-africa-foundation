@@ -33,11 +33,11 @@ export default function UpcomingEvents({ events: serverEvents }: Props) {
     <section className={styles.eventsSection}>
   <h2>Upcoming Events</h2>
 
-  {/* Scroll Buttons */}
-      <div className={styles.scrollButtons}>
-        <button onClick={() => scroll('left')}>◀</button>
-        <button onClick={() => scroll('right')}>▶</button>
-      </div>
+  
+
+      <div className={styles.eventsScrollContainer}>
+    {/* Left button */}
+    <button className={styles.scrollLeft} onClick={() => scroll('left')}>◀</button>
 
   <div className={styles.eventsScrollWrapper} ref={scrollRef}>
     {eventsToShow.map((event) => (
@@ -62,6 +62,9 @@ export default function UpcomingEvents({ events: serverEvents }: Props) {
         </div>
       </div>
     ))}
+  </div>
+  {/* Right button */}
+    <button className={styles.scrollRight} onClick={() => scroll('right')}>▶</button>
   </div>
 </section>
   );

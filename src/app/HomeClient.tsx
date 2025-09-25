@@ -45,6 +45,18 @@ export default function HomeClient({news, events }: HomeClientProps) {
   const programRef = useRef<HTMLDivElement | null>(null);
   const newsRef = useRef<HTMLDivElement | null>(null);
 
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  
+    const scroll = (direction: 'left' | 'right') => {
+      if (scrollRef.current) {
+        const scrollAmount = scrollRef.current.offsetWidth; // scroll by visible width
+        scrollRef.current.scrollBy({
+          left: direction === 'right' ? scrollAmount : -scrollAmount,
+          behavior: 'smooth'
+        });
+      }
+    };
+
   useEffect(() => {
     AOS.init({ duration: 1200 });
 
@@ -81,11 +93,7 @@ export default function HomeClient({news, events }: HomeClientProps) {
     }
   }, []);
 
-  const scroll = (ref: React.RefObject<HTMLDivElement | null>, dir: 'left' | 'right') => {
-    if (ref.current) {
-      ref.current.scrollBy({ left: dir === 'left' ? -300 : 300, behavior: 'smooth' });
-    }
-  };
+  
 
   return (
     <div className={styles.homeWrapper}>
@@ -159,29 +167,31 @@ export default function HomeClient({news, events }: HomeClientProps) {
       {/* Programs Section */}
       <section className={styles.programSection}>
         <Divider title="Programs & Activities" />
-        <div className={styles.scrollControls}>
-          <button onClick={() => scroll(programRef, 'left')}>◀</button>
-          <button onClick={() => scroll(programRef, 'right')}>▶</button>
-        </div>
+        <div className={styles.eventsScrollContainer}>
+            {/* Left button */}
+            <button className={styles.scrollLeft} onClick={() => scroll('left')}>◀</button>
         <div className={styles.scrollWrapper} ref={programRef}>
           <Programsservices />
           <Programsservices1 />
           <Programsservices2 />
         </div>
+        {/* Right button */}
+            <button className={styles.scrollRight} onClick={() => scroll('right')}>▶</button>
+          </div>
       </section>
       
       {/* News Section */}
       <section className={styles.newsSection}>
         <Divider title="News & Updates" />
-        <div className={styles.scrollControls}>
-          <button onClick={() => scroll(newsRef, 'left')}>◀</button>
-          <button onClick={() => scroll(newsRef, 'right')}>▶</button>
-        </div>
+        <div className={styles.eventsScrollContainer}>
+            {/* Left button */}
+            <button className={styles.scrollLeft} onClick={() => scroll('left')}>◀</button>
+        
         <div className={styles.scrollWrapper} ref={newsRef}>
           <NewsC />
           
-          <section className={styles.newsSection}>
-  <Divider title="News & Updates" />
+          
+  
   <div className={styles.newsScrollWrapper}>
     {news.map((item) => (
       <div key={item.id} className={styles.newsCard}>
@@ -210,8 +220,11 @@ export default function HomeClient({news, events }: HomeClientProps) {
       </div>
     ))}
   </div>
-</section>
+
         </div>
+        {/* Right button */}
+    <button className={styles.scrollRight} onClick={() => scroll('right')}>▶</button>
+  </div>
       </section>
 
       {/* Upcoming Events */}

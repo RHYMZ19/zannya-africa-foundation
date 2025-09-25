@@ -103,23 +103,58 @@
   }
 }
 
-.scrollButtons {
+.eventsScrollContainer {
+  position: relative;
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 1rem;
+  align-items: center;
 }
 
-.scrollButtons button {
-  background-color: #0070f3;
+/* Scroll wrapper horizontal */
+.eventsScrollWrapper {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+/* Hide scrollbar */
+.eventsScrollWrapper::-webkit-scrollbar {
+  display: none;
+}
+.eventsScrollWrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Buttons */
+.scrollLeft,
+.scrollRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
   color: #fff;
   border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
 }
 
-.scrollButtons button:hover {
-  background-color: #0059c1;
+.scrollLeft {
+  left: 5px;
+}
+
+.scrollRight {
+  right: 5px;
+}
+
+/* Show buttons on hover */
+.eventsScrollContainer:hover .scrollLeft,
+.eventsScrollContainer:hover .scrollRight {
+  opacity: 1;
 }
