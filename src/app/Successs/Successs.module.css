@@ -16,18 +16,29 @@
 }
 
 .container {
+  /* Layer gradient over image */
   background: 
-    linear-gradient(to right, rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.7)), 
+    linear-gradient(to right, rgba(30, 60, 114, 0.5), rgba(42, 82, 152, 0.5)),
     url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg");
-  background-size: cover;   /* make the image cover the whole container */
-  background-position: center; /* center the image */
+  
+  background-size: cover;       /* cover entire container */
+  background-position: center;  /* center image */
   background-repeat: no-repeat;
 
-  padding: 9em 1em;
+  /* Make it fill screen height responsively */
+  min-height: 60vh;             /* adjust for desired height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* center content vertically */
+  align-items: center;          /* center content horizontally */
+
+  padding: 2em 1em;             /* inner spacing for text */
+  text-align: center;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  width: 100%;
+
+  /* Optional: smooth text overlay effect */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .header {
