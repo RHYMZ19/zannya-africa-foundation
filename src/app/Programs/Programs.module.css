@@ -18,7 +18,11 @@
 .container {
   /* Background layers: gradient on top, image below */
   background-image: 
-    linear-gradient(to right, rgba(224, 247, 250, 0.95), rgba(225, 190, 231, 0.95)),
+    linear-gradient(to right, #e1bee7f2
+    rgba(224, 247, 250, 0.5),
+    rgba(224, 247, 250, 0.5), 
+    rgba(225, 190, 231, 1),
+    rgba(225, 190, 231, 1)),
     url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg");
 
   background-size: cover;
@@ -60,7 +64,7 @@
 .p1 {
     font-size: 1.4em;
     font-style: italic;
-    color: #dcdcdc;
+    color: #d121ab;
     margin-top: 0;
 }
 
