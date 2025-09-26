@@ -184,8 +184,8 @@
     linear-gradient(to right, #e1bee7f2
     rgba(224, 247, 250, 0.5),
     rgba(224, 247, 250, 0.5), 
-    rgba(225, 190, 231, 1),
-    rgba(225, 190, 231, 1)),
+    rgba(225, 190, 231, 0.9),
+    rgba(225, 190, 231, 0.9)),
     url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg");
 
   background-size: cover;
