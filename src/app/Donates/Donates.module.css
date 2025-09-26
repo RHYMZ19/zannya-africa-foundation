@@ -15,10 +15,10 @@
   box-shadow: 0px 8px 15px rgba(0,0,0,0.3);
 }
 
-.container {
+.containers {
   /* Background layers: gradient on top, image below */
   background-image: 
-    linear-gradient(to right, rgba(30, 60, 114, 0.95), rgba(42, 82, 152, 0.95)),
+    linear-gradient(to right, rgba(224, 247, 250, 0.95), rgba(225, 190, 231, 0.95)),
     url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg");
 
   background-size: cover;
@@ -33,7 +33,7 @@
   
   padding: 2em 1em;
   text-align: center;
-  color: white;
+  color: blue;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
