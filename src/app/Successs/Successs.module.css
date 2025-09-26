@@ -17,9 +17,14 @@
 
 .container {
   /* Background layers: gradient on top, image below */
-  background-image: 
-    linear-gradient(to right, rgba(30, 60, 114, 0.1), rgba(42, 82, 152, 0.1)),
-    url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg");
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 1)
+    ),
+    url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827092/zannya/uploads/i8t2ni57m9gzvoxojfxu.jpg');
 
   background-size: cover;
   background-position: center;
