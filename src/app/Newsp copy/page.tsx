@@ -72,7 +72,7 @@ export default function Newsp() {
 
   return (
     <div style={{overflow: 'hidden'}}>
-      <div style={{justifyItems: 'center', gap: '1%'}}>
+      <div style={{justifyItems: 'center', gap: '2%'}}>
         <StickyBar>
           <FaHome style={{width: '25%', height: '25%'}} color="black" cursor='pointer' onClick={() => router.push('/')} >
             Home
