@@ -25,5 +25,9 @@ export default function Countdown({ date }: { date: string }) {
     return () => clearInterval(interval);
   }, [date]);
 
-  return <p>{timeLeft}</p>;
+  return (
+  <p style={{ color: timeLeft === "Event Started!" ? "green" : "inherit" }}>
+    {timeLeft}
+  </p>
+);
 }

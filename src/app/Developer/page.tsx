@@ -14,12 +14,9 @@ Developer() {
           <p><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></p>
           <p><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></p>
           </div>
-          <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '5%'}}>
-          <p><a href="mailto: career@zannyaafricafoundation.org">careers@zannyaafricafoundation.org</a></p>
-          <p><a href="mailto: contact@zannyaafricafoundation.org">contact@zannyaafricafoundation.org</a></p>
-          </div>
-
+          
           <p className={styles.words}>Developed by SSENABULYA RAHIM Tel: 0743878261</p>
+          <p><a href="mailto: rahimssenabulya82@gmail.com">rahimssenabulya82@gmail.com</a></p>
           <p>
           <Link 
            href="/Terms" 
