@@ -31,6 +31,14 @@ import { NewsItem } from "./Newsp/NewsList";
 import GetInvolved from './GetInvolved/GetInvolved';
 import UpcomingEvents from './UpcomingEvents/UpcomingEvents';
 import { MyEvent } from './lib/events';
+import Resources1 from './Resources1/Resources1';
+import Resources2 from './Resources2/Resources2';
+import Success1 from './Success1/Success1';
+import Success2 from './Success2/Success2';
+import Donate1 from './Donate1/Donate1';
+import Donate2 from './Donate2/Donate2';
+import GetInvolve1 from './GetInvolve1/GetInvolve1';
+import GetInvolve2 from './GetInvolve2/GetInvolve2';
 
 
 type HomeClientProps = {
@@ -45,6 +53,16 @@ export default function HomeClient({news, events }: HomeClientProps) {
   const newsRef = useRef<HTMLDivElement>(null);
   const programInterval = useRef<NodeJS.Timeout | null>(null);
   const newsInterval = useRef<NodeJS.Timeout | null>(null);
+
+  const resourcesRef = useRef<HTMLDivElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
+  const donateRef = useRef<HTMLDivElement>(null);
+  const getInvolveRef = useRef<HTMLDivElement>(null);
+
+  const resourcesInterval = useRef<NodeJS.Timeout | null>(null);
+  const successInterval = useRef<NodeJS.Timeout | null>(null);
+  const donateInterval = useRef<NodeJS.Timeout | null>(null);
+  const getInvolveInterval = useRef<NodeJS.Timeout | null>(null);
 
   const scrollByCard = (ref: React.RefObject<HTMLDivElement | null>) => {
   if (!ref.current) return;
@@ -80,10 +98,18 @@ const startAutoScroll = (
   useEffect(() => {
     startAutoScroll(programRef, programInterval);
     startAutoScroll(newsRef, newsInterval);
+    startAutoScroll(resourcesRef, resourcesInterval);
+    startAutoScroll(successRef, successInterval);
+    startAutoScroll(donateRef, donateInterval);
+    startAutoScroll(getInvolveRef, getInvolveInterval);
 
     return () => {
       stopAutoScroll(programInterval);
       stopAutoScroll(newsInterval);
+      stopAutoScroll(resourcesInterval);
+      stopAutoScroll(successInterval);
+      stopAutoScroll(donateInterval);
+      stopAutoScroll(getInvolveInterval);
     };
   }, []);
 
@@ -263,22 +289,58 @@ const startAutoScroll = (
       {/* Resources, Success, Donate, Get Involved, Contact */}
       <section className={styles.resourcesSection}>
         <Divider title="Resources" />
+        <div
+          className={styles.scrollWrapper}
+          ref={resourcesRef}
+          onMouseEnter={() => stopAutoScroll(resourcesInterval)}
+          onMouseLeave={() => startAutoScroll(resourcesRef, resourcesInterval)}
+        >
         <Resources />
+        <Resources1 />
+        <Resources2 />
+        </div>
       </section>
 
       <section className={styles.successSection}>
         <Divider title="Success Stories" />
+        <div
+          className={styles.scrollWrapper}
+          ref={successRef}
+          onMouseEnter={() => stopAutoScroll(successInterval)}
+          onMouseLeave={() => startAutoScroll(successRef, successInterval)}
+        >
         <Success />
+        <Success1 />
+        <Success2 />
+        </div>
       </section>
 
       <section className={styles.supportSection}>
         <Divider title="Support Us" />
+        <div
+          className={styles.scrollWrapper}
+          ref={donateRef}
+          onMouseEnter={() => stopAutoScroll(donateInterval)}
+          onMouseLeave={() => startAutoScroll(donateRef, donateInterval)}
+        >
         <Donate />
+        <Donate1 />
+        <Donate2 />
+        </div>
       </section>
 
       <section className={styles.getInvolvedSection}>
         <Divider title="Get Involved" />
+        <div
+          className={styles.scrollWrapper}
+          ref={getInvolveRef}
+          onMouseEnter={() => stopAutoScroll(getInvolveInterval)}
+          onMouseLeave={() => startAutoScroll(getInvolveRef, getInvolveInterval)}
+        >
         <GetInvolve />
+        <GetInvolve1 />
+        <GetInvolve2 />
+        </div>
       </section>
 
       <section className={styles.contactSection}>
