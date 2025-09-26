@@ -516,23 +516,60 @@
 }
 
 /* Vision / Mission / Core Values */
-.vis {
-  background: #800000;
+.visCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  min-height: 100vh;
+}
+
+.card {
+  background-color: #800000; /* deep red card */
   color: #fff;
-  padding: 60px 10px;
+  border-radius: 15px;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 2rem;
 }
 
-.vis h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+.card section h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  border-left: 4px solid #ffcc00;
+  padding-left: 0.5rem;
 }
 
-.vis p {
+.card section p {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.card section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 2rem 1rem;
+  }
+
+  .card section h1 {
+    font-size: 1.5rem;
+  }
+
+  .card section p,
+  .card section ul {
+    font-size: 0.95rem;
+  }
 }
 
 .le{

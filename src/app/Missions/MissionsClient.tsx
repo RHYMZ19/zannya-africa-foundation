@@ -154,35 +154,39 @@ export default function MissionsClient() {
             </section>
       
             {/* Vision, Mission, Objectives, Core Values */}
-            <div className={styles.vis}>
-                          <p style={{marginLeft: '2%', marginTop: '10%'}}>
-                            <h1 style={{color: 'white'}}>Vision</h1>
-                            <p style={{fontSize: '100%', fontFamily: 'initial'}}>To change lives and build stronger and healthier communities</p>
-                          </p>
-            
-                          <p style={{marginLeft: '2%', marginTop: '2.5%'}}>
-                            <h1 style={{color: 'white'}}>Mission</h1>
-                            <p style={{fontSize: '100%', fontFamily: 'initial'}}>To use sports as a tool for community development, empowerment, and sustainability.</p>
-                          </p>
-            
-                          <p style={{marginLeft: '2%', marginTop: '5%'}}>
-                            <h1 style={{color: 'white'}}>Main Objective</h1>
-                            <p style={{fontSize: '100%', fontFamily: 'initial'}}>To create contexts fostering growth and development for women and young people through sports,
-                              enabling them to achieve their full potential.
-                            </p>
-                            <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Area of operation: </strong>Urban slums of Uganda specifically central region of Kawempe,
-                            Bwaise, Ndeeba, and outreaches in rural areas of Uganda.</p>
-                          </p>
-            
-                          <p style={{marginLeft: '2%', marginTop: '5%'}}>
-                            <h1 style={{color: 'white'}}>Core Values</h1>
-                            <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Integrity:  </strong>We upholds the highest standards of honesty and transparency in all our actions.</p>
-                            <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Inclusiveness: </strong>We believe in creating opportunities for everyone, regardless of their background.</p>
-                            <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Teamwork:  </strong>We work collaboratively tp achieve our goal and support each other.</p>
-                            <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Diversity:  </strong>We embrace and celebrate differances, promoting equality and understanding.</p>
-                            <p style={{fontSize: '100%', fontFamily: 'initial'}}><strong style={{fontWeight: 'bold', color: 'white'}}>Sports for All: </strong>We believe that everyone should have the opportunity to participate in sports.</p>
-                          </p>
-                        </div>
+            <div className={styles.visCard}>
+  <div className={styles.card}>
+    <section>
+      <h1>Vision</h1>
+      <p>To change lives and build stronger and healthier communities.</p>
+    </section>
+
+    <section>
+      <h1>Mission</h1>
+      <p>To use sports as a tool for community development, empowerment, and sustainability.</p>
+    </section>
+
+    <section>
+      <h1>Main Objective</h1>
+      <p>
+        To create contexts fostering growth and development for women and young people through sports,
+        enabling them to achieve their full potential.
+      </p>
+      <p><strong>Area of operation: </strong>Urban slums of Uganda (Kawempe, Bwaise, Ndeeba) and outreaches in rural areas.</p>
+    </section>
+
+    <section>
+      <h1>Core Values</h1>
+      <ul>
+        <li><strong>Integrity:</strong> We uphold the highest standards of honesty and transparency.</li>
+        <li><strong>Inclusiveness:</strong> We create opportunities for everyone, regardless of background.</li>
+        <li><strong>Teamwork:</strong> We work collaboratively to achieve our goals.</li>
+        <li><strong>Diversity:</strong> We embrace and celebrate differences, promoting equality and understanding.</li>
+        <li><strong>Sports for All:</strong> Everyone should have the opportunity to participate in sports.</li>
+      </ul>
+    </section>
+  </div>
+</div>
             
       
             {/* Organizational structure */}
