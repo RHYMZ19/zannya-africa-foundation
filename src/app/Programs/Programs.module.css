@@ -16,16 +16,26 @@
 }
 
 .container {
+  /* Background layers: gradient on top, image below */
+  background-image: 
+    linear-gradient(to right, rgba(30, 60, 114, 0.95), rgba(42, 82, 152, 0.95)),
+    url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg");
 
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    
-    padding: 9em 1em;
-    color: white;
-    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    height: 10%;
-    width: 100%;
-    
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 2em 1em;
+  text-align: center;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .header {
