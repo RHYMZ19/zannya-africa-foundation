@@ -9,7 +9,7 @@ export default function Donate() {
   return (
     <div id="Donate" className={styles.card}>
       <Image
-        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg"
+        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758888614/zannya/uploads/images/th1uzikgs6ilvyvaflwf.jpg"
         alt="Donate Preview"
         width={400}
         height={250}
