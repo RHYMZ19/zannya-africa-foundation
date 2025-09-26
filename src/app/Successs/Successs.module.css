@@ -18,7 +18,7 @@
 .container {
   /* Background layers: gradient on top, image below */
   background-image: 
-    linear-gradient(to right, rgba(30, 60, 114, 0.5), rgba(42, 82, 152, 0.5)),
+    linear-gradient(to right, rgba(30, 60, 114, 0.1), rgba(42, 82, 152, 0.1)),
     url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg");
 
   background-size: cover;
