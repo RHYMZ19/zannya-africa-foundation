@@ -3,7 +3,7 @@
 
 import styles from './Resources2.module.css';
 import Image from "next/image";
-import Link from "next/link";
+
 
 export default function Resources() {
     
@@ -11,7 +11,7 @@ export default function Resources() {
     return (
         <div id="Resources" className={styles.card}>
             <Image 
-                src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758379328/zannya/uploads/images/ybuex5jd9ntcotpvz1gx.jpg"
+                src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023469/zannya/uploads/images/yfrz57qsu50uvpottbzq.jpg"
                 alt="Resources Preview"
                 className={styles.cardImage}
                 width={400}
@@ -19,15 +19,11 @@ export default function Resources() {
             />
             <div className={styles.cardContent}>
                 <h3 className={styles.heading}>Resources</h3>
-                <p>REPORTS (ZAF) </p>
-                <p>The Report shows Program Highlights Financial breakdown and others</p>
+                <p className={styles.text}>Case Study</p>
+                <p className={styles.text}>This case study is Based on participatory methodology (ZAF) In Uganda</p>
 
                 <p>Download PDF</p>
-                <p className={styles.text}>
-                    Explore more of our resources, including reports, publications, research papers... Click in the link below.
-                </p>
                 
-                <Link href="/Resourcess" className={styles.button}>Read More</Link>
             </div>
         </div>
     );

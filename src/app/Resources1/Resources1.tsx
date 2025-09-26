@@ -3,7 +3,7 @@
 
 import styles from './Resources1.module.css';
 import Image from "next/image";
-import Link from "next/link";
+
 
 export default function Resources() {
     
@@ -19,15 +19,11 @@ export default function Resources() {
             />
             <div className={styles.cardContent}>
                 <h3 className={styles.heading}>Resources</h3>
-                <p>REPORTS (ZAF) </p>
-                <p>The Report shows Program Highlights Financial breakdown and others</p>
+                <p className={styles.text}>RESEARCH PAPER</p>
+                <p className={styles.text}>This Research paper is Based on participatory methodology (ZAF) In Uganda</p>
 
                 <p>Download PDF</p>
-                <p className={styles.text}>
-                    Explore more of our resources, including reports, publications, research papers... Click in the link below.
-                </p>
                 
-                <Link href="/Resourcess" className={styles.button}>Read More</Link>
             </div>
         </div>
     );

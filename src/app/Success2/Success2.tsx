@@ -3,7 +3,7 @@
 
 import styles from './Success2.module.css';
 import Image from "next/image";
-import Link from "next/link";
+
 
 export default function Success() {
     
@@ -11,7 +11,7 @@ export default function Success() {
     return (
         <div id="Success" className={styles.card}>
             <Image 
-                src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756890840/zannya/success/mfh1xjdphnjokfqxtwqp.jpg"
+                src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023192/zannya/uploads/images/evtysd6cvwkgufpbfhcm.jpg"
                 alt="Success Stories Preview"
                 className={styles.cardImage}
                 width={400}
@@ -19,13 +19,10 @@ export default function Success() {
             />
             <div className={styles.cardContent}>
                 <h3 className={styles.heading}>Success Stories</h3>
-                <p style={{color: 'green', fontStyle: 'italic'}}>{`"Thanks to ZAF, i have learned valuable leadership skills and now run a successful women sports club in my village. We are making a real difference."`}</p>
+                <p>{`“My internship at Zannya helped me grow professionally and personally. I felt truly valued and learned more than I expected.”`}</p>
 
-                <p style={{color: 'green', fontStyle: 'italic'}}><strong>Trained Sports Leader</strong></p>
-                <p className={styles.text}>
-                    Read inspiring stories of transformation and impact from communities we serve.Click in the link below
-                </p>
-                <Link href="/Successs" className={styles.button}>Read More</Link>
+                <p><strong>Rahim SS., Former Software Eng Intern</strong></p>
+                
             </div>
         </div>
     );
