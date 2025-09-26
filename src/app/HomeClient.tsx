@@ -189,7 +189,7 @@ const startAutoScroll = (
       <section className={styles.aboutSection}>
         <div className={styles.aboutContent} data-aos="fade-right">
           <Image
-            src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758376508/zannya/uploads/images/t614e7cy9pkrpcibktnv.jpg"
+            src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758898506/zannya/uploads/images/ilyhjfpy0s8u8zvgbueg.jpg"
             alt="About us"
             className={styles.aboutImage}
             width={500}

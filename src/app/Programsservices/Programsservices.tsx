@@ -10,7 +10,7 @@ export default function Programsservices() {
     return (
         <div id='Programsservices' className={styles.card}>
             <Image 
-                src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757057820/zannya/uploads/hfq0y9lrapgjlbdogzte.jpg"
+                src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758450150/zannya/uploads/h5anrmy2jcid8qjrbbls.jpg"
                 alt="Programs Preview"
                 className={styles.cardImage}
                 width={400}

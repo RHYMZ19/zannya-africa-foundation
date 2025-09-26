@@ -19,7 +19,7 @@ export default function Success() {
             />
             <div className={styles.cardContent}>
                 <h3 className={styles.heading}>Success Stories</h3>
-                <p>{`“My internship at Zannya helped me grow professionally and personally. I felt truly valued and learned more than I expected.”`}</p>
+                <p className={styles.text}>{`“My internship at Zannya helped me grow professionally and personally. I felt truly valued and learned more than I expected.”`}</p>
 
                 <p><strong>Rahim SS., Former Software Eng Intern</strong></p>
                 
