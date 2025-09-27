@@ -7,6 +7,16 @@ import styles from './NewsAdmn.module.css';
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
 
+interface NewsData {
+  id: string;
+  title: string;
+  type: string;
+  description: string;
+  moreDetails: string;
+  images: string[];
+  video: string;
+}
+
 interface NewsFormData {
   title: string;
   type: string;
@@ -27,12 +37,12 @@ const NewsAdmn = () => {
   });
 
   const [uploading, setUploading] = useState(false);
-  const [newsList, setNewsList] = useState<any[]>([]); // store fetched news
+  const [newsList, setNewsList] = useState<NewsData[]>([]); // store fetched news
 
   // ✅ Fetch news to display + delete
   const fetchNews = async () => {
     const snapshot = await getDocs(collection(db, "newsUpdates"));
-    setNewsList(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    setNewsList(snapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as Omit<NewsData, 'id'>) })));
   };
 
   useEffect(() => {

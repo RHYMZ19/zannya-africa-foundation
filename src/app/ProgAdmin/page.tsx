@@ -7,6 +7,16 @@ import styles from './ProgAdmin.module.css';
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
 
+interface FilterData {
+  id: string;
+  category: string;
+  name: string;
+  description: string;
+  images: string[];
+  videos: string[];
+  subcategories: { name: string; description: string }[];
+}
+
 type CategoryType =
   | 'Skilling and Livelihood'
   | 'Reproductive & Physical Health Awareness'
@@ -28,7 +38,7 @@ export default function AdminFilterForm() {
   });
 
   const [subcategories, setSubcategories] = useState<{ name: string; description: string }[]>([]);
-  const [filters, setFilters] = useState<any[]>([]); // ✅ store all filters
+  const [filters, setFilters] = useState<FilterData[]>([]); // ✅ store all filters
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -104,7 +114,7 @@ export default function AdminFilterForm() {
   const fetchFilters = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "filters"));
-      const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as Omit<FilterData, 'id'>)}));
       setFilters(data);
     } catch (err) {
       console.error("Error fetching filters:", err);

@@ -7,6 +7,14 @@ import { db } from "../../lib/firebase";
 import CloudinaryUploader from "../../CloudinaryUploader"; // your reusable uploader
 import styles from "./UpcomingEventsAdmin.module.css";
 
+interface EventType {
+  title: string;
+  description: string;
+  date: Timestamp;
+  images: string[];
+  video?: string;
+}
+
 export default function AdminEvents() {
   const [formData, setFormData] = useState({
     title: "",
@@ -27,7 +35,7 @@ export default function AdminEvents() {
   const fetchEvents = async () => {
     try {
       const snapshot = await getDocs(collection(db, "events"));
-      const data = snapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as any) }));
+      const data = snapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as EventType) }));
       setEvents(data);
     } catch (err) {
       console.error("Error fetching events:", err);
