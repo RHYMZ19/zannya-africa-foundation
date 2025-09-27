@@ -111,7 +111,7 @@ const startAutoScroll = (
       stopAutoScroll(donateInterval);
       stopAutoScroll(getInvolveInterval);
     };
-  }, []);
+  }, [startAutoScroll]);
 
 
   
