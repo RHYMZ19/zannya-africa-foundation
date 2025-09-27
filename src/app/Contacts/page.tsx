@@ -115,7 +115,7 @@ export default function ContactPage() {
                                         <a href="https://tiktok.com/@zannyaafricafdn" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                           <FaTiktok />
                                         </a>
-                                        <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "green" }}>
+                                        <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
                                             <FaXTwitter />   
                                         </a>
                                         

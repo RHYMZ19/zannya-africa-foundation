@@ -145,10 +145,10 @@ export default function ResourcessClient({ initialResources }: Props) {
         <strong>Follow us on social platforms:</strong>
       </p>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', fontSize: '30px', paddingTop: '10px' }}>
-        <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-        <a href="https://instagram.com/zannya_africa_foundation" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-        <a href="https://tiktok.com/@zannyaafricafdn" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
-        <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
+        <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}><FaFacebook /></a>
+        <a href="https://instagram.com/zannya_africa_foundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}><FaInstagram /></a>
+        <a href="https://tiktok.com/@zannyaafricafdn" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}><FaTiktok /></a>
+        <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}><FaXTwitter /></a>
       </div>
 
       {/* Email Contacts */}
