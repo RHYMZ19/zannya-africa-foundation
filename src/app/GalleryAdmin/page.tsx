@@ -1,34 +1,79 @@
 'use client';
 
-import React from "react";
+import React, { useState } from "react";
 import { db } from "../lib/firebase";
-import { doc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { doc, getDoc, updateDoc, arrayUnion, setDoc } from "firebase/firestore";
 import CloudinaryUploader from "../CloudinaryUploader";
 
-const GalleryAdmin = () => {
-  // Common gallery document reference
-  const galleryRef = doc(db, "media", "gallery"); // one fixed doc called "gallery"
+type GalleryItem = { url: string; createdAt: Date };
+type Gallery = {
+  images: GalleryItem[];
+  videos: GalleryItem[];
+  files: GalleryItem[];
+};
 
-  // Handle upload completion → save to arrays inside one doc
-  const handleUploadComplete = async (
-    url: string,
-    type: "image" | "video" | "raw"
-  ) => {
+const GalleryAdmin = () => {
+  const galleryRef = doc(db, "media", "gallery");
+
+  const [gallery, setGallery] = useState<Gallery>({
+    images: [],
+    videos: [],
+    files: [],
+  });
+  const [showSelector, setShowSelector] = useState(false);
+  const [typeToDelete, setTypeToDelete] = useState<"image" | "video" | "raw">("image");
+
+  // Fetch gallery data
+  const fetchGallery = async () => {
+    const docSnap = await getDoc(galleryRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      setGallery({
+        images: data.images || [],
+        videos: data.videos || [],
+        files: data.files || [],
+      });
+      setShowSelector(true);
+    } else {
+      alert("Gallery is empty!");
+    }
+  };
+
+  // Handle Delete selection
+  const handleSelectDelete = async (url: string, type: "image" | "video" | "raw") => {
+    try {
+      const galleryMap: Record<"image" | "video" | "raw", GalleryItem[]> = {
+        image: gallery.images,
+        video: gallery.videos,
+        raw: gallery.files,
+      };
+
+      const updatedArray = galleryMap[type].filter(item => item.url !== url);
+
+      await updateDoc(galleryRef, {
+        [type + "s"]: updatedArray,
+      });
+
+      alert(`${type.charAt(0).toUpperCase() + type.slice(1)} deleted successfully!`);
+      setShowSelector(false);
+      fetchGallery(); // refresh gallery
+    } catch (error) {
+      console.error("Delete failed:", error);
+      alert("Failed to delete item.");
+    }
+  };
+
+  // Handle Upload Completion
+  const handleUploadComplete = async (url: string, type: "image" | "video" | "raw") => {
     try {
       if (type === "image") {
-        await updateDoc(galleryRef, {
-          images: arrayUnion({ url, createdAt: new Date() }),
-        });
+        await updateDoc(galleryRef, { images: arrayUnion({ url, createdAt: new Date() }) });
         alert("Image uploaded successfully!");
       } else if (type === "video") {
-        await updateDoc(galleryRef, {
-          videos: arrayUnion({ url, createdAt: new Date() }),
-        });
+        await updateDoc(galleryRef, { videos: arrayUnion({ url, createdAt: new Date() }) });
         alert("Video uploaded successfully!");
       } else {
-        await updateDoc(galleryRef, {
-          files: arrayUnion({ url, createdAt: new Date() }),
-        });
+        await updateDoc(galleryRef, { files: arrayUnion({ url, createdAt: new Date() }) });
         alert("File uploaded successfully!");
       }
     } catch {
@@ -39,34 +84,6 @@ const GalleryAdmin = () => {
         files: type === "raw" ? [{ url, createdAt: new Date() }] : [],
       });
       alert("Gallery created and file uploaded!");
-    }
-  };
-
-  // ✅ NEW: Handle Delete
-  const handleDelete = async (
-    url: string,
-    type: "image" | "video" | "raw"
-  ) => {
-    try {
-      if (type === "image") {
-        await updateDoc(galleryRef, {
-          images: arrayRemove({ url, createdAt: new Date() }), // must match object exactly
-        });
-        alert("Image deleted successfully!");
-      } else if (type === "video") {
-        await updateDoc(galleryRef, {
-          videos: arrayRemove({ url, createdAt: new Date() }),
-        });
-        alert("Video deleted successfully!");
-      } else {
-        await updateDoc(galleryRef, {
-          files: arrayRemove({ url, createdAt: new Date() }),
-        });
-        alert("File deleted successfully!");
-      }
-    } catch (error) {
-      console.error("Delete failed:", error);
-      alert("Failed to delete item.");
     }
   };
 
@@ -93,17 +110,16 @@ const GalleryAdmin = () => {
           resourceType="image"
           category="image"
         />
-        {/* Example delete button for testing */}
         <button
-          onClick={() => handleDelete("IMAGE_URL_HERE", "image")}
-          style={{ marginTop: "10px", background: "red", color: "#fff", padding: "8px 12px", border: "none", borderRadius: "6px" }}
+          onClick={() => { setTypeToDelete("image"); fetchGallery(); }}
+          style={{ marginTop: "10px", background: "black", color: "#fff", padding: "8px 12px", border: "none", borderRadius: "6px" }}
         >
           Delete Image
         </button>
       </div>
 
       {/* Upload Videos */}
-      <div>
+      <div style={{ marginBottom: "30px" }}>
         <h3>Upload Videos</h3>
         <CloudinaryUploader
           onUploadComplete={handleUploadComplete}
@@ -111,14 +127,40 @@ const GalleryAdmin = () => {
           resourceType="video"
           category="video"
         />
-        {/* Example delete button */}
         <button
-          onClick={() => handleDelete("VIDEO_URL_HERE", "video")}
-          style={{ marginTop: "10px", background: "red", color: "#fff", padding: "8px 12px", border: "none", borderRadius: "6px" }}
+          onClick={() => { setTypeToDelete("video"); fetchGallery(); }}
+          style={{ marginTop: "10px", background: "black", color: "#fff", padding: "8px 12px", border: "none", borderRadius: "6px" }}
         >
           Delete Video
         </button>
       </div>
+
+      {/* Delete Selector Modal */}
+      {showSelector && (
+        <div style={{ marginTop: "20px", background: "#fff", padding: "10px", borderRadius: "8px" }}>
+          <h4>Select {typeToDelete} to delete:</h4>
+          {({
+            image: gallery.images,
+            video: gallery.videos,
+            raw: gallery.files,
+          }[typeToDelete]).map(item => (
+            <div key={item.url} style={{ display: "flex", alignItems: "center", margin: "5px 0" }}>
+              {typeToDelete === "image" ? (
+                <img src={item.url} alt="to delete" width={80} style={{ marginRight: "10px" }} />
+              ) : (
+                <video src={item.url} width={120} controls style={{ marginRight: "10px" }} />
+              )}
+              <button
+                onClick={() => handleSelectDelete(item.url, typeToDelete)}
+                style={{ background: "black", color: "#fff", border: "none", padding: "6px 10px", borderRadius: "6px" }}
+              >
+                Delete
+              </button>
+            </div>
+          ))}
+          <button onClick={() => setShowSelector(false)} style={{ marginTop: "10px" }}>Cancel</button>
+        </div>
+      )}
     </div>
   );
 };

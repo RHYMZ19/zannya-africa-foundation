@@ -238,7 +238,7 @@ const NewsAdmn = () => {
               onClick={() => handleDelete(news.id)}
               style={{
                 marginLeft: "10px",
-                background: "red",
+                background: "black",
                 color: "white",
                 padding: "4px 8px",
                 border: "none",

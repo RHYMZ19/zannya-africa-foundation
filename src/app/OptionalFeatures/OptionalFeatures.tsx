@@ -22,7 +22,7 @@ const features = [
     {label: 'News', icon: <FaBullhorn />, path: '/Newsp'},
     {label: 'Events', icon: <FaCalendar />, path: '/Newsp'},
     {label: 'Blogs', icon: <FaBlog />, path: '/Newsp'},
-    {label: 'Media', icon: <FaPhotoVideo />, path: '/Videos'},
+    {label: 'Gallery', icon: <FaPhotoVideo />, path: '/Videos'},
     {label: 'Donate', icon: <FaHandHoldingHeart />, path: '/Donates'},
     {label: 'Contact Us', icon: <FaEnvelope />, path: '/Contacts'},
     {label: 'Get Involved', icon: <FaUsers />, path: '/Internship'},
