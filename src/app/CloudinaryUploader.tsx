@@ -1,58 +1,65 @@
 import React, { useState } from "react";
 
-interface CloudinaryUploaderProps {
+ interface CloudinaryUploaderProps {
   onUploadComplete: (url: string, type: "image" | "video" | "raw", category: string) => void;
   folder?: string; // optional folder in Cloudinary
   category: string;
   resourceType?: "image" | "video" | "raw"; // <-- add this
-}
+ }
 
-const CloudinaryUploader: React.FC<CloudinaryUploaderProps> = ({
+ const CloudinaryUploader: React.FC<CloudinaryUploaderProps> = ({
   onUploadComplete,
   folder,
   category,
-}) => {
+ }) => {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
 
   const handleUpload = async () => {
-    if (!file) return alert("Choose a file first");
+  if (!file) return alert("Choose a file first");
 
-    setUploading(true);
+  setUploading(true);
 
-    const cloudName = "dpwuym7xg";
-    const uploadPreset = "zannya_preset"; // unsigned preset
+  const cloudName = "dpwuym7xg";
+  const uploadPreset = "zannya_preset"; // unsigned preset
 
-    // ✅ detect resource type automatically
-    let resourceType: "image" | "video" | "raw" = "image";
-    if (file.type.startsWith("video")) {
-      resourceType = "video";
-    } else if (file.type === "application/pdf" || !file.type.startsWith("image")) {
-      resourceType = "raw";
-    }
+  // ✅ detect resource type automatically
+  let resourceType: "image" | "video" | "raw" = "image";
+  if (file.type.startsWith("video")) {
+    resourceType = "video";
+  } else if (file.type === "application/pdf" || !file.type.startsWith("image")) {
+    resourceType = "raw";
+  }
 
-    // ✅ dynamic endpoint based on file type
-    const url = `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`;
+  // ✅ Use `upload_large` for raw (PDFs, docs) so large files won't timeout
+  const endpoint =
+    resourceType === "raw"
+      ? `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload_large`
+      : `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`;
 
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", uploadPreset);
-    if (folder) formData.append("folder", folder);
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", uploadPreset);
+  if (folder) formData.append("folder", folder);
 
-    try {
-      const res = await fetch(url, { method: "POST", body: formData });
-      const data = await res.json();
+  try {
+    const res = await fetch(endpoint, { method: "POST", body: formData });
+    const data = await res.json();
 
+    if (data.secure_url) {
       onUploadComplete(data.secure_url, resourceType, category);
-
       setFile(null);
-    } catch (err) {
-      console.error("Upload failed", err);
-      alert("Upload failed");
+    } else {
+      console.error("Cloudinary error:", data);
+      alert("Upload failed: " + (data.error?.message || "Unknown error"));
     }
+  } catch (err) {
+    console.error("Upload failed", err);
+    alert("Upload failed");
+  }
 
-    setUploading(false);
-  };
+  setUploading(false);
+ };
 
   return (
     <div>
