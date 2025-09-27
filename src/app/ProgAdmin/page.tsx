@@ -1,8 +1,8 @@
 'use client';
 
 import db from "../lib/firebase";
-import React, { useState } from 'react';
-import { collection, addDoc, serverTimestamp, doc, getDoc, setDoc } from 'firebase/firestore';
+import React, { useState, useEffect } from 'react';
+import { collection, addDoc, serverTimestamp, doc, getDoc, setDoc, deleteDoc, getDocs } from 'firebase/firestore';
 import styles from './ProgAdmin.module.css';
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
@@ -28,6 +28,7 @@ export default function AdminFilterForm() {
   });
 
   const [subcategories, setSubcategories] = useState<{ name: string; description: string }[]>([]);
+  const [filters, setFilters] = useState<any[]>([]); // ✅ store all filters
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -43,28 +44,27 @@ export default function AdminFilterForm() {
 
   // ✅ Mirror media into "media/gallery"
   const saveToGallery = async (url: string, type: "image" | "video") => {
-  try {
-    const galleryRef = doc(db, "media", "gallery");
-    const snap = await getDoc(galleryRef);
+    try {
+      const galleryRef = doc(db, "media", "gallery");
+      const snap = await getDoc(galleryRef);
 
-    const existing = snap.exists() ? snap.data() : {};
+      const existing = snap.exists() ? snap.data() : {};
+      const field = type === "image" ? "images" : "videos";
 
-    const field = type === "image" ? "images" : "videos";
-
-    await setDoc(
-      galleryRef,
-      {
-        [field]: [
-          ...(existing[field] || []),
-          { url, createdAt: new Date() }, // ✅ use client-side Date, not serverTimestamp()
-        ],
-      },
-      { merge: true } // ✅ ensures no overwrite
-    );
-  } catch (err) {
-    console.error("Error saving to gallery:", err);
-  }
- };
+      await setDoc(
+        galleryRef,
+        {
+          [field]: [
+            ...(existing[field] || []),
+            { url, createdAt: new Date() },
+          ],
+        },
+        { merge: true }
+      );
+    } catch (err) {
+      console.error("Error saving to gallery:", err);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -72,8 +72,9 @@ export default function AdminFilterForm() {
       return alert('All required fields must be filled.');
     }
     try {
-      await addDoc(collection(db, 'filters'), { ...formData, subcategories, createdAt: serverTimestamp(),  });
+      await addDoc(collection(db, 'filters'), { ...formData, subcategories, createdAt: serverTimestamp() });
       alert('Filter saved!');
+      fetchFilters(); // ✅ refresh list after save
     } catch (error) {
       console.error('Error saving filter:', error);
     }
@@ -84,15 +85,41 @@ export default function AdminFilterForm() {
       ...prev,
       [type === "image" ? "images" : "videos"]: [...(type === "image" ? prev.images : prev.videos), url],
     }));
-    // ✅ Also mirror to gallery
     await saveToGallery(url, type);
   };
+
+  // ✅ Delete function
+  const handleDelete = async (id: string) => {
+    try {
+      await deleteDoc(doc(db, "filters", id));
+      alert("Filter deleted successfully!");
+      fetchFilters(); // refresh list after delete
+    } catch (err) {
+      console.error("Error deleting filter:", err);
+      alert("❌ Failed to delete filter.");
+    }
+  };
+
+  // ✅ Fetch filters from Firestore
+  const fetchFilters = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "filters"));
+      const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setFilters(data);
+    } catch (err) {
+      console.error("Error fetching filters:", err);
+    }
+  };
+
+  // Fetch filters on mount
+  useEffect(() => {
+    fetchFilters();
+  }, []);
 
   return (
     <div className={styles.filtercontainer}>
       <h2>Program Upload</h2>
       <form onSubmit={handleSubmit} className={styles.filterform}>
-
         <label>Category / Program</label>
         <select name="category" value={formData.category} onChange={handleChange}>
           <option value="">Select Category</option>
@@ -143,6 +170,23 @@ export default function AdminFilterForm() {
 
         <button type="submit">Save Filter</button>
       </form>
+
+      {/* ✅ List Filters with IDs */}
+      <div style={{ marginTop: "30px" }}>
+        <h3>Existing Filters</h3>
+        {filters.length === 0 ? (
+          <p>No filters found.</p>
+        ) : (
+          <ul>
+            {filters.map((f) => (
+              <li key={f.id} style={{ marginBottom: "10px" }}>
+                <strong>{f.name}</strong> (ID: {f.id})  
+                <button style={{ marginLeft: "10px" }} onClick={() => handleDelete(f.id)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

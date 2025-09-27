@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "../lib/firebase";
-import { addDoc, collection, doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, serverTimestamp, setDoc, deleteDoc, getDocs } from "firebase/firestore";
 import styles from './NewsAdmn.module.css';
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
@@ -27,6 +27,17 @@ const NewsAdmn = () => {
   });
 
   const [uploading, setUploading] = useState(false);
+  const [newsList, setNewsList] = useState<any[]>([]); // store fetched news
+
+  // ✅ Fetch news to display + delete
+  const fetchNews = async () => {
+    const snapshot = await getDocs(collection(db, "newsUpdates"));
+    setNewsList(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+  };
+
+  useEffect(() => {
+    fetchNews();
+  }, []);
 
   // Handles Cloudinary upload completion
   const handleUploadComplete = (url: string, field: "image" | "video") => {
@@ -56,50 +67,49 @@ const NewsAdmn = () => {
 
       await addDoc(collection(db, "newsUpdates"), docData);
 
-
       // ✅ Also update "media/gallery"
-    const galleryRef = doc(db, "media", "gallery");
-    const gallerySnap = await getDoc(galleryRef);
+      const galleryRef = doc(db, "media", "gallery");
+      const gallerySnap = await getDoc(galleryRef);
 
-    if (gallerySnap.exists()) {
-      const existing = gallerySnap.data();
+      if (gallerySnap.exists()) {
+        const existing = gallerySnap.data();
 
-      // Merge new images + video
-      await setDoc(
-        galleryRef,
-        {
-          images: [
-            ...(existing.images || []),
-            ...formData.images.map((url) => ({
-              url,
-              createdAt: new Date(),
-            })),
-          ],
-          videos: [
-            ...(existing.videos || []),
-            ...(formData.video
-              ? [{ url: formData.video, createdAt: new Date() }]
-              : []),
-          ],
-        },
-        { merge: true }
-      );
-    } else {
-      // Create the gallery doc if missing
-      await setDoc(galleryRef, {
-        images: formData.images.map((url) => ({
-          url,
-          createdAt: new Date(),
-        })),
-        videos: formData.video
-          ? [{ url: formData.video, createdAt: new Date() }]
-          : [],
-      });
-    }
-
+        // Merge new images + video
+        await setDoc(
+          galleryRef,
+          {
+            images: [
+              ...(existing.images || []),
+              ...formData.images.map((url) => ({
+                url,
+                createdAt: new Date(),
+              })),
+            ],
+            videos: [
+              ...(existing.videos || []),
+              ...(formData.video
+                ? [{ url: formData.video, createdAt: new Date() }]
+                : []),
+            ],
+          },
+          { merge: true }
+        );
+      } else {
+        // Create the gallery doc if missing
+        await setDoc(galleryRef, {
+          images: formData.images.map((url) => ({
+            url,
+            createdAt: new Date(),
+          })),
+          videos: formData.video
+            ? [{ url: formData.video, createdAt: new Date() }]
+            : [],
+        });
+      }
 
       alert("✅ News uploaded successfully and added to gallery!");
-      setFormData({ title: "", type: "", description: "",moreDetails: "", images: [], video: "" });
+      setFormData({ title: "", type: "", description: "", moreDetails: "", images: [], video: "" });
+      fetchNews();
     } catch (err) {
       console.error(err);
       alert("❌ Error uploading news.");
@@ -108,50 +118,63 @@ const NewsAdmn = () => {
     }
   };
 
+  // ✅ Delete function
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this news item?")) return;
+    try {
+      await deleteDoc(doc(db, "newsUpdates", id));
+      alert("✅ News deleted successfully!");
+      fetchNews();
+    } catch (error) {
+      console.error("❌ Error deleting news:", error);
+      alert("Error deleting news.");
+    }
+  };
+
   return (
     <div className={styles.formcontainer}>
       <h2> News & Update Upload</h2>
       <form onSubmit={handleSubmit} className={styles.uploadform}>
         <div className={styles.formrow}>
-         {/* Left Column */}
-         <div className={styles.leftcol}>
-           <input
-             type="text"
-             name="title"
-             placeholder="Title"
-             value={formData.title}
-             onChange={handleChange}
-             required
-           />
+          {/* Left Column */}
+          <div className={styles.leftcol}>
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              value={formData.title}
+              onChange={handleChange}
+              required
+            />
 
-        <select name="type" value={formData.type} onChange={handleChange} required>
-          <option value="">Select Type</option>
-          <option value="News">News</option>
-          <option value="Article">Article</option>
-          <option value="Event">Event</option>
-          <option value="Media">Media</option>
-        </select>
+            <select name="type" value={formData.type} onChange={handleChange} required>
+              <option value="">Select Type</option>
+              <option value="News">News</option>
+              <option value="Article">Article</option>
+              <option value="Event">Event</option>
+              <option value="Media">Media</option>
+            </select>
 
-        <textarea
-          name="description"
-          placeholder="Description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        ></textarea>
-       </div>
+            <textarea
+              name="description"
+              placeholder="Description"
+              value={formData.description}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
 
-       {/* Right Column */}
-         <div className={styles.rightcol}>
-           <textarea
-             name="moreDetails"
-             placeholder="More Detailed Information..."
-             value={formData.moreDetails}
-             onChange={handleChange}
-             style={{ height: "200px" }}
-           ></textarea>
-         </div>
-       </div>
+          {/* Right Column */}
+          <div className={styles.rightcol}>
+            <textarea
+              name="moreDetails"
+              placeholder="More Detailed Information..."
+              value={formData.moreDetails}
+              onChange={handleChange}
+              style={{ height: "200px" }}
+            ></textarea>
+          </div>
+        </div>
 
         {/* Cloudinary Image Upload */}
         <label>Upload Images</label>
@@ -194,6 +217,30 @@ const NewsAdmn = () => {
           {uploading ? "Uploading..." : "Submit"}
         </button>
       </form>
+
+      {/* ✅ Show Existing News with Delete Button */}
+      <h3 style={{ marginTop: "30px" }}>Existing News</h3>
+      <ul>
+        {newsList.map((news) => (
+          <li key={news.id} style={{ marginBottom: "12px" }}>
+            <strong>{news.title}</strong> — <em>{news.type}</em>
+            <button
+              onClick={() => handleDelete(news.id)}
+              style={{
+                marginLeft: "10px",
+                background: "red",
+                color: "white",
+                padding: "4px 8px",
+                border: "none",
+                borderRadius: "4px",
+                cursor: "pointer",
+              }}
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

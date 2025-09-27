@@ -2,7 +2,7 @@
 
 import React from "react";
 import { db } from "../lib/firebase";
-import { doc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import CloudinaryUploader from "../CloudinaryUploader";
 
 const GalleryAdmin = () => {
@@ -42,6 +42,34 @@ const GalleryAdmin = () => {
     }
   };
 
+  // ✅ NEW: Handle Delete
+  const handleDelete = async (
+    url: string,
+    type: "image" | "video" | "raw"
+  ) => {
+    try {
+      if (type === "image") {
+        await updateDoc(galleryRef, {
+          images: arrayRemove({ url, createdAt: new Date() }), // must match object exactly
+        });
+        alert("Image deleted successfully!");
+      } else if (type === "video") {
+        await updateDoc(galleryRef, {
+          videos: arrayRemove({ url, createdAt: new Date() }),
+        });
+        alert("Video deleted successfully!");
+      } else {
+        await updateDoc(galleryRef, {
+          files: arrayRemove({ url, createdAt: new Date() }),
+        });
+        alert("File deleted successfully!");
+      }
+    } catch (error) {
+      console.error("Delete failed:", error);
+      alert("Failed to delete item.");
+    }
+  };
+
   return (
     <div
       style={{
@@ -65,6 +93,13 @@ const GalleryAdmin = () => {
           resourceType="image"
           category="image"
         />
+        {/* Example delete button for testing */}
+        <button
+          onClick={() => handleDelete("IMAGE_URL_HERE", "image")}
+          style={{ marginTop: "10px", background: "red", color: "#fff", padding: "8px 12px", border: "none", borderRadius: "6px" }}
+        >
+          Delete Image
+        </button>
       </div>
 
       {/* Upload Videos */}
@@ -76,6 +111,13 @@ const GalleryAdmin = () => {
           resourceType="video"
           category="video"
         />
+        {/* Example delete button */}
+        <button
+          onClick={() => handleDelete("VIDEO_URL_HERE", "video")}
+          style={{ marginTop: "10px", background: "red", color: "#fff", padding: "8px 12px", border: "none", borderRadius: "6px" }}
+        >
+          Delete Video
+        </button>
       </div>
     </div>
   );

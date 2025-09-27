@@ -71,14 +71,12 @@ export default function MissionAdmn() {
     setLoading(false);
   };
 
-  // Delete a leader
+  // ✅ Delete a leader
   const handleDelete = async (id: string) => {
-
     if (!id) {
-    alert("Invalid ID, can't delete.");
-    return;
-  }
-  
+      alert("Invalid ID, can't delete.");
+      return;
+    }
     if (!confirm("Are you sure you want to delete this leader?")) return;
     setLoading(true);
     try {
@@ -93,12 +91,12 @@ export default function MissionAdmn() {
   };
 
   const handleUploadComplete = (url: string) => {
-  setForm(prev => ({
-    ...prev,
-    img: url, // just store the uploaded image url here
-  }));
-  setMessage("Image uploaded successfully!");
-};
+    setForm(prev => ({
+      ...prev,
+      img: url, // just store the uploaded image url here
+    }));
+    setMessage("Image uploaded successfully!");
+  };
 
   return (
     <div className={styles.container}>
@@ -110,11 +108,14 @@ export default function MissionAdmn() {
         <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name" required />
         <input name="role" value={form.role} onChange={handleChange} placeholder="Role/Position" required />
         <textarea name="bio" value={form.bio} onChange={handleChange} placeholder="Biography" rows={4} />
+        
         {/* ✅ Reusable CloudinaryUploader */}
         <label>Upload Leader Image</label>
         <CloudinaryUploader
           onUploadComplete={(url) => handleUploadComplete(url)}
-          folder="zannya/leaders" category={""}        />
+          folder="zannya/leaders"
+          category={""}
+        />
 
         {/* Show preview if uploaded */}
         {form.img && (
@@ -145,12 +146,24 @@ export default function MissionAdmn() {
             <div>
               <strong>{leader.name}</strong> — <em>{leader.role}</em>
             </div>
-            <button 
-  onClick={() => {
-    if (leader.id) handleDelete(leader.id);
-    else alert("No ID found for this leader.");
-  }} 
-/>
+            {/* ✅ Delete button */}
+            <button
+              onClick={() => {
+                if (leader.id) handleDelete(leader.id);
+                else alert("No ID found for this leader.");
+              }}
+              style={{
+                marginTop: "6px",
+                background: "red",
+                color: "white",
+                padding: "6px 10px",
+                border: "none",
+                borderRadius: "6px",
+                cursor: "pointer",
+              }}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>

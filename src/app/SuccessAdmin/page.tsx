@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "../lib/firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp, getDocs, deleteDoc, doc } from "firebase/firestore";
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
 
@@ -23,6 +23,24 @@ const SuccessAdmin = () => {
     pdf: ""
   });
   const [uploading, setUploading] = useState(false);
+
+  // ✅ New state to store existing success stories
+  const [stories, setStories] = useState<(SuccessStoryForm & { id: string })[]>([]);
+
+  // Fetch existing success stories
+  const fetchStories = async () => {
+    try {
+      const snapshot = await getDocs(collection(db, "successStories"));
+      const data = snapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as SuccessStoryForm) }));
+      setStories(data);
+    } catch (err) {
+      console.error("Error fetching stories:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchStories();
+  }, []);
 
   const handleUploadComplete = (url: string, field: "image" | "video" | "pdf") => {
     if (field === "image") {
@@ -49,6 +67,7 @@ const SuccessAdmin = () => {
       });
       alert("Success story added!");
       setFormData({ title: "", description: "", images: [], video: "", pdf: "" });
+      fetchStories(); // refresh list
     } catch (err) {
       console.error(err);
       alert("Error adding story");
@@ -57,8 +76,21 @@ const SuccessAdmin = () => {
     }
   };
 
+  // ✅ Delete function
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this story?")) return;
+    try {
+      await deleteDoc(doc(db, "successStories", id));
+      alert("Story deleted successfully!");
+      fetchStories(); // refresh list
+    } catch (err) {
+      console.error("Error deleting story:", err);
+      alert("Failed to delete story.");
+    }
+  };
+
   return (
-    <div style={{ padding: 20, maxWidth: '500px', background: '#f4f4f4' ,borderRadius: '12px', marginTop: '7%'}}>
+    <div style={{ padding: 20, maxWidth: '500px', background: '#f4f4f4', borderRadius: '12px', marginTop: '7%' }}>
       <h2>Success Story Upload</h2>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <input
@@ -111,7 +143,7 @@ const SuccessAdmin = () => {
           onUploadComplete={(url) => handleUploadComplete(url, "pdf")}
           folder="zannya/success"
           category="success"
-          resourceType="raw"  // raw = PDF or other files
+          resourceType="raw"
         />
         {formData.pdf && (
           <p>PDF uploaded: <a href={formData.pdf} target="_blank" rel="noreferrer">View PDF</a></p>
@@ -121,6 +153,23 @@ const SuccessAdmin = () => {
           {uploading ? "Uploading..." : "Submit"}
         </button>
       </form>
+
+      {/* ✅ Display existing stories with delete option */}
+      <div style={{ marginTop: "30px" }}>
+        <h3>Existing Success Stories</h3>
+        {stories.length === 0 ? (
+          <p>No stories found.</p>
+        ) : (
+          <ul>
+            {stories.map(story => (
+              <li key={story.id} style={{ marginBottom: "10px" }}>
+                <strong>{story.title}</strong>
+                <button style={{ marginLeft: "10px" }} onClick={() => handleDelete(story.id)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };

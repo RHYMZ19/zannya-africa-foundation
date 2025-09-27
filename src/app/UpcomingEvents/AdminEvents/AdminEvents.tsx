@@ -1,7 +1,8 @@
 'use client';
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
 import CloudinaryUploader from "../../CloudinaryUploader"; // your reusable uploader
 import styles from "./UpcomingEventsAdmin.module.css";
@@ -18,10 +19,29 @@ export default function AdminEvents() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
+  // ✅ New state for existing events
+  const [events, setEvents] = useState<
+    { id: string; title: string; description: string; date: Timestamp; images: string[]; video?: string }[]
+  >([]);
+
+  const fetchEvents = async () => {
+    try {
+      const snapshot = await getDocs(collection(db, "events"));
+      const data = snapshot.docs.map(doc => ({ id: doc.id, ...(doc.data() as any) }));
+      setEvents(data);
+    } catch (err) {
+      console.error("Error fetching events:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
   const handleUploadComplete = (url: string, type: "image" | "video") => {
     if (type === "image") {
       setFormData((prev) => ({ ...prev, images: [...prev.images, url] }));
-    } else if (type === "video") {
+    } else {
       setFormData((prev) => ({ ...prev, video: url }));
     }
   };
@@ -40,11 +60,25 @@ export default function AdminEvents() {
       });
       setSuccess("Event added successfully!");
       setFormData({ title: "", description: "", date: "", images: [], video: "" });
+      fetchEvents(); // refresh list
     } catch (err) {
       console.error(err);
       setSuccess("Failed to add event.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  // ✅ Delete function
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this event?")) return;
+    try {
+      await deleteDoc(doc(db, "events", id));
+      alert("Event deleted successfully!");
+      fetchEvents(); // refresh list
+    } catch (err) {
+      console.error("Error deleting event:", err);
+      alert("Failed to delete event.");
     }
   };
 
@@ -116,6 +150,23 @@ export default function AdminEvents() {
 
         {success && <p style={{ marginTop: 10 }}>{success}</p>}
       </form>
+
+      {/* ✅ Existing events list with delete */}
+      <div style={{ marginTop: 30 }}>
+        <h3>Existing Events</h3>
+        {events.length === 0 ? (
+          <p>No events found.</p>
+        ) : (
+          <ul>
+            {events.map((event) => (
+              <li key={event.id} style={{ marginBottom: 10 }}>
+                <strong>{event.title}</strong> — {new Date(event.date.seconds * 1000).toLocaleString()}
+                <button style={{ marginLeft: 10 }} onClick={() => handleDelete(event.id)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </section>
   );
 }
