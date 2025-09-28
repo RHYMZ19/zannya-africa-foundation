@@ -21,7 +21,7 @@ export default function Success() {
                 <h3 className={styles.heading}>Success Stories</h3>
                 <p className={styles.text}>{`"Thanks to ZAF, i have learned valuable leadership skills and now run a successful women sports club in my village. We are making a real difference."`}</p>
 
-                <p><strong>Trained Sports Leader</strong></p>
+                <p>Trained Sports Leader</p>
                 <p className={styles.text}>
                     Read inspiring stories of transformation and impact from communities we serve.Click in the link below
                 </p>

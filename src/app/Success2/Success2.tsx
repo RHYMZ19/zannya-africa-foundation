@@ -21,7 +21,7 @@ export default function Success() {
                 <h3 className={styles.heading}>At Zannya, I Found Value and Purpose!</h3>
                 <p className={styles.text}>{`“My internship at Zannya helped me grow professionally and personally. I felt truly valued and learned more than I expected.”`}</p>
 
-                <p><strong>Rahim SS., Former Software Eng Intern</strong></p>
+                <p>Rahim SS., Former Software Eng Intern</p>
                 
             </div>
         </div>
