@@ -17,7 +17,7 @@ export default function GetInvolve() {
                 height={250}
             />
             <div className={styles.cardContent}>
-                <h3 className={styles.heading}>Get Involved</h3>
+                <h3 className={styles.heading}>Your Gift, Their Future</h3>
                 <p className={styles.text}>
                     Together, we can transform lives. By donating today, you become part of a movement that uplifts communities...
                 </p>

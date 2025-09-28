@@ -18,7 +18,7 @@ export default function Success() {
                 height={250}
             />
             <div className={styles.cardContent}>
-                <h3 className={styles.heading}>Success Stories</h3>
+                <h3 className={styles.heading}>At Zannya, I Found Value and Purpose!</h3>
                 <p className={styles.text}>{`“My internship at Zannya helped me grow professionally and personally. I felt truly valued and learned more than I expected.”`}</p>
 
                 <p><strong>Rahim SS., Former Software Eng Intern</strong></p>

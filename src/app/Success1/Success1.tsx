@@ -18,7 +18,7 @@ export default function Success() {
                 height={250}
             />
             <div className={styles.cardContent}>
-                <h3 className={styles.heading}>Success Stories</h3>
+                <h3 className={styles.heading}>From Playgrounds to Purpose  ZAF Changed Our Community</h3>
                 <p className={styles.text}>{`"ZAF has transformed our community. Our children now have a safe space to play and grow. The sportsprograms have give them a new sense of purpose and direction."`}</p>
 
                 <p><strong>Local Community Leader</strong></p>

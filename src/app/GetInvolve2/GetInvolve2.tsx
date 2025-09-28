@@ -17,7 +17,7 @@ export default function GetInvolve() {
                 height={250}
             />
             <div className={styles.cardContent}>
-                <h3 className={styles.heading}>Get Involved</h3>
+                <h3 className={styles.heading}>Building Futures Through Fun and Football</h3>
                 <p className={styles.text}>
                     Zannya Africa Foundation in collaboration with Futsal Association Uganda encouraging Education through sports and recreation activities.
 

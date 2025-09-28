@@ -18,8 +18,7 @@ export default function Resources() {
                 height={250}
             />
             <div className={styles.cardContent}>
-                <h3 className={styles.heading}>Resources</h3>
-                <p className={styles.text}>Case Study</p>
+                <h3 className={styles.heading}>CASE STUDY</h3>
                 <p className={styles.text}>This case study is Based on participatory methodology (ZAF) In Uganda</p>
 
                 <p>Download PDF</p>

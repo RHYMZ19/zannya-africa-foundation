@@ -17,7 +17,7 @@ export default function Donate() {
         className={styles.cardImage}
       />
       <div className={styles.cardContent}>
-        <h3 className={styles.headings}>Support Us</h3>
+        <h3 className={styles.headings}>500 Youth Finding Purpose on the Field</h3>
         <p> Reduction in youth crime rates through engagement in structured sports programs.Over 500 young people & women engaged in sports programs across 10 communities in Bwaise, ndeeba , kajjansi and rural outreaches.</p>
        
         

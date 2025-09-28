@@ -16,7 +16,7 @@ export default function Donate() {
         className={styles.cardImage}
       />
       <div className={styles.cardContent}>
-        <h3 className={styles.headings}>Support Us</h3>
+        <h3 className={styles.headings}>ZAFs Fight for Health and Hope</h3>
         <p>Increased awareness on HIV prevention, 90% increase in reproductive health knowledge among 1,000 youth in Bwaise, Ndeeba, Kajjansi and rural outreaches in katakwi and Buyende .</p>
       </div>
     </div>
