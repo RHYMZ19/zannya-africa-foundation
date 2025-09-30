@@ -30,6 +30,9 @@ export default function RootLayout({
       <head>
         <meta name="viewport"
         content="width=device-width,initial-scale=1.0" />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon-32x32.png" type="image/png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
