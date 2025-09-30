@@ -432,3 +432,10 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
     transform: translateX(-50%);
   }
 }
+
+.newscard,
+.moredetailscard {
+  opacity: 1;            /* show immediately */
+  transform: none;       /* no offset */
+  transition: none;      /* remove any CSS transition delay */
+}

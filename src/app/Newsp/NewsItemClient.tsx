@@ -1,4 +1,3 @@
-// app/Newsp/NewsItemClient.tsx
 'use client';
 
 import { useState, useEffect } from "react";
@@ -18,20 +17,18 @@ interface Props {
   newsItem: NewsItem;
 }
 
-
 export default function NewsItemClient({ newsItem }: Props) {
   const [SelectedImage, setSelectedImage] = useState<string | null>(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: false, easing: 'ease-in-out', anchorPlacement: 'top-bottom' });
-    setTimeout(() => setVisible(true), 100);
+    // Initialize AOS once
+    AOS.init({ duration: 800, once: true, easing: 'ease-in-out', anchorPlacement: 'top-bottom' });
   }, []);
 
   const { id, title, type, description, moreDetails, images, video, timestamp } = newsItem;
-  
+
   return (
-    <div className={`${styles.newsrow} ${visible ? styles.show : ""}`}>
+    <div className={styles.newsrow}>
       <div className={styles.newscard} data-aos="fade-up">
         {images?.map((img, idx) => (
           <Image
@@ -44,9 +41,8 @@ export default function NewsItemClient({ newsItem }: Props) {
           />
         ))}
 
-
         <div className={styles.newscontent}>
-          <span className={styles.newstype}>{type}</span>
+          <span className={`${styles.newstype} ${type.toLowerCase()}`}>{type}</span>
           <h3 className={styles.newstitle}>{title}</h3>
           <p className={styles.newsdescription}>{description}</p>
           {video && <video controls className={styles.newsvideo}><source src={video} type="video/mp4" /></video>}
@@ -78,7 +74,7 @@ export default function NewsItemClient({ newsItem }: Props) {
       </div>
 
       {moreDetails && (
-        <div className={styles.moredetailscard}>
+        <div className={styles.moredetailscard} data-aos="fade-up">
           <h4>More Details</h4>
           <p>{moreDetails}</p>
         </div>
