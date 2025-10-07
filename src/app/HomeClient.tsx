@@ -1,7 +1,7 @@
 // src/app/HomeClient.tsx
 'use client';
 
-import React, { useState,  useEffect, useRef } from 'react';
+import React, { useState,  useEffect, useRef, useCallback } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -81,38 +81,40 @@ export default function HomeClient({news, events }: HomeClientProps) {
   }
 };
 
-const startAutoScroll = (
-  ref: React.RefObject<HTMLDivElement | null>,
-  intervalRef: React.MutableRefObject<NodeJS.Timeout | null>
-) => {
-  stopAutoScroll(intervalRef);
-  intervalRef.current = setInterval(() => {
-    scrollByCard(ref);
-  }, 3000);
+ const startAutoScroll = useCallback(
+  (
+    ref: React.RefObject<HTMLDivElement | null>,
+    intervalRef: React.MutableRefObject<NodeJS.Timeout | null>
+  ) => {
+    stopAutoScroll(intervalRef);
+    intervalRef.current = setInterval(() => {
+      scrollByCard(ref);
+    }, 3000);
+  },
+  [] // empty dependency array ensures stable reference
+);
+
+const stopAutoScroll = (intervalRef: React.MutableRefObject<NodeJS.Timeout | null>) => {
+  if (intervalRef.current) clearInterval(intervalRef.current);
 };
 
-  const stopAutoScroll = (intervalRef: React.MutableRefObject<NodeJS.Timeout | null>) => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
+useEffect(() => {
+  startAutoScroll(programRef, programInterval);
+  startAutoScroll(newsRef, newsInterval);
+  startAutoScroll(resourcesRef, resourcesInterval);
+  startAutoScroll(successRef, successInterval);
+  startAutoScroll(donateRef, donateInterval);
+  startAutoScroll(getInvolveRef, getInvolveInterval);
+
+  return () => {
+    stopAutoScroll(programInterval);
+    stopAutoScroll(newsInterval);
+    stopAutoScroll(resourcesInterval);
+    stopAutoScroll(successInterval);
+    stopAutoScroll(donateInterval);
+    stopAutoScroll(getInvolveInterval);
   };
-
-  useEffect(() => {
-    startAutoScroll(programRef, programInterval);
-    startAutoScroll(newsRef, newsInterval);
-    startAutoScroll(resourcesRef, resourcesInterval);
-    startAutoScroll(successRef, successInterval);
-    startAutoScroll(donateRef, donateInterval);
-    startAutoScroll(getInvolveRef, getInvolveInterval);
-
-    return () => {
-      stopAutoScroll(programInterval);
-      stopAutoScroll(newsInterval);
-      stopAutoScroll(resourcesInterval);
-      stopAutoScroll(successInterval);
-      stopAutoScroll(donateInterval);
-      stopAutoScroll(getInvolveInterval);
-    };
-  }, [startAutoScroll]);
-
+}, [startAutoScroll]);
 
   
   

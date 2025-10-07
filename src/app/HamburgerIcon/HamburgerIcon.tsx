@@ -165,7 +165,7 @@ HamburgerIcon() {
                             lineHeight: '3',
                             textDecorationLine: 'underline',
                             textDecoration: "none"
-                        }}>GetInvolve</a>
+                        }}>GetInvolved</a>
                         </li>
 
 

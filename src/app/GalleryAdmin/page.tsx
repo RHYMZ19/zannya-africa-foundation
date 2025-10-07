@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { db } from "../lib/firebase";
 import { doc, getDoc, updateDoc, arrayUnion, setDoc } from "firebase/firestore";
 import CloudinaryUploader from "../CloudinaryUploader";
+import Image from "next/image";
 
 type GalleryItem = { url: string; createdAt: Date };
 type Gallery = {
@@ -146,7 +147,7 @@ const GalleryAdmin = () => {
           }[typeToDelete]).map(item => (
             <div key={item.url} style={{ display: "flex", alignItems: "center", margin: "5px 0" }}>
               {typeToDelete === "image" ? (
-                <img src={item.url} alt="to delete" width={80} style={{ marginRight: "10px" }} />
+                <Image src={item.url} alt="to delete" width={80} style={{ marginRight: "10px" }} />
               ) : (
                 <video src={item.url} width={120} controls style={{ marginRight: "10px" }} />
               )}
