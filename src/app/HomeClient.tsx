@@ -197,6 +197,7 @@ useEffect(() => {
             width={500}
             height={300}
           />
+          <div className={styles.decorativeBar}></div>
         </div>
         <div className={styles.aboutContentText} data-aos="fade-left">
           <h2>Who We Are</h2>

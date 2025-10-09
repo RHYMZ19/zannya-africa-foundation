@@ -449,6 +449,13 @@
       align-items: flex-start; /* Prevent stretching */ 
     }
 }
+.decorativeBar {
+  height: 6px;
+  width: 50px;
+  background-color: #e91e63;
+  margin: 15px auto 0;
+  border-radius: 3px;
+}
 .aboutImage {
     width: 100%;
     border-radius: 15px;
