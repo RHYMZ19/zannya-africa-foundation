@@ -449,11 +449,10 @@
       align-items: flex-start; /* Prevent stretching */ 
     }
 }
-.imageQuote {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #333;
-  margin-top: 15px;
+.imageCaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
   text-align: center;
 }
 .aboutImage {
