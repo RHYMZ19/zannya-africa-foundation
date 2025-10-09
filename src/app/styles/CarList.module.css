@@ -449,12 +449,12 @@
       align-items: flex-start; /* Prevent stretching */ 
     }
 }
-.decorativeBar {
-  height: 6px;
-  width: 50px;
-  background-color: #e91e63;
-  margin: 15px auto 0;
-  border-radius: 3px;
+.imageQuote {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #333;
+  margin-top: 15px;
+  text-align: center;
 }
 .aboutImage {
     width: 100%;

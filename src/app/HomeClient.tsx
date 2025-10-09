@@ -197,7 +197,9 @@ useEffect(() => {
             width={500}
             height={300}
           />
-          <div className={styles.decorativeBar}></div>
+          <blockquote className={styles.imageQuote}>
+            “Empowering youth through sports, one game at a time.”
+          </blockquote>
         </div>
         <div className={styles.aboutContentText} data-aos="fade-left">
           <h2>Who We Are</h2>
