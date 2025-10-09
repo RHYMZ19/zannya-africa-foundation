@@ -444,7 +444,10 @@
     background: linear-gradient(to right, #e0f7fa, #e1bee7);
 }
 @media(min-width: 768px) {
-    .aboutSection { flex-direction: row; }
+    .aboutSection { 
+      flex-direction: row; 
+      align-items: flex-start; /* Prevent stretching */ 
+    }
 }
 .aboutImage {
     width: 100%;
