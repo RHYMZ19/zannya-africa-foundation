@@ -190,6 +190,7 @@ useEffect(() => {
       {/* About / Mission */}
       <section className={styles.aboutSection}>
         <div className={styles.aboutContent} data-aos="fade-right">
+          <div className={styles.imageWrapper}>
           <Image
             src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758898506/zannya/uploads/images/ilyhjfpy0s8u8zvgbueg.jpg"
             alt="About us"
@@ -197,11 +198,20 @@ useEffect(() => {
             width={500}
             height={300}
           />
-          <p className={styles.imageCaption}>Through our programs, we foster leadership, self-reliance, and confidence while promoting health, wellness, and sustainable practices. ZAF’s initiatives include skilling and livelihood programs that enhance employability and entrepreneurship, reproductive and physical health awareness campaigns, and climate justice advocacy that empowers young people to become environmental leaders.
-
-With every sports tournament, wellness camp, and community project, ZAF creates opportunities for growth, mentorship, and lasting positive change. Our work has impacted thousands of lives, strengthened communities, and built a platform where youth and women can thrive, contribute, and inspire others.
-
-Join Zannya Africa Foundation in creating a brighter future where sports, education, and empowerment unite to uplift communities and transform lives.</p>
+          <div className={styles.captionOverlay}>
+        <div className={styles.captionText}>
+          <p>
+            Through our programs, we foster leadership, self-reliance, and confidence while promoting health, wellness, and sustainable practices. ZAF’s initiatives include skilling and livelihood programs that enhance employability and entrepreneurship, reproductive and physical health awareness campaigns, and climate justice advocacy that empowers young people to become environmental leaders.
+          </p>
+          <p>
+            With every sports tournament, wellness camp, and community project, ZAF creates opportunities for growth, mentorship, and lasting positive change. Our work has impacted thousands of lives, strengthened communities, and built a platform where youth and women can thrive, contribute, and inspire others.
+          </p>
+          <p>
+            Join Zannya Africa Foundation in creating a brighter future where sports, education, and empowerment unite to uplift communities and transform lives.
+          </p>
+        </div>
+      </div>
+      </div>
         </div>
         <div className={styles.aboutContentText} data-aos="fade-left">
           <h2>Who We Are</h2>
