@@ -161,8 +161,16 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
 .newsrow {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: stretch; /* ✅ Makes all children equal height */
   flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.newscard,
+.moredetailscard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%; /* ✅ Ensures both expand equally */
 }
 
 .newscard {
