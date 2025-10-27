@@ -479,3 +479,35 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
     flex-direction: column;
   }
 }
+
+/* Main layout for news item row */
+.newsrow {
+  display: flex;
+  align-items: stretch; /* makes both cards equal height */
+  gap: 20px;
+  flex-wrap: nowrap;
+  margin-bottom: 40px;
+}
+
+/* Smaller news card */
+.newscard {
+  flex: 1; /* smaller portion */
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Larger details card */
+.moredetailscard {
+  flex: 2; /* larger portion — double the size of newscard */
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
