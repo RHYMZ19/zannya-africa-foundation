@@ -441,15 +441,41 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
 }
 
 
-/* Make news and more-details cards have equal height */
+
+
+/* Ensure equal height for the main news item layout */
 .newsrow {
   display: flex;
-  align-items: stretch; /* Ensures both columns stretch to the same height */
+  align-items: stretch; /* forces equal height */
+  gap: 20px;
+  flex-wrap: nowrap; /* keeps them on the same line */
+  margin-bottom: 40px;
 }
 
+/* Cards adjust naturally to the tallest one */
 .newscard,
 .moredetailscard {
+  flex: 1; /* both take equal width and stretch height */
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensures equal height based on tallest card */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Optional: make the inside content scrollable if text is long */
+.newscard {
+  padding: 16px;
+}
+
+.moredetailscard {
+  padding: 16px;
+  background-color: #fafafa;
+}
+
+@media (max-width: 768px) {
+  .newsrow {
+    flex-direction: column;
+  }
 }
