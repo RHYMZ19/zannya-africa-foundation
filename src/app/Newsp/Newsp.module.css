@@ -161,16 +161,8 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
 .newsrow {
   display: flex;
   gap: 20px;
-  align-items: stretch; /* ✅ Makes all children equal height */
+  align-items: flex-start;
   flex-wrap: wrap; /* allows wrapping on smaller screens */
-}
-
-.newscard,
-.moredetailscard {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  height: 100%; /* ✅ Ensures both expand equally */
 }
 
 .newscard {
@@ -446,4 +438,18 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   opacity: 1;            /* show immediately */
   transform: none;       /* no offset */
   transition: none;      /* remove any CSS transition delay */
+}
+
+
+/* Make news and more-details cards have equal height */
+.newsrow {
+  display: flex;
+  align-items: stretch; /* Ensures both columns stretch to the same height */
+}
+
+.newscard,
+.moredetailscard {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensures equal height based on tallest card */
 }
