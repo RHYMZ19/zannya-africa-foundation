@@ -75,12 +75,10 @@ export default function NewsItemClient({ newsItem }: Props) {
       </div>
 
       {moreDetails && (
-        <Link href={`/Newsp/${id}`} className={styles.moredetailslink}>
-          <div className={styles.moredetailscard} data-aos="fade-up">
-            <h4>More Details</h4>
-            <p>{moreDetails}</p>
-          </div>
-        </Link>
+        <div className={styles.moredetailscard} data-aos="fade-up">
+          <h4>More Details</h4>
+          <p>{moreDetails}</p>
+        </div>
       )}
 
       {SelectedImage && (
