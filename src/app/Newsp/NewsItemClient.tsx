@@ -12,6 +12,7 @@ import CommentList from "./CommentList";
 import { getGuestId, getGuestName } from "./getGuestId";
 import styles from './Newsp.module.css';
 import { NewsItem } from "./NewsList";
+import Link from "next/link";
 
 interface Props {
   newsItem: NewsItem;
@@ -74,10 +75,12 @@ export default function NewsItemClient({ newsItem }: Props) {
       </div>
 
       {moreDetails && (
-        <div className={styles.moredetailscard} data-aos="fade-up">
-          <h4>More Details</h4>
-          <p>{moreDetails}</p>
-        </div>
+        <Link href={`/Newsp/${id}`} className={styles.moredetailslink}>
+          <div className={styles.moredetailscard} data-aos="fade-up">
+            <h4>More Details</h4>
+            <p>{moreDetails}</p>
+          </div>
+        </Link>
       )}
 
       {SelectedImage && (
