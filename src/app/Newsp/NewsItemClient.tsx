@@ -30,8 +30,6 @@ export default function NewsItemClient({ newsItem }: Props) {
 
   return (
     <div className={styles.newsrow}>
-      {/* ✅ Wrap the whole card inside Link */}
-      <Link href={`/Newsp/${id}`} className={styles.cardlink}>
       <div className={styles.newscard} data-aos="fade-up">
         {images?.map((img, idx) => (
           <Image
@@ -75,7 +73,6 @@ export default function NewsItemClient({ newsItem }: Props) {
           <CommentList newsId={id} />
         </div>
       </div>
-      </Link>
 
       {moreDetails && (
         <div className={styles.moredetailscard} data-aos="fade-up">
