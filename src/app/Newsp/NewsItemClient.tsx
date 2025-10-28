@@ -12,7 +12,7 @@ import CommentList from "./CommentList";
 import { getGuestId, getGuestName } from "./getGuestId";
 import styles from './Newsp.module.css';
 import { NewsItem } from "./NewsList";
-import Link from "next/link";
+
 
 interface Props {
   newsItem: NewsItem;
