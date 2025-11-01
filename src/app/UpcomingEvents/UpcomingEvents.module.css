@@ -12,6 +12,7 @@
   padding: 10px 0;
   -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
   scroll-behavior: smooth;
+  justify-content: center; /* centers the cards if there’s only one */
 }
 
 /* Hide scrollbars for cleaner look */
@@ -21,6 +22,7 @@
 .eventsScrollWrapper {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  justify-content: center; /* centers the cards if there’s only one */
 }
 
 /* Card styling */
@@ -127,6 +129,7 @@
 .eventsScrollWrapper {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  justify-content: center; /* centers the cards if there’s only one */
 }
 
 /* Buttons */
