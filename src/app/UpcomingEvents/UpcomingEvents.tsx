@@ -6,6 +6,7 @@ import styles from "./UpcomingEvents.module.css";
 import { MyEvent } from '../lib/events';
 import { useEvents } from "../lib/useEvents";
 import { useRef } from "react";
+import Link from "next/link";
 
 type Props = {
   events: MyEvent[];
@@ -61,7 +62,9 @@ export default function UpcomingEvents({ events: serverEvents }: Props) {
         )}
         <div className={styles.cardContent}>
           <span className={styles.eventType}>Upcoming Event</span>
+          <Link href={`/Newsp/${event.id}`} className={styles.cardlink}>
           <h3 className={styles.headings}>{event.title}</h3>
+          </Link>
           <p className={styles.description}>{event.description}</p>
           <p className={styles.eventDate}>
             <strong>Starts:</strong> {new Date(event.date).toLocaleString()}

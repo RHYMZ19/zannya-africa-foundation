@@ -163,3 +163,32 @@
 .eventsScrollContainer:hover .scrollRight {
   opacity: 1;
 }
+
+
+
+
+
+.eventsScrollWrapper {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+
+  justify-content: center; /* already present */
+  
+  /* Add this */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.eventsScrollWrapper::after {
+  content: "";
+  flex: 0 0 20px; /* optional padding at the end */
+}
+
+/* Force single card to center when container > card width */
+.eventsScrollWrapper > .card:only-child {
+  margin-left: auto;
+  margin-right: auto;
+}
