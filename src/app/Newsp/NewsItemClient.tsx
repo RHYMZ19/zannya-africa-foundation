@@ -12,6 +12,7 @@ import CommentList from "./CommentList";
 import { getGuestId, getGuestName } from "./getGuestId";
 import styles from './Newsp.module.css';
 import { NewsItem } from "./NewsList";
+import Link from "next/link";
 
 
 interface Props {
@@ -44,7 +45,9 @@ export default function NewsItemClient({ newsItem }: Props) {
 
         <div className={styles.newscontent}>
           <span className={`${styles.newstype} ${type.toLowerCase()}`}>{type}</span>
+          <Link href={`/Newsp/${id}`} className={styles.cardlink}>
           <h3 className={styles.newstitle}>{title}</h3>
+          </Link>
           <p className={styles.newsdescription}>{description}</p>
           {video && <video controls className={styles.newsvideo}><source src={video} type="video/mp4" /></video>}
           {timestamp && <small className={styles.newsdate}>{new Date(timestamp).toLocaleDateString()}</small>}
