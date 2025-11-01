@@ -2,9 +2,10 @@ import NewsDetailsPageClient from "./NewsDetailsPageClient";
 
 interface PageProps {
   params: { id: string };
-  // searchParams?: { [key: string]: string | string[] | undefined }; // remove this
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params, searchParams }: PageProps) {
+  void searchParams; // mark as intentionally unused
   return <NewsDetailsPageClient id={params.id} />;
 }
