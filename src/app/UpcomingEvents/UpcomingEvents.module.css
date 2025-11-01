@@ -117,6 +117,7 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px 0;
+  justify-content: center; /* centers the cards if there’s only one */
 }
 
 /* Hide scrollbar */
