@@ -28,6 +28,14 @@ export default function UpcomingEvents({ events: serverEvents }: Props) {
   };
   
   if (!eventsToShow.length) return <p className={styles.loading}>Loading upcoming events...</p>;
+  // ✅ Filter: Hide event 24 hours after it starts
+  const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+  const now = Date.now();
+
+  const filteredEvents = eventsToShow.filter(event => {
+    const eventStart = new Date(event.date).getTime();
+    return eventStart + ONE_DAY_MS > now; 
+  });
 
   return (
     <section className={styles.eventsSection}>
@@ -40,7 +48,7 @@ export default function UpcomingEvents({ events: serverEvents }: Props) {
     <button className={styles.scrollLeft} onClick={() => scroll('left')}>◀</button>
 
   <div className={styles.eventsScrollWrapper} ref={scrollRef}>
-    {eventsToShow.map((event) => (
+    {filteredEvents.map((event) => (
       <div key={event.id} className={styles.card}>
         {event.image && (
           <Image
