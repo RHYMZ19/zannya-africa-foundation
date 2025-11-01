@@ -63,7 +63,9 @@ export default function NewsList() {
         <div className={styles.cardContent}>
           <p style={{color: '#c10000ff', fontWeight: 'bold'}}><strong>HOT & CURRENT UPDATES</strong></p>
           <span className={styles.newstype}>{news.type}</span>
+          <Link href={`/Newsp/${news.id}`} className={styles.cardlink}>
           <h3 className={styles.headings}>{news.title}</h3>
+          </Link>
           <p>{news.description}</p>
 
           {news.video && (

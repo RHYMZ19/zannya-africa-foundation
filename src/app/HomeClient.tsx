@@ -41,6 +41,7 @@ import GetInvolve1 from './GetInvolve1/GetInvolve1';
 import GetInvolve2 from './GetInvolve2/GetInvolve2';
 
 
+
 type HomeClientProps = {
   news: NewsItem[];
   events: MyEvent[];
@@ -276,9 +277,10 @@ useEffect(() => {
           />
         )}
 
-
         <span className={styles.newsType}>{item.type}</span>
+        <Link href={`/Newsp/${item.id}`} className={styles.cardlink}>
         <h3>{item.title}</h3>
+        </Link>
         <p>{item.description}</p>
 
         {item.timestamp && (
