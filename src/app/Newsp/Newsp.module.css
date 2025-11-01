@@ -511,3 +511,54 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
+
+.details {
+  white-space: pre-line; /* preserves line breaks from Firestore */
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.newsdetails {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  margin: 20px auto;          /* center horizontally with auto */
+  padding: 20px;              /* spacing inside */
+  background: #f9f9f9;
+  border-left: 4px solid #008080;
+  border-radius: 6px;
+  max-width: 900px;           /* limits width */
+  box-sizing: border-box;     /* ensures padding is included in width */
+}
+.date{
+  margin-top: 10%;
+}
+.details{
+  margin-top: 10%;
+}
+
+.newsdetails {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.newsimage {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.newsvideo {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.date {
+  color: gray;
+  font-size: 0.9rem;
+  margin-top: 10%;
+}
