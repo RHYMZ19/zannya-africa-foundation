@@ -1,7 +1,11 @@
 // src/app/Newsp/[id]/page.tsx
 import NewsDetailsPageClient from "./NewsDetailsPageClient";
 
-// Not async, since we don't fetch data here
-export default function Page({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: { id: string };
+}
+
+// This matches Next.js expected typing
+export default function Page({ params }: PageProps) {
   return <NewsDetailsPageClient id={params.id} />;
 }
