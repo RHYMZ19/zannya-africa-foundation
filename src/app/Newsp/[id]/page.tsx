@@ -1,8 +1,10 @@
 import NewsDetailsPageClient from "./NewsDetailsPageClient";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  // Example server-side fetching (optional)
-  // const data = await fetch(...);
+interface PageProps {
+  params: { id: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
+export default async function Page({ params, searchParams }: PageProps) {
   return <NewsDetailsPageClient id={params.id} />;
 }
