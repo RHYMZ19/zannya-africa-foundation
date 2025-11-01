@@ -1,12 +1,7 @@
+// src/app/Newsp/[id]/page.tsx
 import NewsDetailsPageClient from "./NewsDetailsPageClient";
 
-export default async function Page({
-  params,
-  
-}: {
-  params: { id: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
-  // We are not using searchParams, so ignore it
+// Not async, since we don't fetch data here
+export default function Page({ params }: { params: { id: string } }) {
   return <NewsDetailsPageClient id={params.id} />;
 }
