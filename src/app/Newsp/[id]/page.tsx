@@ -1,11 +1,12 @@
 import NewsDetailsPageClient from "./NewsDetailsPageClient";
 
-interface PageProps {
+export default async function Page({
+  params,
+  
+}: {
   params: { id: string };
   searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-export default async function Page({ params, searchParams }: PageProps) {
-  void searchParams; // mark as intentionally unused
+}) {
+  // We are not using searchParams, so ignore it
   return <NewsDetailsPageClient id={params.id} />;
 }
