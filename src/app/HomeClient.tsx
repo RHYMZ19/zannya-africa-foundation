@@ -260,39 +260,41 @@ useEffect(() => {
         <NewsC />
         
         <div
-          className={styles.newsScrollWrapper}
-          ref={newsRef}
-          onMouseEnter={() => stopAutoScroll(newsInterval)}
-          onMouseLeave={() => startAutoScroll(newsRef, newsInterval)}
-        >
-    {news.map((item) => (
-      <div key={item.id} className={styles.newsItem}>
-        {item.images && item.images.length > 0 && (
-          <Image
-            src={item.images[0]}
-            alt={item.title}
-            width={400}
-            height={220}
-            className={styles.newsItemImage}
-          />
-        )}
+  className={styles.newsScrollWrapper}
+  ref={newsRef}
+  onMouseEnter={() => stopAutoScroll(newsInterval)}
+  onMouseLeave={() => startAutoScroll(newsRef, newsInterval)}
+>
+  {news.slice(0, 7).map((item) => (
+    <div key={item.id} className={styles.newsItem}>
+      {item.images && item.images.length > 0 && (
+        <Image
+          src={item.images[0]}
+          alt={item.title}
+          width={400}
+          height={220}
+          className={styles.newsItemImage}
+        />
+      )}
 
-        <span className={styles.newsType}>{item.type}</span>
-        <Link href={`/Newsp/${item.id}`} className={styles.cardlink}>
+      <span className={styles.newsType}>{item.type}</span>
+      <Link href={`/Newsp/${item.id}`} className={styles.cardlink}>
         <h3>{item.title}</h3>
-        </Link>
-        <p>{item.description}</p>
+      </Link>
+      <p>{item.description}</p>
 
-        {item.timestamp && (
-          <small className={styles.newsItemDate}>
-            {new Date(item.timestamp).toLocaleDateString()}{" "}
-            {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-          </small>
-        )}
-      </div>
-    ))}
-
+      {item.timestamp && (
+        <small className={styles.newsItemDate}>
+          {new Date(item.timestamp).toLocaleDateString()}{" "}
+          {new Date(item.timestamp).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </small>
+      )}
     </div>
+  ))}
+</div>
       </section>
 
       {/* Upcoming Events */}

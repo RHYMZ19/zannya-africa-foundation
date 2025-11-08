@@ -79,7 +79,7 @@ export default function NewsItemClient({ newsItem }: Props) {
 
       {moreDetails && (
         <div className={styles.moredetailscard} data-aos="fade-up">
-          <h4>More Details</h4>
+          
           <p>{moreDetails}</p>
         </div>
       )}
