@@ -1,8 +1,9 @@
-// src/components/WeeklyNewsletter.tsx
-import React from "react";
+'use client';
+
+import React, { useState, useEffect } from "react";
 import styles from "./WeeklyNewsletter.module.css";
 import { db } from "../lib/firebase";
-import { collection, getDocs, orderBy, limit, query, } from "firebase/firestore";
+import { collection, getDocs, orderBy, limit, query, Timestamp } from "firebase/firestore";
 import Image from "next/image";
 
 type NewsletterItem = {
@@ -10,29 +11,54 @@ type NewsletterItem = {
   title: string;
   subtitle?: string;
   image?: string;
-  timestamp?: string;
+  timestamp?: string | null; // Only string or null now
 };
 
-export default async function WeeklyNewsletter() {
-  // Fetch latest 4 newsletters at build/render time
-  const q = query(
-    collection(db, "weeklyNewsletter"),
-    orderBy("timestamp", "desc"),
-    limit(4)
-  );
+export default function WeeklyNewsletter() {
+  const [newsletters, setNewsletters] = useState<NewsletterItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const snap = await getDocs(q);
+  useEffect(() => {
+    const fetchNewsletters = async () => {
+      const q = query(
+        collection(db, "weeklyNewsletter"),
+        orderBy("timestamp", "desc"),
+        limit(4)
+      );
+      const snap = await getDocs(q);
 
-  const newsletters: NewsletterItem[] = snap.docs.map(doc => {
-    const data = doc.data();
-    return {
-      id: doc.id,
-      title: data.title || "No Title",         // required
-      subtitle: data.subtitle || "",
-      image: data.image || "",
-      timestamp: data.timestamp || null,
+      const data: NewsletterItem[] = snap.docs.map(doc => {
+        const docData = doc.data();
+        let tsString: string | null = null;
+        if (docData.timestamp) {
+          // Convert Firestore Timestamp to string
+          tsString = "toDate" in docData.timestamp
+            ? docData.timestamp.toDate().toISOString()
+            : new Date(docData.timestamp).toISOString();
+        }
+
+        return {
+          id: doc.id,
+          title: docData.title || "No Title",
+          subtitle: docData.subtitle || "",
+          image: docData.image || "",
+          timestamp: tsString,
+        };
+      });
+
+      setNewsletters(data);
+      setLoading(false);
     };
-  });
+
+    fetchNewsletters();
+  }, []);
+
+  const formatDate = (ts?: string | null) => {
+    if (!ts) return "";
+    return new Date(ts).toLocaleDateString();
+  };
+
+  if (loading) return <p>Loading newsletters...</p>;
 
   return (
     <div className={styles.newsletterWrapper}>
@@ -41,11 +67,19 @@ export default async function WeeklyNewsletter() {
 
         {newsletters.map(item => (
           <div key={item.id} className={styles.newsItemCard}>
-            {item.image && <Image src={item.image} className={styles.newsImg} alt="Newsletter" />}
+            {item.image && (
+              <Image
+                src={item.image}
+                className={styles.newsImg}
+                alt={item.title}
+                width={400}
+                height={200}
+              />
+            )}
             <h3>{item.title}</h3>
             <p>{item.subtitle}</p>
             <p style={{ opacity: 0.7 }}>
-              {item.timestamp ? new Date(item.timestamp).toLocaleDateString() : ""}
+              {formatDate(item.timestamp)}
             </p>
           </div>
         ))}
