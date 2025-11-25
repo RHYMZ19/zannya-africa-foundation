@@ -11,6 +11,7 @@ import MissionAdmn from '../MissionAdmn/page';
 import SuccessAdmin from '../SuccessAdmin/page';
 import ResoAdmin from '../ResoAdmin/page';
 import AdminEvents from '../UpcomingEvents/AdminEvents/AdminEvents';
+import WeeklyNewsletterAdmin from '../components/WeeklyNewsletterAdmin';
 
 
 
@@ -90,6 +91,10 @@ if (loading) {
 
         <div>
             <AdminEvents></AdminEvents>
+        </div>
+
+        <div>
+            <WeeklyNewsletterAdmin></WeeklyNewsletterAdmin>
         </div>
 
         </div>

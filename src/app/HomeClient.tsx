@@ -39,6 +39,7 @@ import Donate1 from './Donate1/Donate1';
 import Donate2 from './Donate2/Donate2';
 import GetInvolve1 from './GetInvolve1/GetInvolve1';
 import GetInvolve2 from './GetInvolve2/GetInvolve2';
+import WeeklyNewsletter from "./components/WeeklyNewsletter";
 
 
 
@@ -63,7 +64,13 @@ export default function HomeClient({news, events }: HomeClientProps) {
   const resourcesInterval = useRef<NodeJS.Timeout | null>(null);
   const successInterval = useRef<NodeJS.Timeout | null>(null);
   const donateInterval = useRef<NodeJS.Timeout | null>(null);
+
+  const weeklyRef = useRef<HTMLDivElement>(null);
+  const weeklyInterval = useRef<NodeJS.Timeout | null>(null);
   const getInvolveInterval = useRef<NodeJS.Timeout | null>(null);
+
+
+  
 
   const scrollByCard = (ref: React.RefObject<HTMLDivElement | null>) => {
   if (!ref.current) return;
@@ -106,6 +113,7 @@ useEffect(() => {
   startAutoScroll(successRef, successInterval);
   startAutoScroll(donateRef, donateInterval);
   startAutoScroll(getInvolveRef, getInvolveInterval);
+  startAutoScroll(weeklyRef, weeklyInterval);
 
   return () => {
     stopAutoScroll(programInterval);
@@ -114,6 +122,7 @@ useEffect(() => {
     stopAutoScroll(successInterval);
     stopAutoScroll(donateInterval);
     stopAutoScroll(getInvolveInterval);
+    stopAutoScroll(weeklyInterval);
   };
 }, [startAutoScroll]);
 
@@ -251,6 +260,20 @@ useEffect(() => {
           <Programsservices2 />
         </div>
         
+      </section>
+
+      {/*Weekly newsletter */}
+      <section className={styles.successSection}>
+        <Divider title="Weekly Newsletter" />
+
+        <div
+          className={styles.scrollWrapper}
+          ref={weeklyRef}
+          onMouseEnter={() => stopAutoScroll(weeklyInterval)}
+          onMouseLeave={() => startAutoScroll(weeklyRef, weeklyInterval)}
+        >
+          <WeeklyNewsletter />
+        </div>
       </section>
       
       {/* News Section */}

@@ -1,0 +1,41 @@
+.wrapper {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.card {
+  margin-bottom: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.banner {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.cardTitle {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.cardSubtitle {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.date {
+  font-size: 14px;
+  margin-top: 10px;
+  opacity: 0.6;
+}
