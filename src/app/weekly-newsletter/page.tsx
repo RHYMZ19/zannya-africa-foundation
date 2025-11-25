@@ -75,11 +75,11 @@ export default function WeeklyNewsletterPage() {
         <p className={styles.cardSubtitle}>{item.subtitle}</p>
         <Link href={`/newsletter/${item.id}`}>
         <p className={styles.cardDescription}>
-          {item.description && item.description.length > 150
-            ? `${item.description.substring(0, 150)}... `
+          {item.description && item.description.length > 100
+            ? `${item.description.substring(0, 100)}... `
             : item.description}
   
-          {item.description && item.description.length > 150 && (
+          {item.description && item.description.length > 100 && (
             <Link href={`/newsletter/${item.id}`} className={styles.more}>
               more
             </Link>

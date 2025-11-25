@@ -5,6 +5,7 @@ import styles from "./WeeklyNewsletter.module.css";
 import { db } from "../lib/firebase";
 import { collection, getDocs, orderBy, limit, query } from "firebase/firestore";
 import Image from "next/image";
+import Link from "next/link";
 
 type NewsletterItem = {
   id: string;
@@ -66,23 +67,40 @@ export default function WeeklyNewsletter() {
         {newsletters.length === 0 && <p>No newsletters yet.</p>}
 
         {newsletters.map(item => (
-          <div key={item.id} className={styles.newsItemCard}>
-            {item.image && (
-              <Image
-                src={item.image}
-                className={styles.newsImg}
-                alt={item.title}
-                width={400}
-                height={200}
-              />
-            )}
-            <h3>{item.title}</h3>
-            <p>{item.subtitle}</p>
-            <p style={{ opacity: 0.7 }}>
-              {formatDate(item.timestamp)}
-            </p>
-          </div>
-        ))}
+  <div key={item.id} className={styles.newsItemCard}>
+    <Link href={`/newsletter/${item.id}`}>
+    {item.image && (
+      <Image
+        src={item.image}
+        className={styles.newsImg}
+        alt={item.title}
+        width={400}
+        height={200}
+      />
+    )}
+    </Link>
+    <Link href={`/newsletter/${item.id}`}>
+    <h3>{item.title}</h3>
+    </Link>
+
+    <p className={styles.subtitle}>
+      {item.subtitle && item.subtitle.length > 50
+        ? `${item.subtitle.substring(0, 50)}... `
+        : item.subtitle}
+
+      {/* show "more" if subtitle is trimmed */}
+      {item.subtitle && item.subtitle.length > 50 && (
+        <a href={`/newsletter/${item.id}`} className={styles.more}>
+          more
+        </a>
+      )}
+    </p>
+
+    <p style={{ opacity: 0.7 }}>
+      {formatDate(item.timestamp)}
+    </p>
+  </div>
+))}
       </div>
 
       <a href="/weekly-newsletter" className={styles.viewAllBtn}>
