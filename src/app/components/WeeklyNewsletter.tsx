@@ -62,62 +62,66 @@ export default function WeeklyNewsletter() {
   if (loading) return <p>Loading newsletters...</p>;
 
   return (
-    
-      <div className={styles.simpleNewsletterList}>
-        {newsletters.length === 0 && <p>No newsletters yet.</p>}
+    <div>
+  {/* Cards container */}
+  <div className={styles.simpleNewsletterList}>
+    {newsletters.length === 0 && <p>No newsletters yet.</p>}
 
-        {newsletters.map(item => (
-  <div key={item.id} className={styles.newsItemCard}>
-    <Link href={`/newsletter/${item.id}`}>
-    {item.image && (
-      <Image
-        src={item.image}
-        className={styles.newsImg}
-        alt={item.title}
-        width={400}
-        height={200}
-      />
-    )}
-    </Link>
-    <Link href={`/newsletter/${item.id}`}>
-    <h3>{item.title}</h3>
-    </Link>
+    {newsletters.map(item => (
+      <div key={item.id} className={styles.newsItemCard}>
+        <Link href={`/newsletter/${item.id}`}>
+          {item.image && (
+            <Image
+              src={item.image}
+              className={styles.newsImg}
+              alt={item.title}
+              width={400}
+              height={200}
+            />
+          )}
+        </Link>
 
-    <p className={styles.subtitle}>
-      {item.subtitle && item.subtitle.length > 90
-        ? `${item.subtitle.substring(0, 90)}... `
-        : item.subtitle}
+        <Link href={`/newsletter/${item.id}`}>
+          <h3>{item.title}</h3>
+        </Link>
 
-      {/* show "more" if subtitle is trimmed */}
-      {item.subtitle && item.subtitle.length > 90 && (
-        <a href={`/newsletter/${item.id}`} className={styles.more}>
-          more
-        </a>
-      )}
-    </p>
+        <p className={styles.subtitle}>
+          {item.subtitle && item.subtitle.length > 90
+            ? `${item.subtitle.substring(0, 90)}... `
+            : item.subtitle}
 
-    <p style={{ opacity: 0.7 }}>
-      {formatDate(item.timestamp)}
-    </p>
+          {item.subtitle && item.subtitle.length > 90 && (
+            <a href={`/newsletter/${item.id}`} className={styles.more}>
+              more
+            </a>
+          )}
+        </p>
+
+        <p style={{ opacity: 0.7 }}>
+          {formatDate(item.timestamp)}
+        </p>
+      </div>
+    ))}
   </div>
-))}
-      
 
-      <a href="/weekly-newsletter" className={styles.viewAllBtn}>
-        View All Newsletters →
-      </a>
+  {/* Link and form below all cards */}
+  <div style={{ marginTop: "30px", textAlign: "center" }}>
+    <a href="/weekly-newsletter" className={styles.viewAllBtn}>
+      View All Newsletters →
+    </a>
 
-      <form className={styles.form}>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className={styles.input}
-          required
-        />
-        <button type="submit" className={styles.button}>
-          Subscribe
-        </button>
-      </form>
-    </div>
+    <form className={styles.form} style={{ marginTop: "15px" }}>
+      <input
+        type="email"
+        placeholder="Enter your email"
+        className={styles.input}
+        required
+      />
+      <button type="submit" className={styles.button}>
+        Subscribe
+      </button>
+    </form>
+  </div>
+</div>
   );
 }
