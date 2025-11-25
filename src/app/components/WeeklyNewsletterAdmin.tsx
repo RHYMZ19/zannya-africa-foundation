@@ -2,27 +2,45 @@
 
 import React, { useState, useEffect } from "react";
 import { db } from "../lib/firebase";
-import { addDoc, collection, getDocs, serverTimestamp, deleteDoc, doc } from "firebase/firestore";
+import { addDoc, collection, getDocs, serverTimestamp, deleteDoc, doc, Timestamp } from "firebase/firestore";
 import CloudinaryUploader from "../CloudinaryUploader";
 import Image from "next/image";
 
-export default function WeeklyNewsletterAdmin() {
-  const [title, setTitle] = useState("");
-  const [subtitle, setSubtitle] = useState("");
-  const [image, setImage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [items, setItems] = useState<any[]>([]);
+// Define Newsletter type
+type NewsletterItem = {
+  id: string;
+  title: string;
+  subtitle?: string;
+  image?: string;
+  timestamp?: Timestamp | null;
+};
 
+export default function WeeklyNewsletterAdmin() {
+  const [title, setTitle] = useState<string>("");
+  const [subtitle, setSubtitle] = useState<string>("");
+  const [image, setImage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [items, setItems] = useState<NewsletterItem[]>([]);
+
+  // Fetch existing newsletters
   const fetchData = async () => {
     const snap = await getDocs(collection(db, "weeklyNewsletter"));
-    setItems(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+    const newsletters: NewsletterItem[] = snap.docs.map(doc => ({
+      id: doc.id,
+      title: doc.data().title || "No Title",
+      subtitle: doc.data().subtitle || "",
+      image: doc.data().image || "",
+      timestamp: doc.data().timestamp || null,
+    }));
+    setItems(newsletters);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const handleSubmit = async (e: any) => {
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
@@ -47,9 +65,9 @@ export default function WeeklyNewsletterAdmin() {
     setLoading(false);
   };
 
+  // Handle deletion
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this item?")) return;
-
     await deleteDoc(doc(db, "weeklyNewsletter", id));
     fetchData();
   };
@@ -78,11 +96,17 @@ export default function WeeklyNewsletterAdmin() {
         <CloudinaryUploader
           folder="zannya/newsletter"
           category="newsletter"
-          onUploadComplete={(url) => setImage(url)}
+          onUploadComplete={(url: string) => setImage(url)}
         />
 
         {image && (
-          <Image src={image} width="200" style={{ marginTop: 10, borderRadius: 8 }} alt={""} />
+          <Image
+            src={image}
+            width={200}
+            height={120}
+            style={{ marginTop: 10, borderRadius: 8 }}
+            alt="Newsletter Banner"
+          />
         )}
 
         <button type="submit" disabled={loading}>
