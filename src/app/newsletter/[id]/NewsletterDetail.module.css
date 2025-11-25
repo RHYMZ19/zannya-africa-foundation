@@ -1,37 +1,13 @@
 .wrapper {
-  max-width: 1200px;
+  max-width: 900px;
   margin: auto;
   padding: 20px;
   background: linear-gradient(to right, rgba(224, 247, 250, 0.95), rgba(225, 190, 231, 0.95));
-}
-
-.title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-/* New grid layout */
-.cardsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: transparent;
-  padding: 20px;
-  border-radius: 0px;
   
 }
 
-.banner {
-  width: 100%;
-  border-radius: 0px;
-  margin-bottom: 15px;
-}
 
-.cardTitle {
+.title {
   font-size: 26px;                  /* bigger and bold */
   font-weight: 800;                 /* extra bold for emphasis */
   line-height: 1.3;                 /* tighter line spacing for headline feel */
@@ -43,8 +19,7 @@
 }
 
 
-
-.cardSubtitle {
+.subtitle {
   font-size: 16px;             /* Slightly larger font for readability */
   line-height: 1.6;            /* Spacing between lines for easy reading */
   margin-top: 10px;
@@ -55,7 +30,7 @@
   word-break: break-word;      /* Avoid overflow on long words */
 }
 
-.cardDescription {
+.description {
   font-size: 16px;             /* Slightly larger font for readability */
   line-height: 1.6;            /* Spacing between lines for easy reading */
   margin-top: 10px;
@@ -81,20 +56,47 @@
   opacity: 0.6;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .cardsGrid {
-    grid-template-columns: 1fr; /* 1 card per row on small screens */
+
+
+/* Parent row */
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Left image */
+.imageBox {
+  flex: 1;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Right subtitle */
+.subtitleBox {
+  flex: 1;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* RESPONSIVE — Stack on phone */
+@media (max-width: 768px) {
+  .topRow {
+    flex-direction: column;
   }
-}
 
-.more {
-  color: #0a66c2;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.more:hover {
-  text-decoration: underline;
+  .imageBox,
+  .subtitleBox {
+    width: 100%;
+  }
 }

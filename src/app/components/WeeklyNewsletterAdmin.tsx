@@ -11,6 +11,8 @@ type NewsletterItem = {
   id: string;
   title: string;
   subtitle?: string;
+  description?: string;
+  by?: string; // new field
   image?: string;
   timestamp?: Timestamp | null;
 };
@@ -18,6 +20,8 @@ type NewsletterItem = {
 export default function WeeklyNewsletterAdmin() {
   const [title, setTitle] = useState<string>("");
   const [subtitle, setSubtitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [by, setBy] = useState<string>(""); // new field
   const [image, setImage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [items, setItems] = useState<NewsletterItem[]>([]);
@@ -29,6 +33,8 @@ export default function WeeklyNewsletterAdmin() {
       id: doc.id,
       title: doc.data().title || "No Title",
       subtitle: doc.data().subtitle || "",
+      description: doc.data().description || "",
+      by: doc.data().by || "", // include 'by'
       image: doc.data().image || "",
       timestamp: doc.data().timestamp || null,
     }));
@@ -48,6 +54,8 @@ export default function WeeklyNewsletterAdmin() {
       await addDoc(collection(db, "weeklyNewsletter"), {
         title,
         subtitle,
+        description,
+        by, // send 'by' to Firestore
         image,
         timestamp: serverTimestamp(),
       });
@@ -55,6 +63,8 @@ export default function WeeklyNewsletterAdmin() {
       alert("✅ Weekly newsletter posted!");
       setTitle("");
       setSubtitle("");
+      setDescription("");
+      setBy(""); // reset 'by'
       setImage("");
       fetchData();
     } catch (err) {
@@ -90,9 +100,27 @@ export default function WeeklyNewsletterAdmin() {
           value={subtitle}
           onChange={(e) => setSubtitle(e.target.value)}
           required
+          style={{ marginTop: 10 }}
         />
 
-        <p>Upload Banner Image</p>
+        <textarea
+          placeholder="Newsletter Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+          style={{ minHeight: 80, marginTop: 10 }}
+        />
+
+        <input
+          type="text"
+          placeholder="By (Your Name)"
+          value={by}
+          onChange={(e) => setBy(e.target.value)}
+          required
+          style={{ marginTop: 10 }}
+        />
+
+        <p style={{ marginTop: 10 }}>Upload Banner Image</p>
         <CloudinaryUploader
           folder="zannya/newsletter"
           category="newsletter"
@@ -109,7 +137,7 @@ export default function WeeklyNewsletterAdmin() {
           />
         )}
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" disabled={loading} style={{ marginTop: 10 }}>
           {loading ? "Posting..." : "Post Newsletter"}
         </button>
       </form>
@@ -118,6 +146,9 @@ export default function WeeklyNewsletterAdmin() {
       {items.map((item) => (
         <div key={item.id} style={{ marginBottom: 15 }}>
           <strong>{item.title}</strong>
+          <p>{item.subtitle}</p>
+          <p>{item.description}</p>
+          <p><em>By: {item.by}</em></p> {/* display 'by' */}
           <button
             onClick={() => handleDelete(item.id)}
             style={{ marginLeft: 10, background: "black", color: "white" }}
