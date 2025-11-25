@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./WeeklyNewsletter.module.css";
 import { db } from "../lib/firebase";
-import { collection, getDocs, orderBy, limit, query, Timestamp } from "firebase/firestore";
+import { collection, getDocs, orderBy, limit, query } from "firebase/firestore";
 import Image from "next/image";
 
 type NewsletterItem = {
