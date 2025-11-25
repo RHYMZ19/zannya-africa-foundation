@@ -6,7 +6,7 @@
   padding: 30px;
   width: 100%;
   margin: auto;
-  background: blue;
+  background: transparent;
   text-align: center;
 }
 
@@ -63,16 +63,25 @@
 }
 
 .simpleNewsletterList {
-
+ 
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;         /* prevent wrapping */
   gap: 20px;
-  justify-content: center; /* centers cards horizontally */
-  align-items: flex-start;  /* optional: aligns cards to top */
-  margin: 0 auto;           /* centers container itself */
-  max-width: 1000px;        /* optional: prevent stretching too much */
+  overflow-x: auto;          /* allow horizontal scrolling */
   padding: 10px 0;
+  margin: 0 auto;
+  scroll-behavior: smooth;   /* smooth scroll on desktop */
 }
+
+.simpleNewsletterList::-webkit-scrollbar {
+  height: 8px;               /* adjust scrollbar height */
+}
+
+.simpleNewsletterList::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
 
 .newsItemCard {
   
