@@ -6,6 +6,12 @@ import { db } from "../../lib/firebase";
 import { doc, getDoc, Timestamp } from "firebase/firestore";
 import Image from "next/image";
 import styles from "./NewsletterDetail.module.css";
+import ContactUs from "@/app/ContactUs/page";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import IncreaseImages from "@/app/components/IncreaseImages";
+import HamburgerIcon from "@/app/HamburgerIcon/HamburgerIcon";
+import Link from "next/link";
 
 type NewsletterItem = {
   id: string;
@@ -47,6 +53,17 @@ export default function NewsletterDetailPage() {
 
   return (
     <div className={styles.wrapper}>
+      <div style={{ justifyItems: 'center', gap: '1%' }}>
+                 
+                   <HamburgerIcon />
+                   
+                   
+                   <Link href="/Donates" className={styles.arrowButton}>
+                     Donate
+                   </Link>
+                   <IncreaseImages src='/log.jpg' alt="Logo" />
+                 
+               </div>
   {item.timestamp && <p className={styles.date}>{item.timestamp.toDate().toLocaleDateString()}</p>}
 
   <h1 className={styles.title}>{item.title}</h1>
@@ -72,6 +89,32 @@ export default function NewsletterDetailPage() {
   </div>
 
   <p className={styles.description}>{item.description}</p>
+
+  <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong> You can follow us on our socialplatforms:</strong></p>
+                                            <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
+                                                      <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
+                                                        <FaFacebook />
+                                                      </a>
+                                                      <a href="https://instagram.com/zannya_africa_foundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
+                                                        <FaInstagram />
+                                                      </a>
+                                                      <a href="https://tiktok.com/@zannyaafricafdn" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                                        <FaTiktok />
+                                                      </a>
+                                                      <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
+                                                          <FaXTwitter />   
+                                                      </a>
+                                                      
+                                                    </div>
+                                                    <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
+                                                    <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
+                                                <ul>
+                                                <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
+                                                <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
+                                                </ul>
+                                              </div>
+                                              
+                  <ContactUs></ContactUs>
 </div>
   );
 }
