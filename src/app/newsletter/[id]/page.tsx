@@ -47,29 +47,31 @@ export default function NewsletterDetailPage() {
 
   return (
     <div className={styles.wrapper}>
-    {item.timestamp && <p className={styles.date}>{item.timestamp.toDate().toLocaleDateString()}</p>}
-    <h1 className={styles.title}>{item.title}</h1>
-    {item.by && <p className={styles.by}>By {item.by}</p>}
-      <div className={styles.topRow}>
-      {item.image && (
-        <div className={styles.imageBox}>
-          <Image
-            src={item.image}
-            width={400}
-            height={300}
-            alt={item.title}
-            className={styles.image}
-          />
-        </div>
-      )}
+  {item.timestamp && <p className={styles.date}>{item.timestamp.toDate().toLocaleDateString()}</p>}
 
-      <div className={styles.subtitleBox}>
-        <p className={styles.subtitle}>{item.subtitle}</p>
+  <h1 className={styles.title}>{item.title}</h1>
+
+  {item.by && <p className={styles.by}>By {item.by}</p>}
+
+  <div className={styles.topRow}>
+    {item.image && (
+      <div className={styles.imageBox}>
+        <Image
+          src={item.image}
+          width={400}
+          height={300}
+          alt={item.title}
+          className={styles.image}
+        />
       </div>
-      <p className={styles.description}>{item.description}</p>
-      
-      
-     </div>
+    )}
+
+    <div className={styles.subtitleBox}>
+      <p className={styles.subtitle}>{item.subtitle}</p>
     </div>
+  </div>
+
+  <p className={styles.description}>{item.description}</p>
+</div>
   );
 }

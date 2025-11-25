@@ -146,8 +146,6 @@ export default function WeeklyNewsletterAdmin() {
       {items.map((item) => (
         <div key={item.id} style={{ marginBottom: 15 }}>
           <strong>{item.title}</strong>
-          <p>{item.subtitle}</p>
-          <p>{item.description}</p>
           <p><em>By: {item.by}</em></p> {/* display 'by' */}
           <button
             onClick={() => handleDelete(item.id)}
