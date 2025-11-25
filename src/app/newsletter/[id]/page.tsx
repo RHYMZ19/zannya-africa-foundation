@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { db } from "../../lib/firebase";
 import { doc, getDoc, Timestamp } from "firebase/firestore";
 import Image from "next/image";
-import styles from "../../../styles/NewsletterDetail.module.css";
+import styles from "./NewsletterDetail.module.css";
 
 type NewsletterItem = {
   id: string;
