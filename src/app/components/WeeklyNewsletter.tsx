@@ -11,6 +11,7 @@ type NewsletterItem = {
   id: string;
   title: string;
   subtitle?: string;
+  by?: string;    
   image?: string;
   timestamp?: string | null; // Only string or null now
 };
@@ -43,6 +44,7 @@ export default function WeeklyNewsletter() {
           title: docData.title || "No Title",
           subtitle: docData.subtitle || "",
           image: docData.image || "",
+          by: docData.by || "",  
           timestamp: tsString,
         };
       });
@@ -80,9 +82,10 @@ export default function WeeklyNewsletter() {
             />
           )}
         </Link>
+        {item.by && <p className={styles.by}><em>By: {item.by}</em></p>}
 
         <Link href={`/newsletter/${item.id}`}>
-          <h3>{item.title}</h3>
+          <h3><strong>{item.title}</strong></h3>
         </Link>
 
         <p className={styles.subtitle}>
