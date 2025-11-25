@@ -109,3 +109,22 @@
 .more:hover {
   text-decoration: underline;
 }
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row on desktop */
+  gap: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .cardsGrid {
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+  }
+}
