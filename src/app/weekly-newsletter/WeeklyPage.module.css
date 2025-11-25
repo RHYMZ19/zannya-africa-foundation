@@ -1,5 +1,5 @@
 .wrapper {
-  max-width: 1200px;
+   width: 100%;  ;
   margin: auto;
   padding: 20px;
   background: linear-gradient(to right, rgba(224, 247, 250, 0.95), rgba(225, 190, 231, 0.95));
@@ -26,9 +26,14 @@
 }
 
 .banner {
-  width: 100%;
+  width: 100%;        /* full width of card */
+  max-width: 300px;   /* reduce width */
+  height: auto;       /* keep proportions */
+  max-height: 150px;  /* reduce height */
+  object-fit: cover;
   border-radius: 0px;
-  margin-bottom: 15px;
+  margin: auto;       /* center the image */
+  display: block;
 }
 
 .cardTitle {

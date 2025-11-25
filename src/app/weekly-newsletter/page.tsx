@@ -67,7 +67,6 @@ export default function WeeklyNewsletterPage() {
             width={600}
             height={300}
             className={styles.banner}
-            style={{ objectFit: "cover", borderRadius: 8 }}
           />
           </Link>
         )}

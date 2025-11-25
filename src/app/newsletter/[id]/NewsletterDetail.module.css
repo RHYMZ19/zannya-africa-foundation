@@ -1,5 +1,5 @@
 .wrapper {
-  max-width: 900px;
+   width: 100%;  
   margin: auto;
   padding: 20px;
   background: linear-gradient(to right, rgba(224, 247, 250, 0.95), rgba(225, 190, 231, 0.95));
@@ -16,6 +16,7 @@
   font-family: 'Georgia', serif;    /* classic, story-like font */
   color: #1a1a1a;                   /* dark color for strong impact */
   text-transform: none;             /* keep capitalization as entered */
+  text-align: center;
 }
 
 
@@ -48,12 +49,14 @@
   margin-top: 8px;
   margin-bottom: 5px;
   font-family: 'Georgia', serif;    /* matches title font for cohesion */
+  text-align: center;
 }
 
 .date {
   font-size: 14px;
   margin-top: 10px;
   opacity: 0.6;
+  text-align: center;
 }
 
 
@@ -74,7 +77,6 @@
 .image {
   width: 100%;
   height: auto;
-  border-radius: 10px;
   object-fit: cover;
 }
 
