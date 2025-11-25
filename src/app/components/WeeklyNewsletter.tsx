@@ -89,18 +89,18 @@ export default function WeeklyNewsletter() {
         </Link>
 
         <p className={styles.subtitle}>
-          {item.subtitle && item.subtitle.length > 90
-            ? `${item.subtitle.substring(0, 90)}... `
+          {item.subtitle && item.subtitle.length > 70
+            ? `${item.subtitle.substring(0, 70)}... `
             : item.subtitle}
 
-          {item.subtitle && item.subtitle.length > 90 && (
+          {item.subtitle && item.subtitle.length > 70 && (
             <a href={`/newsletter/${item.id}`} className={styles.more}>
               more
             </a>
           )}
         </p>
 
-        <p style={{ opacity: 0.7 }}>
+        <p style={{ opacity: '0.7', fontSize: '14px', marginTop: '10px' }}>
           {formatDate(item.timestamp)}
         </p>
       </div>
