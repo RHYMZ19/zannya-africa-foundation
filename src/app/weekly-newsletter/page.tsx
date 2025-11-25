@@ -6,11 +6,11 @@ import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firesto
 import Image from "next/image";
 import styles from "./WeeklyPage.module.css";
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebook, FaHome, FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import ContactUs from "../ContactUs/page";
 import IncreaseImages from "../components/IncreaseImages";
-import HamburgerIcon from "../HamburgerIcon/HamburgerIcon";
+import router from "next/router";
 
 // Type for newsletter items
 type NewsletterItem = {
@@ -57,9 +57,15 @@ export default function WeeklyNewsletterPage() {
 
   return (
     <div className={styles.wrapper}>
-      <div style={{ justifyItems: 'center', gap: '1%' }}>
+      <div style={{
+    display: "flex",          // make children in a row
+    alignItems: "center",     // vertically center items
+    justifyContent: "center", // horizontally center items in the div
+    gap: "1%"                 // spacing between items
+  }}>
            
-             <HamburgerIcon />
+             <FaHome style={{ width: '25%', height: '25%' }} color="black" cursor='pointer' onClick={() => router.push('/')} >Home
+                             </FaHome>
              
              
              <Link href="/Donates" className={styles.arrowButton}>

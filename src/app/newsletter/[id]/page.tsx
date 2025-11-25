@@ -7,11 +7,11 @@ import { doc, getDoc, Timestamp } from "firebase/firestore";
 import Image from "next/image";
 import styles from "./NewsletterDetail.module.css";
 import ContactUs from "@/app/ContactUs/page";
-import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebook, FaHome, FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import IncreaseImages from "@/app/components/IncreaseImages";
-import HamburgerIcon from "@/app/HamburgerIcon/HamburgerIcon";
 import Link from "next/link";
+import router from "next/router";
 
 type NewsletterItem = {
   id: string;
@@ -53,9 +53,15 @@ export default function NewsletterDetailPage() {
 
   return (
     <div className={styles.wrapper}>
-      <div style={{ justifyItems: 'center', gap: '1%' }}>
+      <div style={{
+    display: "flex",          // make children in a row
+    alignItems: "center",     // vertically center items
+    justifyContent: "center", // horizontally center items in the div
+    gap: "1%"                 // spacing between items
+  }}>
                  
-                   <HamburgerIcon />
+                   <FaHome style={{ width: '25%', height: '25%' }} color="black" cursor='pointer' onClick={() => router.push('/')} >Home
+                                   </FaHome>
                    
                    
                    <Link href="/Donates" className={styles.arrowButton}>
