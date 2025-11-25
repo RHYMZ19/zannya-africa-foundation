@@ -1,7 +1,7 @@
 .wrapper {
    width: 100%;  
   margin: auto;
-  padding: 20px;
+  padding: 70px;
   background: linear-gradient(to right, rgba(224, 247, 250, 0.95), rgba(225, 190, 231, 0.95));
   
 }
@@ -75,8 +75,8 @@
 }
 
 .image {
-  width: 100%;
-  height: auto;
+  width: 90%;
+  height: 50%;
   object-fit: cover;
 }
 

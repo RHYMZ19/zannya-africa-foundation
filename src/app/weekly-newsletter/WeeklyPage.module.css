@@ -1,5 +1,6 @@
 .wrapper {
-   width: 100%;  ;
+   width: 100%;
+   min-height: 100vh;  /* ⬅️ this makes background full height */
   margin: auto;
   padding: 20px;
   background: linear-gradient(to right, rgba(224, 247, 250, 0.95), rgba(225, 190, 231, 0.95));
@@ -18,23 +19,26 @@
   gap: 20px;
 }
 
+
 .card {
   background: transparent;
-  padding: 20px;
-  border-radius: 0px;
-  
+  width: 100%;
+  max-width: 300px;     /* same as image width */
+  margin: 0 auto;
+  text-align: left;
 }
 
 .banner {
   width: 100%;        /* full width of card */
-  max-width: 300px;   /* reduce width */
+  max-width: 400px;   /* reduce width */
   height: auto;       /* keep proportions */
-  max-height: 150px;  /* reduce height */
+  max-height: 200px;  /* reduce height */
   object-fit: cover;
   border-radius: 0px;
-  margin: auto;       /* center the image */
+  margin:  0 auto;       /* center the image */
   display: block;
 }
+
 
 .cardTitle {
   font-size: 26px;                  /* bigger and bold */
@@ -64,12 +68,14 @@
   font-size: 16px;             /* Slightly larger font for readability */
   line-height: 1.6;            /* Spacing between lines for easy reading */
   margin-top: 10px;
+  margin: 8px auto 0;
   color: #333;                 /* Darker text color for contrast */
   font-family: 'Georgia', serif; /* Story-like, classic font */
-  text-align: justify;         /* Justify text for neat edges */
+  text-align: left;
   white-space: pre-wrap;       /* Preserve line breaks if present */
   word-break: break-word;      /* Avoid overflow on long words */
 }
+
 
 .by {
   font-size: 14px;                  /* slightly smaller than title/subtitle */
