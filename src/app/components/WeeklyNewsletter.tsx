@@ -64,7 +64,7 @@ export default function WeeklyNewsletter() {
   if (loading) return <p>Loading newsletters...</p>;
 
   return (
-    <div>
+    <div style={{ display: "flex",justifyContent: "center",}}>
   {/* Cards container */}
   <div className={styles.simpleNewsletterList}>
     {newsletters.length === 0 && <p>No newsletters yet.</p>}
