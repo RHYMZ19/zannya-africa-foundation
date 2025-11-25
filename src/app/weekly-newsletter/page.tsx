@@ -64,7 +64,7 @@ export default function WeeklyNewsletterPage() {
     gap: "1%"                 // spacing between items
   }}>
            
-             <FaHome style={{ width: '25%', height: '25%' }} color="black" cursor='pointer' onClick={() => router.push('/')} >Home
+             <FaHome style={{ width: '5%', height: '5%' }} color="black" cursor='pointer' onClick={() => router.push('/')} >Home
                              </FaHome>
              
              
