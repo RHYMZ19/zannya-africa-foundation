@@ -62,7 +62,7 @@ export default function WeeklyNewsletter() {
   if (loading) return <p>Loading newsletters...</p>;
 
   return (
-    <div className={styles.newsletterWrapper}>
+    
       <div className={styles.simpleNewsletterList}>
         {newsletters.length === 0 && <p>No newsletters yet.</p>}
 
@@ -84,12 +84,12 @@ export default function WeeklyNewsletter() {
     </Link>
 
     <p className={styles.subtitle}>
-      {item.subtitle && item.subtitle.length > 50
-        ? `${item.subtitle.substring(0, 50)}... `
+      {item.subtitle && item.subtitle.length > 90
+        ? `${item.subtitle.substring(0, 90)}... `
         : item.subtitle}
 
       {/* show "more" if subtitle is trimmed */}
-      {item.subtitle && item.subtitle.length > 50 && (
+      {item.subtitle && item.subtitle.length > 90 && (
         <a href={`/newsletter/${item.id}`} className={styles.more}>
           more
         </a>
@@ -101,7 +101,7 @@ export default function WeeklyNewsletter() {
     </p>
   </div>
 ))}
-      </div>
+      
 
       <a href="/weekly-newsletter" className={styles.viewAllBtn}>
         View All Newsletters →

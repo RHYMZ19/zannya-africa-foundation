@@ -7,16 +7,28 @@
 }
 
 .title {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 6px;
-  color: #222;
+  
+  font-size: 26px;                  /* bigger and bold */
+  font-weight: 800;                 /* extra bold for emphasis */
+  line-height: 1.3;                 /* tighter line spacing for headline feel */
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-family: 'Georgia', serif;    /* classic, story-like font */
+  color: #1a1a1a;                   /* dark color for strong impact */
+  text-transform: none;
 }
 
 .subtitle {
-  font-size: 16px;
-  margin-bottom: 20px;
-  color: #444;
+  
+
+  font-size: 16px;             /* Slightly larger font for readability */
+  line-height: 1.6;            /* Spacing between lines for easy reading */
+  margin-top: 10px;
+  color: #333;                 /* Darker text color for contrast */
+  font-family: 'Georgia', serif; /* Story-like, classic font */
+  text-align: justify;         /* Justify text for neat edges */
+  white-space: pre-wrap;       /* Preserve line breaks if present */
+  word-break: break-word;      /* Avoid overflow on long words */
 }
 
 .form {
@@ -56,7 +68,7 @@
 
 .newsItemCard {
   flex: 0 0 250px;  /* fixed width per card */
-  background: transparent;
+  background: linear-gradient(to right, rgba(224, 247, 250, 0.95), rgba(225, 190, 231, 0.95));
   padding: 15px;
 }
 
