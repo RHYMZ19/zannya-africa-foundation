@@ -57,18 +57,17 @@ export default function WeeklyNewsletterPage() {
 
   return (
     <div className={styles.wrapper}>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ display: "flex", justifyContent: "flex-start" }}>
   <div
     style={{
-      backgroundColor: "white",
-      border: "1px solid #ccc",
-      borderRadius: "10px",
+      backgroundColor: "transparent",
+      
       padding: "10px 15px",
       width: "fit-content",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+      
       marginTop: "10px"
     }}
   >
