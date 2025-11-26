@@ -57,23 +57,60 @@ export default function WeeklyNewsletterPage() {
 
   return (
     <div className={styles.wrapper}>
-      <div style={{
-    display: "flex",          // make children in a row
-    alignItems: "center",     // vertically center items
-    justifyContent: "center", // horizontally center items in the div
-    gap: "1%"                 // spacing between items
-  }}>
-           
-             <FaHome style={{ width: '5%', height: '5%' }} color="black" cursor='pointer' onClick={() => router.push('/')} >Home
-                             </FaHome>
-             
-             
-             <Link href="/Donates" className={styles.arrowButton}>
-               Donate
-             </Link>
-             <IncreaseImages src='/log.jpg' alt="Logo" />
-           
-         </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+  <div
+    style={{
+      backgroundColor: "white",
+      border: "1px solid #ccc",
+      borderRadius: "10px",
+      padding: "10px 15px",
+      width: "fit-content",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+      marginTop: "10px"
+    }}
+  >
+    {/* TOP ROW: your three icons/buttons */}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "12px",
+        width: "100%"
+      }}
+    >
+      <FaHome
+        style={{ width: "30px", height: "30px" }}
+        color="black"
+        cursor="pointer"
+        onClick={() => router.push("/")}
+      />
+
+      <Link href="/Donates" className={styles.arrowButton}>
+        Donate
+      </Link>
+
+      <IncreaseImages src="/log.jpg" alt="Logo" />
+    </div>
+
+    {/* TEXT BELOW */}
+    <p
+      style={{
+        marginTop: "6px",
+        fontSize: "14px",
+        fontWeight: "bold",
+        color: "red",
+        textAlign: "center"
+      }}
+    >
+      Zannya Africa Foundation
+    </p>
+  </div>
+</div>
    <h1 className={styles.title}>Weekly Newsletter</h1>
    
    {items.length === 0 && <p>No newsletters posted yet.</p>}
