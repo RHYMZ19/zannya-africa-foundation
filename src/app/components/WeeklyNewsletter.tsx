@@ -70,17 +70,28 @@ export default function WeeklyNewsletter() {
   const emailInput = form.querySelector("input[type='email']") as HTMLInputElement;
   const email = emailInput.value;
 
-  const res = await fetch("/api/subscribe", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email }),
-  });
+  try {
+    const res = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
 
-  if (res.ok) {
-    alert("Subscribed successfully!");
-    form.reset();
-  } else {
-    alert("Subscription failed.");
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      if (data.message === "Already subscribed") {
+        alert("You are already subscribed!");
+      } else {
+        alert("Subscribed successfully!");
+      }
+      form.reset();
+    } else {
+      alert(data.error || "Subscription failed.");
+    }
+  } catch (err) {
+    console.error("Subscription error:", err);
+    alert("Subscription failed. Please try again.");
   }
  };
 
