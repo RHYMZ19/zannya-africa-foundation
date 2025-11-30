@@ -63,6 +63,24 @@ export default function WeeklyNewsletter() {
 
   if (loading) return <p>Loading newsletters...</p>;
 
+  const handleSubscribe = async (e: React.FormEvent) => {
+  e.preventDefault();
+  const email = (e.target as any).email.value;
+
+  const res = await fetch("/api/subscribe", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+
+  if (res.ok) {
+    alert("Subscribed successfully!");
+    (e.target as any).reset();
+  } else {
+    alert("Subscription failed.");
+  }
+ };
+
   return (
     <div className={styles.newsletterWrapper}>
   {/* Cards container */}
@@ -113,7 +131,7 @@ export default function WeeklyNewsletter() {
       View All Newsletters →
     </a>
 
-    <form className={styles.form} style={{ marginTop: "15px" }}>
+    <form className={styles.form} style={{ marginTop: "15px" }} onSubmit={handleSubscribe}>
       <input
         type="email"
         placeholder="Enter your email"
