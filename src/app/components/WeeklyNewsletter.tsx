@@ -65,7 +65,10 @@ export default function WeeklyNewsletter() {
 
   const handleSubscribe = async (e: React.FormEvent) => {
   e.preventDefault();
-  const email = (e.target as any).email.value;
+
+  const form = e.target as HTMLFormElement;
+  const emailInput = form.querySelector("input[type='email']") as HTMLInputElement;
+  const email = emailInput.value;
 
   const res = await fetch("/api/subscribe", {
     method: "POST",
@@ -75,7 +78,7 @@ export default function WeeklyNewsletter() {
 
   if (res.ok) {
     alert("Subscribed successfully!");
-    (e.target as any).reset();
+    form.reset();
   } else {
     alert("Subscription failed.");
   }
