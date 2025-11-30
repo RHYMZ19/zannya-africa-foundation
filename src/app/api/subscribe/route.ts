@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth, db } from "../../lib/firebase"; // your Firebase setup
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, AuthError } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 
 export async function POST(req: Request) {
@@ -22,10 +22,13 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true });
-  } catch (err: any) {
-    console.error("Subscription error:", err);
+  } catch (err) {
+    // Narrow the type of err
+    const error = err as AuthError;
 
-    if (err.code === "auth/email-already-in-use") {
+    console.error("Subscription error:", error);
+
+    if (error.code === "auth/email-already-in-use") {
       return NextResponse.json({ success: true, message: "Already subscribed" });
     }
 
