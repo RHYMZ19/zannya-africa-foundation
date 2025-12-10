@@ -633,7 +633,10 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
 .newsimage {
   width: 100%;
   height: auto;
-  margin-top: 20px;
+  max-width: 500px;   /* limit the size on laptop screens */
+  margin: 20px auto;  /* center the image */
+  display: block;     /* required for centering */
+  border-radius: 10px; /* optional, looks nice */
 }
 
 .newsvideo {
