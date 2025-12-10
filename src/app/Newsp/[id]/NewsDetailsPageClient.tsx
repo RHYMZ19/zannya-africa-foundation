@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
 import Image from "next/image";
-import styles from "./NewsDetailsStyle.module.css";
+import styles from "./NewsletterDetail.module.css";
 import Link from "next/link";
 import router from "next/router";
 import { FaHome, FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
