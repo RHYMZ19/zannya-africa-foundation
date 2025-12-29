@@ -81,8 +81,8 @@ img {
 
 /* Remove the new default spacing from Next.js 16 */
 a, p, h1, h2, h3, h4, h5, h6, li {
-  margin: 2px !important;
-  padding: 2px !important;
+  margin: 3px !important;
+  padding: 3px !important;
 }
 
 a {
