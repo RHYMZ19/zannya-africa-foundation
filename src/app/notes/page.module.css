@@ -28,16 +28,3 @@
     line-height: 1.6;
 }
 
-/* Remove the new default spacing from Next.js 16 */
-a, p, h1, h2, h3, h4, h5, h6, li {
-  margin: 3px !important;
-  padding: 3px !important;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
