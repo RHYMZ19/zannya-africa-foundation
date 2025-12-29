@@ -79,16 +79,4 @@ img {
   word-wrap: break-word;
 }
 
-/* Remove the new default spacing from Next.js 16 */
-a, p, h1, h2, h3, h4, h5, h6, li {
-  margin: 4px !important;
-  padding: 4px !important;
-}
 
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
