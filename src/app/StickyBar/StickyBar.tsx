@@ -34,9 +34,9 @@ StickyBar({children}: Props) {
     top: showBar ? '0' : '-100px',
     left: 0,
     right: 0,
-    borderRadius: '10px',
-    backgroundColor: 'white',
-    color: 'blue',
+    borderRadius: '0px',
+    backgroundColor: 'blue',
+    color: 'white',
     padding: '10px 15px',
     textAlign: 'center',
     transition: 'top 0.3s ease-in-out', // fixed "bottom" → should be "top"
