@@ -202,7 +202,7 @@ useEffect(() => {
         <div className={styles.aboutContent} data-aos="fade-right">
           <div className={styles.imageWrapper}>
           <Image
-            src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1766645680/zannya/uploads/agevikfptarypojmcgjy.jpg"
+            src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758898506/zannya/uploads/images/ilyhjfpy0s8u8zvgbueg.jpg"
             alt="About us"
             className={styles.aboutImage}
             width={500}

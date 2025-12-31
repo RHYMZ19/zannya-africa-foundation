@@ -9,7 +9,7 @@ export default function Mission() {
   return (
     <div id="Mission" className={styles.card}>
       <Image 
-        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1765369546/zannya/uploads/images/krdv9j8lrdd21usay6xd.jpg"
+        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1766645680/zannya/uploads/agevikfptarypojmcgjy.jpg"
         alt="Mission Preview"
         width={400}
         height={250}
