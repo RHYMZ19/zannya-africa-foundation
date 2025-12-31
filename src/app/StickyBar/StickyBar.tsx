@@ -35,7 +35,7 @@ StickyBar({children}: Props) {
     left: 0,
     right: 0,
     borderRadius: '0px',
-    backgroundColor: 'blue',
+    backgroundColor: 'rgb(4, 4, 61)',
     color: 'white',
     padding: '10px 15px',
     textAlign: 'center',
