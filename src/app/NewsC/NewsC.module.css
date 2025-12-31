@@ -3,7 +3,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   overflow: hidden;
-  max-width: 400px;
+  max-width: 320px;
   margin: 20px auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -17,27 +17,27 @@
 /* Image */
 .cardImage {
   width: 100%;
-  height: 220px;
+  height: 160px;
   object-fit: cover;
 }
 
 /* Content */
 .cardContent {
-  padding: 16px;
+  padding: 12px;
   text-align: center;
 }
 
 .headings {
   font-weight: bold;
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 10px;
   color: black;
 }
 
 .cardContent p {
-  font-size: 15px;
+  font-size: 14px;
   color: #444;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 /* Button */
@@ -58,11 +58,11 @@
 
 .newslistcontainer {
   max-width: 900px;
-  margin: 40px auto;
+  margin: 20px auto;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 .newstype {
   display: inline-block;

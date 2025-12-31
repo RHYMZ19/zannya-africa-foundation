@@ -766,11 +766,11 @@
 
 /* News card styling */
 .newsItem {
-  flex: 0 0 300px; /* fixed width for horizontal scroll */
+  flex: 0 0 260px; /* fixed width for horizontal scroll */
   background: #fff;
-  border-radius: 12px;
+  border-radius: 0px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 16px;
+  padding: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   cursor: pointer;
@@ -784,35 +784,35 @@
 /* Image inside card */
 .newsItemImage {
   width: 100%;
-  height: 220px;
+  height: 140px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 /* Card content */
 .newsItem h3 {
   font-weight: bold;
-  font-size: 20px;
-  margin: 10px 0 6px;
+  font-size: 16px;
+  margin: 8px 0 4px;
   color: black;
 }
 
 .newsItem p {
   color: #444;
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 13px;
+  margin-bottom: 8px;
 }
 
 .newsType {
   display: inline-block;
   background-color: #008080;
   color: white;
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   text-transform: uppercase;
 }
 
@@ -826,13 +826,13 @@
 /* Responsive tweaks */
 @media (min-width: 768px) {
   .newsItem {
-    flex: 0 0 320px;
+    flex: 0 0 280px;
   }
 }
 
 @media (min-width: 1024px) {
   .newsItem {
-    flex: 0 0 400px;
+    flex: 0 0 320px;
   }
 }
 
