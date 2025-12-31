@@ -49,7 +49,7 @@ export default function Programsservices() {
                                     </button>
                                 )}
                                 
-                <Link href="/Programs" className={styles.button}>Read More</Link>
+                <Link href="/Programs" className={styles.button}>View Program</Link>
             </div>
         </div>
     );

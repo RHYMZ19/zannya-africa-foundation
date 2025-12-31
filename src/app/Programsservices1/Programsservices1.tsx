@@ -39,8 +39,7 @@ export default function Programsservices() {
                     decisions about their reproductive health and wellbeing. In the same 
                     docket of well being, ZAF drives further towards encourage participants to 
                     live an active and healthy lifestyle, which helps in preventing and managing 
-                    various health issues. This is achieved through organised sports tournaments, 
-                    health camps, coaching and mentorship
+                    various health issues.
                 </p>
 
                 {showMore && (
@@ -52,7 +51,7 @@ export default function Programsservices() {
                     </button>
                 )}
 
-                <Link href="/Programs" className={styles.button}>Read More</Link>
+                <Link href="/Programs" className={styles.button}>View Program</Link>
             </div>
         </div>
     );
