@@ -37,6 +37,13 @@
     font-size: 14px;
     color: #444;
     margin-bottom: 8px;
+
+    font-family: 'Inter', sans-serif;
+         /* BEST */
+    font-weight: 400;
+    font-style: normal;    /* straight letters */
+    line-height: 1.5;
+
 }
 
 .button {
