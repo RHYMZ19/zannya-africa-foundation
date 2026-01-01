@@ -23,9 +23,7 @@ export default function Resources() {
                 <p className={styles.text}>The Report shows Program Highlights Financial breakdown and others</p>
                 
                 <p>Download PDF</p>
-                <p className={styles.text}>
-                    Explore more of our resources, including reports, publications, research papers... Click in the link below.
-                </p>
+                
                 
                 <Link href="/Resourcess" className={styles.button}>Read More</Link>
             </div>
