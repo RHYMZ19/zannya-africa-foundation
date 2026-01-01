@@ -1,6 +1,7 @@
 .contactContainer {
   text-align: center;
   padding: 2rem 1rem;
+  border-radius: 0px;
 }
 
 .iconRow {
