@@ -111,6 +111,8 @@ export default function WeeklyNewsletter() {
 
         {msg && <p className={styles.success} style={{ color: 'green', marginTop: '10px' }}>{msg}</p>}
       </div>
+
+      <Link href="/shop" className={styles.ctaButton}>Visit Shop</Link>
     </div>
   );
 }
