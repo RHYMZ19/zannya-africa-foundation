@@ -1,10 +1,16 @@
+// src/products/context/AuthContext.tsx
 "use client";
 
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { AppUser } from "../types/User";
+
+export interface AppUser {
+  uid: string;
+  email: string | null;
+  role: "admin" | "user";
+}
 
 interface AuthContextType {
   user: AppUser | null;
@@ -16,9 +22,7 @@ export const AuthContext = createContext<AuthContextType>({
   loading: true,
 });
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<AppUser | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -33,16 +37,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       const snap = await getDoc(doc(db, "users", firebaseUser.uid));
       setUser({
         uid: firebaseUser.uid,
-        email: firebaseUser.email!,
+        email: firebaseUser.email,
         role: snap.data()?.role || "user",
       });
       setLoading(false);
     });
   }, []);
 
-  return (
-    <AuthContext.Provider value={{ user, loading }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ user, loading }}>{children}</AuthContext.Provider>;
 };
