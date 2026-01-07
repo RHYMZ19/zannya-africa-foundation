@@ -2,8 +2,8 @@
 "use client";
 
 import { createContext, useState, useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 
 export interface AppUser {
@@ -29,17 +29,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     return onAuthStateChanged(auth, async (firebaseUser) => {
       if (!firebaseUser) {
+        console.log("Auth: no user");
         setUser(null);
         setLoading(false);
         return;
       }
 
+      console.log("Auth: firebaseUser found", firebaseUser.uid);
+
       const snap = await getDoc(doc(db, "users", firebaseUser.uid));
-      setUser({
+
+      const role = snap.exists() ? snap.data()?.role || "user" : "user";
+
+      const appUser: AppUser = {
         uid: firebaseUser.uid,
         email: firebaseUser.email,
-        role: snap.data()?.role || "user",
-      });
+        role,
+      };
+
+      console.log("Auth: setting user", appUser);
+      setUser(appUser);
       setLoading(false);
     });
   }, []);

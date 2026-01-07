@@ -7,20 +7,20 @@ import { auth } from "../../lib/firebase";
 import { AuthContext } from "../context/AuthContext";
 
 const Login: React.FC = () => {
+  const { loading } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { loading } = useContext(AuthContext);
+
+  if (loading) return <p>Loading auth...</p>;
 
   const login = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
       console.error("Login failed:", err);
-      alert("Login failed");
+      alert("Login failed: check email/password");
     }
   };
-
-  if (loading) return <p>Loading auth...</p>;
 
   return (
     <div style={{ padding: 20, border: "1px solid #ccc", margin: 20 }}>
@@ -29,12 +29,14 @@ const Login: React.FC = () => {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        style={{ display: "block", marginBottom: 10 }}
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        style={{ display: "block", marginBottom: 10 }}
       />
       <button onClick={login}>Login</button>
     </div>

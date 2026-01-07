@@ -17,7 +17,9 @@ const ShopClient: React.FC = () => {
   const [search, setSearch] = useState("");
   const { user, loading } = useContext(AuthContext);
 
-  if (loading) return <p>Loading...</p>;
+  console.log("ShopClient user:", user, "loading:", loading);
+
+  if (loading) return <p>Loading auth...</p>;
   if (!user) return <Login />;
 
   return (
