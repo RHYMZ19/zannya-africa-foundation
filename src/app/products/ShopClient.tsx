@@ -11,6 +11,7 @@ import Cart from "./components/Cart";
 import AdminUpload from "./components/AdminUpload";
 import AdminOrders from "./components/AdminOrders";
 import { Product } from "./types/Product";
+import Register from "./components/Register";
 
 const ShopClient: React.FC = () => {
   const [selected, setSelected] = useState<Product | null>(null);
@@ -19,8 +20,15 @@ const ShopClient: React.FC = () => {
 
   console.log("ShopClient user:", user, "loading:", loading);
 
-  if (loading) return <p>Loading auth...</p>;
-  if (!user) return <Login />;
+  if (loading) return <p>Loading ...</p>;
+  if (!user)
+  return (
+    <>
+      <Login />
+      <hr />
+      <Register />
+    </>
+  );
 
   return (
     <div className="container">
