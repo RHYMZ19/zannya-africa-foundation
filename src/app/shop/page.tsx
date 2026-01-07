@@ -1,3 +1,5 @@
+"use client";
+
 import ShopClient from "../products/ShopClient";
 
 export default function ShopPage() {
