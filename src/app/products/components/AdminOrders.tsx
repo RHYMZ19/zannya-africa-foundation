@@ -11,8 +11,11 @@ import { AuthContext } from "../context/AuthContext";
 import { addDoc } from "firebase/firestore";
 
 const AdminOrders: React.FC = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [orders, setOrders] = useState<Order[]>([]);
+
+  if (loading) return <p>Loading...</p>;  // ✅ Wait for auth
+  if (user?.role !== "admin") return null; // ✅ Only admin sees this
 
   useEffect(() => {
     if (user?.role !== "admin") return;

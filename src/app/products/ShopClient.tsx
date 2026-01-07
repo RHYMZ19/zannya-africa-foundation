@@ -1,7 +1,7 @@
 // components/ShopClient.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ProductList from "./components/ProductList";
 import ProductDetails from "./components/ProductDetails";
 import SearchBar from "./components/SearchBar";
@@ -10,12 +10,17 @@ import AdminUpload from "./components/AdminUpload";
 import { CartProvider } from "./context/CartContext";
 import { Product } from "./types/Product";
 import AdminOrders from "./components/AdminOrders";
-
-
+import Login from "./components/Login";
+import { AuthContext } from "./context/AuthContext";
 
 const ShopClient: React.FC = () => {
   const [selected, setSelected] = useState<Product | null>(null);
   const [search, setSearch] = useState("");
+  const { user, loading } = useContext(AuthContext);
+
+  if (loading) return <p>Loading...</p>;
+
+  if (!user) return <Login />;
 
   return (
     <CartProvider>
@@ -33,10 +38,15 @@ const ShopClient: React.FC = () => {
           />
         )}
 
-        
-        <AdminOrders />
         <Cart />
-        <AdminUpload />
+
+        {/* Admin-only components */}
+        {user.role === "admin" && (
+          <>
+            <AdminUpload />
+            <AdminOrders />
+          </>
+        )}
       </div>
     </CartProvider>
   );

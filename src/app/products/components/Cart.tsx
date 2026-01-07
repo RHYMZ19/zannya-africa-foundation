@@ -31,9 +31,9 @@ const Cart: React.FC = () => {
         <div key={item.id}>
           {item.name} - ${item.price}
           <button onClick={() => removeFromCart(item.id!)}>Remove</button>
-          <button onClick={checkout}>Checkout</button>
         </div>
       ))}
+      <button onClick={checkout}>Checkout</button>
     </div>
   );
 };

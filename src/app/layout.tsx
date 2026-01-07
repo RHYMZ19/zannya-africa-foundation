@@ -5,6 +5,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import 'leaflet/dist/leaflet.css';
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AuthProvider } from "./products/context/AuthContext";
+import { CartProvider } from "./products/context/CartContext";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +41,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <AuthProvider>
+          <CartProvider>
+            {children}
+          </CartProvider>
+        </AuthProvider>
         <SpeedInsights />
       </body>
     </html>

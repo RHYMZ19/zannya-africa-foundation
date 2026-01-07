@@ -9,13 +9,16 @@ import CloudinaryUploader from "../../CloudinaryUploader";
 import Image from "next/image";
 
 const AdminUpload: React.FC = () => {
+  const { user, loading } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [price, setPrice] = useState<number | "">("");
   const [images, setImages] = useState<string[]>([]);
 
-  const { user } = useContext(AuthContext);
 
-  if (user?.role !== "admin") return null;
+
+  if (loading) return <p>Loading...</p>;  // ✅ Wait for auth
+
+  if (user?.role !== "admin") return null; // ✅ Only admin sees this
 
   const upload = async () => {
     if (!name || !price || images.length === 0) {
