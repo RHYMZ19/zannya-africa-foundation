@@ -1,4 +1,3 @@
-// components/ShopClient.tsx
 "use client";
 
 import { useState, useContext } from "react";
@@ -7,48 +6,45 @@ import ProductDetails from "./components/ProductDetails";
 import SearchBar from "./components/SearchBar";
 import Cart from "./components/Cart";
 import AdminUpload from "./components/AdminUpload";
-import { CartProvider } from "./context/CartContext";
-import { Product } from "./types/Product";
 import AdminOrders from "./components/AdminOrders";
 import Login from "./components/Login";
 import { AuthContext } from "./context/AuthContext";
+import { Product } from "./types/Product";
 
 const ShopClient: React.FC = () => {
   const [selected, setSelected] = useState<Product | null>(null);
   const [search, setSearch] = useState("");
   const { user, loading } = useContext(AuthContext);
 
+  // 1️⃣ Wait for Firebase auth to load
   if (loading) return <p>Loading...</p>;
 
+  // 2️⃣ Show login if not logged in
   if (!user) return <Login />;
 
+  // 3️⃣ Render shop
   return (
-    <CartProvider>
-      <div className="container">
-        <h1>Online Shop</h1>
+    <div className="container">
+      <h1>Online Shop</h1>
 
-        <SearchBar setSearch={setSearch} />
+      <SearchBar setSearch={setSearch} />
 
-        {!selected ? (
-          <ProductList search={search} onSelect={setSelected} />
-        ) : (
-          <ProductDetails
-            product={selected}
-            goBack={() => setSelected(null)}
-          />
-        )}
+      {!selected ? (
+        <ProductList search={search} onSelect={setSelected} />
+      ) : (
+        <ProductDetails product={selected} goBack={() => setSelected(null)} />
+      )}
 
-        <Cart />
+      <Cart />
 
-        {/* Admin-only components */}
-        {user.role === "admin" && (
-          <>
-            <AdminUpload />
-            <AdminOrders />
-          </>
-        )}
-      </div>
-    </CartProvider>
+      {/* Admin-only components */}
+      {user.role === "admin" && (
+        <>
+          <AdminUpload />
+          <AdminOrders />
+        </>
+      )}
+    </div>
   );
 };
 
