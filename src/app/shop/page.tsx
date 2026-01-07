@@ -1,7 +1,6 @@
-"use client";
+// app/shop/page.tsx
+import ShopPageClient from "./ShopPageClient";
 
-import ShopClient from "../products/ShopClient";
-
-export default function ShopPage() {
-  return <ShopClient />;
+export default function Page() {
+  return <ShopPageClient />;
 }
