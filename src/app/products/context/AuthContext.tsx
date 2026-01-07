@@ -27,19 +27,23 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    return onAuthStateChanged(auth, async (firebaseUser) => {
+  const unsub = onAuthStateChanged(auth, async (firebaseUser) => {
+    try {
       if (!firebaseUser) {
         console.log("Auth: no user");
         setUser(null);
-        setLoading(false);
         return;
       }
 
       console.log("Auth: firebaseUser found", firebaseUser.uid);
 
-      const snap = await getDoc(doc(db, "users", firebaseUser.uid));
+      const ref = doc(db, "users", firebaseUser.uid);
+      const snap = await getDoc(ref);
 
-      const role = snap.exists() ? snap.data()?.role || "user" : "user";
+      const role =
+        snap.exists() && snap.data()?.role === "admin"
+          ? "admin"
+          : "user";
 
       const appUser: AppUser = {
         uid: firebaseUser.uid,
@@ -49,9 +53,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       console.log("Auth: setting user", appUser);
       setUser(appUser);
-      setLoading(false);
-    });
-  }, []);
+    } catch (error) {
+      console.error("AuthContext error:", error);
+      setUser(null);
+    } finally {
+      setLoading(false); // 🔑 ALWAYS finish loading
+    }
+  });
+
+  return () => unsub();
+ }, []);
 
   return <AuthContext.Provider value={{ user, loading }}>{children}</AuthContext.Provider>;
 };
