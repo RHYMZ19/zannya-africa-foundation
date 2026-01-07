@@ -10,7 +10,7 @@ import AdminUpload from "./components/AdminUpload";
 import { CartProvider } from "./context/CartContext";
 import { Product } from "./types/Product";
 import AdminOrders from "./components/AdminOrders";
-import Notifications from "./components/Notifications";
+
 
 
 const ShopClient: React.FC = () => {
@@ -33,7 +33,7 @@ const ShopClient: React.FC = () => {
           />
         )}
 
-        <Notifications />
+        
         <AdminOrders />
         <Cart />
         <AdminUpload />

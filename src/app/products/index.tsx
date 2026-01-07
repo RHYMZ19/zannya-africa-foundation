@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
-import App from "./ShopClient";
+import ShopClient from "./ShopClient";
 
 ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
-).render(<App />);
+).render(<ShopClient />);
