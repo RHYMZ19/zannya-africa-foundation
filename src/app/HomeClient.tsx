@@ -288,7 +288,7 @@ useEffect(() => {
   onMouseEnter={() => stopAutoScroll(newsInterval)}
   onMouseLeave={() => startAutoScroll(newsRef, newsInterval)}
 >
-  {news.slice(0, 7).map((item) => (
+  {news.slice(0, 5).map((item) => (
     <div key={item.id} className={styles.newsItem}>
       {item.images && item.images.length > 0 && (
         <Image
