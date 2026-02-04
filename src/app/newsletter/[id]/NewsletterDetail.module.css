@@ -40,6 +40,16 @@
   text-align: justify;         /* Justify text for neat edges */
   white-space: pre-wrap;       /* Preserve line breaks if present */
   word-break: break-word;      /* Avoid overflow on long words */
+  /* Default padding for mobile */
+  padding-inline: 16px;
+}
+
+@media (min-width: 769px) {
+  .description {
+    /* Match the image box flex size with a gap buffer */
+    padding-left: calc((100% - 400px - 20px) / 2); /* 400px = image width, 20px = gap in .topRow */
+    padding-right: calc((100% - 400px - 20px) / 2);
+  }
 }
 
 .by {

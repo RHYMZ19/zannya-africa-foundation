@@ -29,9 +29,14 @@
   border-radius: 8px;
 }
 
+
 .uploadform textarea {
   resize: vertical;
   height: 100px;
+
+  /* Preserve spacing and line breaks */
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .uploadform button {
@@ -70,3 +75,4 @@
     flex-direction: column;
   }
 }
+
