@@ -136,7 +136,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   flex: 2; /* takes 2/3 of row */
   background: #f9f9f9;
   padding: 15px;
-  border-left: 3px solid #1e3c72;
+  
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   white-space: pre-line;
@@ -356,7 +356,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   flex: 0 0 300px;
   background-color: #fff;
   padding: 1rem;
-  border-left: 4px solid #0070f3;
+  
   border-radius: 8px;
   min-width: 300px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -364,7 +364,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
 
 .newsitem:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  
 }
 
 /* Type badge */
