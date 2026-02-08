@@ -33,10 +33,12 @@
 .uploadform textarea {
   resize: vertical;
   min-height: 100px;  /* instead of height */
+
+  /* Preserve spacing and line breaks */
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  overflow-y: hidden;  /* for auto-expand */
 }
+
 
 .uploadform button {
   background-color: #008080;

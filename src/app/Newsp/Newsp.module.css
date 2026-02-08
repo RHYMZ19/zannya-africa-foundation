@@ -459,10 +459,11 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   flex: 1; /* both take equal width and stretch height */
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: transparent;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.08);
   overflow: hidden;
+
 }
 
 /* Optional: make the inside content scrollable if text is long */
@@ -678,4 +679,9 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+.details p,
+.moredetailscard p {
+  white-space: pre-wrap;
 }
