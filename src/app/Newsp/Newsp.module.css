@@ -461,7 +461,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   flex-direction: column;
   background: transparent;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  
   overflow: hidden;
 
 }
@@ -499,7 +499,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   padding: 16px;
   background: transparent;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  
   overflow: hidden;
 }
 
@@ -527,7 +527,7 @@ background: linear-gradient(to right, #fdffff, #fcfdfd);
   margin: 20px auto;          /* center horizontally with auto */
   padding: 20px;              /* spacing inside */
   background: #f9f9f9;
-  border-left: 4px solid #008080;
+  
   border-radius: 6px;
   max-width: 900px;           /* limits width */
   box-sizing: border-box;     /* ensures padding is included in width */
