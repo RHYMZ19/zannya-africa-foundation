@@ -11,6 +11,7 @@ import { FaHome, FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import IncreaseImages from "@/app/components/IncreaseImages";
 import ContactUs from "@/app/ContactUs/page";
+import Linkify from "linkify-react";
 
 interface NewsItem {
   id: string;
@@ -109,7 +110,11 @@ export default function NewsDetailsPageClient({ id }: Props) {
       {/* MORE DETAILS */}
       {newsItem.moreDetails && (
         <div className={styles.details}>
-          <p>{newsItem.moreDetails}</p>
+          <p>
+            <Linkify options={{ target: "_blank" }}>
+            {newsItem.moreDetails}
+            </Linkify>
+            </p>
         </div>
       )}
 

@@ -12,6 +12,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import IncreaseImages from "@/app/components/IncreaseImages";
 import Link from "next/link";
 import router from "next/router";
+import Linkify from "linkify-react";
 
 type NewsletterItem = {
   id: string;
@@ -127,11 +128,19 @@ export default function NewsletterDetailPage() {
     )}
 
     <div className={styles.subtitleBox}>
-      <p className={styles.subtitle}>{item.subtitle}</p>
+      <p className={styles.subtitle}>
+        <Linkify options={{ target: "_blank" }}>
+        {item.subtitle}
+        </Linkify>
+        </p>
     </div>
   </div>
 
-  <p className={styles.description}>{item.description}</p>
+  <p className={styles.description}>
+    <Linkify options={{ target: "_blank" }}>
+    {item.description}
+    </Linkify>
+    </p>
 
   <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong> You can follow us on our socialplatforms:</strong></p>
                                             <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
