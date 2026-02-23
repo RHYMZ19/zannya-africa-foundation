@@ -87,41 +87,7 @@ HamburgerIcon() {
                                     }}>Mission</a>
                                 </li>
 
-                                <li>
-                                    <a
-                                    href='#Mission'
-                                    style={{
-                                        textDecorationLine: 'underline',
-                                        color: '#fff', lineHeight: '2'
-                                    }}>Histories</a>
-                                </li>
-
-                                <li>
-                                    <a
-                                    href='#Mission'
-                                    style={{
-                                        textDecorationLine: 'underline',
-                                        color: '#fff', lineHeight: '2'
-                                    }}>leadership</a>
-                                </li>
-
-                                <li>
-                                    <a
-                                    href='#Mission'
-                                    style={{
-                                        textDecorationLine: 'underline',
-                                        color: '#fff', lineHeight: '2'
-                                    }}>Locations</a>
-                                </li>
-
-                                <li>
-                                    <a
-                                    href='#Mission'
-                                    style={{
-                                        textDecorationLine: 'underline',
-                                        color: '#fff', lineHeight: '2'
-                                    }}>Partners</a>
-                                </li>
+                                
                             </ul>
                         )}
                         
