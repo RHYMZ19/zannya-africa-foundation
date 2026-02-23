@@ -78,3 +78,35 @@
         font-size: 13px;
     }
 }
+
+
+/* this is for successs */
+.Y {
+  width: 90%; /* responsive width */
+  max-width: 1000px; /* optional max width for large screens */
+  min-height: 600px;
+  margin: 40px auto; /* center horizontally with vertical spacing */
+  padding: 40px 20px; /* internal padding */
+  border-radius: 10px; /* rounded corners */
+  color: black; /* text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
+  text-align: center;      /* center text inside */
+  
+  /* background gradient + image */
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 1)
+    ),
+    url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827092/zannya/uploads/i8t2ni57m9gzvoxojfxu.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* optional subtle shadow */
+}
+/*sucesss*/

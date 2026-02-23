@@ -99,7 +99,7 @@ export default function Successs() {
                     key={i}
                     src={img}
                     alt={story.title}
-                    style={{ width: '100%', margin: '10px 0', borderRadius: 8, cursor: 'pointer' }}
+                    className={styles.storyImage}
                     onClick={() => setSelectedImage(img)}
                   />
                 ))}
