@@ -110,7 +110,7 @@ export default function WeeklyNewsletterPage() {
     </p>
   </div>
 </div>
-   <h1 className={styles.title}>Weekly Newsletter</h1>
+   <h1 className={styles.title}>Articles</h1>
    
    {items.length === 0 && <p>No newsletters posted yet.</p>}
 
@@ -130,7 +130,18 @@ export default function WeeklyNewsletterPage() {
         )}
 
         <h2 className={styles.cardTitle}>{item.title}</h2>
-        <p className={styles.cardSubtitle}>{item.subtitle}</p>
+        
+        <p className={styles.cardSubtitle}>
+          {item.subtitle && item.subtitle.length > 60
+            ? `${item.subtitle.substring(0, 60)}... `
+            : item.subtitle}
+
+          {item.subtitle && item.subtitle.length > 60 && (
+            <Link href={`/newsletter/${item.id}`} className={styles.more}>
+              more
+            </Link>
+          )}
+        </p>
         <Link href={`/newsletter/${item.id}`}>
         <p className={styles.cardDescription}>
           {item.description && item.description.length > 100
