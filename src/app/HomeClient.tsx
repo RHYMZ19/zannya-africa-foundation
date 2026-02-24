@@ -264,7 +264,7 @@ useEffect(() => {
 
       {/*Weekly newsletter */}
       <section className={styles.successSection}>
-        <Divider title="Weekly Newsletter" />
+        <Divider title="Find interesting articles" />
 
         <div
           className={styles.scrollWrapper}

@@ -80,11 +80,11 @@ export default function NewsItemClient({ newsItem }: Props) {
       {moreDetails && (
         <div className={styles.moredetailscard} data-aos="fade-up">
           <p>
-            {moreDetails.length > 100
-              ? `${moreDetails.substring(0, 100)}... `
+            {moreDetails.length > 600
+              ? `${moreDetails.substring(0, 600)}... `
               : moreDetails}
 
-            {moreDetails.length > 100 && (
+            {moreDetails.length > 600 && (
               <Link href={`/Newsp/${id}`} className={styles.more}>
                 more
               </Link>
