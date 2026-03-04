@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import styles from "./Mainn/main.module.css";
+import styles from "./main.module.css";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
