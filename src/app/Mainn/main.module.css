@@ -160,3 +160,106 @@
     font-size: 32px;
   }
 }
+
+/* Cards Row */
+.cardsRow {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+/* Highlight Card with gradient border */
+.highlightCard {
+  flex: 1 1 30%;
+  border-radius: 16px;
+  padding: 2px; /* for gradient border effect */
+  background: linear-gradient(135deg, #0b3c5d, #f4a261);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.highlightCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* Inner card with white background */
+.cardInner {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+
+/* Card Image */
+.cardImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.cardInner:hover .cardImage {
+  transform: scale(1.08);
+}
+
+/* Card Content */
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardContent h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* Card Link with arrow circle */
+.cardLink {
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arrowCircle {
+  background: #f4a261;
+  color: #0b3c5d;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cardLink:hover .arrowCircle {
+  background: #0b3c5d;
+  color: #f4a261;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .highlightCard {
+    flex: 1 1 45%; /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 640px) {
+  .highlightCard {
+    flex: 1 1 100%; /* 1 card per row on mobile */
+  }
+}

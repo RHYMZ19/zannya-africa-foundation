@@ -129,6 +129,66 @@ export default function Home() {
         </p>
       </section>
 
+      {/* ================= HIGHLIGHTS CARDS ================= */}
+<section id="highlights" className={`${styles.section} ${styles.gray}`}>
+  <h2>Highlights</h2>
+  <div className={styles.cardsRow}>
+    {/* Success Stories Card */}
+    <div className={styles.highlightCard}>
+      <div className={styles.cardInner}>
+        <img
+          src="/images/success.jpg"
+          alt="Success Stories"
+          className={styles.cardImage}
+        />
+        <div className={styles.cardContent}>
+          <h3>Success Stories</h3>
+          <a href="#stories" className={styles.cardLink}>
+            <span>View More</span>
+            <div className={styles.arrowCircle}>→</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* News & Updates Card */}
+    <div className={styles.highlightCard}>
+      <div className={styles.cardInner}>
+        <img
+          src="/images/news.jpg"
+          alt="News & Updates"
+          className={styles.cardImage}
+        />
+        <div className={styles.cardContent}>
+          <h3>News & Updates</h3>
+          <a href="#news" className={styles.cardLink}>
+            <span>View More</span>
+            <div className={styles.arrowCircle}>→</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Upcoming Events Card */}
+    <div className={styles.highlightCard}>
+      <div className={styles.cardInner}>
+        <img
+          src="/images/events.jpg"
+          alt="Upcoming Events"
+          className={styles.cardImage}
+        />
+        <div className={styles.cardContent}>
+          <h3>Upcoming Events</h3>
+          <a href="#events" className={styles.cardLink}>
+            <span>View More</span>
+            <div className={styles.arrowCircle}>→</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
       {/* ================= RESOURCES ================= */}
       <section className={styles.section}>
         <h2>Resources</h2>
