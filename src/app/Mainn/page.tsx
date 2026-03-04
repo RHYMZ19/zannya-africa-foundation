@@ -101,34 +101,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= SUCCESS STORIES ================= */}
-      <section
-        id="stories"
-        className={`${styles.section} ${styles.gray}`}
-      >
-        <h2>Success Stories</h2>
-        <p>
-          Read inspiring stories from individuals whose lives have been
-          transformed through our programs.
-        </p>
-      </section>
-
-      {/* ================= NEWS ================= */}
-      <section className={styles.section}>
-        <h2>News & Updates</h2>
-        <p>Stay updated with our latest activities and achievements.</p>
-      </section>
-
-      {/* ================= EVENTS ================= */}
-      <section
-        className={`${styles.section} ${styles.gray}`}
-      >
-        <h2>Upcoming Events</h2>
-        <p>
-          Join our upcoming outreach programs and fundraising events.
-        </p>
-      </section>
-
+      
       {/* ================= HIGHLIGHTS CARDS ================= */}
 <section id="highlights" className={`${styles.section} ${styles.gray}`}>
   <h2>Highlights</h2>
@@ -189,13 +162,44 @@ export default function Home() {
   </div>
 </section>
 
-      {/* ================= RESOURCES ================= */}
-      <section className={styles.section}>
-        <h2>Resources</h2>
-        <p>
-          Access reports, publications, and learning materials.
-        </p>
-      </section>
+
+{/* ================= RESOURCES ================= */}
+<section id="resources" className={styles.section}>
+  <h2>Resources</h2>
+  <div className={styles.resourcesRow}>
+    {/* Research Papers */}
+    <div className={styles.resourceCard}>
+      <div className={styles.resourceIcon}>📄</div>
+      <h3>Research Papers</h3>
+      <p>Access in-depth research documents from our initiatives.</p>
+      <a href="/downloads/research-paper.pdf" download className={styles.downloadBtn}>
+        Download
+      </a>
+    </div>
+
+    {/* Reports */}
+    <div className={styles.resourceCard}>
+      <div className={styles.resourceIcon}>📊</div>
+      <h3>Reports</h3>
+      <p>View our annual and special reports for transparency.</p>
+      <a href="/downloads/report.pdf" download className={styles.downloadBtn}>
+        Download
+      </a>
+    </div>
+
+    {/* Case Studies */}
+    <div className={styles.resourceCard}>
+      <div className={styles.resourceIcon}>📁</div>
+      <h3>Case Studies</h3>
+      <p>Learn from our detailed case studies and success examples.</p>
+      <a href="/downloads/case-study.pdf" download className={styles.downloadBtn}>
+        Download
+      </a>
+    </div>
+  </div>
+</section>
+
+      
 
       {/* ================= SUPPORT US ================= */}
       <section
