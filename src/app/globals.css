@@ -96,3 +96,27 @@ h1, h2, a, h3, h4, h5, h6, li {
 p {
   margin: 0.5px !important;
 }
+
+
+:root {
+  --primary: #0b3c5d;
+  --accent: #f4a261;
+  --light: #f5f7fa;
+  --dark: #1e1e1e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: white;
+  color: var(--dark);
+}
