@@ -193,7 +193,7 @@ useEffect(() => {
           <div className={`${styles.heroButtons} ${styles.animateFadeIn} ${styles.delay400}`}>
             <Link href="/Internship" className={styles.ctaButton}>Get Involved</Link>
             <Link href="/Donates" className={styles.ctaButtonSecondary}>Donate</Link>
-            <Link href="/mainn" className={styles.ctaButtonSecondary}>Mainn</Link>
+            <Link href="/Mainn" className={styles.ctaButtonSecondary}>Mainn</Link>
           </div>
         </div>
       </section>
