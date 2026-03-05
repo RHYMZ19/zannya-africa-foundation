@@ -222,6 +222,57 @@ export default function Home() {
         </p>
       </section>
 
+
+      {/* ================= SUPPORT & GET INVOLVED ================= */}
+<section className={`${styles.section} ${styles.gray}`}>
+  <div className={styles.supportRow}>
+
+    {/* Support Us */}
+    <div className={styles.supportBox}>
+      <h2>Support Us</h2>
+
+      <div className={styles.supportIcons}>
+
+        <div className={styles.supportItem}>
+          <div className={styles.icon}>💳</div>
+          <p>Donate</p>
+        </div>
+
+        <div className={styles.supportItem}>
+          <div className={styles.icon}>🤝</div>
+          <p>Partner</p>
+        </div>
+
+        <div className={styles.supportItem}>
+          <div className={styles.icon}>⭐</div>
+          <p>Sponsor</p>
+        </div>
+
+        <div className={styles.supportItem}>
+          <div className={styles.icon}>🎯</div>
+          <p>Fundraise</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    {/* Get Involved */}
+    <div className={styles.involvedBox}>
+      <h2>Get Involved</h2>
+
+      <div className={styles.involvedBar}>
+        Become part of our mission by volunteering or partnering with us.
+      </div>
+
+      <button className={styles.btnPrimary}>
+        Join Us
+      </button>
+    </div>
+
+  </div>
+</section>
+
       {/* ================= CONTACT ================= */}
       <section
         id="contact"

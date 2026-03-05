@@ -326,3 +326,69 @@
 .downloadBtn:hover {
   background: #0b3c5d;
 }
+
+/* SUPPORT + INVOLVED ROW */
+.supportRow{
+  display:flex;
+  gap:3rem;
+  margin-top:2rem;
+  flex-wrap:wrap;
+}
+
+/* BOXES */
+.supportBox,
+.involvedBox{
+  flex:1 1 45%;
+}
+
+/* SUPPORT ICON GRID */
+.supportIcons{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.5rem;
+  margin-top:1.5rem;
+}
+
+/* SUPPORT ITEM */
+.supportItem{
+  background:white;
+  padding:1.5rem;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  transition:all 0.3s;
+}
+
+.supportItem:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* ICON */
+.icon{
+  font-size:2rem;
+  margin-bottom:0.5rem;
+}
+
+/* INVOLVED BAR */
+.involvedBar{
+  background:white;
+  padding:1.2rem;
+  border-radius:10px;
+  margin:1.5rem 0;
+  box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  .supportRow{
+    flex-direction:column;
+  }
+
+  .supportBox,
+  .involvedBox{
+    flex:1 1 100%;
+  }
+
+}
