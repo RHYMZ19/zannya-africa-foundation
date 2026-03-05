@@ -199,30 +199,6 @@ export default function Home() {
   </div>
 </section>
 
-      
-
-      {/* ================= SUPPORT US ================= */}
-      <section
-        className={`${styles.section} ${styles.gray}`}
-      >
-        <h2>Support Us</h2>
-        <p>
-          Your support helps us reach more communities and change more lives.
-        </p>
-        <button className={styles.btnPrimary}>
-          Donate Now
-        </button>
-      </section>
-
-      {/* ================= GET INVOLVED ================= */}
-      <section className={styles.section}>
-        <h2>Get Involved</h2>
-        <p>
-          Volunteer, partner with us, or become an ambassador.
-        </p>
-      </section>
-
-
       {/* ================= SUPPORT & GET INVOLVED ================= */}
 <section className={`${styles.section} ${styles.gray}`}>
   <div className={styles.supportRow}>
