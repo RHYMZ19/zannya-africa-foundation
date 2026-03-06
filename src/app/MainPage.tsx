@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import styles from "./main.module.css";
-import IncreaseImages from "../components/IncreaseImages";
+import IncreaseImages from "./components/IncreaseImages";
 import CountUp from "react-countup";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { collection, onSnapshot } from "firebase/firestore";
-import db from "../lib/firebase";
+import db from "./lib/firebase";
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaPhone } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
