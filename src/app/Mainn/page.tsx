@@ -1,15 +1,65 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./main.module.css";
+import IncreaseImages from "../components/IncreaseImages";
+import CountUp from "react-countup";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+type Resource = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  pdf: string;
+};
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const counterRef = useRef(null);
+  const [inView, setInView] = useState(false);
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [selectedResourceCategory, setSelectedResourceCategory] = useState<string | null>(null);
+
+  // Initialize AOS and IntersectionObserver
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+  const fetchResources = async () => {
+    const res = await fetch("/api/resources");
+    const data = await res.json();
+    setResources(data);
+  };
+
+  fetchResources();
+}, []);
 
   return (
     <>
       {/* ================= NAVBAR ================= */}
       <nav className={styles.navbar}>
-        <div className={styles.logo}>Organization</div>
+        <IncreaseImages src='/log.jpg' alt="Logo" />
+        <div className={styles.logo}>Zannya Africa Foundation</div>
 
         <div
           className={`${styles.navLinks} ${
@@ -21,7 +71,7 @@ export default function Home() {
           <a href="#impact">Impact</a>
           <a href="#stories">Stories</a>
           <a href="#contact">Contact</a>
-          <button className={styles.btnPrimary}>Donate</button>
+          <a href="/Donates" className={styles.btnPrimary}> Donate</a>
         </div>
 
         <div
@@ -35,10 +85,9 @@ export default function Home() {
       {/* ================= HERO ================= */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>Transforming Communities for a Better Tomorrow</h1>
+          <h1>Zannya Africa Foundation</h1>
           <p>
-            We empower lives through sustainable development, education,
-            innovation, and community-driven initiatives.
+           Changing communities through sports
           </p>
           <div className={styles.heroButtons}>
             <button className={styles.btnPrimary}>
@@ -55,8 +104,7 @@ export default function Home() {
       <section id="who" className={styles.section}>
         <h2>Who We Are</h2>
         <p>
-          We are a mission-driven organization committed to creating lasting
-          impact through education, empowerment, and community support.
+          Changing the community through sports. We work with unprivileged children, youth and women for their own development and the community at large using sports and recreation activities as an engine.
         </p>
       </section>
 
@@ -67,7 +115,7 @@ export default function Home() {
     
     {/* LEFT IMAGE */}
     <div className={styles.featuredImage}>
-      <img src="/images/articles.jpg" alt="Interesting Articles" />
+      <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758898506/zannya/uploads/images/ilyhjfpy0s8u8zvgbueg.jpg" alt="Interesting Articles" />
     </div>
 
     {/* RIGHT TEXT */}
@@ -79,8 +127,8 @@ export default function Home() {
         perspectives from our work in communities. Our articles highlight
         innovation, impact, and the voices of people driving change.
       </p>
-
-      <a href="/articles" className={styles.featuredButton}>
+  
+      <a href="/weekly-newsletter" className={styles.featuredButton}>
         Read Articles →
       </a>
     </div>
@@ -93,27 +141,27 @@ export default function Home() {
   id="programs"
   className={`${styles.section} ${styles.gray}`}
 >
-  <h2 className={styles.sectionTitle}>Our Programs</h2>
+  <h2 className={styles.sectionTitle}>Our Programs & Activities</h2>
 
   <div className={styles.programGrid}>
 
-    {/* EDUCATION */}
+    {/* Skilling */}
     <div className={styles.programCard}>
       <img
-        src="/programs/education.jpg"
+        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758450150/zannya/uploads/h5anrmy2jcid8qjrbbls.jpg"
         alt="Education"
         className={styles.programImage}
       />
 
       <div className={styles.programOverlay}>
-        <h3>Education</h3>
+        <h3>Skilling & Livelihood</h3>
 
         <p>
-          Providing scholarships, digital learning tools, and school
-          support to empower the next generation.
+         ZAF utilizes sports and recreation activities as a tool to enhance the 
+            ivelihood skills of underprivileged youth and women.
         </p>
 
-        <a href="#" className={styles.learnMore}>
+        <a href="/Programs" className={styles.learnMore}>
           Learn More →
         </a>
       </div>
@@ -122,20 +170,20 @@ export default function Home() {
     {/* HEALTH */}
     <div className={styles.programCard}>
       <img
-        src="/programs/health.jpg"
+        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758448906/zannya/uploads/cokcf4ojsqzzueeebtzh.jpg"
         alt="Health"
         className={styles.programImage}
       />
 
       <div className={styles.programOverlay}>
-        <h3>Health</h3>
+        <h3>Reproductive & Physical health awareness </h3>
 
         <p>
           Improving healthcare access through community outreach,
           awareness campaigns, and support programs.
         </p>
 
-        <a href="#" className={styles.learnMore}>
+        <a href="/Programs" className={styles.learnMore}>
           Learn More →
         </a>
       </div>
@@ -144,20 +192,20 @@ export default function Home() {
     {/* YOUTH */}
     <div className={styles.programCard}>
       <img
-        src="/programs/youth.jpg"
+        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064571/zannya/uploads/lpux4wqm27omuk9u15ei.jpg"
         alt="Youth Empowerment"
         className={styles.programImage}
       />
 
       <div className={styles.programOverlay}>
-        <h3>Youth Empowerment</h3>
+        <h3>Climate justice advocacy</h3>
 
         <p>
-          Equipping young people with skills, mentorship, and leadership
-          opportunities to shape their future.
+          This program leverages sports to promote climate policy advocacy, education, 
+                    and community engagement.
         </p>
 
-        <a href="#" className={styles.learnMore}>
+        <a href="/Programs" className={styles.learnMore}>
           Learn More →
         </a>
       </div>
@@ -166,24 +214,34 @@ export default function Home() {
   </div>
 </section>
 
+      <div>
       {/* ================= IMPACT ================= */}
-      <section id="impact" className={styles.section}>
+      <section id="impact" className={styles.section} ref={counterRef}>
         <h2>Our Impact</h2>
         <div className={styles.grid3}>
           <div className={styles.card}>
-            <h3>5,000+</h3>
+            <h3>
+              {inView ? <CountUp end={5000} duration={3} separator="," /> : 0}+
+            </h3>
             <p>Lives Transformed</p>
           </div>
+
           <div className={styles.card}>
-            <h3>50+</h3>
+            <h3>
+              {inView ? <CountUp end={50} duration={3} /> : 0}+
+            </h3>
             <p>Communities Reached</p>
           </div>
+
           <div className={styles.card}>
-            <h3>100+</h3>
+            <h3>
+              {inView ? <CountUp end={100} duration={3} /> : 0}+
+            </h3>
             <p>Volunteers Engaged</p>
           </div>
         </div>
       </section>
+    </div>
 
       
       {/* ================= HIGHLIGHTS CARDS ================= */}
@@ -194,13 +252,13 @@ export default function Home() {
     <div className={styles.highlightCard}>
       <div className={styles.cardInner}>
         <img
-          src="/images/success.jpg"
+          src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1756890840/zannya/success/mfh1xjdphnjokfqxtwqp.jpg"
           alt="Success Stories"
           className={styles.cardImage}
         />
         <div className={styles.cardContent}>
           <h3>Success Stories</h3>
-          <a href="#stories" className={styles.cardLink}>
+          <a href="/Successs" className={styles.cardLink}>
             <span>View More</span>
             <div className={styles.arrowCircle}>→</div>
           </a>
@@ -212,7 +270,7 @@ export default function Home() {
     <div className={styles.highlightCard}>
       <div className={styles.cardInner}>
         <img
-          src="/images/news.jpg"
+          src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023066/zannya/uploads/images/sps7gaj21stmytn7outn.jpg"
           alt="News & Updates"
           className={styles.cardImage}
         />
@@ -230,7 +288,7 @@ export default function Home() {
     <div className={styles.highlightCard}>
       <div className={styles.cardInner}>
         <img
-          src="/images/events.jpg"
+          src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023192/zannya/uploads/images/evtysd6cvwkgufpbfhcm.jpg"
           alt="Upcoming Events"
           className={styles.cardImage}
         />
@@ -250,15 +308,21 @@ export default function Home() {
 {/* ================= RESOURCES ================= */}
 <section id="resources" className={styles.section}>
   <h2>Resources</h2>
+
   <div className={styles.resourcesRow}>
+    
     {/* Research Papers */}
     <div className={styles.resourceCard}>
       <div className={styles.resourceIcon}>📄</div>
       <h3>Research Papers</h3>
       <p>Access in-depth research documents from our initiatives.</p>
-      <a href="/downloads/research-paper.pdf" download className={styles.downloadBtn}>
+
+      <button
+        className={styles.downloadBtn}
+        onClick={() => setSelectedResourceCategory("Research Papers")}
+      >
         Download
-      </a>
+      </button>
     </div>
 
     {/* Reports */}
@@ -266,9 +330,13 @@ export default function Home() {
       <div className={styles.resourceIcon}>📊</div>
       <h3>Reports</h3>
       <p>View our annual and special reports for transparency.</p>
-      <a href="/downloads/report.pdf" download className={styles.downloadBtn}>
+
+      <button
+        className={styles.downloadBtn}
+        onClick={() => setSelectedResourceCategory("Reports")}
+      >
         Download
-      </a>
+      </button>
     </div>
 
     {/* Case Studies */}
@@ -276,12 +344,68 @@ export default function Home() {
       <div className={styles.resourceIcon}>📁</div>
       <h3>Case Studies</h3>
       <p>Learn from our detailed case studies and success examples.</p>
-      <a href="/downloads/case-study.pdf" download className={styles.downloadBtn}>
+
+      <button
+        className={styles.downloadBtn}
+        onClick={() => setSelectedResourceCategory("Case Studies")}
+      >
         Download
-      </a>
+      </button>
     </div>
+
   </div>
 </section>
+
+{/* ================= RESOURCE MODAL ================= */}
+{selectedResourceCategory && (
+  <div className={styles.modalOverlay}>
+
+    <div className={styles.modalContent}>
+
+      <div className={styles.modalHeader}>
+        <h3>{selectedResourceCategory}</h3>
+
+        <button
+          className={styles.closeBtn}
+          onClick={() => setSelectedResourceCategory(null)}
+        >
+          ✕
+        </button>
+      </div>
+
+      <div className={styles.resourceList}>
+
+        {resources
+          .filter(res => res.category === selectedResourceCategory)
+          .map(res => (
+
+            <div key={res.id} className={styles.resourceItem}>
+
+              <div>
+                <strong>{res.title}</strong>
+                <p>{res.description}</p>
+              </div>
+
+              <a
+                href={res.pdf}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.downloadBtn}
+              >
+                Download PDF
+              </a>
+
+            </div>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+)}
 
       {/* ================= SUPPORT & GET INVOLVED ================= */}
 <section className={`${styles.section} ${styles.gray}`}>

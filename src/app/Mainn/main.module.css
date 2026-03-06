@@ -562,3 +562,108 @@
 }
 
 }
+
+/* HomeClient.module.css */
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card h3 {
+  font-size: 2rem;
+  color: #0b3c5d;
+}
+
+.card p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* resourcess */
+.resourceListContainer{
+  max-width:900px;
+  margin:auto;
+  padding:40px;
+}
+
+.resourceItem{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  border-bottom:1px solid #ddd;
+}
+
+.resourceItem p{
+  margin:5px 0;
+  color:#555;
+}
+
+/* MODAL OVERLAY */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* MODAL BOX */
+.modalContent {
+  background: white;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 10px;
+  padding: 30px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* HEADER */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* LIST */
+.resourceList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.resourceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4f4f4;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity:0; transform:scale(0.9); }
+  to { opacity:1; transform:scale(1); }
+}
