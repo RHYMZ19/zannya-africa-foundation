@@ -726,7 +726,7 @@ line-height:1.6;
 }
 
 .contactInfo a{
-color:#f4a261;
+color:#07273d;
 text-decoration:none;
 }
 
@@ -761,7 +761,7 @@ font-size:14px;
 }
 
 .contactForm button{
-background:#0b3c5d;
+background:#f4a261;
 color:white;
 border:none;
 padding:12px;
@@ -856,4 +856,57 @@ grid-template-columns:1fr;
     gap:30px;
   }
 
+}
+
+/* footer */
+.footer {
+  background-color: #0b3c5d; /* dark blue */
+  color: #f5f7fa; /* light text */
+  padding: 2rem 1rem 1rem 1rem;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.footerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footerSection {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerSection h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #f4a261; /* accent color */
+}
+
+.contactLinks a,
+.footerLink,
+.adminLink {
+  color: #f5f7fa;
+  text-decoration: none;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+}
+
+.contactLinks a:hover,
+.footerLink:hover,
+.adminLink:hover {
+  color: #f4a261;
+  text-decoration: underline;
+}
+
+.footerBottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #dcdcdc;
 }
