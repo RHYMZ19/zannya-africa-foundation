@@ -60,27 +60,111 @@ export default function Home() {
         </p>
       </section>
 
+
+      {/* ================= FEATURED ARTICLES ================= */}
+<section className={styles.featuredSection}>
+  <div className={styles.featuredContainer}>
+    
+    {/* LEFT IMAGE */}
+    <div className={styles.featuredImage}>
+      <img src="/images/articles.jpg" alt="Interesting Articles" />
+    </div>
+
+    {/* RIGHT TEXT */}
+    <div className={styles.featuredContent}>
+      <h2>Explore More of Our Interesting Articles</h2>
+
+      <p>
+        Discover powerful stories, insightful research, and inspiring
+        perspectives from our work in communities. Our articles highlight
+        innovation, impact, and the voices of people driving change.
+      </p>
+
+      <a href="/articles" className={styles.featuredButton}>
+        Read Articles →
+      </a>
+    </div>
+
+  </div>
+</section>
+
       {/* ================= PROGRAMS ================= */}
-      <section
-        id="programs"
-        className={`${styles.section} ${styles.gray}`}
-      >
-        <h2>Our Programs</h2>
-        <div className={styles.grid3}>
-          <div className={styles.card}>
-            <h3>Education</h3>
-            <p>Providing scholarships and learning resources.</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Health</h3>
-            <p>Improving access to healthcare services.</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Youth Empowerment</h3>
-            <p>Equipping young people with skills for success.</p>
-          </div>
-        </div>
-      </section>
+<section
+  id="programs"
+  className={`${styles.section} ${styles.gray}`}
+>
+  <h2 className={styles.sectionTitle}>Our Programs</h2>
+
+  <div className={styles.programGrid}>
+
+    {/* EDUCATION */}
+    <div className={styles.programCard}>
+      <img
+        src="/programs/education.jpg"
+        alt="Education"
+        className={styles.programImage}
+      />
+
+      <div className={styles.programOverlay}>
+        <h3>Education</h3>
+
+        <p>
+          Providing scholarships, digital learning tools, and school
+          support to empower the next generation.
+        </p>
+
+        <a href="#" className={styles.learnMore}>
+          Learn More →
+        </a>
+      </div>
+    </div>
+
+    {/* HEALTH */}
+    <div className={styles.programCard}>
+      <img
+        src="/programs/health.jpg"
+        alt="Health"
+        className={styles.programImage}
+      />
+
+      <div className={styles.programOverlay}>
+        <h3>Health</h3>
+
+        <p>
+          Improving healthcare access through community outreach,
+          awareness campaigns, and support programs.
+        </p>
+
+        <a href="#" className={styles.learnMore}>
+          Learn More →
+        </a>
+      </div>
+    </div>
+
+    {/* YOUTH */}
+    <div className={styles.programCard}>
+      <img
+        src="/programs/youth.jpg"
+        alt="Youth Empowerment"
+        className={styles.programImage}
+      />
+
+      <div className={styles.programOverlay}>
+        <h3>Youth Empowerment</h3>
+
+        <p>
+          Equipping young people with skills, mentorship, and leadership
+          opportunities to shape their future.
+        </p>
+
+        <a href="#" className={styles.learnMore}>
+          Learn More →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* ================= IMPACT ================= */}
       <section id="impact" className={styles.section}>
