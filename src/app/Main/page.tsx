@@ -11,6 +11,7 @@ import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaPhone } from "react-ic
 import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
+
 type Resource = {
   id: string;
   title: string;
@@ -19,7 +20,7 @@ type Resource = {
   pdf: string;
 };
 
-export default function Home() {
+export default function MainPage() {
   const [open, setOpen] = useState(false);
   const counterRef = useRef(null);
   const [inView, setInView] = useState(false);
@@ -570,7 +571,6 @@ export default function Home() {
         </a>
       </div>
     </div>
-
 
     {/* Right Side - Contact Form */}
     <div className={styles.contactForm}>
