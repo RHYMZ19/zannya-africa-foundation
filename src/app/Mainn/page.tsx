@@ -115,7 +115,7 @@ export default function Home() {
     
     {/* LEFT IMAGE */}
     <div className={styles.featuredImage}>
-      <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758898506/zannya/uploads/images/ilyhjfpy0s8u8zvgbueg.jpg" alt="Interesting Articles" />
+      <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1766645680/zannya/uploads/agevikfptarypojmcgjy.jpg" alt="Interesting Articles" />
     </div>
 
     {/* RIGHT TEXT */}
