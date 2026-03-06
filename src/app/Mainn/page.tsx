@@ -5,6 +5,8 @@ import IncreaseImages from "../components/IncreaseImages";
 import CountUp from "react-countup";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { collection, onSnapshot } from "firebase/firestore";
+import db from "../lib/firebase";
 
 type Resource = {
   id: string;
@@ -45,13 +47,23 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-  const fetchResources = async () => {
-    const res = await fetch("/api/resources");
-    const data = await res.json();
-    setResources(data);
-  };
+  const unsubscribe = onSnapshot(collection(db, "resources"), (snapshot) => {
+    const items = snapshot.docs.map((doc) => {
+      const data = doc.data();
 
-  fetchResources();
+      return {
+        id: doc.id,
+        title: data.title,
+        description: data.description,
+        category: data.category,
+        pdf: data.pdf,
+      };
+    });
+
+    setResources(items);
+  });
+
+  return () => unsubscribe();
 }, []);
 
   return (
