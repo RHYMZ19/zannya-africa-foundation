@@ -83,6 +83,7 @@ export default function Home() {
           <a href="#impact">Impact</a>
           <a href="#stories">Stories</a>
           <a href="#contact">Contact</a>
+          <a href="/Videos" >Gallery</a>
           <a href="/Donates" className={styles.btnPrimary}> Donate</a>
         </div>
 
