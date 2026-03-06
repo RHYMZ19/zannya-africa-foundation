@@ -117,12 +117,57 @@ export default function Home() {
       </section>
 
       {/* ================= WHO WE ARE ================= */}
-      <section id="who" className={styles.section}>
-        <h2>Who We Are</h2>
+<section id="who" className={styles.section}>
+  <div className={styles.whoContainer}>
+
+    {/* LEFT SIDE */}
+    <div className={styles.whoText}>
+      <h2>Who We Are</h2>
+
+      <p>
+        Zannya Africa Foundation is a community-driven organization committed
+        to transforming lives through sports and recreation. We work with
+        underprivileged children, youth, and women to promote empowerment,
+        social inclusion, and sustainable development.
+      </p>
+
+      <p>
+        Through innovative programs and partnerships, we use sports as a
+        powerful engine to inspire leadership, improve well-being, and
+        strengthen communities.
+      </p>
+    </div>
+
+
+    {/* RIGHT SIDE */}
+    <div className={styles.missionVisionBox}>
+
+      {/* Mission */}
+      <div className={styles.infoCard}>
+        <h3>Mission</h3>
         <p>
-          Changing the community through sports. We work with unprivileged children, youth and women for their own development and the community at large using sports and recreation activities as an engine.
+          To use sports as a tool for community development,
+          empowerment, and sustainability.
         </p>
-      </section>
+      </div>
+
+      {/* Vision */}
+      <div className={styles.infoCard}>
+        <h3>Vision</h3>
+        <p>
+          To change lives and build stronger and healthier
+          communities.
+        </p>
+      </div>
+
+      <a href="/Missions" className={styles.featuredButton}>
+        visit us →
+      </a>
+
+    </div>
+
+  </div>
+</section>
 
 
       {/* ================= FEATURED ARTICLES ================= */}
@@ -501,8 +546,8 @@ export default function Home() {
 
       <p>
         <strong>Website:</strong><br/>
-        <a href="https://www.zannyaafrica.org" target="_blank">
-          www.zannyaafrica.org
+        <a href="https://www.zannyaafricafoundation.org" target="_blank">
+          www.zannyaafricafoundation.org
         </a>
       </p>
 
