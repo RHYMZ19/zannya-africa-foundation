@@ -710,3 +710,88 @@
   from { opacity:0; transform:scale(0.9); }
   to { opacity:1; transform:scale(1); }
 }
+
+
+/*contact*/
+.contactGrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+margin-top:30px;
+}
+
+.contactInfo p{
+margin-bottom:15px;
+line-height:1.6;
+}
+
+.contactInfo a{
+color:#0b3c5d;
+text-decoration:none;
+}
+
+.socialIcons{
+display:flex;
+gap:20px;
+font-size:22px;
+margin-top:20px;
+}
+
+.socialIcons a{
+color:#333;
+transition:0.3s;
+}
+
+.socialIcons a:hover{
+color:#f4a261;
+}
+
+.contactForm form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.contactForm input,
+.contactForm textarea{
+padding:12px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+.contactForm button{
+background:#0b3c5d;
+color:white;
+border:none;
+padding:12px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.contactForm button:hover{
+background:#07273d;
+}
+
+.quickContact{
+display:flex;
+justify-content:center;
+gap:40px;
+font-size:30px;
+margin-top:40px;
+}
+
+.quickContact a{
+color:#333;
+transition:0.3s;
+}
+
+.quickContact a:hover{
+color:#f4a261;
+}
+
+@media(max-width:768px){
+.contactGrid{
+grid-template-columns:1fr;
+}
+}

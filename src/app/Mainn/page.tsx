@@ -7,6 +7,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { collection, onSnapshot } from "firebase/firestore";
 import db from "../lib/firebase";
+import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaPhone } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 type Resource = {
   id: string;
@@ -461,24 +464,140 @@ export default function Home() {
       <div className={styles.involvedBar}>
         Become part of our mission by volunteering or partnering with us.
       </div>
-
-      <button className={styles.btnPrimary}>
-        Join Us
-      </button>
+      <a href="/Internship" className={styles.btnPrimary}>Join Us</a>
     </div>
 
   </div>
 </section>
 
       {/* ================= CONTACT ================= */}
-      <section
-        id="contact"
-        className={`${styles.section} ${styles.gray}`}
+<section id="contact" className={`${styles.section} ${styles.gray}`}>
+  <h2 className={styles.contactTitle}>Contact Us</h2>
+
+  <div className={styles.contactGrid}>
+
+    {/* Left Side - Organization Info */}
+    <div className={styles.contactInfo}>
+      <h3>Zannya Africa Foundation</h3>
+
+      <p>
+        <strong>Address:</strong><br/>
+        Plot 2, Kati House, Nakasero, Ground Floor <br/>
+        P.O.Box 168040 Kampala, Uganda
+      </p>
+
+      <p>
+        <strong>Phone:</strong><br/>
+        +256 786 797 963 <br/>
+        +256 700 340 576
+      </p>
+
+      <p>
+        <strong>Email:</strong><br/>
+        <a href="mailto:zannyaafricafoundation@gmail.com">
+          zannyaafricafoundation@gmail.com
+        </a>
+      </p>
+
+      <p>
+        <strong>Website:</strong><br/>
+        <a href="https://www.zannyaafrica.org" target="_blank">
+          www.zannyaafrica.org
+        </a>
+      </p>
+
+      {/* Social Icons */}
+      <div className={styles.socialIcons}>
+        <a href="https://facebook.com/zannyaafricafoundation" target="_blank">
+          <FaFacebook />
+        </a>
+
+        <a href="https://instagram.com/zannya_africa_foundation" target="_blank">
+          <FaInstagram />
+        </a>
+
+        <a href="https://tiktok.com/@zannyaafricafdn" target="_blank">
+          <FaTiktok />
+        </a>
+
+        <a href="https://x.com/zannyaafrica" target="_blank">
+          <FaXTwitter />
+        </a>
+      </div>
+    </div>
+
+
+    {/* Right Side - Contact Form */}
+    <div className={styles.contactForm}>
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+
+          const formData = new FormData(e.currentTarget);
+
+          const res = await fetch("/api/sendContactMail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: formData.get("name"),
+              email: formData.get("email"),
+              message: formData.get("message"),
+            }),
+          });
+
+          if (res.ok) {
+            alert("Message sent successfully!");
+            e.currentTarget.reset();
+          } else {
+            alert("Failed to send message.");
+          }
+        }}
       >
-        <h2>Contact Us</h2>
-        <p>Email: info@organization.org</p>
-        <p>Phone: +256 XXX XXX XXX</p>
-      </section>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+
+        <textarea
+          name="message"
+          placeholder="Write your message..."
+          rows={5}
+          required
+        ></textarea>
+
+        <button type="submit">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  {/* Quick Contact Icons */}
+  <div className={styles.quickContact}>
+    <a href="mailto:info@zannyaafricafoundation.org">
+      <MdEmail />
+    </a>
+
+    <a href="https://wa.me/256786797963" target="_blank">
+      <FaWhatsapp />
+    </a>
+
+    <a href="tel:+256786797963">
+      <FaPhone />
+    </a>
+  </div>
+
+</section>
 
       {/* ================= FOOTER ================= */}
       <footer className={styles.footer}>

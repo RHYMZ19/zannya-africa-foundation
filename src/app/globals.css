@@ -120,7 +120,3 @@ body {
   background: white;
   color: var(--dark);
 }
-
-html, body {
-  overflow-x: hidden;
-}
