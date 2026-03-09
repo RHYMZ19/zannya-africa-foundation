@@ -223,9 +223,9 @@ export default function MainPage() {
             ivelihood skills of underprivileged youth and women.
         </p>
 
-        <a href="/Programs" className={styles.learnMore}>
-          Learn More →
-        </a>
+        <a href="/Programs?category=Skilling%20and%20Livelihood" className={styles.learnMore}>
+        Learn More →
+      </a>
       </div>
     </div>
 
@@ -245,9 +245,9 @@ export default function MainPage() {
           awareness campaigns, and support programs.
         </p>
 
-        <a href="/Programs" className={styles.learnMore}>
-          Learn More →
-        </a>
+        <a href="/Programs?category=Reproductive%20%26%20Physical%20Health%20Awareness" className={styles.learnMore}>
+         Learn More →
+       </a>
       </div>
     </div>
 
@@ -267,7 +267,7 @@ export default function MainPage() {
                     and community engagement.
         </p>
 
-        <a href="/Programs" className={styles.learnMore}>
+        <a href="/Programs?category=Climate%20Justice%20Advocacy" className={styles.learnMore}>
           Learn More →
         </a>
       </div>
