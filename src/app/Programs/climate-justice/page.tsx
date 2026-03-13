@@ -1,6 +1,6 @@
 'use client'
 
-import ProgramPage from "./components/ProgramPage"
+import ProgramPage from "../components/ProgramPage"
 
 const highlights = [
   {

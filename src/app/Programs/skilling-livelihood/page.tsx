@@ -1,5 +1,5 @@
 'use client';
-import ProgramPage from "./components/ProgramPage";
+import ProgramPage from "../components/ProgramPage";
 
 const highlights = [
   { title: "Youth Engagement", detail: "Sports and recreation as tools for life skills." },

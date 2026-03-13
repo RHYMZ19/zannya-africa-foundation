@@ -86,6 +86,42 @@ export default function MainPage() {
           <a href="#programs">Programs</a>
           <a href="#impact">Impact</a>
           <a href="#stories">Stories</a>
+          {/* RESOURCES DROPDOWN */}
+  <div className={styles.dropdown}>
+    <span className={styles.dropdownTitle}>Resources ▾</span>
+
+    <div className={styles.dropdownMenu}>
+
+      <a href="/articles" className={styles.dropdownItem}>
+        📰 Articles
+      </a>
+
+      <a
+        href="#"
+        className={styles.dropdownItem}
+        onClick={() => setSelectedResourceCategory("Research Papers")}
+      >
+        📄 Research Papers
+      </a>
+
+      <a
+        href="#"
+        className={styles.dropdownItem}
+        onClick={() => setSelectedResourceCategory("Reports")}
+      >
+        📊 Reports
+      </a>
+
+      <a
+        href="#"
+        className={styles.dropdownItem}
+        onClick={() => setSelectedResourceCategory("Case Studies")}
+      >
+        📁 Case Studies
+      </a>
+
+    </div>
+  </div>
           <a href="#contact">Contact</a>
           <a href="/Videos" >Gallery</a>
           <a href="/Donates" className={styles.btnPrimary}> Donate</a>

@@ -910,3 +910,44 @@ grid-template-columns:1fr;
   font-size: 0.9rem;
   color: #dcdcdc;
 }
+
+/* RESOURCES DROPDOWN */
+
+.dropdown{
+position: relative;
+}
+
+.dropdownTitle{
+cursor: pointer;
+font-weight: 500;
+}
+
+.dropdownMenu{
+position: absolute;
+top: 40px;
+left: 0;
+background: white;
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+border-radius: 10px;
+display: none;
+flex-direction: column;
+min-width: 200px;
+z-index: 1000;
+}
+
+.dropdownItem{
+padding: 12px 15px;
+text-decoration: none;
+color: #333;
+font-size: 15px;
+display: block;
+transition: background 0.3s;
+}
+
+.dropdownItem:hover{
+background: #f5f5f5;
+}
+
+.dropdown:hover .dropdownMenu{
+display: flex;
+}
