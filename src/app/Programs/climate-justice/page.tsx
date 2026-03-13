@@ -1,5 +1,4 @@
 'use client'; // Make this page a Client Component
-
 import ProgramPage from "../components/ProgramPage";
 
 // Program highlights
