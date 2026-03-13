@@ -18,7 +18,7 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import IncreaseIma from "./components/IncreaseIma";
 import { FaXTwitter } from "react-icons/fa6";
-import { useSearchParams } from "next/navigation";
+
 
 // Category titles
 const categories = {
@@ -48,20 +48,13 @@ export default function Programs() {
   const [visible, setVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [programs, setPrograms] = useState<Program[]>([]);
-  const searchParams = useSearchParams();
-
+  
   useEffect(() => {
     AOS.init({ duration: 1000 });
     setTimeout(() => setVisible(true), 100);
   }, []);
 
-  useEffect(() => {
-  const categoryFromUrl = searchParams.get("category");
-
-  if (categoryFromUrl) {
-    setSelectedCategory(categoryFromUrl);
-  }
-}, [searchParams]);
+  
 
   // Fetch programs from Firestore when category changes
   useEffect(() => {
