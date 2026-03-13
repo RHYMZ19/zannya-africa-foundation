@@ -1,7 +1,8 @@
-'use client';
+'use client'; // Make this page a Client Component
 
-import ProgramPage from "../components/ProgramPage"
+import ProgramPage from "../components/ProgramPage";
 
+// Program highlights
 const highlights = [
   {
     title: "Youth Engagement",
@@ -15,10 +16,10 @@ const highlights = [
     title: "Skill Development",
     detail: "Practical sessions to boost livelihood opportunities."
   }
-]
+];
 
+// Client Component page
 export default function ClimateJustice() {
-
   return (
     <ProgramPage
       title="Skilling & Livelihood"
@@ -27,8 +28,7 @@ export default function ClimateJustice() {
       highlights={highlights}
       ctaText="Learn More →"
     />
-  )
-
+  );
 }
 
 
