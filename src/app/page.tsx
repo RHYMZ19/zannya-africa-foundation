@@ -10,6 +10,7 @@ import db from "./lib/firebase";
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaPhone } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import Link from "next/link";
 
 
 type Resource = {
@@ -85,7 +86,6 @@ export default function MainPage() {
           <a href="#who">Who We Are</a>
           <a href="#programs">Programs</a>
           <a href="#impact">Impact</a>
-          <a href="#stories">Stories</a>
           {/* RESOURCES DROPDOWN */}
   <div className={styles.dropdown}>
     <span className={styles.dropdownTitle}>Resources ▾</span>
@@ -259,9 +259,9 @@ export default function MainPage() {
             ivelihood skills of underprivileged youth and women.
         </p>
 
-        <a href="/programs/SkillingLivelihood" className={styles.learnMore}>
+        <Link href="/programs/SkillingLivelihood" className={styles.learnMore}>
         Learn More →
-      </a>
+      </Link>
       </div>
     </div>
 
@@ -281,9 +281,9 @@ export default function MainPage() {
           awareness campaigns, and support programs.
         </p>
 
-        <a href="/programs/ReproductiveHealth" className={styles.learnMore}>
+        <Link href="/programs/ReproductiveHealth" className={styles.learnMore}>
          Learn More →
-       </a>
+       </Link>
       </div>
     </div>
 
@@ -303,9 +303,9 @@ export default function MainPage() {
                     and community engagement.
         </p>
 
-        <a href="/programs/ClimateJustice" className={styles.learnMore}>
+        <Link href="/programs/ClimateJustice" className={styles.learnMore}>
           Learn More →
-        </a>
+        </Link>
       </div>
     </div>
 
@@ -402,57 +402,6 @@ export default function MainPage() {
   </div>
 </section>
 
-
-{/* ================= RESOURCES ================= */}
-<section id="resources" className={styles.section}>
-  <h2>Resources</h2>
-
-  <div className={styles.resourcesRow}>
-    
-    {/* Research Papers */}
-    <div className={styles.resourceCard}>
-      <div className={styles.resourceIcon}>📄</div>
-      <h3>Research Papers</h3>
-      <p>Access in-depth research documents from our initiatives.</p>
-
-      <button
-        className={styles.downloadBtn}
-        onClick={() => setSelectedResourceCategory("Research Papers")}
-      >
-        Download
-      </button>
-    </div>
-
-    {/* Reports */}
-    <div className={styles.resourceCard}>
-      <div className={styles.resourceIcon}>📊</div>
-      <h3>Reports</h3>
-      <p>View our annual and special reports for transparency.</p>
-
-      <button
-        className={styles.downloadBtn}
-        onClick={() => setSelectedResourceCategory("Reports")}
-      >
-        Download
-      </button>
-    </div>
-
-    {/* Case Studies */}
-    <div className={styles.resourceCard}>
-      <div className={styles.resourceIcon}>📁</div>
-      <h3>Case Studies</h3>
-      <p>Learn from our detailed case studies and success examples.</p>
-
-      <button
-        className={styles.downloadBtn}
-        onClick={() => setSelectedResourceCategory("Case Studies")}
-      >
-        Download
-      </button>
-    </div>
-
-  </div>
-</section>
 
 {/* ================= RESOURCE MODAL ================= */}
 {selectedResourceCategory && (
