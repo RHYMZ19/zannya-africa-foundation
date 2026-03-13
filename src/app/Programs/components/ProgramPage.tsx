@@ -1,6 +1,6 @@
 'use client';
 
-import styles from "./ProgramPage.module.css";
+import styles from "../ProgramPage.module.css";
 
 type Highlight = {
   title: string;
