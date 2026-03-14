@@ -210,9 +210,9 @@ export default function ProgramPage({
       </section>
 
       {/* PROGRAM OBJECTIVES */}
-      
+      <h2 className={styles.UectionTitle}>Program Objectives</h2>
 <section className={styles.highlights}>
-  <h2 className={styles.UectionTitle}>Program Objectives</h2>
+  
 
   <div className={styles.highlightsGrid}>
     {highlights.map((item, index) => (
