@@ -132,9 +132,14 @@ export default function ProgramPage({
 
             {/* ================= RESOURCE MODAL ================= */}
             {selectedResourceCategory && (
-              <div className={styles.modalOverlay}>
+
+              <div className={styles.modalOverlay}
+              onClick={() => setSelectedResourceCategory(null)}
+              >
             
-                <div className={styles.modalContent}>
+                <div className={styles.modalContent}
+                onClick={(e) => e.stopPropagation()}
+                >
             
                   <div className={styles.modalHeader}>
                     <h3>{selectedResourceCategory}</h3>
@@ -189,8 +194,6 @@ export default function ProgramPage({
         <div className={styles.overlay}>
           <h1>{title}</h1>
           <p>{description}</p>
-          <button className={styles.cta}>{ctaText}</button>
-        </div>
       </section>
       
 
@@ -206,6 +209,7 @@ export default function ProgramPage({
 
       {/* HIGHLIGHTS */}
       <section className={styles.highlights}>
+        <h2 className={styles.sectionTitle}>Objectives</h2>
         {highlights.map((item, index) => (
           <div key={index} className={styles.card}>
             <div className={styles.icon}>⚽</div>
@@ -217,7 +221,7 @@ export default function ProgramPage({
 
       {/* ACTIVITIES */}
 <section className={styles.activities}>
-  <h2 className={styles.sectionTitle}>Program Activities</h2>
+  <h2 className={styles.sectionTitle}> Activities</h2>
 
   <div className={styles.activitiesGrid}>
     {activities.map((activity, index) => (
