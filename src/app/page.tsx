@@ -405,9 +405,15 @@ export default function MainPage() {
 
 {/* ================= RESOURCE MODAL ================= */}
 {selectedResourceCategory && (
-  <div className={styles.modalOverlay}>
+  <div
+    className={styles.modalOverlay}
+    onClick={() => setSelectedResourceCategory(null)}
+  >
 
-    <div className={styles.modalContent}>
+    <div
+      className={styles.modalContent}
+      onClick={(e) => e.stopPropagation()}
+    >
 
       <div className={styles.modalHeader}>
         <h3>{selectedResourceCategory}</h3>
@@ -575,13 +581,6 @@ export default function MainPage() {
 <footer className={styles.footer}>
   <div className={styles.footerContainer}>
     
-    {/* Contact Info */}
-    <div className={styles.footerSection}>
-      <h4>Contact Us</h4>
-      <div className={styles.contactLinks}>
-        <a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a>
-      </div>
-    </div>
 
     {/* Developer Credit */}
     <div className={styles.footerSection}>

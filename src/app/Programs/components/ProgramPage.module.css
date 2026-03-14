@@ -5,49 +5,68 @@
 
 /* HERO */
 
-.hero{
-  height:80vh;
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  /* fallback background color in case image fails */
+  background-color: rgba(11, 60, 93, 0.7);
 }
 
-.overlay{
-  background:rgba(0,0,0,0.6);
-  color:white;
-  text-align:center;
-  padding:3rem;
-  border-radius:20px;
-  max-width:700px;
+/* Optional: add a subtle gradient overlay over the image */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 60, 93, 0.5); /* semi-transparent overlay */
+  z-index: 1;
 }
 
-.overlay h1{
-  font-size:3rem;
-  margin-bottom:1rem;
+/* Keep your overlay content above the hero overlay */
+.overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6); /* your existing semi-transparent box */
+  color: white;
+  text-align: center;
+  padding: 3rem;
+  border-radius: 20px;
+  max-width: 700px;
 }
 
-.overlay p{
-  font-size:1.2rem;
-  margin-bottom:2rem;
+.overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-.cta{
-  background:#ff7a18;
-  border:none;
-  padding:1rem 2rem;
-  font-size:1.1rem;
-  color:white;
-  border-radius:10px;
-  cursor:pointer;
-  transition:0.3s;
+.overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-.cta:hover{
-  transform:scale(1.05);
+.cta {
+  background: #ff7a18;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
+.cta:hover {
+  transform: scale(1.05);
+}
+
 
 /* INTRO */
 
@@ -118,8 +137,8 @@
 .ctaSection{
   text-align:center;
   padding:5rem 2rem;
-  background:linear-gradient(135deg,#0077ff,#00c6ff);
-  color:white;
+  background:linear-gradient(135deg,#cfd3d8,#dde8eb);
+  color:#f4a261;
 }
 
 .bigButton{
@@ -226,20 +245,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding:15px;
   z-index: 999;
 }
 
 /* MODAL BOX */
 .modalContent {
-  background: white;
-  width: 90%;
-  max-width: 700px;
-  max-height: 80vh; /* important */
-  border-radius: 10px;
-  padding: 25px;
-  animation: fadeIn 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  background:white;
+
+  width:100%;
+  max-width:520px;     /* smaller than before */
+
+  max-height:75vh;
+  overflow:hidden;
+
+  border-radius:10px;
+  padding:22px;
+
+  animation:fadeIn 0.25s ease;
+
+  display:flex;
+  flex-direction:column;
 }
 
 /* HEADER */
@@ -266,27 +292,39 @@
   padding-right: 5px;
 }
 
-.resourceItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f4f4f4;
-  padding: 15px;
-  border-radius: 6px;
-  gap: 15px;
+.resourceItem{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:#f4f4f4;
+
+  padding:12px 14px;   /* smaller padding */
+  border-radius:6px;
+
+  gap:12px;
 }
 
 /* mobile fix */
-@media (max-width: 600px) {
-  .resourceItem {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width:600px){
+
+  .modalContent{
+    max-width:95%;
+    max-height:85vh;
+    padding:18px;
   }
 
-  .resourceItem a {
-    width: 100%;
-    text-align: center;
+  .resourceItem{
+    flex-direction:column;
+    align-items:flex-start;
+    width:100%;
   }
+
+  .resourceItem a{
+    width:100%;
+    text-align:center;
+  }
+
 }
 
 /* ANIMATION */

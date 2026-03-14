@@ -185,6 +185,7 @@ export default function ProgramPage({
           <button className={styles.cta}>{ctaText}</button>
         </div>
       </section>
+      
 
       {/* PROGRAM INTRO */}
       <section className={styles.intro}>
@@ -207,23 +208,6 @@ export default function ProgramPage({
         ))}
       </section>
 
-      {/* IMPACT */}
-      <section className={styles.impact}>
-        <div className={styles.stat}>
-          <h3>5,000+</h3>
-          <p>Youth Reached</p>
-        </div>
-
-        <div className={styles.stat}>
-          <h3>300+</h3>
-          <p>Women Empowered</p>
-        </div>
-
-        <div className={styles.stat}>
-          <h3>50+</h3>
-          <p>Community Programs</p>
-        </div>
-      </section>
 
       {/* CALL TO ACTION */}
       <section className={styles.ctaSection}>
