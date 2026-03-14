@@ -6,7 +6,7 @@
 /* HERO */
 
 .hero {
-  height: 90vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@
 .overlay {
   position: relative;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.6); /* your existing semi-transparent box */
+  background: rgba(0, 0, 0, 0.1); /* your existing semi-transparent box */
   color: white;
   text-align: center;
   padding: 3rem;
