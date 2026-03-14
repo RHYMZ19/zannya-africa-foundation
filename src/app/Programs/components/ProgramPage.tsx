@@ -208,33 +208,50 @@ export default function ProgramPage({
         </p>
       </section>
 
-      {/* HIGHLIGHTS */}
-      <section className={styles.highlights}>
-        <h2 className={styles.sectionTitle}>Objectives</h2>
-        {highlights.map((item, index) => (
-          <div key={index} className={styles.card}>
-            <div className={styles.icon}>⚽</div>
-            <h3>{item.title}</h3>
-            <p>{item.detail}</p>
-          </div>
-        ))}
-      </section>
+      {/* PROGRAM OBJECTIVES */}
+<section className={styles.highlights}>
+  <h2 className={styles.sectionTitle}>Program Objectives</h2>
 
-      {/* ACTIVITIES */}
-<section className={styles.activities}>
-  <h2 className={styles.sectionTitle}> Activities</h2>
+  <div className={styles.highlightsGrid}>
+    {highlights.map((item, index) => (
+      <div key={index} className={styles.objectiveCard}>
+        <div className={styles.objectiveIcon}>
+          {index === 0 && "🌱"}
+          {index === 1 && "👩"}
+          {index === 2 && "⚡"}
+          {index === 3 && "🌍"}
+        </div>
 
-  <div className={styles.activitiesGrid}>
-    {activities.map((activity, index) => (
-      <div key={index} className={styles.activityCard}>
-        <div className={styles.activityIcon}>🌍</div>
-        <h3>{activity.title}</h3>
-        <p>{activity.detail}</p>
+        <h3>{item.title}</h3>
+        <p>{item.detail}</p>
       </div>
     ))}
   </div>
 </section>
 
+
+{/* PROGRAM ACTIVITIES */}
+<section className={styles.activities}>
+  <h2 className={styles.sectionTitle}>Program Activities</h2>
+
+  <div className={styles.activitiesGrid}>
+    {activities.map((activity, index) => (
+      <div key={index} className={styles.activityCard}>
+
+        <div
+          className={styles.activityImage}
+          style={{ backgroundImage: `url(${activity.image})` }}
+        />
+
+        <div className={styles.activityContent}>
+          <h3>{activity.title}</h3>
+          <p>{activity.detail}</p>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* CALL TO ACTION */}
       <section className={styles.ctaSection}>

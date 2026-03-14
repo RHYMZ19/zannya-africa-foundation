@@ -537,11 +537,14 @@ display: flex;
   text-align:center;
 }
 
+
 .sectionTitle{
+  text-align:center;
   font-size:2.2rem;
-  margin-bottom:2.5rem;
-  color:#555;
+  margin-bottom:2rem;
+  color:#0077ff;
 }
+
 
 .activitiesGrid{
   display:grid;
@@ -566,4 +569,151 @@ display: flex;
 .activityIcon{
   font-size:2rem;
   margin-bottom:1rem;
+}
+
+.highlightsGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* SECTION TITLE */
+
+.sectionTitle{
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:3rem;
+  color:#0b3c5d;
+}
+
+
+/* OBJECTIVES */
+
+.highlights{
+  padding:5rem 2rem;
+  background:#f8fafc;
+}
+
+.highlightsGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+  max-width:1200px;
+  margin:auto;
+}
+
+.objectiveCard{
+  background:white;
+  padding:2.5rem 2rem;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  transition:all 0.35s ease;
+  border-top:5px solid #f4a261;
+}
+
+.objectiveCard:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.objectiveIcon{
+  font-size:3rem;
+  margin-bottom:1rem;
+}
+
+.objectiveCard h3{
+  font-size:1.4rem;
+  margin-bottom:0.5rem;
+  color:#0b3c5d;
+}
+
+.objectiveCard p{
+  font-size:0.95rem;
+  color:#555;
+}
+
+
+
+/* ACTIVITIES */
+
+.activities{
+  padding:5rem 2rem;
+  background:white;
+}
+
+.activitiesGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;
+  max-width:1200px;
+  margin:auto;
+}
+
+
+/* ACTIVITY CARD */
+
+.activityCard{
+  border-radius:18px;
+  overflow:hidden;
+  background:white;
+  box-shadow:0 8px 25px rgba(0,0,0,0.1);
+  transition:transform 0.35s ease;
+}
+
+.activityCard:hover{
+  transform:translateY(-8px);
+}
+
+
+/* IMAGE */
+
+.activityImage{
+  height:200px;
+  background-size:cover;
+  background-position:center;
+  transition:transform 0.4s ease;
+}
+
+.activityCard:hover .activityImage{
+  transform:scale(1.08);
+}
+
+
+/* CONTENT */
+
+.activityContent{
+  padding:1.5rem;
+}
+
+.activityContent h3{
+  font-size:1.3rem;
+  margin-bottom:0.5rem;
+  color:#0b3c5d;
+}
+
+.activityContent p{
+  font-size:0.95rem;
+  color:#555;
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .sectionTitle{
+    font-size:2rem;
+  }
+
+  .objectiveCard{
+    padding:2rem 1.5rem;
+  }
+
+  .activityImage{
+    height:180px;
+  }
+
 }
