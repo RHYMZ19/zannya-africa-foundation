@@ -22,6 +22,7 @@ type Highlight = {
 type Activity = {
   title: string;
   detail: string;
+  image: string;
 };
 
 type ProgramPageProps = {
