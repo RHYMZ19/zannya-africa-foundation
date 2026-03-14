@@ -35,6 +35,7 @@ export default function ReproductiveHealth () {
       description="ZAF utilizes sports and recreation activities as a tool to enhance the livelihood skills of underprivileged youth and women."
       image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg"
       highlights={highlights}
+      activities={activities}
       ctaText="Learn More →"
     />
   );

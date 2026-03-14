@@ -35,6 +35,7 @@ export default function SkillingLivelihood() {
       description="ZAF utilizes sports and recreation activities as a tool to enhance the livelihood skills of underprivileged youth and women."
       image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064571/zannya/uploads/lpux4wqm27omuk9u15ei.jpg"
       highlights={highlights}
+      activities={activities}
       ctaText="Learn More →"
     />
   );
