@@ -194,6 +194,7 @@ export default function ProgramPage({
         <div className={styles.overlay}>
           <h1>{title}</h1>
           <p>{description}</p>
+        </div>
       </section>
       
 
