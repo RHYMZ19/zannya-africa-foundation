@@ -210,9 +210,9 @@ export default function ProgramPage({
       </section>
 
       {/* PROGRAM OBJECTIVES */}
-      <h2 className={styles.sectionTitle}>Program Objectives</h2>
+      
 <section className={styles.highlights}>
-  
+  <h2 className={styles.UectionTitle}>Program Objectives</h2>
 
   <div className={styles.highlightsGrid}>
     {highlights.map((item, index) => (
@@ -234,7 +234,7 @@ export default function ProgramPage({
 
 {/* PROGRAM ACTIVITIES */}
 <section className={styles.activities}>
-  <h2 className={styles.UectionTitle}>Program Activities</h2>
+  <h2 className={styles.sectionTitle}>Program Activities</h2>
 
   <div className={styles.activitiesGrid}>
     {activities.map((activity, index) => (

@@ -646,6 +646,13 @@ display: flex;
   color:#555;
 }
 
+@media (max-width: 768px){
+
+  .highlightsGrid{
+    grid-template-columns:1fr;
+  }
+
+}
 
 
 /* ACTIVITIES */
