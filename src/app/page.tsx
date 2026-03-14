@@ -454,7 +454,7 @@ export default function MainPage() {
   </div>
 )}
 
-      {/* ================= SUPPORT & GET INVOLVED ================= */}
+      {/* ================= SUPPORT & CONTACT ================= */}
 <section className={`${styles.section} ${styles.gray}`}>
   <div className={styles.supportRow}>
 
@@ -462,76 +462,67 @@ export default function MainPage() {
     <div className={styles.supportBox}>
       <h2>Support Us</h2>
 
-      <div className={styles.supportIcons}>
+      <div className={styles.supportIconsWrapper}>
 
-        <div className={styles.supportItem}>
-          <div className={styles.icon}>💳</div>
-          <p>Donate</p>
+        <div className={styles.supportIcons}>
+
+          <div className={styles.supportItem}>
+            <div className={styles.icon}>💳</div>
+            <p>Donate</p>
+          </div>
+
+          <div className={styles.supportItem}>
+            <div className={styles.icon}>🤝</div>
+            <p>Partner</p>
+          </div>
+
+          <div className={styles.supportItem}>
+            <div className={styles.icon}>⭐</div>
+            <p>Sponsor</p>
+          </div>
+
+          <div className={styles.supportItem}>
+            <div className={styles.icon}>🎯</div>
+            <p>Fundraise</p>
+          </div>
+
         </div>
 
-        <div className={styles.supportItem}>
-          <div className={styles.icon}>🤝</div>
-          <p>Partner</p>
-        </div>
-
-        <div className={styles.supportItem}>
-          <div className={styles.icon}>⭐</div>
-          <p>Sponsor</p>
-        </div>
-
-        <div className={styles.supportItem}>
-          <div className={styles.icon}>🎯</div>
-          <p>Fundraise</p>
-        </div>
+        {/* CENTER BUTTON */}
+        <a href="/Internship" className={styles.joinCircle}>
+          Join Us
+        </a>
 
       </div>
     </div>
 
 
-    {/* Get Involved */}
+    {/* CONTACT (replaces Get Involved) */}
     <div className={styles.involvedBox}>
-      <h2>Get Involved</h2>
-
-      <div className={styles.involvedBar}>
-        Become part of our mission by volunteering or partnering with us.
-      </div>
-      <a href="/Internship" className={styles.btnPrimary}>Join Us</a>
-    </div>
-
-  </div>
-</section>
-
-      {/* ================= CONTACT ================= */}
-<section id="contact" className={`${styles.section} ${styles.gray}`}>
-  <h2 className={styles.contactTitle}>Contact Us</h2>
-
-  <div className={styles.contactGrid}>
-
-    {/* Left Side - Organization Info */}
-    <div className={styles.contactInfo}>
-      <h3>Zannya Africa Foundation</h3>
+      <h2 className={styles.contactTitle}>Contact Us</h2>
 
       <p>
-        <strong>Address:</strong><br/>
+        <strong>Zannya Africa Foundation</strong>
+      </p>
+
+      <p>
         Plot 2, Kati House, Nakasero, Ground Floor <br/>
         P.O.Box 168040 Kampala, Uganda
       </p>
 
       <p>
-        <strong>Phone:</strong><br/>
+        <strong>Phone</strong><br/>
         +256 786 797 963 <br/>
         +256 700 340 576
       </p>
 
       <p>
-        <strong>Email:</strong><br/>
-        <a href="mailto:zannyaafricafoundation@gmail.com">
-          zannyaafricafoundation@gmail.com
-        </a>
+        <strong>Email</strong><br/>
+        <a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a>
       </p>
 
       <p>
-        <strong>Website:</strong><br/>
+        <strong>Website</strong><br/>
         <a href="https://www.zannyaafricafoundation.org" target="_blank">
           www.zannyaafricafoundation.org
         </a>
@@ -555,64 +546,8 @@ export default function MainPage() {
           <FaXTwitter />
         </a>
       </div>
-    </div>
 
-    {/* Right Side - Contact Form */}
-    <div className={styles.contactForm}>
-      <form
-        onSubmit={async (e) => {
-          e.preventDefault();
-
-          const formData = new FormData(e.currentTarget);
-
-          const res = await fetch("/api/sendContactMail", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name: formData.get("name"),
-              email: formData.get("email"),
-              message: formData.get("message"),
-            }),
-          });
-
-          if (res.ok) {
-            alert("Message sent successfully!");
-            e.currentTarget.reset();
-          } else {
-            alert("Failed to send message.");
-          }
-        }}
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          required
-        />
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          required
-        />
-
-        <textarea
-          name="message"
-          placeholder="Write your message..."
-          rows={5}
-          required
-        ></textarea>
-
-        <button type="submit">
-          Send Message
-        </button>
-      </form>
-    </div>
-
-  </div>
-
-  {/* Quick Contact Icons */}
+      {/* Quick Contact Icons */}
   <div className={styles.quickContact}>
     <a href="mailto:info@zannyaafricafoundation.org">
       <MdEmail />
@@ -627,7 +562,14 @@ export default function MainPage() {
     </a>
   </div>
 
+    </div>
+
+  </div>
 </section>
+
+      
+
+  
 
       {/* ================= FOOTER ================= */}
 <footer className={styles.footer}>
@@ -638,7 +580,6 @@ export default function MainPage() {
       <h4>Contact Us</h4>
       <div className={styles.contactLinks}>
         <a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a>
-        <a href="mailto:support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a>
       </div>
     </div>
 
