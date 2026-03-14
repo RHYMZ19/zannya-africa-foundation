@@ -19,11 +19,17 @@ type Highlight = {
   detail: string;
 };
 
+type Activity = {
+  title: string;
+  detail: string;
+};
+
 type ProgramPageProps = {
   title: string;
   description: string;
   image: string;
   highlights: Highlight[];
+  activities: Activity[];
   ctaText: string;
 };
 
@@ -32,6 +38,7 @@ export default function ProgramPage({
   description,
   image,
   highlights,
+  activities,
   ctaText
 }: ProgramPageProps) {
 
@@ -168,7 +175,7 @@ export default function ProgramPage({
                     ))}
             
                   </div>
-            
+
                 </div>
             
               </div>
@@ -207,6 +214,21 @@ export default function ProgramPage({
           </div>
         ))}
       </section>
+
+      {/* ACTIVITIES */}
+<section className={styles.activities}>
+  <h2 className={styles.sectionTitle}>Program Activities</h2>
+
+  <div className={styles.activitiesGrid}>
+    {activities.map((activity, index) => (
+      <div key={index} className={styles.activityCard}>
+        <div className={styles.activityIcon}>🌍</div>
+        <h3>{activity.title}</h3>
+        <p>{activity.detail}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
 
       {/* CALL TO ACTION */}

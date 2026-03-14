@@ -17,6 +17,26 @@ const highlights = [
   }
 ];
 
+// Program Activities
+const activities = [
+  {
+    title: "Community Football Tournaments",
+    detail: "Organizing football tournaments that bring youth together while educating them about climate action and environmental responsibility."
+  },
+  {
+    title: "Tree Planting Campaigns",
+    detail: "Youth participate in tree planting after sports events to restore the environment and promote climate justice."
+  },
+  {
+    title: "Climate Education Workshops",
+    detail: "Training sessions that teach young athletes about climate change, sustainability, and environmental protection."
+  },
+  {
+    title: "Community Clean-up Drives",
+    detail: "Sports teams organize clean-up campaigns in their communities to promote environmental responsibility."
+  }
+];
+
 // Client Component page
 export default function ClimateJustice() {
   return (
@@ -25,6 +45,7 @@ export default function ClimateJustice() {
       description="ZAF utilizes sports and recreation activities as a tool to enhance the livelihood skills of underprivileged youth and women."
       image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064544/zannya/uploads/ioeyybvowmrjwoe0llpl.jpg"
       highlights={highlights}
+      activities={activities}
       ctaText="Learn More →"
     />
   );
