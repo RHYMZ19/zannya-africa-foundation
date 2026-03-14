@@ -233,7 +233,7 @@ export default function ProgramPage({
 
 {/* PROGRAM ACTIVITIES */}
 <section className={styles.activities}>
-  <h2 className={styles.sectionTitle}>Program Activities</h2>
+  <h2 className={styles.UectionTitle}>Program Activities</h2>
 
   <div className={styles.activitiesGrid}>
     {activities.map((activity, index) => (
