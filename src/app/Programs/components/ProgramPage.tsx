@@ -179,11 +179,11 @@ export default function ProgramPage({
         className={styles.hero}
         style={{ backgroundImage: `url(${image})` }}
       >
-        <div className={styles.overlay}>
+        
           <h1>{title}</h1>
           <p>{description}</p>
           <button className={styles.cta}>{ctaText}</button>
-        </div>
+        
       </section>
       
 
