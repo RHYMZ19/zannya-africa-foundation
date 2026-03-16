@@ -374,10 +374,10 @@ export default function MainPage() {
         />
         <div className={styles.cardContent}>
           <h3>News & Updates</h3>
-          <a href="#news" className={styles.cardLink}>
+          <Link href="/News" className={styles.cardLink}>
             <span>View More</span>
             <div className={styles.arrowCircle}>→</div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -504,7 +504,7 @@ export default function MainPage() {
 
 
     {/* CONTACT (replaces Get Involved) */}
-    <div className={styles.involvedBox}>
+    <div  id="#contact" className={styles.involvedBox}>
       <h2 className={styles.contactTitle}>Contact Us</h2>
 
       <p>
