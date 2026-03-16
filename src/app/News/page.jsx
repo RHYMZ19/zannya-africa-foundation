@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { db } from "../../lib/firebase"
+import { db } from "../lib/firebase"
+
 import { collection, getDocs } from "firebase/firestore"
 import styles from "./News.module.css"
 
