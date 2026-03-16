@@ -13,7 +13,7 @@ const [video,setVideo]=useState("")
 const [source,setSource]=useState("website")
 const [link,setLink]=useState("")
 
-const submitNews = async(e)=>{
+const submitNews = async (e: React.FormEvent<HTMLFormElement>) => {
 e.preventDefault()
 
 await addDoc(collection(db,"news"),{
