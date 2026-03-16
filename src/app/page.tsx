@@ -596,7 +596,6 @@ export default function MainPage() {
       <a href="/Terms" className={styles.footerLink}>Privacy Policy & Legal Terms</a>
       <a href="/adminpannel" className={styles.adminLink}>Admin Panel</a>
     </div>
-
   </div>
 
   {/* Bottom Bar */}

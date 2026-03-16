@@ -79,9 +79,8 @@ export default function ProgramPage({
                   open ? styles.active : ""
                 }`}
               >
-                <a href="#who">Who We Are</a>
-                <a href="#programs">Programs</a>
-                <a href="#impact">Impact</a>
+                <a href="/">Home</a>
+                
                 {/* RESOURCES DROPDOWN */}
         <div className={styles.dropdown}>
           <span className={styles.dropdownTitle}>Resources ▾</span>
@@ -118,7 +117,7 @@ export default function ProgramPage({
       
           </div>
         </div>
-                <a href="#contact">Contact</a>
+                
                 <a href="/Videos" >Gallery</a>
                 <a href="/Donates" className={styles.btnPrimary}> Donate</a>
               </div>

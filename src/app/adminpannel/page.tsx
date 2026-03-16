@@ -12,6 +12,7 @@ import SuccessAdmin from '../SuccessAdmin/page';
 import ResoAdmin from '../ResoAdmin/page';
 import AdminEvents from '../UpcomingEvents/AdminEvents/AdminEvents';
 import WeeklyNewsletterAdmin from '../components/WeeklyNewsletterAdmin';
+import NewsAdmin from '../News/admin';
 
 
 
@@ -95,6 +96,10 @@ if (loading) {
 
         <div>
             <WeeklyNewsletterAdmin></WeeklyNewsletterAdmin>
+        </div>
+
+        <div>
+            <NewsAdmin />
         </div>
 
         </div>
