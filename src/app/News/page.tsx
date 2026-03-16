@@ -15,9 +15,18 @@ type Resource = {
   pdf: string;
 };
 
+type Post = {
+  id: string
+  title: string
+  description: string
+  image?: string
+  link?: string
+  source?: string
+}
+
 export default function NewsPage(){
 
-const [posts,setPosts] = useState([])
+const [posts,setPosts] = useState<Post[]>([])
 const [filter,setFilter] = useState("all")
 const [resources, setResources] = useState<Resource[]>([]);
 const [selectedResourceCategory, setSelectedResourceCategory] = useState<string | null>(null);
@@ -49,9 +58,9 @@ fetchPosts()
 
 const fetchPosts = async ()=>{
 const querySnapshot = await getDocs(collection(db,"news"))
-const data = querySnapshot.docs.map(doc=>({
-id:doc.id,
-...doc.data()
+const data: Post[] = querySnapshot.docs.map(doc => ({
+  id: doc.id,
+  ...(doc.data() as Omit<Post,"id">)
 }))
 setPosts(data)
 }
