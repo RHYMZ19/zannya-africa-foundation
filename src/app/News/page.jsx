@@ -69,7 +69,7 @@ allowFullScreen
 </div>
 
 <a href={post.link} target="_blank" rel="noopener noreferrer">
-Read More
+Read Mor
 </a>
 
 </div>
