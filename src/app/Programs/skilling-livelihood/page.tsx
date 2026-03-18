@@ -2,36 +2,42 @@
 import ProgramPage from "../components/ProgramPage";
 
 const highlights = [
-  { title: "Youth Engagement", detail: "Sports and recreation as tools for life skills." },
-  { title: "Women Empowerment", detail: "Training and mentorship programs for women." },
-  { title: "Skill Development", detail: "Practical sessions to boost livelihood opportunities." }
+  { title: "employability", detail: "To enhance employability and income generating opportunities for 350youth & Women in urban slums of Uganda by 2028. " },
+  { title: "sports talent", detail: "To promote sports talent and healthy lifestyles among 500 Youth & women in urban slums of Kampala by 2028. " },
+  { title: "community engagement", detail: "To Foster community engagement and Social Cohesion for xxx" }
 ];
 
 // Program Activities
 const activities = [
   {
-    title: "Community Football Tournaments",
-    detail: "Organizing football tournaments that bring youth together while educating them about climate action and environmental responsibility.",
+    title: "Sports training events",
+    detail: " To Organise quarterly Sports training events & Competition targeting 4 Schools,1,000 Youth in urban slums of Uganda by 2028. ",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg"
   },
   {
-    title: "Tree Planting Campaigns",
-    detail: "Youth participate in tree planting after sports events to restore the environment and promote climate justice.",
+    title: "sports related Entrepreneurship",
+    detail: " To Conduct quarterly Life skills & sports related Entrepreneurship trainings for 1,000 Youths and Women in Urban slums of Uganda by 2028.  ",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023192/zannya/uploads/images/evtysd6cvwkgufpbfhcm.jpg"
   },
   {
-    title: "Climate Education Workshops",
-    detail: "Training sessions that teach young athletes about climate change, sustainability, and environmental protection.",
+    title: "Internship",
+    detail: "To conduct bi-annual Job placements & Internship for 300 youth and Women graduates from Entrepreneurship and Life skills program from Urban slums of Uganda by 2028. ",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023469/zannya/uploads/images/yfrz57qsu50uvpottbzq.jpg"
   },
   {
-    title: "Community Clean-up Drives",
-    detail: "Sports teams organize clean-up campaigns in their communities to promote environmental responsibility.",
+    title: "Sports for development events",
+    detail: "Organise bi-annual Sports for development events targeting 500 Youth and Women in Urban slums of Kampala by 2028.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756829071/zannya/uploads/kngkholnlp6wvmzq4pa8.jpg"
+  },
+  {
+    title: "Mentorship & Coaching in sports",
+    detail: "To Provide Mentorship & Coaching in sports, Career choices, Business management, record keeping, Financial Literacy, Talent spotting & development, officiating, ICT and work readiness skills to 500 in Urban slums of Kampala by 2028. ",
+    image:
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg"
   }
 ];
 
@@ -39,9 +45,11 @@ const activities = [
 export default function SkillingLivelihood() {
   return (
     <ProgramPage
-      title="Skilling & Livelihood"
-      description="ZAF utilizes sports and recreation activities as a tool to enhance the livelihood skills of underprivileged youth and women."
+      title=" SPORTS FOR ENHANCED LIVELIHOOD AND ECONOMIC EMPOWERMENT."
+      description=""
       image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064571/zannya/uploads/lpux4wqm27omuk9u15ei.jpg"
+      intro="To empower 4,500 Youth & Women in urban slums of Uganda to attain sustainable 
+       livelihood and economic stability and wellbeing through sports-based initiatives by Dec 2028. "
       highlights={highlights}
       activities={activities}
       ctaText="Learn More →"

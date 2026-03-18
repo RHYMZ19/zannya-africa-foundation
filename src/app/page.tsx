@@ -95,7 +95,7 @@ export default function MainPage() {
       <a href="/articles" className={styles.dropdownItem}>
         📰 Articles
       </a>
-
+      
       <a
         href="#"
         className={styles.dropdownItem}

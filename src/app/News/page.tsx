@@ -78,7 +78,7 @@ return(
             <nav className={styles.navbar}>
               <IncreaseImages src='/log.jpg' alt="Logo" />
               <div className={styles.logo}>Zannya Africa Foundation</div>
-      
+              
               <div
                 className={`${styles.navLinks} ${
                   open ? styles.active : ""

@@ -32,6 +32,12 @@ const activities = [
     detail: "Sports teams organize clean-up campaigns in their communities to promote environmental responsibility.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756829071/zannya/uploads/kngkholnlp6wvmzq4pa8.jpg"
+  },
+  {
+    title: "Community Clean-up Drives",
+    detail: "Sports teams organize clean-up campaigns in their communities to promote environmental responsibility.",
+    image:
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg"
   }
 ];
 
@@ -42,6 +48,7 @@ export default function ReproductiveHealth () {
       title="Skilling & Livelihood"
       description="ZAF utilizes sports and recreation activities as a tool to enhance the livelihood skills of underprivileged youth and women."
       image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg"
+      intro=""
       highlights={highlights}
       activities={activities}
       ctaText="Learn More →"

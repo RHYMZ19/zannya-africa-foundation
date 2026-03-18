@@ -28,6 +28,7 @@ type Activity = {
 type ProgramPageProps = {
   title: string;
   description: string;
+  intro: string;
   image: string;
   highlights: Highlight[];
   activities: Activity[];
@@ -37,6 +38,7 @@ type ProgramPageProps = {
 export default function ProgramPage({
   title,
   description,
+  intro,
   image,
   highlights,
   activities,
@@ -90,7 +92,7 @@ export default function ProgramPage({
             <a href="/articles" className={styles.dropdownItem}>
               📰 Articles
             </a>
-      
+
             <a
               href="#"
               className={styles.dropdownItem}
@@ -200,12 +202,8 @@ export default function ProgramPage({
 
       {/* PROGRAM INTRO */}
       <section className={styles.intro}>
-        <h2>Empowering Communities Through Sports</h2>
-        <p>
-          Our programs use sports as a powerful platform to empower youth,
-          support women, and create sustainable livelihood opportunities
-          within communities across Africa.
-        </p>
+        <h2>Program Goal</h2>
+        <p>{intro}</p>
       </section>
 
       {/* PROGRAM OBJECTIVES */}
