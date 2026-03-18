@@ -28,6 +28,33 @@ export default function MissionsClient() {
   const [leaders, setLeaders] = useState<Leader[]>([]);
   const [visible, setVisible] = useState(false);
   const router = useRouter();
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [selectedResourceCategory, setSelectedResourceCategory] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+      const unsubscribe = onSnapshot(collection(db, "resources"), (snapshot) => {
+        const items = snapshot.docs.map((doc) => {
+          const data = doc.data();
+    
+          return {
+            id: doc.id,
+            title: data.title,
+            description: data.description,
+            category: data.category,
+            pdf: data.pdf,
+          };
+        });
+    
+        setResources(items);
+      });
+    
+      return () => unsubscribe();
+    }, []);
+
+useEffect(()=>{
+fetchPosts()
+},[])
 
   useEffect(() => {
     const fetchLeaders = async () => {
