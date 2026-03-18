@@ -24,6 +24,14 @@ interface Leader {
   facebook?: string;
 }
 
+type Resource = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  pdf: string;
+};
+
 export default function MissionsClient() {
   const [leaders, setLeaders] = useState<Leader[]>([]);
   const [visible, setVisible] = useState(false);
