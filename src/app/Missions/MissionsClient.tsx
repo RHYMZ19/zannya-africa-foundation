@@ -52,7 +52,7 @@ export default function MissionsClient() {
 
   {/* ================= NAVBAR ================= */}
             <nav className={styles.navbar}>
-              <IncreaseImages src='/log.jpg' alt="Logo" />
+              <IncreaseImage src='/log.jpg' alt="Logo" />
               <div className={styles.logo}>Zannya Africa Foundation</div>
               
               <div
