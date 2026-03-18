@@ -130,7 +130,7 @@ export default function Successs() {
       </div>
 
       <div className={styles.Y}>
-              <h1 style={{fontWeight: 'bold', color: 'black'}}>Impact and Achievements</h1>
+              <h1 style={{fontWeight: 'bold', color: 'black'}}>Impact nd Achievements</h1>
               <p className={styles.pp}>ZAF’s efforts have resulted in significant positive changes in the communities served. Some of the notable impacts include:</p>
               <p className={styles.p}>. 54 youth attained certificates in refereeing futsal, this was in collaboration with futsal association of Uganda and FUFA in
                          Kabowa High school Lubaga Division</p>
