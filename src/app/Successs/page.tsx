@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { collection, onSnapshot, Timestamp } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import db from "../lib/firebase";
-import styles from "./SuccessNew.module.css";
+import styles from "./Successs.module.css";
 import Image from "next/image";
 
 type SuccessStory = {
