@@ -61,9 +61,6 @@ export default function MissionsClient() {
       return () => unsubscribe();
     }, []);
 
-useEffect(()=>{
-fetchPosts()
-},[])
 
   useEffect(() => {
     const fetchLeaders = async () => {
