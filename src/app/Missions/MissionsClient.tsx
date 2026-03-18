@@ -12,6 +12,7 @@ import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
 import ContactUs from "../ContactUs/page";
 import IncreaseImage from "../components/IncreaseImage";
 import styles from "./Missions.module.css";
+import { onSnapshot } from "firebase/firestore";
 
 interface Leader {
   id?: string;
