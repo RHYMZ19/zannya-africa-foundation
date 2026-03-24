@@ -976,8 +976,9 @@ font-weight: 500;
 
 .dropdownMenu{
 position: absolute;
-top: 40px;
 left: 0;
+top: 100%; /* instead of 40px */
+margin-top: 5px; /* optional small spacing */
 background: white;
 box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 border-radius: 10px;
