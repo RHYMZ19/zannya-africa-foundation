@@ -1,105 +1,105 @@
+/* WRAPPER */
 .wrapper {
-   width:100%;
-  overflow:hidden;
-  font-family: "Segoe UI", sans-serif;
-  background:#f6f9fc;
-  color:#1a1a1a;
-  
+  width: 100%;
+  overflow: hidden;
+  font-family: "Georgia", serif;  /* story-like and professional */
+  background: #fdfdfd;             /* lighter background for readability */
+  color: #1a1a1a;
+  padding: 0 8%;
 }
 
-
+/* TITLE */
 .title {
-  font-size: 26px;                  /* bigger and bold */
-  font-weight: 800;                 /* extra bold for emphasis */
-  line-height: 1.3;                 /* tighter line spacing for headline feel */
-  margin-top: 10px;
-  margin-bottom: 8px;
-  font-family: 'Georgia', serif;    /* classic, story-like font */
-  color: #1a1a1a;                   /* dark color for strong impact */
-  text-transform: none;             /* keep capitalization as entered */
+  font-size: 32px;                 
+  font-weight: 900;                
+  line-height: 1.2;                
+  margin: 20px 0 10px 0;           
   text-align: center;
+  color: #0b3c5d;                  /* deep blue for emphasis */
+  letter-spacing: 0.5px;
 }
 
-
+/* SUBTITLE */
 .subtitle {
-  font-size: 16px;             /* Slightly larger font for readability */
-  line-height: 1.6;            /* Spacing between lines for easy reading */
-  margin-top: 10px;
-  color: #333;                 /* Darker text color for contrast */
-  font-family: 'Georgia', serif; /* Story-like, classic font */
-  text-align: justify;         /* Justify text for neat edges */
-  white-space: pre-wrap;       /* Preserve line breaks if present */
-  word-break: break-word;      /* Avoid overflow on long words */
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 15px 0 20px 0;
+  color: #333;
+  text-align: justify;
+  padding: 10px 15px;
+  background: #f9f9f9;             /* subtle background for distinction */
+  border-left: 4px solid #f4a261; /* accent colored highlight */
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
+/* DESCRIPTION */
 .description {
-  font-size: 16px;             /* Slightly larger font for readability */
-  line-height: 1.6;            /* Spacing between lines for easy reading */
-  margin-top: 10px;
-  color: #333;                 /* Darker text color for contrast */
-  font-family: 'Georgia', serif; /* Story-like, classic font */
-  text-align: justify;         /* Justify text for neat edges */
-  white-space: pre-wrap;       /* Preserve line breaks if present */
-  word-break: break-word;      /* Avoid overflow on long words */
-  
+  font-size: 17px;
+  line-height: 1.9;
+  margin: 20px 0 30px 0;
+  color: #444;
+  text-align: justify;
+  padding: 15px 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.description {
-  font-size: 16px;             
-  line-height: 1.6;            
-  margin-top: 10px;
-  color: #333;                 
-  font-family: 'Georgia', serif; 
-  text-align: justify;         
-  white-space: pre-wrap;       
-  word-break: break-word;      
-  
-  
+.description:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
+/* AUTHOR BYLINE */
 .by {
-  font-size: 14px;                  /* slightly smaller than title/subtitle */
-  font-style: italic;               /* classic author style */
-  color: #555;                      /* subtle, not too dark */
-  margin-top: 8px;
-  margin-bottom: 5px;
-  font-family: 'Georgia', serif;    /* matches title font for cohesion */
-  text-align: center;
-}
-
-.date {
   font-size: 14px;
-  margin-top: 10px;
-  opacity: 0.6;
+  font-style: italic;
+  color: #666;
+  margin: 8px 0 15px 0;
   text-align: center;
+  letter-spacing: 0.3px;
 }
 
+/* DATE */
+.date {
+  font-size: 13px;
+  color: #999;
+  margin-top: 5px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
 
-
-/* Parent row */
+/* IMAGE + SUBTITLE ROW */
 .topRow {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 25px;
+  margin-top: 25px;
 }
 
-/* Left image */
 .imageBox {
   flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
 }
 
 .image {
-  width: 98%;
+  width: 100%;
   height: auto;
   object-fit: cover;
+  transition: transform 0.3s;
 }
 
-/* Right subtitle */
+.image:hover {
+  transform: scale(1.03);
+}
+
 .subtitleBox {
   flex: 1;
 }
-
 
 
 /* RESPONSIVE — Stack on phone */
