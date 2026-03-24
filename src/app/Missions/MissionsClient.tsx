@@ -6,10 +6,7 @@ import { getDocs, collection } from "firebase/firestore";
 import db from "../lib/firebase";
 import Image from "next/image";
 
-import { FaFacebook, FaHome, FaInstagram, FaLinkedin, FaTiktok, FaTwitter } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
-import ContactUs from "../ContactUs/page";
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import IncreaseImage from "../components/IncreaseImage";
 import styles from "./Missions.module.css";
 import { onSnapshot } from "firebase/firestore";

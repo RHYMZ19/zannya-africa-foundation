@@ -6,11 +6,8 @@ import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firesto
 import Image from "next/image";
 import styles from "./WeeklyPage.module.css";
 import Link from "next/link";
-import { FaFacebook, FaHome, FaInstagram, FaTiktok } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import ContactUs from "../ContactUs/page";
-import IncreaseImages from "../components/IncreaseImages";
-import router from "next/router";
+import { onSnapshot } from "firebase/firestore";
+import IncreaseImage from "../components/IncreaseImage";
 
 // Type for newsletter items
 type NewsletterItem = {
@@ -23,9 +20,40 @@ type NewsletterItem = {
   timestamp?: Timestamp | null;
 };
 
+type Resource = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  pdf: string;
+};
+
 export default function WeeklyNewsletterPage() {
   const [items, setItems] = useState<NewsletterItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [selectedResourceCategory, setSelectedResourceCategory] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+        const unsubscribe = onSnapshot(collection(db, "resources"), (snapshot) => {
+          const items = snapshot.docs.map((doc) => {
+            const data = doc.data();
+      
+            return {
+              id: doc.id,
+              title: data.title,
+              description: data.description,
+              category: data.category,
+              pdf: data.pdf,
+            };
+          });
+      
+          setResources(items);
+        });
+      
+        return () => unsubscribe();
+      }, []);
 
   const fetchNewsletters = async () => {
     const q = query(
@@ -57,59 +85,141 @@ export default function WeeklyNewsletterPage() {
 
   return (
     <div className={styles.wrapper}>
-      <div style={{ display: "flex", justifyContent: "flex-start" }}>
-  <div
-    style={{
-      backgroundColor: "transparent",
+      {/* ================= NAVBAR ================= */}
+                  <nav className={styles.navbar}>
+                    <IncreaseImage src='/log.jpg' alt="Logo" />
+                    <div className={styles.logo}>Zannya Africa Foundation</div>
+                    
+                    <div
+                      className={`${styles.navLinks} ${
+                        open ? styles.active : ""
+                      }`}
+                    >
+                      <a href="/">Home</a>
+                      
+                      {/* RESOURCES DROPDOWN */}
+              <div className={styles.dropdown}>
+                <span className={styles.dropdownTitle}>Resources ▾</span>
+            
+                <div className={styles.dropdownMenu}>
+            
+                  <a href="/articles" className={styles.dropdownItem}>
+                    📰 Articles
+                  </a>
+            
+                  <a
+                    href="#"
+                    className={styles.dropdownItem}
+                    onClick={() => setSelectedResourceCategory("Research Papers")}
+                  >
+                    📄 Research Papers
+                  </a>
+            
+                  <a
+                    href="#"
+                    className={styles.dropdownItem}
+                    onClick={() => setSelectedResourceCategory("Reports")}
+                  >
+                    📊 Reports
+                  </a>
+            
+                  <a
+                    href="#"
+                    className={styles.dropdownItem}
+                    onClick={() => setSelectedResourceCategory("Case Studies")}
+                  >
+                    📁 Case Studies
+                  </a>
+            
+                </div>
+              </div>
+                      
+                      <a href="/Videos" >Gallery</a>
+                      <a href="/Donates" className={styles.btnPrimary}> Donate</a>
+                    </div>
+            
+                    <div
+                      className={styles.hamburger}
+                      onClick={() => setOpen(!open)}
+                    >
+                      ☰
+                    </div>
+                  </nav>
       
-      padding: "10px 15px",
-      width: "fit-content",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
+                  {/* ================= RESOURCE MODAL ================= */}
+                  {selectedResourceCategory && (
       
-      marginTop: "10px"
-    }}
-  >
-    {/* TOP ROW: your three icons/buttons */}
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "12px",
-        width: "100%"
-      }}
-    >
-      <FaHome
-        style={{ width: "30px", height: "30px" }}
-        color="black"
-        cursor="pointer"
-        onClick={() => router.push("/")}
-      />
+                    <div className={styles.modalOverlay}
+                    onClick={() => setSelectedResourceCategory(null)}
+                    >
+                  
+                      <div className={styles.modalContent}
+                      onClick={(e) => e.stopPropagation()}
+                      >
+                  
+                        <div className={styles.modalHeader}>
+                          <h3>{selectedResourceCategory}</h3>
+                  
+                          <button
+                            className={styles.closeBtn}
+                            onClick={() => setSelectedResourceCategory(null)}
+                          >
+                            ✕
+                          </button>
+                        </div>
+                  
+                        <div className={styles.resourceList}>
+                  
+                          {resources
+                            .filter(res => res.category === selectedResourceCategory)
+                            .map(res => (
+                  
+                              <div key={res.id} className={styles.resourceItem}>
+                  
+                                <div>
+                                  <strong>{res.title}</strong>
+                                  <p>{res.description}</p>
+                                </div>
+                  
+                                <a
+                                  href={res.pdf}
+                                  download
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className={styles.downloadBtn}
+                                >
+                                  Download PDF
+                                </a>
+                  
+                              </div>
+                  
+                          ))}
+                  
+                        </div>
+      
+                      </div>
+                  
+                    </div>
+                  )}
+      
+      {/* ================= HERO ================= */}
+            <section className={styles.hero}>
+              <div className={styles.heroContent}>
+                <h1>Zannya Africa Foundation</h1>
+                <p>
+                 Changing communities through sports
+                </p>
+                <div className={styles.heroButtons}>
+                  <button className={styles.btnPrimary}>
+                    Donate Now
+                  </button>
+                  <button className={styles.btnOutline}>
+                    Get Involved
+                  </button>
+                </div>
+              </div>
+            </section>
 
-      <Link href="/Donates" className={styles.arrowButton}>
-        Donate
-      </Link>
-
-      <IncreaseImages src="/log.jpg" alt="Logo" />
-    </div>
-
-    {/* TEXT BELOW */}
-    <p
-      style={{
-        marginTop: "6px",
-        fontSize: "14px",
-        fontWeight: "bold",
-        color: "red",
-        textAlign: "center"
-      }}
-    >
-      Zannya Africa Foundation
-    </p>
-  </div>
-</div>
    <h1 className={styles.title}>Articles</h1>
    
    {items.length === 0 && <p>No newsletters posted yet.</p>}
@@ -167,31 +277,40 @@ export default function WeeklyNewsletterPage() {
      ))}
     </div>
 
-    <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong> You can follow us on our socialplatforms:</strong></p>
-                                              <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
-                                                        <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
-                                                          <FaFacebook />
-                                                        </a>
-                                                        <a href="https://instagram.com/zannya_africa_foundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
-                                                          <FaInstagram />
-                                                        </a>
-                                                        <a href="https://tiktok.com/@zannyaafricafdn" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                                          <FaTiktok />
-                                                        </a>
-                                                        <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                                            <FaXTwitter />   
-                                                        </a>
-                                                        
-                                                      </div>
-                                                      <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
-                                                      <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
-                                                  <ul>
-                                                  <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
-                                                  <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
-                                                  </ul>
-                                                </div>
-                                                
-                    <ContactUs></ContactUs>
+    {/* ================= FOOTER ================= */}
+      <footer className={styles.footer}>
+        <div className={styles.footerContainer}>
+          
+          {/* Contact Info */}
+          <div className={styles.footerSection}>
+            <h4>Contact Us</h4>
+            <div className={styles.contactLinks}>
+              <a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a>
+            </div>
+          </div>
+      
+          {/* Developer Credit */}
+          <div className={styles.footerSection}>
+            <h4>Developer</h4>
+            <p>Developed by <strong>SSENABULYA RAHIM</strong></p>
+            <p>Tel: <a href="tel:+256743878261">0743878261</a></p>
+            <p>Email: <a href="mailto:rahimssenabulya82@gmail.com">rahimssenabulya82@gmail.com</a></p>
+          </div>
+      
+          {/* Links */}
+          <div className={styles.footerSection}>
+            <h4>Links</h4>
+            <a href="/Terms" className={styles.footerLink}>Privacy Policy & Legal Terms</a>
+            <a href="/adminpannel" className={styles.adminLink}>Admin Panel</a>
+          </div>
+      
+        </div>
+      
+        {/* Bottom Bar */}
+        <div className={styles.footerBottom}>
+          <p>© {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.</p>
+        </div>
+      </footer>
    </div>
 
   );
