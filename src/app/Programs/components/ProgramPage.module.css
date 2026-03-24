@@ -25,9 +25,8 @@
 
   background: linear-gradient(
     to bottom,
-    rgba(11, 60, 93, 0.8),  /* stronger at top */
-    rgba(11, 60, 93, 0.4),  /* softer middle */
-    rgba(11, 60, 93, 0.2)   /* almost clear at bottom */
+    rgba(11, 60, 93, 0.7),  /* stronger at top */
+    rgba(11, 60, 93, 0.7),  /* softer middle */
   );
 
   z-index: 1;
@@ -373,7 +372,8 @@ font-weight: 500;
 
 .dropdownMenu{
 position: absolute;
-top: 40px;
+top: 100%; /* instead of 40px */
+margin-top: 1px; /* optional small spacing */
 left: 0;
 background: white;
 box-shadow: 0 10px 25px rgba(0,0,0,0.15);
