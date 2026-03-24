@@ -19,7 +19,18 @@
 
 /* Optional: add a subtle gradient overlay over the image */
 .hero::before {
-  display: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 60, 93, 0.8),  /* stronger at top */
+    rgba(11, 60, 93, 0.4),  /* softer middle */
+    rgba(11, 60, 93, 0.2)   /* almost clear at bottom */
+  );
+
+  z-index: 1;
 }
 
 /* Hero text directly on image */
