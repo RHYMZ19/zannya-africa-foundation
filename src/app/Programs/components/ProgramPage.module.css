@@ -14,7 +14,7 @@
   position: relative;
   background-size: cover;
   background-position: center;
-  background-color: #0b3c5d; /* fallback color */
+  background-color: rgba(11, 60, 93, 0.7);
 }
 
 /* Optional: add a subtle gradient overlay over the image */
