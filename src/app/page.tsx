@@ -478,7 +478,7 @@ export default function MainPage() {
           </div>
 
         </div>
-
+        
         {/* CENTER BUTTON */}
         <a href="/Internship" className={styles.joinCircle}>
           Join Us

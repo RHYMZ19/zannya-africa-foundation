@@ -27,6 +27,7 @@ type NewsletterItem = {
 export default function NewsletterDetailPage() {
   const params = useParams();
   const id = params?.id as string;
+
   const [item, setItem] = useState<NewsletterItem | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -43,130 +44,83 @@ export default function NewsletterDetailPage() {
       } else {
         setItem(null);
       }
+
       setLoading(false);
     };
 
     fetchNewsletter();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (!item) return <p>Newsletter not found.</p>;
+  if (loading) return <div className={styles.loader}>Loading...</div>;
+  if (!item) return <div className={styles.loader}>Newsletter not found.</div>;
 
   return (
-    <div className={styles.wrapper}>
-      <div style={{ display: "flex", justifyContent: "flex-start" }}>
-  <div
-    style={{
-      backgroundColor: "transparent",
-      
-      
-      padding: "10px 15px",
-      width: "fit-content",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      
-      marginTop: "10px"
-    }}
-  >
-    {/* TOP ROW: your three icons/buttons */}
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "12px",
-        width: "100%"
-      }}
-    >
-      <FaHome
-        style={{ width: "30px", height: "30px" }}
-        color="black"
-        cursor="pointer"
-        onClick={() => router.push("/")}
-      />
+    <div className={styles.container}>
 
-      <Link href="/Donates" className={styles.arrowButton}>
-        Donate
-      </Link>
+      {/* NAVBAR */}
+      <div className={styles.navbar}>
+        <div className={styles.logo}>
+          <IncreaseImages src="/log.jpg" alt="Logo" />
+          <span>Zannya Africa Foundation</span>
+        </div>
 
-      <IncreaseImages src="/log.jpg" alt="Logo" />
-    </div>
-
-    {/* TEXT BELOW */}
-    <p
-      style={{
-        marginTop: "6px",
-        fontSize: "14px",
-        fontWeight: "bold",
-        color: "red",
-        textAlign: "center"
-      }}
-    >
-      Zannya Africa Foundation
-    </p>
-  </div>
-</div>
-  {item.timestamp && <p className={styles.date}>{item.timestamp.toDate().toLocaleDateString()}</p>}
-
-  <h1 className={styles.title}>{item.title}</h1>
-
-  {item.by && <p className={styles.by}>By {item.by}</p>}
-
-  <div className={styles.topRow}>
-    {item.image && (
-      <div className={styles.imageBox}>
-        <Image
-          src={item.image}
-          width={400}
-          height={300}
-          alt={item.title}
-          className={styles.image}
-        />
+        <div className={styles.navRight}>
+          <FaHome onClick={() => router.push("/")} className={styles.icon} />
+          <Link href="/Donates" className={styles.donateBtn}>Donate</Link>
+        </div>
       </div>
-    )}
 
-    <div className={styles.subtitleBox}>
-      <p className={styles.subtitle}>
-        <Linkify options={{ target: "_blank" }}>
-        {item.subtitle}
-        </Linkify>
+      {/* HERO IMAGE */}
+      {item.image && (
+        <div className={styles.hero}>
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className={styles.heroImage}
+          />
+          <div className={styles.overlay} />
+        </div>
+      )}
+
+      {/* CONTENT */}
+      <div className={styles.contentWrapper}>
+
+        <p className={styles.date}>
+          {item.timestamp?.toDate().toLocaleDateString()}
         </p>
+
+        <h1 className={styles.title}>{item.title}</h1>
+
+        {item.by && <p className={styles.by}>By {item.by}</p>}
+
+        {/* SUBTITLE */}
+        <p className={styles.subtitle}>
+          <Linkify options={{ target: "_blank" }}>
+            {item.subtitle}
+          </Linkify>
+        </p>
+
+        {/* DESCRIPTION */}
+        <div className={styles.description}>
+          <Linkify options={{ target: "_blank" }}>
+            {item.description}
+          </Linkify>
+        </div>
+
+      </div>
+
+      {/* SOCIAL */}
+      <div className={styles.social}>
+        <p>Follow us</p>
+        <div className={styles.icons}>
+          <a href="https://facebook.com/zannyaafricafoundation"><FaFacebook /></a>
+          <a href="https://instagram.com/zannya_africa_foundation"><FaInstagram /></a>
+          <a href="https://tiktok.com/@zannyaafricafdn"><FaTiktok /></a>
+          <a href="https://x.com/zannyaafrica"><FaXTwitter /></a>
+        </div>
+      </div>
+
     </div>
-  </div>
-
-  <p className={styles.description}>
-    <Linkify options={{ target: "_blank" }}>
-    {item.description}
-    </Linkify>
-    </p>
-
-  <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong> You can follow us on our socialplatforms:</strong></p>
-                                            <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
-                                                      <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
-                                                        <FaFacebook />
-                                                      </a>
-                                                      <a href="https://instagram.com/zannya_africa_foundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
-                                                        <FaInstagram />
-                                                      </a>
-                                                      <a href="https://tiktok.com/@zannyaafricafdn" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                                        <FaTiktok />
-                                                      </a>
-                                                      <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                                          <FaXTwitter />   
-                                                      </a>
-                                                      
-                                                    </div>
-                                                    <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
-                                                    <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
-                                                <ul>
-                                                <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
-                                                <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
-                                                </ul>
-                                              </div>
-                                              
-                  <ContactUs></ContactUs>
-</div>
   );
 }
