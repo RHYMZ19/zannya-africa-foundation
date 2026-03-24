@@ -6,7 +6,7 @@ import { db } from "../../lib/firebase";
 import { doc, getDoc, Timestamp } from "firebase/firestore";
 import Image from "next/image";
 import styles from "./NewsletterDetail.module.css";
-import ContactUs from "@/app/ContactUs/page";
+
 import { FaFacebook, FaHome, FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import IncreaseImages from "@/app/components/IncreaseImages";
@@ -55,44 +55,34 @@ export default function NewsletterDetailPage() {
   if (!item) return <div className={styles.loader}>Newsletter not found.</div>;
 
   return (
-    <div className={styles.container}>
+    <div className={styles.page}>
 
-      {/* NAVBAR */}
-      <div className={styles.navbar}>
-        <div className={styles.logo}>
-          <IncreaseImages src="/log.jpg" alt="Logo" />
-          <span>Zannya Africa Foundation</span>
-        </div>
-
+      {/* NAV */}
+      <div className={styles.nav}>
+        <IncreaseImages src="/log.jpg" alt="Logo" />
         <div className={styles.navRight}>
-          <FaHome onClick={() => router.push("/")} className={styles.icon} />
-          <Link href="/Donates" className={styles.donateBtn}>Donate</Link>
+          <FaHome onClick={() => router.push("/")} />
+          <Link href="/Donates">Donate</Link>
         </div>
       </div>
 
-      {/* HERO IMAGE */}
+      {/* HERO TITLE OVER IMAGE */}
       {item.image && (
         <div className={styles.hero}>
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            className={styles.heroImage}
-          />
-          <div className={styles.overlay} />
+          <Image src={item.image} fill alt={item.title} className={styles.heroImg}/>
+          <div className={styles.heroOverlay}>
+            <h1>{item.title}</h1>
+            {item.by && <p>By {item.by}</p>}
+          </div>
         </div>
       )}
 
-      {/* CONTENT */}
-      <div className={styles.contentWrapper}>
+      {/* ARTICLE BODY */}
+      <div className={styles.article}>
 
         <p className={styles.date}>
           {item.timestamp?.toDate().toLocaleDateString()}
         </p>
-
-        <h1 className={styles.title}>{item.title}</h1>
-
-        {item.by && <p className={styles.by}>By {item.by}</p>}
 
         {/* SUBTITLE */}
         <p className={styles.subtitle}>
@@ -101,8 +91,15 @@ export default function NewsletterDetailPage() {
           </Linkify>
         </p>
 
+        {/* INLINE IMAGE (INSIDE TEXT FLOW) */}
+        {item.image && (
+          <div className={styles.inlineImage}>
+            <Image src={item.image} width={900} height={500} alt={item.title}/>
+          </div>
+        )}
+
         {/* DESCRIPTION */}
-        <div className={styles.description}>
+        <div className={styles.text}>
           <Linkify options={{ target: "_blank" }}>
             {item.description}
           </Linkify>
@@ -112,13 +109,10 @@ export default function NewsletterDetailPage() {
 
       {/* SOCIAL */}
       <div className={styles.social}>
-        <p>Follow us</p>
-        <div className={styles.icons}>
-          <a href="https://facebook.com/zannyaafricafoundation"><FaFacebook /></a>
-          <a href="https://instagram.com/zannya_africa_foundation"><FaInstagram /></a>
-          <a href="https://tiktok.com/@zannyaafricafdn"><FaTiktok /></a>
-          <a href="https://x.com/zannyaafrica"><FaXTwitter /></a>
-        </div>
+        <FaFacebook />
+        <FaInstagram />
+        <FaTiktok />
+        <FaXTwitter />
       </div>
 
     </div>
