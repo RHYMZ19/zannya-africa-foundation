@@ -7,9 +7,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { collection, onSnapshot } from "firebase/firestore";
 import db from "./lib/firebase";
-import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaPhone } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
 import Link from "next/link";
 
 
@@ -83,16 +82,16 @@ export default function MainPage() {
             open ? styles.active : ""
           }`}
         >
-          <a href="#who">Who We Are</a>
+          <a href="#who">Home</a>
           <a href="#programs">Programs</a>
-          <a href="#impact">Impact</a>
+          
           {/* RESOURCES DROPDOWN */}
   <div className={styles.dropdown}>
     <span className={styles.dropdownTitle}>Resources ▾</span>
 
     <div className={styles.dropdownMenu}>
 
-      <a href="/articles" className={styles.dropdownItem}>
+      <a href="/weekly-newsletter" className={styles.dropdownItem}>
         📰 Articles
       </a>
       
@@ -101,7 +100,7 @@ export default function MainPage() {
         className={styles.dropdownItem}
         onClick={() => setSelectedResourceCategory("Research Papers")}
       >
-        📄 Research Papers
+        📄 Publications
       </a>
 
       <a
@@ -179,21 +178,21 @@ export default function MainPage() {
     {/* RIGHT SIDE */}
     <div className={styles.missionVisionBox}>
 
-      {/* Mission */}
-      <div className={styles.infoCard}>
-        <h3>Mission</h3>
-        <p>
-          To use sports as a tool for community development,
-          empowerment, and sustainability.
-        </p>
-      </div>
-
       {/* Vision */}
       <div className={styles.infoCard}>
         <h3>Vision</h3>
         <p>
           To change lives and build stronger and healthier
           communities.
+        </p>
+      </div>
+
+      {/* Mission */}
+      <div className={styles.infoCard}>
+        <h3>Mission</h3>
+        <p>
+          To use sports as a tool for community development,
+          empowerment, and sustainability.
         </p>
       </div>
 
@@ -213,23 +212,9 @@ export default function MainPage() {
     
     {/* LEFT IMAGE */}
     <div className={styles.featuredImage}>
-      <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1766645680/zannya/uploads/agevikfptarypojmcgjy.jpg" alt="Interesting Articles" />
+      <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758374799/zannya/uploads/images/insun2kdxlwor2iqb8va.jpg" alt="Interesting Articles" />
     </div>
 
-    {/* RIGHT TEXT */}
-    <div className={styles.featuredContent}>
-      <h2>Explore More of Our Interesting Articles</h2>
-
-      <p>
-        Discover powerful stories, insightful research, and inspiring
-        perspectives from our work in communities. Our articles highlight
-        innovation, impact, and the voices of people driving change.
-      </p>
-  
-      <a href="/weekly-newsletter" className={styles.featuredButton}>
-        Read Articles →
-      </a>
-    </div>
 
   </div>
 </section>
@@ -519,7 +504,7 @@ export default function MainPage() {
       <p>
         <strong>Phone</strong><br/>
         +256 786 797 963 <br/>
-        +256 700 340 576
+        
       </p>
 
       <p>
@@ -551,22 +536,11 @@ export default function MainPage() {
         <a href="https://x.com/zannyaafrica" target="_blank">
           <FaXTwitter />
         </a>
+
+        <a href="https://wa.me/256786797963" target="_blank">
+          <FaWhatsapp />
+        </a>
       </div>
-
-      {/* Quick Contact Icons */}
-  <div className={styles.quickContact}>
-    <a href="mailto:info@zannyaafricafoundation.org">
-      <MdEmail />
-    </a>
-
-    <a href="https://wa.me/256786797963" target="_blank">
-      <FaWhatsapp />
-    </a>
-
-    <a href="tel:+256786797963">
-      <FaPhone />
-    </a>
-  </div>
 
     </div>
 
