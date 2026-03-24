@@ -89,7 +89,7 @@ export default function ProgramPage({
       
           <div className={styles.dropdownMenu}>
       
-            <a href="/articles" className={styles.dropdownItem}>
+            <a href="/weekly-newsletter" className={styles.dropdownItem}>
               📰 Articles
             </a>
 
@@ -98,7 +98,7 @@ export default function ProgramPage({
               className={styles.dropdownItem}
               onClick={() => setSelectedResourceCategory("Research Papers")}
             >
-              📄 Research Papers
+              📄 Publications
             </a>
       
             <a
@@ -193,7 +193,7 @@ export default function ProgramPage({
         className={styles.hero}
         style={{ backgroundImage: `url(${image})` }}
       >
-        <div className={styles.overlay}>
+        <div className={styles.heroContent}>
           <h1>{title}</h1>
           <p>{description}</p>
         </div>
@@ -252,18 +252,6 @@ export default function ProgramPage({
   </div>
 </section>
 
-      {/* CALL TO ACTION */}
-      <section className={styles.ctaSection}>
-        <h2>Join Us in Transforming Lives</h2>
-        <p>
-          Together we can build resilient communities through sports,
-          education, and sustainable development.
-        </p>
-
-        <button className={styles.bigButton}>
-          Get Involved
-        </button>
-      </section>
 
       {/* ================= FOOTER ================= */}
       <footer className={styles.footer}>
