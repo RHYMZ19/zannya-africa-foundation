@@ -1,133 +1,120 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './Donates.module.css';
-import { useRouter } from 'next/navigation';
-import { FaFacebook, FaHome, FaInstagram, FaPhone, FaTiktok,  FaWhatsapp } from 'react-icons/fa';
-import Gallery from '../Gallery/Gallery';
-import GetInvolved from '../GetInvolved/GetInvolved';
-import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
-import StickyBar from '../StickyBar/StickyBar';
 import { MdEmail } from 'react-icons/md';
-import IncreaseI from './components/IncreaseI';
+import { FaWhatsapp, FaPhone, FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Donates() {
   const [amount, setAmount] = useState(25);
 
   const handleDonation = () => {
-    alert(`Currently unavailable, kindly use mobile money bellow for $${amount}`);
-    // integrate Pesapal or other payment API here
+    alert(`Currently unavailable, kindly use mobile money for $${amount}`);
   };
 
-          const router = useRouter();
-          const [visible, setVisible] = useState(false);
-              useEffect(() => {
-                  setTimeout(() =>
-              setVisible(true), 100);}, []);
-
   return (
-    <div style={{ overflow: 'hidden', background: 'linear-gradient(to right, #e0f7fa, #e1bee7)' }}>
-      <div style={{ justifyItems: 'center', gap: '1%' }}>
-        <StickyBar>
-                                <FaHome style={{ width: '25%', height: '25%' }} color="black" cursor='pointer' onClick={() => router.push('/')} >
-                                Home</FaHome>
-                                <GetInvolved />
-                                <Gallery />
-                                <IncreaseI src='/log.jpg' alt="log" />
-                                </StickyBar>
-                                </div>
+    <div className={styles.page}>
 
-                                <div className={styles.containers}>
-                <header className={`header ${visible ? 'show' : ""}`}>
-                <h1 className={styles.h1}>
-                    DONATE
-                </h1>
-                <p className={styles.p1}>
-                    Zannya Africa foundation
-                </p>
-                </header>
-            </div>
+      {/* HERO */}
+      <section className={styles.hero}>
+        <div className={styles.overlay}></div>
 
-    <div className={styles.container}>
-      <h2 className={styles.h2}>Support Our Mission</h2>
-      <p className={styles.p}>Your donation empowers change in education, health, and community development.</p>
+        <div className={styles.heroContent}>
+          <h1>Make an Impact</h1>
+          <p>Your support transforms lives across Africa</p>
 
-      <div className={styles.amounts}>
-        {[10, 25, 50, 100].map((val) => (
-          <button key={val} onClick={() => setAmount(val)} className={styles.amountBtn}>
-            ${val}
-          </button>
-        ))}
-        <input
-          type="number"
-          min="1"
-          placeholder="Custom"
-          value={amount}
-          onChange={(e) => setAmount(Number(e.target.value))}
-          className={styles.customInput}
-        />
-      </div>
-
-      <button onClick={handleDonation} className={styles.donateBtn}>
-        Donate with Pesapal / Mobile Money
-      </button>
-
-      <div className={styles.trust}>
-        <p>🔒 Secure & Encrypted • 📈 Transparent Use • ❤️ Every Coin Counts</p>
-      </div>
-
-      <div className={styles.contact}>
-        <h4>Have questions or want to donate in-kind?</h4>
-        <p>Email: <a href="mailto:support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></p>
-        <p>WhatsApp: <a href="https://wa.me/256786797963">+256 786797963</a></p>
-        <p>Mobile: <a href="https://wa.me/256700340576">+256 700 340 576</a></p>
-      </div>
-    </div>
-
-    <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center',paddingTop: '30px'}}><strong> You can follow us on our socialplatforms:</strong></p>
-                                          <div style={{ display: "flex",justifyContent: "center",  gap: "40px", fontSize: "30px",paddingTop: '10px'}}>
-                                                    <a href="https://facebook.com/zannyaafricafoundation" target="_blank" rel="noopener noreferrer" style={{ color: "blue" }}>
-                                                      <FaFacebook />
-                                                    </a>
-                                                    <a href="https://instagram.com/zannya_africa_foundation" target="_blank" rel="noopener noreferrer" style={{ color: "pink" }}>
-                                                      <FaInstagram />
-                                                    </a>
-                                                    <a href="https://tiktok.com/@zannyaafricafdn" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                                      <FaTiktok />
-                                                    </a>
-                                                    <a href="https://x.com/zannyaafrica" target="_blank" rel="noopener noreferrer" style={{ color: "black" }}>
-                                                        <FaXTwitter />   
-                                                    </a>
-                                                    
-                                                  </div>
-                                                  <p style={{textDecoration: 'underline', color: 'rgb(235, 125, 125)', textAlign: 'center'}}><strong>Or you can email us for:</strong></p>
-                                                  <div style={{display: 'flex',paddingTop: '10px', flexDirection: 'row', justifyContent: 'center', gap: '30px'}}>
-                                              <ul>
-                                              <li><a href="mailto: info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></li>
-                                              <li><a href="mailto: support@zannyaafricafoundation.org">support@zannyaafricafoundation.org</a></li>
-                                              </ul>
-                                            </div>
-
-    <div className={styles.contactContainer}>
-          <h2>Contact Us</h2>
-    
-          <div className={styles.iconRow}>
-                
-                <a href="mailto:info@zannyaafricafoundation.org" className={styles.iconLink}>
-                  <MdEmail />
-                </a>
-                <a href="https://wa.me/256786797963" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-                  <FaWhatsapp />
-                </a>
-                <a href="tel:+256786797963" className={styles.iconLink}>
-                    <FaPhone />
-                </a>
-              </div>
+          <div className={styles.tags}>
+            <span>🎓 Education</span>
+            <span>💊 Health</span>
+            <span>🏘 Community</span>
+          </div>
         </div>
-    <OptionalFeatures></OptionalFeatures>
+      </section>
 
-    
+      {/* CARD */}
+      <div className={styles.card}>
+        <div className={styles.iconCircle}>💖</div>
+
+        <h2>Support Our Mission</h2>
+        <p>
+          Your donation empowers education, health, and community development across Africa.
+        </p>
+
+        <div className={styles.amounts}>
+          {[10, 25, 50].map((val) => (
+            <button
+              key={val}
+              className={`${styles.amountBtn} ${amount === val ? styles.active : ''}`}
+              onClick={() => setAmount(val)}
+            >
+              ${val}
+            </button>
+          ))}
+
+          <input
+            type="number"
+            placeholder="Enter custom amount"
+            value={amount}
+            onChange={(e) => setAmount(Number(e.target.value))}
+            className={styles.input}
+          />
+        </div>
+
+        <button className={styles.donateBtn} onClick={handleDonation}>
+          🔒 Donate Now Securely
+        </button>
+
+        <p className={styles.powered}>
+          ✔ Powered by Pesapal • Mobile Money • 100% Secure
+        </p>
+      </div>
+
+      {/* TRUST BAR */}
+      <div className={styles.trust}>
+        <span>🔒 Bank-level Security</span>
+        <span>📊 100% Transparent</span>
+        <span>❤️ Every Coin Counts</span>
+      </div>
+
+      {/* CONTACT */}
+      <section className={styles.contact}>
+        <h2>Get in Touch</h2>
+        <p>Have questions? We'd love to hear from you!</p>
+
+        <div className={styles.contactGrid}>
+          <div className={styles.contactCard}>
+            <MdEmail size={30} />
+            <h4>Email</h4>
+            <p>support@zannyaafricafoundation.org</p>
+          </div>
+
+          <div className={styles.contactCard}>
+            <FaWhatsapp size={30} />
+            <h4>WhatsApp</h4>
+            <p>+256 786 797 963</p>
+          </div>
+
+          <div className={styles.contactCard}>
+            <FaPhone size={30} />
+            <h4>Mobile</h4>
+            <p>+256 700 340 576</p>
+          </div>
+        </div>
+      </section>
+
+      {/* SOCIALS */}
+      <section className={styles.socials}>
+        <h2>Follow Our Journey</h2>
+
+        <div className={styles.socialGrid}>
+          <div className={styles.socialBtn}><FaFacebook /> Facebook</div>
+          <div className={styles.socialBtn}><FaInstagram /> Instagram</div>
+          <div className={styles.socialBtn}><FaTiktok /> TikTok</div>
+          <div className={styles.socialBtn}><FaXTwitter /> X</div>
+        </div>
+      </section>
+
     </div>
   );
 }
