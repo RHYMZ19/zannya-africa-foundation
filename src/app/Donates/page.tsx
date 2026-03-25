@@ -41,7 +41,7 @@ export default function Donates() {
           <h1>Support Our Mission</h1>
           <p>Your donation empowers change in education, health, and community development.</p>
           <button onClick={handleDonation} className={styles.heroBtn}>
-            Donate Now
+            Donate 
           </button>
         </div>
       </section>
