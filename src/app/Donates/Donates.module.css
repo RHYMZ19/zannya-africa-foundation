@@ -1,175 +1,249 @@
+/* DonatesNew.module.css */
+
 .page {
-  font-family: 'Inter', sans-serif;
-  background: #0b0f1a;
-  color: white;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #fefefe;
+  overflow-x: hidden;
 }
 
-/* HERO */
+/* Sticky Navigation Icons */
+.navIcon {
+  font-size: 24px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.navIcon:hover {
+  transform: scale(1.2);
+  color: #6a1b9a;
+}
+
+/* HERO SECTION */
 .hero {
-  height: 70vh;
-  background: url('https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg') center/cover no-repeat;
-  position: relative;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,50,0.7));
-}
-
-.heroContent {
-  position: relative;
+  background: linear-gradient(135deg, #a2d5f2, #f3c4fc);
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-in-out;
+}
+
+.show.hero {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .heroContent h1 {
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
 }
 
 .heroContent p {
-  margin-top: 10px;
-  opacity: 0.8;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #333;
 }
 
-.tags {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.tags span {
-  background: rgba(255,255,255,0.1);
-  padding: 8px 14px;
-  border-radius: 20px;
-}
-
-/* CARD */
-.card {
-  width: 420px;
-  margin: -120px auto 40px;
-  background: white;
-  color: black;
-  border-radius: 20px;
-  padding: 40px;
-  text-align: center;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-
-.iconCircle {
-  width: 60px;
-  height: 60px;
-  margin: -70px auto 10px;
-  background: linear-gradient(135deg, #3b82f6, #9333ea);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.heroBtn {
+  background: #6a1b9a;
   color: white;
-  font-size: 24px;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-/* AMOUNTS */
+.heroBtn:hover {
+  background: #8e24aa;
+  transform: translateY(-3px);
+}
+
+/* DONATION SECTION */
+.donationSection {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.donationSection h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
 .amounts {
-  margin-top: 20px;
-  display: grid;
-  gap: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .amountBtn {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 40px;
+  border: 2px solid #6a1b9a;
+  background: white;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.amountBtn:hover {
+  background: #6a1b9a;
+  color: white;
 }
 
 .active {
-  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  background: #6a1b9a;
   color: white;
 }
 
-/* INPUT */
-.input {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-}
-
-/* BUTTON */
-.donateBtn {
-  margin-top: 20px;
-  padding: 14px;
-  width: 100%;
-  border-radius: 12px;
-  border: none;
-  background: linear-gradient(135deg, #22c55e, #2563eb);
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.powered {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: gray;
-}
-
-/* TRUST */
-.trust {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 20px;
-  background: #e2e8f0;
-  color: black;
-  border-radius: 50px;
-  width: fit-content;
-  margin: auto;
-}
-
-/* CONTACT */
-.contact {
-  text-align: center;
-  margin-top: 60px;
-}
-
-.contactGrid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.contactCard {
-  background: white;
-  color: black;
-  padding: 20px;
-  border-radius: 15px;
-  width: 200px;
-}
-
-/* SOCIALS */
-.socials {
-  text-align: center;
-  margin: 60px 0;
-}
-
-.socialGrid {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.socialBtn {
+.customInput {
   padding: 12px 20px;
-  border-radius: 10px;
-  background: #1e293b;
-  display: flex;
-  gap: 8px;
-  align-items: center;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 2px solid #6a1b9a;
+  width: 100px;
+  text-align: center;
+}
+
+.donateBtn {
+  margin-top: 15px;
+  background: #ff4081;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  border-radius: 50px;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.donateBtn:hover {
+  background: #ff6090;
+  transform: translateY(-3px);
+}
+
+.trust {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* CONTACT SECTION */
+.contactSection {
+  padding: 60px 20px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.contactSection h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.contactCards {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.contactCards div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contactIcon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #6a1b9a;
+  transition: color 0.3s;
+}
+
+.contactCards a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contactCards a:hover {
+  color: #6a1b9a;
+}
+
+/* SOCIAL ICONS */
+.socialPrompt {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 28px;
+}
+
+.socialIcons a {
+  color: #333;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.socialIcons a:hover {
+  color: #6a1b9a;
+  transform: scale(1.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.2rem;
+  }
+
+  .heroContent p {
+    font-size: 1rem;
+  }
+
+  .contactCards {
+    gap: 25px;
+  }
+
+  .amounts {
+    gap: 10px;
+  }
+
+  .customInput {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .heroBtn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .donateBtn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
 }

@@ -1,48 +1,56 @@
 'use client';
 
-import { useState } from 'react';
-import styles from './Donates.module.css';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import styles from './DonatesNew.module.css';
+import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaHome } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
-import { FaWhatsapp, FaPhone, FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
+import Gallery from '../Gallery/Gallery';
+import GetInvolved from '../GetInvolved/GetInvolved';
+import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
+import StickyBar from '../StickyBar/StickyBar';
+import IncreaseI from './components/IncreaseI';
 import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Donates() {
   const [amount, setAmount] = useState(25);
+  const [visible, setVisible] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100);
+  }, []);
 
   const handleDonation = () => {
-    alert(`Currently unavailable, kindly use mobile money for $${amount}`);
+    alert(`Currently unavailable, kindly use mobile money below for $${amount}`);
   };
 
   return (
     <div className={styles.page}>
+      {/* Sticky Top Navigation */}
+      <StickyBar>
+        <FaHome onClick={() => router.push('/')} className={styles.navIcon} />
+        <GetInvolved />
+        <Gallery />
+        <IncreaseI src='/log.jpg' alt="log" />
+      </StickyBar>
 
-      {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.overlay}></div>
-
+      {/* Hero Section */}
+      <section className={`${styles.hero} ${visible ? styles.show : ''}`}>
         <div className={styles.heroContent}>
-          <h1>Make an Impact</h1>
-          <p>Your support transforms lives across Africa</p>
-
-          <div className={styles.tags}>
-            <span>🎓 Education</span>
-            <span>💊 Health</span>
-            <span>🏘 Community</span>
-          </div>
+          <h1>Support Our Mission</h1>
+          <p>Your donation empowers change in education, health, and community development.</p>
+          <button onClick={handleDonation} className={styles.heroBtn}>
+            Donate Now
+          </button>
         </div>
       </section>
 
-      {/* CARD */}
-      <div className={styles.card}>
-        <div className={styles.iconCircle}>💖</div>
-
-        <h2>Support Our Mission</h2>
-        <p>
-          Your donation empowers education, health, and community development across Africa.
-        </p>
-
+      {/* Donation Amounts */}
+      <section className={styles.donationSection}>
+        <h2>Choose Your Donation</h2>
         <div className={styles.amounts}>
-          {[10, 25, 50].map((val) => (
+          {[10, 25, 50, 100].map((val) => (
             <button
               key={val}
               className={`${styles.amountBtn} ${amount === val ? styles.active : ''}`}
@@ -51,70 +59,47 @@ export default function Donates() {
               ${val}
             </button>
           ))}
-
           <input
             type="number"
-            placeholder="Enter custom amount"
+            min="1"
+            placeholder="Custom"
             value={amount}
             onChange={(e) => setAmount(Number(e.target.value))}
-            className={styles.input}
+            className={styles.customInput}
           />
         </div>
-
-        <button className={styles.donateBtn} onClick={handleDonation}>
-          🔒 Donate Now Securely
+        <button onClick={handleDonation} className={styles.donateBtn}>
+          Donate with Pesapal / Mobile Money
         </button>
+        <p className={styles.trust}>🔒 Secure & Encrypted • 📈 Transparent • ❤️ Every Coin Counts</p>
+      </section>
 
-        <p className={styles.powered}>
-          ✔ Powered by Pesapal • Mobile Money • 100% Secure
-        </p>
-      </div>
-
-      {/* TRUST BAR */}
-      <div className={styles.trust}>
-        <span>🔒 Bank-level Security</span>
-        <span>📊 100% Transparent</span>
-        <span>❤️ Every Coin Counts</span>
-      </div>
-
-      {/* CONTACT */}
-      <section className={styles.contact}>
-        <h2>Get in Touch</h2>
-        <p>Have questions? We'd love to hear from you!</p>
-
-        <div className={styles.contactGrid}>
-          <div className={styles.contactCard}>
-            <MdEmail size={30} />
-            <h4>Email</h4>
-            <p>support@zannyaafricafoundation.org</p>
+      {/* Contact & Social */}
+      <section className={styles.contactSection}>
+        <h2>Contact Us</h2>
+        <div className={styles.contactCards}>
+          <div>
+            <MdEmail className={styles.contactIcon} />
+            <p><a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></p>
           </div>
-
-          <div className={styles.contactCard}>
-            <FaWhatsapp size={30} />
-            <h4>WhatsApp</h4>
-            <p>+256 786 797 963</p>
+          <div>
+            <FaWhatsapp className={styles.contactIcon} />
+            <p><a href="https://wa.me/256786797963" target="_blank">+256 786797963</a></p>
           </div>
+        </div>
 
-          <div className={styles.contactCard}>
-            <FaPhone size={30} />
-            <h4>Mobile</h4>
-            <p>+256 700 340 576</p>
-          </div>
+        <p className={styles.socialPrompt}>Follow us on social media:</p>
+        <div className={styles.socialIcons}>
+          <a href="https://facebook.com/zannyaafricafoundation" target="_blank"><FaFacebook /></a>
+          <a href="https://instagram.com/zannya_africa_foundation" target="_blank"><FaInstagram /></a>
+          <a href="https://tiktok.com/@zannyaafricafdn" target="_blank"><FaTiktok /></a>
+          <a href="https://x.com/zannyaafrica" target="_blank"><FaXTwitter /></a>
+          <a href="https://wa.me/256786797963" target="_blank"><FaWhatsapp /></a>
         </div>
       </section>
 
-      {/* SOCIALS */}
-      <section className={styles.socials}>
-        <h2>Follow Our Journey</h2>
-
-        <div className={styles.socialGrid}>
-          <div className={styles.socialBtn}><FaFacebook /> Facebook</div>
-          <div className={styles.socialBtn}><FaInstagram /> Instagram</div>
-          <div className={styles.socialBtn}><FaTiktok /> TikTok</div>
-          <div className={styles.socialBtn}><FaXTwitter /> X</div>
-        </div>
-      </section>
-
+      {/* Optional Features */}
+      <OptionalFeatures />
     </div>
   );
 }
