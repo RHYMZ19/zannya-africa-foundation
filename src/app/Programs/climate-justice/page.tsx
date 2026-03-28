@@ -66,7 +66,7 @@ export default function ClimateJustice() {
     <ProgramPage
       title=" CLIMATE ACTION & ENVIRONMENT JUSTICE"
       description=""
-      image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064544/zannya/uploads/ioeyybvowmrjwoe0llpl.jpg"
+      image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1771841037/zannya/uploads/images/ay22i17pmbutfxhjs9av.jpg"
       intro="To Strengthen climate resilience and Environmental sustainability for 4,500 
       vulnerable Youths in Schools, Community and institutions in Uganda through Sports, 
       climate Advocacy and digital innovation by 2028."

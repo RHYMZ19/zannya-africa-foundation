@@ -238,7 +238,7 @@ export default function MainPage() {
       />
 
       <div className={styles.programOverlay}>
-        <h3> Sports For Enhanced Livelihood </h3>
+        <h3> Sports for enhanced livelihood </h3>
 
         <p>
          To empower 1000 Youth in urban slums of Uganda to attain sustainable livelihood, 

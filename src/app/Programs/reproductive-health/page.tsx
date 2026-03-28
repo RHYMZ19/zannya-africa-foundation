@@ -46,9 +46,9 @@ export default function ReproductiveHealth () {
   return (
     <ProgramPage
       title="Sexual reproductive health & physical wellness"
-      description="To Improve SRH and Physical wellness for 1500 Ugandan adolescents & youth living in urban slums of Uganda through sexual health awareness and healthy physical lifestyles to prevent lifestyle disease and foster responsible health choices by 2028."
+      description=""
       image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1771841014/zannya/uploads/images/d4msr22hlj15r604jczw.jpg"
-      intro=""
+      intro="To Improve SRH and Physical wellness for 1500 Ugandan adolescents & youth living in urban slums of Uganda through sexual health awareness and healthy physical lifestyles to prevent lifestyle disease and foster responsible health choices by 2028."
       highlights={highlights}
       activities={activities}
       ctaText="Learn More →"

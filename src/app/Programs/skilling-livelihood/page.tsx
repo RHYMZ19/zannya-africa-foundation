@@ -36,7 +36,7 @@ export default function SkillingLivelihood() {
     <ProgramPage
       title=" SPORTS FOR ENHANCED LIVELIHOOD "
       description=""
-      image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758022891/zannya/uploads/images/zv2tj56ffj9508h8lv12.jpg"
+      image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758443372/zannya/uploads/ihjqhy04jp3prydemm3j.jpg"
       intro="To empower 1000 Youth in urban slums of Uganda to attain sustainable livelihood, economic stability and wellbeing through sports-based initiatives by Dec 2028."
       highlights={highlights}
       activities={activities}
