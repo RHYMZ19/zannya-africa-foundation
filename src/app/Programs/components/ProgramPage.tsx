@@ -17,6 +17,7 @@ type Resource = {
 type Highlight = {
   title: string;
   detail: string;
+  icon: string;
 };
 
 type Activity = {
@@ -215,10 +216,7 @@ export default function ProgramPage({
     {highlights.map((item, index) => (
       <div key={index} className={styles.objectiveCard}>
         <div className={styles.objectiveIcon}>
-          {index === 0 && "🌱"}
-          {index === 1 && "👩"}
-          {index === 2 && "⚡"}
-          {index === 3 && "🌍"}
+          {item.icon}
         </div>
 
         <h3>{item.title}</h3>

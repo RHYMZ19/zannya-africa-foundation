@@ -2,9 +2,9 @@
 import ProgramPage from "../components/ProgramPage";
 
 const highlights = [
-  { title: "employability", detail: "To enhance employability and income generating opportunities for 350youth & Women in urban slums of Uganda by 2028. " },
-  { title: "sports talent", detail: "To promote sports talent and healthy lifestyles among 500 Youth & women in urban slums of Kampala by 2028. " },
-  { title: "community engagement", detail: "To Foster community engagement and Social Cohesion for xxx" }
+  { title: "employability", icon: "🌍", detail: "To enhance employability and income generating opportunities for 350youth & Women in urban slums of Uganda by 2028. " },
+  { title: "sports talent", icon: "🌍", detail: "To promote sports talent and healthy lifestyles among 500 Youth & women in urban slums of Kampala by 2028. " },
+  { title: "community engagement", icon: "🌍", detail: "To Foster community engagement and Social Cohesion for xxx" }
 ];
 
 // Program Activities

@@ -2,9 +2,9 @@
 import ProgramPage from "../components/ProgramPage";
 
 const highlights = [
-  { title: "Youth Engagement", detail: "Sports and recreation as tools for life skills." },
-  { title: "Women Empowerment", detail: "Training and mentorship programs for women." },
-  { title: "Skill Development", detail: "Practical sessions to boost livelihood opportunities." }
+  { title: "Youth Engagement", detail: "Sports and recreation as tools for life skills.", icon: "🌍" },
+  { title: "Women Empowerment", detail: "Training and mentorship programs for women.", icon: "🌍" },
+  { title: "Skill Development", detail: "Practical sessions to boost livelihood opportunities.", icon: "🌍" }
 ];
 
 // Program Activities

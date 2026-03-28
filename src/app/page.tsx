@@ -237,11 +237,11 @@ export default function MainPage() {
       />
 
       <div className={styles.programOverlay}>
-        <h3>Skilling & Livelihood</h3>
+        <h3> Sports For Enhanced Livelihood </h3>
 
         <p>
-         ZAF utilizes sports and recreation activities as a tool to enhance the 
-            ivelihood skills of underprivileged youth and women.
+         To empower 1000 Youth in urban slums of Uganda to attain sustainable livelihood, 
+         economic stability and wellbeing through sports-based initiatives by Dec 2028.
         </p>
 
         <Link href="/Programs/skilling-livelihood" className={styles.learnMore}>
@@ -259,11 +259,11 @@ export default function MainPage() {
       />
 
       <div className={styles.programOverlay}>
-        <h3>Reproductive & Physical health awareness </h3>
+        <h3>Sexual reproductive health & physical wellness </h3>
 
         <p>
-          Improving healthcare access through community outreach,
-          awareness campaigns, and support programs.
+          To Improve SRH and Physical wellness for 1500 Ugandan adolescents & youth living in urban 
+          slums of Uganda through sexual health awareness and healthy physical lifestyles...
         </p>
 
         <Link href="/Programs/reproductive-health" className={styles.learnMore}>
@@ -281,11 +281,11 @@ export default function MainPage() {
       />
 
       <div className={styles.programOverlay}>
-        <h3>Climate justice advocacy</h3>
+        <h3>Climate action & environment justice</h3>
 
         <p>
-          This program leverages sports to promote climate policy advocacy, education, 
-                    and community engagement.
+          To Strengthen climate resilience and Environmental sustainability for 4,500 vulnerable Youths 
+          in Schools, Community and institutions in Uganda through Sports,...
         </p>
 
         <Link href="/Programs/climate-justice" className={styles.learnMore}>
