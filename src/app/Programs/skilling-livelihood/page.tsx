@@ -45,7 +45,7 @@ const activities = [
 export default function SkillingLivelihood() {
   return (
     <ProgramPage
-      title=" SPORTS FOR ENHANCED LIVELIHOOD AND ECONOMIC EMPOWERMENT."
+      title=" Sports for Livelihood & Economic Empowerment."
       description=""
       image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757064571/zannya/uploads/lpux4wqm27omuk9u15ei.jpg"
       intro="To empower 4,500 Youth & Women in urban slums of Uganda to attain sustainable 
