@@ -128,7 +128,6 @@ export default function MissionsClient() {
       
           </div>
         </div>
-                
                 <a href="/Videos" >Gallery</a>
                 <a href="/Donates" className={styles.btnPrimary}> Donate</a>
               </div>
