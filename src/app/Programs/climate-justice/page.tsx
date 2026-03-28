@@ -6,7 +6,7 @@ import ProgramPage from "../components/ProgramPage";
 const highlights = [
   {
     title: " Form climate ambassadors",
-    icon: "🌱",
+    icon: "🧑‍🤝‍🧑",
     detail: "To build organized pool of 15 climate ambassadors each reaching out to 300 Beneficiaries in their community on quarterly basis by Dec 2028."
   },
   {
@@ -50,7 +50,7 @@ const activities = [
     title: "Community fruit tree planting ",
     detail: "Conduct Bi-annual Community fruit tree planting for 3,000 fruit trees & 1,500 restoration trees in 3 Vulnerable communities in Central Uganda by 2028. ",
     image:
-      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg"
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1774726189/zannya/uploads/images/mlss4vqueb8unse8qlqf.jpg"
   },
   {
     title: " Webinars hosting ",
