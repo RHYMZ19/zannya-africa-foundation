@@ -1,105 +1,109 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import styles from './Donates.module.css';
-import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaHome } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
-import Gallery from '../Gallery/Gallery';
-import GetInvolved from '../GetInvolved/GetInvolved';
-import OptionalFeatures from '../OptionalFeatures/OptionalFeatures';
-import StickyBar from '../StickyBar/StickyBar';
-import IncreaseI from './components/IncreaseI';
-import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Donates() {
-  const [amount, setAmount] = useState(25);
-  const [visible, setVisible] = useState(false);
-  const router = useRouter();
+  const [amount, setAmount] = useState<number | ''>('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
 
-  useEffect(() => {
-    setTimeout(() => setVisible(true), 100);
-  }, []);
+  const presetAmounts = [10000, 25000, 50000, 100000];
 
-  const handleDonation = () => {
-    alert(`Currently unavailable, kindly use mobile money below for $${amount}`);
+  const handleDonate = async () => {
+    if (!amount || amount <= 0) {
+      setMessage('Please enter a valid amount');
+      return;
+    }
+
+    setLoading(true);
+    setMessage('Processing donation...');
+
+    // 🔥 Replace this with your backend (Pesapal later)
+    setTimeout(() => {
+      setLoading(false);
+      setMessage('✅ Donation successful! Thank you ❤️');
+    }, 2000);
   };
 
   return (
-    <div className={styles.page}>
-      {/* Sticky Top Navigation */}
-      <StickyBar>
-        <FaHome onClick={() => router.push('/')} className={styles.navIcon} />
-        <GetInvolved />
-        <Gallery />
-        <IncreaseI src='/log.jpg' alt="log" />
-      </StickyBar>
+    <section className={styles.section}>
+      <div className={styles.container}>
 
-      {/* Hero Section */}
-      <section className={`${styles.hero} ${visible ? styles.show : ''}`}>
-        <div className={styles.heroContent}>
-          <h1>Support Our Mission</h1>
-          <p>Your donation empowers change in education, health, and community development.</p>
-          <button onClick={handleDonation} className={styles.heroBtn}>
-            Donate now
-          </button>
+        {/* LEFT SIDE */}
+        <div className={styles.info}>
+          <h1>Support Our Cause ❤️</h1>
+          <p>
+            Your donation helps transform lives through education,
+            health, and empowerment programs.
+          </p>
+
+          <div className={styles.impact}>
+            <div>
+              <h3>500+</h3>
+              <span>People Helped</span>
+            </div>
+            <div>
+              <h3>20+</h3>
+              <span>Projects Done</span>
+            </div>
+          </div>
         </div>
-      </section>
 
-      {/* Donation Amounts */}
-      <section className={styles.donationSection}>
-        <h2>Choose Your Donation</h2>
-        <div className={styles.amounts}>
-          {[10, 25, 50, 100].map((val) => (
-            <button
-              key={val}
-              className={`${styles.amountBtn} ${amount === val ? styles.active : ''}`}
-              onClick={() => setAmount(val)}
-            >
-              ${val}
-            </button>
-          ))}
+        {/* RIGHT SIDE */}
+        <div className={styles.box}>
+          <h2>Make a Donation</h2>
+
+          {/* PRESET AMOUNTS */}
+          <div className={styles.amountGrid}>
+            {presetAmounts.map((amt) => (
+              <button
+                key={amt}
+                className={`${styles.amountBtn} ${
+                  amount === amt ? styles.active : ''
+                }`}
+                onClick={() => setAmount(amt)}
+              >
+                {amt.toLocaleString()} UGX
+              </button>
+            ))}
+          </div>
+
+          {/* CUSTOM AMOUNT */}
           <input
             type="number"
-            min="1"
-            placeholder="Custom"
+            placeholder="Enter custom amount (UGX)"
             value={amount}
             onChange={(e) => setAmount(Number(e.target.value))}
-            className={styles.customInput}
+            className={styles.input}
           />
-        </div>
-        <button onClick={handleDonation} className={styles.donateBtn}>
-          Donate with Pesapal / Mobile Money
-        </button>
-        <p className={styles.trust}>🔒 Secure & Encrypted • 📈 Transparent • ❤️ Every Coin Counts</p>
-      </section>
 
-      {/* Contact & Social */}
-      <section className={styles.contactSection}>
-        <h2>Contact Us</h2>
-        <div className={styles.contactCards}>
-          <div>
-            <MdEmail className={styles.contactIcon} />
-            <p><a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a></p>
+          {/* PAYMENT METHOD */}
+          <div className={styles.payment}>
+            <label>
+              <input type="radio" name="payment" defaultChecked />
+              Mobile Money
+            </label>
+            <label>
+              <input type="radio" name="payment" />
+              Card
+            </label>
           </div>
-          <div>
-            <FaWhatsapp className={styles.contactIcon} />
-            <p><a href="https://wa.me/256786797963" target="_blank">+256 786797963</a></p>
-          </div>
+
+          {/* BUTTON */}
+          <button
+            onClick={handleDonate}
+            className={styles.button}
+            disabled={loading}
+          >
+            {loading ? 'Processing...' : 'Donate Now'}
+          </button>
+
+          {/* MESSAGE */}
+          {message && <p className={styles.message}>{message}</p>}
         </div>
 
-        <p className={styles.socialPrompt}>Follow us on social media:</p>
-        <div className={styles.socialIcons}>
-          <a href="https://facebook.com/zannyaafricafoundation" target="_blank"><FaFacebook /></a>
-          <a href="https://instagram.com/zannya_africa_foundation" target="_blank"><FaInstagram /></a>
-          <a href="https://tiktok.com/@zannyaafricafdn" target="_blank"><FaTiktok /></a>
-          <a href="https://x.com/zannyaafrica" target="_blank"><FaXTwitter /></a>
-          <a href="https://wa.me/256786797963" target="_blank"><FaWhatsapp /></a>
-        </div>
-      </section>
-
-      {/* Optional Features */}
-      <OptionalFeatures />
-    </div>
+      </div>
+    </section>
   );
 }
