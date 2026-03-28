@@ -68,7 +68,7 @@ export default function Donates() {
   };
 
   return (
-    <section className={styles.section}>
+    <div className={styles.page}>
 
       {/* ================= NAVBAR ================= */}
                   <nav className={styles.navbar}>
@@ -204,6 +204,8 @@ export default function Donates() {
               </div>
             </section>
 
+    <section className={styles.section}>
+
       <div className={styles.container}>
 
         {/* LEFT SIDE */}
@@ -281,7 +283,9 @@ export default function Donates() {
 
       </div>
 
-      {/* ================= FOOTER ================= */}
+    </section>
+
+    {/* ================= FOOTER ================= */}
             <footer className={styles.footer}>
               <div className={styles.footerContainer}>
                 
@@ -315,7 +319,6 @@ export default function Donates() {
                 <p>© {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.</p>
               </div>
             </footer>
-
-    </section>
+    </div>
   );
 }

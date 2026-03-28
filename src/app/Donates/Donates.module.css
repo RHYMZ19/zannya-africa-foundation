@@ -1,3 +1,11 @@
+.page{
+width:100%;
+overflow:hidden;
+font-family: "Segoe UI", sans-serif;
+background:#f6f9fc;
+color:#1a1a1a;
+}
+
 .section {
   min-height: 100vh;
   display: flex;

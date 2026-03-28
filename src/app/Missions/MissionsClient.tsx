@@ -79,7 +79,7 @@ export default function MissionsClient() {
   
   return (
 <div className={styles.page}>
-
+  
   {/* ================= NAVBAR ================= */}
             <nav className={styles.navbar}>
               <IncreaseImage src='/log.jpg' alt="Logo" />
