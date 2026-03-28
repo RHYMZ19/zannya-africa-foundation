@@ -76,7 +76,7 @@ export default function MissionsClient() {
 
     setTimeout(() => setVisible(true), 100);
   }, []);
-
+  
   return (
 <div className={styles.page}>
 
