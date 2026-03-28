@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from './DonatesNew.module.css';
+import styles from './Donates.module.css';
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaHome } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import Gallery from '../Gallery/Gallery';
