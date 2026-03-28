@@ -2,42 +2,42 @@
 import ProgramPage from "../components/ProgramPage";
 
 const highlights = [
-  { title: "Youth Engagement", detail: "Sports and recreation as tools for life skills.", icon: "🌍" },
-  { title: "Women Empowerment", detail: "Training and mentorship programs for women.", icon: "🌍" },
-  { title: "Skill Development", detail: "Practical sessions to boost livelihood opportunities.", icon: "🌍" }
+  { title: "Sexual awareness", detail: "To Increase knowledge on responsible sexual behavior & safe sexual practices among 1000 Youth in urban slums of Kampala by 2028.", icon: "🧡" },
+  { title: "Encouraging healthy physical lifestyle", detail: "To Encourage healthy physical lifestyle among 1000 adolescents & Youths in Urban slums in Kampala by 2028.", icon: "🏃‍♂️" },
+  { title: "Promoting personal hygiene", detail: "Promote personal hygiene and body care for 1000 adolescents & youths in Urban slums of Kampala by 2028.", icon: "🧼" }
 ];
 
 // Program Activities
 const activities = [
   {
-    title: "Community Football Tournaments",
-    detail: "Organizing football tournaments that bring youth together while educating them about climate action and environmental responsibility.",
+    title: "health education",
+    detail: "Conduct quarterly health education in 4 schools and 2 community targeting 1000 adolescents &Youth.",
     image:
-      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg"
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758448958/zannya/uploads/pomsobotwo3fac41gzze.jpg"
   },
   {
-    title: "Tree Planting Campaigns",
-    detail: "Youth participate in tree planting after sports events to restore the environment and promote climate justice.",
+    title: "Physical fitness",
+    detail: "Conduct quarterly Physical fitness activities (aerobics and fitness runs) targeting 500 adolescents & Youth in urban slums in Kampala.",
         image:
-      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023192/zannya/uploads/images/evtysd6cvwkgufpbfhcm.jpg"
-  },
-  {
-    title: "Climate Education Workshops",
-    detail: "Training sessions that teach young athletes about climate change, sustainability, and environmental protection.",
-    image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023469/zannya/uploads/images/yfrz57qsu50uvpottbzq.jpg"
   },
   {
-    title: "Community Clean-up Drives",
-    detail: "Sports teams organize clean-up campaigns in their communities to promote environmental responsibility.",
+    title: "sports tournaments",
+    detail: "Conduct Bi-Annual sports tournaments to promote sexual reproductive health, health screening campaigns and medical health checkups camps in partnership with health facilities and communities.",
     image:
-      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756829071/zannya/uploads/kngkholnlp6wvmzq4pa8.jpg"
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1771841037/zannya/uploads/images/ay22i17pmbutfxhjs9av.jpg"
   },
   {
-    title: "Community Clean-up Drives",
-    detail: "Sports teams organize clean-up campaigns in their communities to promote environmental responsibility.",
+    title: "Peer to peer education",
+    detail: "Conduct quarterly Peer to peer education trainings targeting 50 Peers in urban slums to Kampala to Cascade health education sessions to xxxx by dec 2028. ",
     image:
-      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1756827033/zannya/uploads/w041szk6iwvrrkio0dyj.jpg"
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758448889/zannya/uploads/hrmh4thtitxrkrbucx0i.jpg"
+  },
+  {
+    title: "Host Personal Hygiene sessions",
+    detail: "Host Personal Hygiene and HH sanitation sessions for health living through demonstration events targeting 1000 youth in Urban slums of Kampala by 2028.",
+    image:
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758448824/zannya/uploads/ptbzzjwz8na0axwiajfy.jpg"
   }
 ];
 
@@ -45,9 +45,9 @@ const activities = [
 export default function ReproductiveHealth () {
   return (
     <ProgramPage
-      title="Skilling & Livelihood"
-      description="ZAF utilizes sports and recreation activities as a tool to enhance the livelihood skills of underprivileged youth and women."
-      image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1757063547/zannya/uploads/vrk7v7d0qvd1yw51oeig.jpg"
+      title="Sexual reproductive health & physical wellness"
+      description="To Improve SRH and Physical wellness for 1500 Ugandan adolescents & youth living in urban slums of Uganda through sexual health awareness and healthy physical lifestyles to prevent lifestyle disease and foster responsible health choices by 2028."
+      image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1771841014/zannya/uploads/images/d4msr22hlj15r604jczw.jpg"
       intro=""
       highlights={highlights}
       activities={activities}

@@ -191,8 +191,9 @@ export default function MainPage() {
       <div className={styles.infoCard}>
         <h3>Mission</h3>
         <p>
-          To use sports as a tool for community development,
-          empowerment, and sustainability.
+          To empower adolescents and youth in Uganda's urban slums by using sports as a 
+          transformative tool for community development, personal empowerment, 
+          and long-term sustainability.
         </p>
       </div>
 
