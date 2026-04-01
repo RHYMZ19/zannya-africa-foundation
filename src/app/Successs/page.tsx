@@ -71,24 +71,6 @@ export default function Successs() {
   return (
     <div className={styles.page}>
 
-      {/* HERO */}
-      <section className={styles.hero}>
-        <Image
-          src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758898506/zannya/uploads/images/ilyhjfpy0s8u8zvgbueg.jpg"
-          alt="hero"
-          fill
-          className={styles.heroImg}
-        />
-        <div className={styles.overlay}></div>
-
-        <div className={styles.heroContent}>
-          <h1>Success Stories</h1>
-          <p>Real impact. Real people. Real change.</p>
-          <button onClick={() => router.push("/Donates")}>
-            Support the Mission
-          </button>
-        </div>
-      </section>
 
       {/* ================= NAVBAR ================= */}
                   <nav className={styles.navbar}>
