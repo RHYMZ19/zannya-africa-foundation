@@ -212,7 +212,7 @@ export default function MainPage() {
   <div className={styles.featuredContainer}>
     
     {/*  IMAGE */}
-    <div className={styles.featuredImage}>
+    <div className={styles.featuredImages}>
       <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758374799/zannya/uploads/images/insun2kdxlwor2iqb8va.jpg" alt="Interesting Articles" />
       <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758376472/zannya/uploads/images/go3uxxditpcuwwfnui7s.jpg" alt="Interesting Articles" />
       <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758376508/zannya/uploads/images/t614e7cy9pkrpcibktnv.jpg" alt="Interesting Articles" />
