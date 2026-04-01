@@ -207,13 +207,15 @@ export default function MainPage() {
 </section>
 
 
-      {/* ================= FEATURED ARTICLES ================= */}
+      {/* ================= FEATURED IMAGES ================= */}
 <section className={styles.featuredSection}>
   <div className={styles.featuredContainer}>
     
-    {/* LEFT IMAGE */}
+    {/*  IMAGE */}
     <div className={styles.featuredImage}>
       <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758374799/zannya/uploads/images/insun2kdxlwor2iqb8va.jpg" alt="Interesting Articles" />
+      <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758376472/zannya/uploads/images/go3uxxditpcuwwfnui7s.jpg" alt="Interesting Articles" />
+      <img src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758376508/zannya/uploads/images/t614e7cy9pkrpcibktnv.jpg" alt="Interesting Articles" />
     </div>
 
 
@@ -241,8 +243,7 @@ export default function MainPage() {
         <h3> Sports for enhanced livelihood </h3>
 
         <p>
-         To empower 1000 Youth in urban slums of Uganda to attain sustainable livelihood, 
-         economic stability and wellbeing through sports-based initiatives by Dec 2028.
+         To empower Youth to attain sustainable livelihood through sports-based initiatives.
         </p>
 
         <Link href="/Programs/skilling-livelihood" className={styles.learnMore}>
@@ -263,8 +264,8 @@ export default function MainPage() {
         <h3>Sexual reproductive health & physical wellness </h3>
 
         <p>
-          To Improve SRH and Physical wellness for 1500 Ugandan adolescents & youth living in urban 
-          slums of Uganda through sexual health awareness and healthy physical lifestyles...
+          To Improve SRH and Physical wellness for Ugandan adolescents & 
+          youth through sexual health awareness...
         </p>
 
         <Link href="/Programs/reproductive-health" className={styles.learnMore}>
@@ -285,8 +286,8 @@ export default function MainPage() {
         <h3>Climate action & environment justice</h3>
 
         <p>
-          To Strengthen climate resilience and Environmental sustainability for 4,500 vulnerable Youths 
-          in Schools, Community and institutions in Uganda through Sports,...
+          To Strengthen climate resilience and Environmental sustainability vulnerable Youths 
+          in Schools in Uganda through Sports,...
         </p>
 
         <Link href="/Programs/climate-justice" className={styles.learnMore}>
@@ -447,7 +448,7 @@ export default function MainPage() {
 )}
 
       {/* ================= SUPPORT & CONTACT ================= */}
-<section className={`${styles.section} ${styles.gray}`}>
+<section id="contact" className={`${styles.section} ${styles.gray}`}>
   <div className={styles.supportRow}>
 
     {/* Support Us */}
