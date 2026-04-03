@@ -207,6 +207,46 @@ export default function ProgramPage({
         <p>{intro}</p>
       </section>
 
+
+      {/* ================= OBJECTIVES + ACTIVITIES SPLIT ================= */}
+<section className={styles.splitSection}>
+
+  {/* LEFT SIDE - OBJECTIVES */}
+  <div className={styles.splitLeft}>
+    <h2 className={styles.splitTitle}>Program Objectives</h2>
+
+    <ul className={styles.list}>
+      {highlights.map((item, index: number) => (
+        <li key={index} className={styles.listItem}>
+          <span className={styles.icon}>{item.icon}</span>
+          <div>
+            <h4>{item.title}</h4>
+            <p>{item.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  {/* RIGHT SIDE - ACTIVITIES */}
+  <div className={styles.splitRight}>
+    <h2 className={styles.splitTitle}>Program Activities</h2>
+
+    <ul className={styles.list}>
+      {activities.map((activity, index: number) => (
+        <li key={index} className={styles.listItem}>
+          <span className={styles.bullet}>✔</span>
+          <div>
+            <h4>{activity.title}</h4>
+            <p>{activity.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+</section>
+
       {/* PROGRAM OBJECTIVES */}
       <h2 className={styles.UectionTitle}>Program Objectives</h2>
 <section className={styles.highlights}>
