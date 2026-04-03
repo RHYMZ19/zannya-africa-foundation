@@ -211,9 +211,15 @@ export default function ProgramPage({
       {/* ================= OBJECTIVES + ACTIVITIES SPLIT ================= */}
 <section className={styles.splitSection}>
 
+  {/* SMALL INTRO */}
+  <div className={styles.splitIntro}>
+    <h3>Program Goal</h3>
+    <p>{intro}</p>
+  </div>
+
   {/* LEFT SIDE - OBJECTIVES */}
   <div className={styles.splitLeft}>
-    <h2 className={styles.splitTitle}>Program Objectives</h2>
+    <h2 className={styles.splitTitle}> Objectives</h2>
 
     <ul className={styles.list}>
       {highlights.map((item, index: number) => (
@@ -232,7 +238,7 @@ export default function ProgramPage({
 
   {/* RIGHT SIDE - ACTIVITIES */}
   <div className={styles.splitRight}>
-    <h2 className={styles.splitTitle}>Program Activities</h2>
+    <h2 className={styles.splitTitle}> Activities</h2>
 
     <ul className={styles.list}>
       {activities.map((activity, index: number) => (
@@ -257,7 +263,7 @@ export default function ProgramPage({
 
 {/* PROGRAM ACTIVITIES */}
 <section className={styles.activities}>
-  <h2 className={styles.sectionTitle}>Program Activities</h2>
+  <h2 className={styles.sectionTitle}></h2>
 
   <div className={styles.activitiesGrid}>
   {activities.map((activity, index: number) => (

@@ -692,7 +692,7 @@ display: flex;
 /* IMAGE */
 
 .activityImage {
-  height: 250px;
+  height: 300px;
   border-radius: 15px;
   background-size: cover;
   background-position: center;
@@ -786,7 +786,7 @@ display: flex;
   font-size: 28px;
   margin-bottom: 20px;
   font-weight: 700;
-  color: #111;
+  color: #0b3c5d;
 }
 
 /* List */
@@ -867,4 +867,29 @@ display: flex;
 .listItem h4 {
   margin: 0;
   font-size: 16px;
+}
+
+/* SMALL INTRO INSIDE SPLIT */
+
+.splitIntro {
+  grid-column: 1 / -1; /* span full width */
+  text-align: center;
+  margin-bottom: 20px; /* small spacing only */
+}
+
+.splitIntro h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #0b3c5d;
+}
+
+.splitIntro p {
+  font-size: 14px;
+  color: #555;
+  max-width: 700px;
+  margin: auto;
+}
+
+.splitSection {
+  padding: 50px 10%; /* was 80px */
 }
