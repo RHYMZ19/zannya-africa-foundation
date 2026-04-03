@@ -876,6 +876,8 @@ display: flex;
   text-align: center;
   margin-bottom: 5px; /* small spacing only */
   margin-top: 5px;
+  align-items: center;   /* ✅ centers horizontally */
+  text-align: center;    /* ✅ centers text */
 }
 
 .splitIntro h3 {
@@ -889,7 +891,6 @@ display: flex;
   color: #555;
   max-width: 700px;
   margin: auto;
-  text-align: center;
 }
 
 .splitSection {
