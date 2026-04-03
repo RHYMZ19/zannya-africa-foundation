@@ -201,13 +201,6 @@ export default function ProgramPage({
       </section>
       
 
-      {/* PROGRAM INTRO */}
-      <section className={styles.intro}>
-        <h2>Program Goal</h2>
-        <p>{intro}</p>
-      </section>
-
-
       {/* ================= OBJECTIVES + ACTIVITIES SPLIT ================= */}
 <section className={styles.splitSection}>
 
