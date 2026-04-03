@@ -260,21 +260,21 @@ export default function ProgramPage({
   <h2 className={styles.sectionTitle}>Program Activities</h2>
 
   <div className={styles.activitiesGrid}>
-    {activities.map((activity, index) => (
-      <div key={index} className={styles.activityCard}>
+  {activities.map((activity, index: number) => (
+  <div key={index} className={styles.activityCard}>
 
-        <div
-          className={styles.activityImage}
-          style={{ backgroundImage: `url(${activity.image})` }}
-        />
-
-        <div className={styles.activityContent}>
-          <h3>{activity.title}</h3>
-          <p>{activity.detail}</p>
-        </div>
-
+    <div
+      className={styles.activityImage}
+      style={{ backgroundImage: `url(${activity.image})` }}
+    >
+      {/* LABEL ON IMAGE */}
+      <div className={styles.imageLabel}>
+        {activity.title}
       </div>
-    ))}
+    </div>
+
+  </div>
+))}
   </div>
 </section>
 

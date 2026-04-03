@@ -676,11 +676,12 @@ display: flex;
 /* ACTIVITY CARD */
 
 .activityCard{
-  border-radius:18px;
+  border-radius:15px;
   overflow:hidden;
   background:white;
   box-shadow:0 8px 25px rgba(0,0,0,0.1);
   transition:transform 0.35s ease;
+  border-radius: 15px;
 }
 
 .activityCard:hover{
@@ -690,11 +691,34 @@ display: flex;
 
 /* IMAGE */
 
-.activityImage{
-  height:200px;
-  background-size:cover;
-  background-position:center;
+.activityImage {
+  height: 250px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
   transition:transform 0.4s ease;
+}
+
+/* Dark overlay (optional but makes text readable) */
+.activityImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+/* Label on image */
+.imageLabel {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  z-index: 2;
 }
 
 .activityCard:hover .activityImage{
