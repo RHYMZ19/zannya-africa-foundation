@@ -891,6 +891,8 @@ display: flex;
   color: #555;
   max-width: 700px;
   margin: auto;
+  align-items: center;   /* ✅ centers horizontally */
+  text-align: center;    /* ✅ centers text */
 }
 
 .splitSection {
