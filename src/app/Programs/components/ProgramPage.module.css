@@ -819,3 +819,28 @@ display: flex;
     grid-template-columns: 1fr;
   }
 }
+
+/* Number style */
+.number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2e7d32; /* nice green */
+  min-width: 30px;
+}
+
+/* Update list item */
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.listItem h4 {
+  margin: 0;
+  font-size: 16px;
+}

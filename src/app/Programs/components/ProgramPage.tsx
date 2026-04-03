@@ -218,11 +218,13 @@ export default function ProgramPage({
     <ul className={styles.list}>
       {highlights.map((item, index: number) => (
         <li key={index} className={styles.listItem}>
-          <span className={styles.icon}>{item.icon}</span>
-          <div>
-            <h4>{item.title}</h4>
-            <p>{item.detail}</p>
-          </div>
+          
+          <span className={styles.number}>
+            {index + 1}.
+          </span>
+
+          <h4>{item.title}</h4>
+
         </li>
       ))}
     </ul>
@@ -235,11 +237,13 @@ export default function ProgramPage({
     <ul className={styles.list}>
       {activities.map((activity, index: number) => (
         <li key={index} className={styles.listItem}>
-          <span className={styles.bullet}>✔</span>
-          <div>
-            <h4>{activity.title}</h4>
-            <p>{activity.detail}</p>
-          </div>
+          
+          <span className={styles.number}>
+            {index + 1}.
+          </span>
+
+          <h4>{activity.title}</h4>
+
         </li>
       ))}
     </ul>
@@ -247,24 +251,8 @@ export default function ProgramPage({
 
 </section>
 
-      {/* PROGRAM OBJECTIVES */}
-      <h2 className={styles.UectionTitle}>Program Objectives</h2>
-<section className={styles.highlights}>
-  
 
-  <div className={styles.highlightsGrid}>
-    {highlights.map((item, index) => (
-      <div key={index} className={styles.objectiveCard}>
-        <div className={styles.objectiveIcon}>
-          {item.icon}
-        </div>
-
-        <h3>{item.title}</h3>
-        <p>{item.detail}</p>
-      </div>
-    ))}
-  </div>
-</section>
+     
 
 
 {/* PROGRAM ACTIVITIES */}
