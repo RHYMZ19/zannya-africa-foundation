@@ -329,15 +329,19 @@ export default function MissionsClient() {
   <div className={styles.branchColumn}>
     <span className={styles.mainNode}>Football</span>
 
-    <div className={styles.splitArrows}>
-      <div className={styles.leftArrow}></div>
-      <div className={styles.rightArrow}></div>
-    </div>
+    <div className={styles.subBranchWrapper}>
 
-    <div className={styles.subBranch}>
-      <span>Training</span>
-      <span>Tournaments</span>
-    </div>
+  <div className={styles.subItem}>
+    <div className={styles.arrowLine}></div>
+    <span>Training</span>
+  </div>
+
+  <div className={styles.subItem}>
+    <div className={styles.arrowLine}></div>
+    <span>Tournaments</span>
+  </div>
+
+</div>
   </div>
 
   {/* HYGIENE */}
