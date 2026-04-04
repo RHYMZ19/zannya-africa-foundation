@@ -646,22 +646,42 @@ display: flex;
   padding: 30px;
 }
 
-/* ================= CIRCULAR CYCLE ================= */
-.circleWrapper{
-  position:relative;
-  width:300px;
-  height:300px;
-  margin:50px auto;
+/* ================= SECTION ================= */
+.cycleSection{
+  padding:80px 10%;
+  text-align:center;
 }
 
+/* ================= CIRCLE ================= */
+.circleWrapper{
+  position:relative;
+  width:320px;
+  height:320px;
+  margin:60px auto;
+}
+
+/* DASHED CIRCLE */
+.circleWrapper::before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  border:2px dashed #d1d5db;
+  border-radius:50%;
+}
+
+/* ================= BOXES ================= */
 .cycleBox{
   position:absolute;
   background:#ff6b35;
   color:white;
   padding:12px 18px;
-  border-radius:20px;
+  border-radius:25px;
   font-size:14px;
-  transition:0.3s;
+  font-weight:500;
+  white-space:nowrap;
+  transition:all 0.3s ease;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .cycleBox:hover{
@@ -669,18 +689,20 @@ display: flex;
   background:#0c3d5d;
 }
 
-.top{ top:0; left:50%; transform:translateX(-50%); }
-.right{ right:0; top:50%; transform:translateY(-50%); }
-.bottom{ bottom:0; left:50%; transform:translateX(-50%); }
-.left{ left:0; top:50%; transform:translateY(-50%); }
+/* POSITIONING */
+.top{ top:-10px; left:50%; transform:translateX(-50%); }
+.right{ right:-10px; top:50%; transform:translateY(-50%); }
+.bottom{ bottom:-10px; left:50%; transform:translateX(-50%); }
+.left{ left:-10px; top:50%; transform:translateY(-50%); }
 
+/* ================= CENTER ================= */
 .centerCircle{
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  width:70px;
-  height:70px;
+  width:75px;
+  height:75px;
   border-radius:50%;
   background:#0c3d5d;
   color:white;
@@ -688,18 +710,76 @@ display: flex;
   align-items:center;
   justify-content:center;
   font-size:22px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
-/* circle lines */
-.circleWrapper::before{
+/* ================= ARROWS ================= */
+
+/* base arrow line */
+.arrowTopRight,
+.arrowRightBottom,
+.arrowBottomLeft,
+.arrowLeftTop{
+  position:absolute;
+  width:80px;
+  height:80px;
+  border:2px solid #0c3d5d;
+  border-left:none;
+  border-bottom:none;
+  border-radius:50%;
+  animation:rotateFlow 6s linear infinite;
+}
+
+/* positions */
+.arrowTopRight{
+  top:20px;
+  right:20px;
+  transform:rotate(45deg);
+}
+
+.arrowRightBottom{
+  bottom:20px;
+  right:20px;
+  transform:rotate(135deg);
+}
+
+.arrowBottomLeft{
+  bottom:20px;
+  left:20px;
+  transform:rotate(225deg);
+}
+
+.arrowLeftTop{
+  top:20px;
+  left:20px;
+  transform:rotate(315deg);
+}
+
+/* arrow head */
+.arrowTopRight::after,
+.arrowRightBottom::after,
+.arrowBottomLeft::after,
+.arrowLeftTop::after{
   content:'';
   position:absolute;
-  width:100%;
-  height:100%;
-  border:2px dashed #ccc;
-  border-radius:50%;
+  width:10px;
+  height:10px;
+  border-top:2px solid #0c3d5d;
+  border-right:2px solid #0c3d5d;
+  top:-5px;
+  right:-5px;
+  transform:rotate(45deg);
 }
 
+/* animation for flow */
+@keyframes rotateFlow{
+  from{
+    opacity:0.3;
+  }
+  to{
+    opacity:1;
+  }
+}
 /*cycle*/
 .wrapper{
   position:relative;
@@ -721,22 +801,22 @@ display: flex;
 }
 
 /* POSITIONS (CIRCLE) */
-.top{
+.ttop{
   top:10%;
   left:50%;
 }
 
-.right{
+.rright{
   top:50%;
   left:90%;
 }
 
-.bottom{
+.bbottom{
   top:90%;
   left:50%;
 }
 
-.left{
+.lleft{
   top:50%;
   left:10%;
 }
