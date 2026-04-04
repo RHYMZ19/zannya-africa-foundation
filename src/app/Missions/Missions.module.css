@@ -977,3 +977,136 @@ display: flex;
 .subItem span:hover{
   transform:translateY(-3px);
 }
+
+/*for testing */
+.treeContainer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:40px;
+}
+
+/* LEVELS */
+.level{
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  margin:20px 0;
+}
+
+/* BOX STYLE */
+.box{
+  padding:12px 20px;
+  background:#0a2540;
+  color:#fff;
+  border-radius:8px;
+  font-weight:500;
+  text-align:center;
+  min-width:100px;
+}
+
+.box.small{
+  background:#1e90ff;
+}
+
+.main{
+  background:#00a86b;
+}
+
+/* ARROW DOWN */
+.arrowDown{
+  width:2px;
+  height:40px;
+  background:#333;
+}
+
+/* LEVEL 2 BRANCH */
+.branch{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  position:relative;
+}
+
+/* CONNECTOR LINE BETWEEN LEVEL 2 & 3 */
+.connectors{
+  display:flex;
+  justify-content:center;
+  gap:160px;
+}
+
+.connector{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.line{
+  width:2px;
+  height:40px;
+  background:#333;
+}
+
+/* LEVEL 3 */
+.three{
+  gap:120px;
+}
+
+/* COLUMN FOR EACH BRANCH */
+.branchColumn{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* SUB BRANCHES */
+.subBranches{
+  display:flex;
+  gap:40px;
+  position:relative;
+}
+
+/* TOP CONNECTING LINE */
+.subBranches::before{
+  content:"";
+  position:absolute;
+  top:-20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:80%;
+  height:2px;
+  background:#333;
+}
+
+/* SMALL VERTICAL LINES TO EACH BOX */
+.subBranches .box{
+  position:relative;
+}
+
+.subBranches .box::before{
+  content:"";
+  position:absolute;
+  top:-20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:2px;
+  height:20px;
+  background:#333;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .level{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .three{
+    flex-direction:column;
+    gap:40px;
+  }
+
+  .subBranches{
+    gap:20px;
+  }
+}

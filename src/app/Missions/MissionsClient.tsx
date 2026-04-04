@@ -380,6 +380,62 @@ export default function MissionsClient() {
 </section>
 
 
+{/*for testing*/}
+<div className="treeContainer">
+
+      {/* LEVEL 1 */}
+      <div className="level">
+        <div className="box main">Main Topic</div>
+      </div>
+
+      {/* ARROW DOWN */}
+      <div className="arrowDown"></div>
+
+      {/* LEVEL 2 */}
+      <div className="level two">
+        <div className="branch">
+          <div className="box">Branch 1</div>
+        </div>
+
+        <div className="branch">
+          <div className="box">Branch 2</div>
+        </div>
+      </div>
+
+      {/* ARROWS TO LEVEL 3 */}
+      <div className="connectors">
+        <div className="connector">
+          <div className="line"></div>
+        </div>
+        <div className="connector">
+          <div className="line"></div>
+        </div>
+      </div>
+
+      {/* LEVEL 3 */}
+      <div className="level three">
+
+        {/* Branch 1 children */}
+        <div className="branchColumn">
+          <div className="subBranches">
+            <div className="box small">B1-A</div>
+            <div className="box small">B1-B</div>
+          </div>
+        </div>
+
+        {/* Branch 2 children */}
+        <div className="branchColumn">
+          <div className="subBranches">
+            <div className="box small">B2-A</div>
+            <div className="box small">B2-B</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
 
 {/* LEADERSHIP */}
 <section className={styles.leadershipSection}>
