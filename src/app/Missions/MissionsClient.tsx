@@ -281,6 +281,77 @@ export default function MissionsClient() {
 
 </section>
 
+{/* ================= PROCESS CYCLE ================= */}
+<section className={styles.cycleSection}>
+  <h2>Our Impact Process</h2>
+
+  <div className={styles.cycleContainer}>
+    
+    <div className={styles.cycleItem}>
+      <div className={styles.circle}>1</div>
+      <h4>Community Engagement</h4>
+    </div>
+
+    <div className={styles.arrow}>→</div>
+
+    <div className={styles.cycleItem}>
+      <div className={styles.circle}>2</div>
+      <h4>Training & Awareness</h4>
+    </div>
+
+    <div className={styles.arrow}>→</div>
+
+    <div className={styles.cycleItem}>
+      <div className={styles.circle}>3</div>
+      <h4>Implementation</h4>
+    </div>
+
+    <div className={styles.arrow}>→</div>
+
+    <div className={styles.cycleItem}>
+      <div className={styles.circle}>4</div>
+      <h4>Monitoring & Impact</h4>
+    </div>
+
+  </div>
+</section>
+
+
+{/* ================= TREE DIAGRAM ================= */}
+<section className={styles.treeSection}>
+  <h2>Our Program Structure</h2>
+
+  <div className={styles.tree}>
+
+    <div className={styles.treeRoot}>
+      🌍 Programs
+    </div>
+
+    <div className={styles.treeBranches}>
+
+      <div className={styles.branch}>
+        <div className={styles.node}>⚽ Sports</div>
+        <div className={styles.subNode}>Football</div>
+        <div className={styles.subNode}>Volleyball</div>
+      </div>
+
+      <div className={styles.branch}>
+        <div className={styles.node}>💚 Health</div>
+        <div className={styles.subNode}>Hygiene</div>
+        <div className={styles.subNode}>Awareness</div>
+      </div>
+
+      <div className={styles.branch}>
+        <div className={styles.node}>🌱 Environment</div>
+        <div className={styles.subNode}>Tree Planting</div>
+        <div className={styles.subNode}>Climate Action</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
 
 {/* LEADERSHIP */}
