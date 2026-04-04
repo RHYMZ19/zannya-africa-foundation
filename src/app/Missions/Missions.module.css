@@ -979,95 +979,77 @@ display: flex;
 }
 
 /*for testing */
-.treeContainer{
+.tree{
   display:flex;
   flex-direction:column;
   align-items:center;
   padding:40px;
 }
 
-/* LEVELS */
+/* LEVEL */
 .level{
   display:flex;
   justify-content:center;
-  gap:80px;
+  gap:100px;
   margin:20px 0;
 }
 
-/* BOX STYLE */
-.box{
-  padding:12px 20px;
+/* NODE (ALL BOXES) */
+.node{
   background:#0a2540;
   color:#fff;
+  padding:12px 20px;
   border-radius:8px;
-  font-weight:500;
   text-align:center;
-  min-width:100px;
+  min-width:110px;
+  position:relative;
 }
 
-.box.small{
-  background:#1e90ff;
-}
-
+/* MAIN NODE */
 .main{
   background:#00a86b;
 }
 
-/* ARROW DOWN */
-.arrowDown{
+/* SMALL NODES */
+.small{
+  background:#1e90ff;
+}
+
+/* LINE DOWN FROM TOP */
+.verticalLine{
   width:2px;
   height:40px;
   background:#333;
 }
 
-/* LEVEL 2 BRANCH */
-.branch{
+/* LEVEL 2 → LEVEL 3 LINES */
+.level2Lines{
   display:flex;
-  flex-direction:column;
-  align-items:center;
-  position:relative;
+  gap:100px;
 }
 
-/* CONNECTOR LINE BETWEEN LEVEL 2 & 3 */
-.connectors{
-  display:flex;
-  justify-content:center;
-  gap:160px;
-}
-
-.connector{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.line{
+.lineDown{
   width:2px;
   height:40px;
   background:#333;
 }
 
-/* LEVEL 3 */
-.three{
-  gap:120px;
-}
-
-/* COLUMN FOR EACH BRANCH */
-.branchColumn{
+/* GROUP COLUMN */
+.group{
   display:flex;
   flex-direction:column;
   align-items:center;
 }
 
-/* SUB BRANCHES */
-.subBranches{
+/* CHILDREN ROW */
+.children{
   display:flex;
   gap:40px;
   position:relative;
 }
 
-/* TOP CONNECTING LINE */
-.subBranches::before{
+/* HORIZONTAL LINE ABOVE CHILDREN */
+.children::before{
   content:"";
   position:absolute;
   top:-20px;
@@ -1078,12 +1060,8 @@ display: flex;
   background:#333;
 }
 
-/* SMALL VERTICAL LINES TO EACH BOX */
-.subBranches .box{
-  position:relative;
-}
-
-.subBranches .box::before{
+/* VERTICAL LINES TO EACH CHILD */
+.children .node::before{
   content:"";
   position:absolute;
   top:-20px;
@@ -1101,12 +1079,11 @@ display: flex;
     gap:20px;
   }
 
-  .three{
-    flex-direction:column;
+  .level2Lines{
     gap:40px;
   }
 
-  .subBranches{
+  .children{
     gap:20px;
   }
 }

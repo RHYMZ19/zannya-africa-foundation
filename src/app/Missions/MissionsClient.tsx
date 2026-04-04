@@ -381,53 +381,43 @@ export default function MissionsClient() {
 
 
 {/*for testing*/}
-<div className="treeContainer">
+<div className={styles.tree}>
 
       {/* LEVEL 1 */}
-      <div className="level">
-        <div className="box main">Main Topic</div>
+      <div className={styles.level}>
+        <div className={`${styles.node} ${styles.main}`}>Main Topic</div>
       </div>
 
-      {/* ARROW DOWN */}
-      <div className="arrowDown"></div>
+      <div className={styles.verticalLine}></div>
 
       {/* LEVEL 2 */}
-      <div className="level two">
-        <div className="branch">
-          <div className="box">Branch 1</div>
-        </div>
-
-        <div className="branch">
-          <div className="box">Branch 2</div>
-        </div>
+      <div className={styles.level}>
+        <div className={styles.node}>Branch 1</div>
+        <div className={styles.node}>Branch 2</div>
       </div>
 
-      {/* ARROWS TO LEVEL 3 */}
-      <div className="connectors">
-        <div className="connector">
-          <div className="line"></div>
-        </div>
-        <div className="connector">
-          <div className="line"></div>
-        </div>
+      {/* LINES DOWN */}
+      <div className={styles.level2Lines}>
+        <div className={styles.lineDown}></div>
+        <div className={styles.lineDown}></div>
       </div>
 
       {/* LEVEL 3 */}
-      <div className="level three">
+      <div className={styles.level}>
 
-        {/* Branch 1 children */}
-        <div className="branchColumn">
-          <div className="subBranches">
-            <div className="box small">B1-A</div>
-            <div className="box small">B1-B</div>
+        {/* GROUP 1 */}
+        <div className={styles.group}>
+          <div className={styles.children}>
+            <div className={`${styles.node} ${styles.small}`}>B1-A</div>
+            <div className={`${styles.node} ${styles.small}`}>B1-B</div>
           </div>
         </div>
 
-        {/* Branch 2 children */}
-        <div className="branchColumn">
-          <div className="subBranches">
-            <div className="box small">B2-A</div>
-            <div className="box small">B2-B</div>
+        {/* GROUP 2 */}
+        <div className={styles.group}>
+          <div className={styles.children}>
+            <div className={`${styles.node} ${styles.small}`}>B2-A</div>
+            <div className={`${styles.node} ${styles.small}`}>B2-B</div>
           </div>
         </div>
 
