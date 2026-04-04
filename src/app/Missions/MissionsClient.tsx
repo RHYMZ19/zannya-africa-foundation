@@ -281,72 +281,60 @@ export default function MissionsClient() {
 
 </section>
 
-{/* ================= PROCESS CYCLE ================= */}
+{/* ================= CIRCULAR PROCESS ================= */}
 <section className={styles.cycleSection}>
   <h2>Our Impact Process</h2>
 
-  <div className={styles.cycleContainer}>
+  <div className={styles.circleWrapper}>
     
-    <div className={styles.cycleItem}>
-      <div className={styles.circle}>1</div>
-      <h4>Community Engagement</h4>
-    </div>
+    <div className={`${styles.cycleBox} ${styles.top}`}>Community</div>
+    <div className={`${styles.cycleBox} ${styles.right}`}>Training</div>
+    <div className={`${styles.cycleBox} ${styles.bottom}`}>Implementation</div>
+    <div className={`${styles.cycleBox} ${styles.left}`}>Impact</div>
 
-    <div className={styles.arrow}>→</div>
-
-    <div className={styles.cycleItem}>
-      <div className={styles.circle}>2</div>
-      <h4>Training & Awareness</h4>
-    </div>
-
-    <div className={styles.arrow}>→</div>
-
-    <div className={styles.cycleItem}>
-      <div className={styles.circle}>3</div>
-      <h4>Implementation</h4>
-    </div>
-
-    <div className={styles.arrow}>→</div>
-
-    <div className={styles.cycleItem}>
-      <div className={styles.circle}>4</div>
-      <h4>Monitoring & Impact</h4>
-    </div>
+    <div className={styles.centerCircle}>🔁</div>
 
   </div>
 </section>
 
 
-{/* ================= TREE DIAGRAM ================= */}
+{/* ================= TREE WITH ARROWS ================= */}
 <section className={styles.treeSection}>
   <h2>Our Program Structure</h2>
 
-  <div className={styles.tree}>
+  <div className={styles.treeWrapper}>
 
-    <div className={styles.treeRoot}>
-      🌍 Programs
+    <div className={styles.root}>🌍 Programs</div>
+
+    <div className={styles.arrowDown}></div>
+
+    <div className={styles.level1}>
+      <div>⚽ Sports</div>
+      <div>💚 Health</div>
+      <div>🌱 Environment</div>
     </div>
 
-    <div className={styles.treeBranches}>
+    <div className={styles.arrowsRow}>
+      <div className={styles.arrowDown}></div>
+      <div className={styles.arrowDown}></div>
+      <div className={styles.arrowDown}></div>
+    </div>
 
-      <div className={styles.branch}>
-        <div className={styles.node}>⚽ Sports</div>
-        <div className={styles.subNode}>Football</div>
-        <div className={styles.subNode}>Volleyball</div>
+    <div className={styles.level2}>
+      <div>
+        <span>Football</span>
+        <span>Volleyball</span>
       </div>
 
-      <div className={styles.branch}>
-        <div className={styles.node}>💚 Health</div>
-        <div className={styles.subNode}>Hygiene</div>
-        <div className={styles.subNode}>Awareness</div>
+      <div>
+        <span>Hygiene</span>
+        <span>Awareness</span>
       </div>
 
-      <div className={styles.branch}>
-        <div className={styles.node}>🌱 Environment</div>
-        <div className={styles.subNode}>Tree Planting</div>
-        <div className={styles.subNode}>Climate Action</div>
+      <div>
+        <span>Tree Planting</span>
+        <span>Climate</span>
       </div>
-
     </div>
 
   </div>

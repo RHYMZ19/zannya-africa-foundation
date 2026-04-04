@@ -646,149 +646,152 @@ display: flex;
   padding: 30px;
 }
 
-/* ================= CYCLE SECTION ================= */
-.cycleSection{
-  padding:80px 10%;
-  text-align:center;
-  background:#ffffff;
+/* ================= CIRCULAR CYCLE ================= */
+.circleWrapper{
+  position:relative;
+  width:300px;
+  height:300px;
+  margin:50px auto;
 }
 
-.cycleSection h2{
-  font-size:2.3rem;
-  margin-bottom:40px;
-  color:#0c3d5d;
-}
-
-.cycleContainer{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:20px;
-}
-
-.cycleItem{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  animation:fadeUp 0.6s ease forwards;
-}
-
-.circle{
-  width:70px;
-  height:70px;
-  border-radius:50%;
+.cycleBox{
+  position:absolute;
   background:#ff6b35;
   color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
-  font-size:20px;
-  margin-bottom:10px;
+  padding:12px 18px;
+  border-radius:20px;
+  font-size:14px;
   transition:0.3s;
 }
 
-.circle:hover{
+.cycleBox:hover{
   transform:scale(1.1);
   background:#0c3d5d;
 }
 
-.arrow{
-  font-size:30px;
-  color:#0c3d5d;
+.top{ top:0; left:50%; transform:translateX(-50%); }
+.right{ right:0; top:50%; transform:translateY(-50%); }
+.bottom{ bottom:0; left:50%; transform:translateX(-50%); }
+.left{ left:0; top:50%; transform:translateY(-50%); }
+
+.centerCircle{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#0c3d5d;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+/* circle lines */
+.circleWrapper::before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  border:2px dashed #ccc;
+  border-radius:50%;
 }
 
 
-/* ================= TREE SECTION ================= */
-.treeSection{
-  padding:80px 10%;
+/* ================= TREE WITH ARROWS ================= */
+
+.treeWrapper{
   text-align:center;
-  background:#f5f7fa;
-}
-
-.treeSection h2{
-  font-size:2.3rem;
-  margin-bottom:40px;
-  color:#0c3d5d;
-}
-
-.tree{
   display:flex;
   flex-direction:column;
   align-items:center;
 }
 
-.treeRoot{
+.root{
   background:#0c3d5d;
   color:white;
-  padding:15px 30px;
-  border-radius:30px;
-  margin-bottom:30px;
+  padding:12px 30px;
+  border-radius:25px;
   font-weight:600;
 }
 
-.treeBranches{
-  display:flex;
-  gap:40px;
-  flex-wrap:wrap;
-  justify-content:center;
+/* arrow */
+.arrowDown{
+  width:2px;
+  height:30px;
+  background:#0c3d5d;
+  position:relative;
 }
 
-.branch{
+.arrowDown::after{
+  content:'';
+  position:absolute;
+  bottom:-6px;
+  left:-4px;
+  border-width:6px;
+  border-style:solid;
+  border-color:#0c3d5d transparent transparent transparent;
+}
+
+/* level 1 */
+.level1{
+  display:flex;
+  gap:40px;
+  margin-top:20px;
+}
+
+.level1 div{
+  background:#ff6b35;
+  color:white;
+  padding:10px 20px;
+  border-radius:20px;
+}
+
+/* arrows row */
+.arrowsRow{
+  display:flex;
+  gap:80px;
+  margin:10px 0;
+}
+
+/* level 2 */
+.level2{
+  display:flex;
+  gap:40px;
+}
+
+.level2 div{
   display:flex;
   flex-direction:column;
-  align-items:center;
   gap:10px;
 }
 
-.node{
-  background:#ff6b35;
-  color:white;
-  padding:12px 25px;
-  border-radius:20px;
-  font-weight:600;
-  transition:0.3s;
-}
-
-.node:hover{
-  transform:translateY(-5px);
-}
-
-.subNode{
+.level2 span{
   background:white;
-  padding:10px 20px;
+  padding:8px 15px;
   border-radius:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-  font-size:14px;
-}
-
-
-/* ================= ANIMATION ================= */
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:768px){
 
-  .cycleContainer{
-    flex-direction:column;
+  .circleWrapper{
+    width:250px;
+    height:250px;
   }
 
-  .arrow{
-    transform:rotate(90deg);
+  .level1, .level2{
+    flex-direction:column;
+    align-items:center;
   }
 
-  .treeBranches{
+  .arrowsRow{
     flex-direction:column;
+    gap:10px;
   }
 }
