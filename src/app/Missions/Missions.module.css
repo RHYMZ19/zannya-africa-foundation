@@ -700,6 +700,102 @@ display: flex;
   border-radius:50%;
 }
 
+/*cycle*/
+.wrapper{
+  position:relative;
+  width:500px;
+  height:500px;
+  margin:60px auto;
+}
+
+/* ITEMS */
+.item{
+  position:absolute;
+  padding:12px 18px;
+  background:#0a2540;
+  color:#fff;
+  border-radius:8px;
+  text-align:center;
+  transform:translate(-50%, -50%);
+  font-weight:500;
+}
+
+/* POSITIONS (CIRCLE) */
+.top{
+  top:10%;
+  left:50%;
+}
+
+.right{
+  top:50%;
+  left:90%;
+}
+
+.bottom{
+  top:90%;
+  left:50%;
+}
+
+.left{
+  top:50%;
+  left:10%;
+}
+
+/* ARROWS (LINES) */
+.arrow{
+  position:absolute;
+  width:120px;
+  height:2px;
+  background:#333;
+  transform-origin:left;
+}
+
+/* TOP → RIGHT */
+.arrow1{
+  top:20%;
+  left:55%;
+  transform:rotate(45deg);
+}
+
+/* RIGHT → BOTTOM */
+.arrow2{
+  top:55%;
+  left:75%;
+  transform:rotate(135deg);
+}
+
+/* BOTTOM → LEFT */
+.arrow3{
+  top:75%;
+  left:25%;
+  transform:rotate(225deg);
+}
+
+/* LEFT → TOP */
+.arrow4{
+  top:35%;
+  left:15%;
+  transform:rotate(315deg);
+}
+
+/* ARROW HEAD */
+.arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:-4px;
+  border-left:8px solid #333;
+  border-top:5px solid transparent;
+  border-bottom:5px solid transparent;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+  .wrapper{
+    width:350px;
+    height:350px;
+  }
+}
 
 /*for testing */
 .tree{

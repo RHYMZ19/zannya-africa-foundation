@@ -297,6 +297,23 @@ export default function MissionsClient() {
   </div>
 </section>
 
+{/*cycle*/}
+<div className={styles.wrapper}>
+
+      {/* ITEMS */}
+      <div className={`${styles.item} ${styles.top}`}>Football</div>
+      <div className={`${styles.item} ${styles.right}`}>Hygiene</div>
+      <div className={`${styles.item} ${styles.bottom}`}>Tree Planting</div>
+      <div className={`${styles.item} ${styles.left}`}>ICT</div>
+
+      {/* ARROWS */}
+      <div className={`${styles.arrow} ${styles.arrow1}`}></div>
+      <div className={`${styles.arrow} ${styles.arrow2}`}></div>
+      <div className={`${styles.arrow} ${styles.arrow3}`}></div>
+      <div className={`${styles.arrow} ${styles.arrow4}`}></div>
+
+    </div>
+
 
 {/*for testing*/}
 <div className={styles.tree}>
