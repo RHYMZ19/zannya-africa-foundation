@@ -287,40 +287,15 @@ export default function MissionsClient() {
 
   <div className={styles.circleWrapper}>
     
-    {/* BOXES */}
     <div className={`${styles.cycleBox} ${styles.top}`}>Community</div>
     <div className={`${styles.cycleBox} ${styles.right}`}>Training</div>
     <div className={`${styles.cycleBox} ${styles.bottom}`}>Implementation</div>
     <div className={`${styles.cycleBox} ${styles.left}`}>Impact</div>
 
-    {/* CENTER */}
     <div className={styles.centerCircle}>🔁</div>
-
-    {/* ARROWS (clockwise) */}
-    <div className={styles.arrowTopRight}></div>
-    <div className={styles.arrowRightBottom}></div>
-    <div className={styles.arrowBottomLeft}></div>
-    <div className={styles.arrowLeftTop}></div>
 
   </div>
 </section>
-
-{/*cycle*/}
-<div className={styles.wrapper}>
-
-      {/* ITEMS */}
-      <div className={`${styles.item} ${styles.ttop}`}>Football</div>
-      <div className={`${styles.item} ${styles.rright}`}>Hygiene</div>
-      <div className={`${styles.item} ${styles.bbottom}`}>Tree Planting</div>
-      <div className={`${styles.item} ${styles.lleft}`}>ICT</div>
-
-      {/* ARROWS */}
-      <div className={`${styles.arrow} ${styles.arrow1}`}></div>
-      <div className={`${styles.arrow} ${styles.arrow2}`}></div>
-      <div className={`${styles.arrow} ${styles.arrow3}`}></div>
-      <div className={`${styles.arrow} ${styles.arrow4}`}></div>
-
-    </div>
 
 
 {/*for testing*/}
