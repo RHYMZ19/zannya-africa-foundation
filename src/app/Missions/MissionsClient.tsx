@@ -323,43 +323,54 @@ export default function MissionsClient() {
     </div>
 
     {/* LEVEL 2 */}
-    <div className={styles.level2}>
-      <div className={styles.branchColumn}>
-        <span>Football</span>
-        <div className={styles.subArrows}>
-          <div className={styles.smallArrow}></div>
-          <div className={styles.smallArrow}></div>
-        </div>
-        <div className={styles.subBranch}>
-          <span>Training</span>
-          <span>Tournaments</span>
-        </div>
-      </div>
+<div className={styles.level2}>
+  
+  {/* FOOTBALL */}
+  <div className={styles.branchColumn}>
+    <span className={styles.mainNode}>Football</span>
 
-      <div className={styles.branchColumn}>
-        <span>Hygiene</span>
-        <div className={styles.subArrows}>
-          <div className={styles.smallArrow}></div>
-          <div className={styles.smallArrow}></div>
-        </div>
-        <div className={styles.subBranch}>
-          <span>Sanitation</span>
-          <span>Awareness</span>
-        </div>
-      </div>
-
-      <div className={styles.branchColumn}>
-        <span>Tree Planting</span>
-        <div className={styles.subArrows}>
-          <div className={styles.smallArrow}></div>
-          <div className={styles.smallArrow}></div>
-        </div>
-        <div className={styles.subBranch}>
-          <span>Nursery</span>
-          <span>Climate Action</span>
-        </div>
-      </div>
+    <div className={styles.splitArrows}>
+      <div className={styles.leftArrow}></div>
+      <div className={styles.rightArrow}></div>
     </div>
+
+    <div className={styles.subBranch}>
+      <span>Training</span>
+      <span>Tournaments</span>
+    </div>
+  </div>
+
+  {/* HYGIENE */}
+  <div className={styles.branchColumn}>
+    <span className={styles.mainNode}>Hygiene</span>
+
+    <div className={styles.splitArrows}>
+      <div className={styles.leftArrow}></div>
+      <div className={styles.rightArrow}></div>
+    </div>
+
+    <div className={styles.subBranch}>
+      <span>Sanitation</span>
+      <span>Awareness</span>
+    </div>
+  </div>
+
+  {/* TREE PLANTING */}
+  <div className={styles.branchColumn}>
+    <span className={styles.mainNode}>Tree Planting</span>
+
+    <div className={styles.splitArrows}>
+      <div className={styles.leftArrow}></div>
+      <div className={styles.rightArrow}></div>
+    </div>
+
+    <div className={styles.subBranch}>
+      <span>Nursery</span>
+      <span>Climate Action</span>
+    </div>
+  </div>
+
+</div>
 
   </div>
 </section>

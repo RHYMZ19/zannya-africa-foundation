@@ -846,3 +846,74 @@ display: flex;
 .subBranch span:hover{
   transform:translateY(-3px);
 }
+
+/* MAIN NODE */
+.mainNode{
+  background:#ff6b35;
+  color:white;
+  padding:10px 20px;
+  border-radius:20px;
+  font-weight:600;
+}
+
+/* SPLIT ARROWS CONTAINER */
+.splitArrows{
+  position:relative;
+  width:120px;
+  height:40px;
+}
+
+/* LEFT ARROW (diagonal) */
+.leftArrow{
+  position:absolute;
+  left:20px;
+  width:2px;
+  height:35px;
+  background:#0c3d5d;
+  transform:rotate(35deg);
+}
+
+.leftArrow::after{
+  content:'';
+  position:absolute;
+  bottom:-6px;
+  left:-4px;
+  border-width:6px;
+  border-style:solid;
+  border-color:#0c3d5d transparent transparent transparent;
+}
+
+/* RIGHT ARROW (diagonal) */
+.rightArrow{
+  position:absolute;
+  right:20px;
+  width:2px;
+  height:35px;
+  background:#0c3d5d;
+  transform:rotate(-35deg);
+}
+
+.rightArrow::after{
+  content:'';
+  position:absolute;
+  bottom:-6px;
+  left:-4px;
+  border-width:6px;
+  border-style:solid;
+  border-color:#0c3d5d transparent transparent transparent;
+}
+
+/* SUB BRANCH */
+.subBranch{
+  display:flex;
+  justify-content:space-between;
+  width:160px;
+}
+
+.subBranch span{
+  background:white;
+  padding:8px 12px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  font-size:13px;
+}
