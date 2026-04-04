@@ -298,16 +298,18 @@ export default function MissionsClient() {
 </section>
 
 
-{/* ================= TREE WITH ARROWS ================= */}
+{/* ================= ADVANCED TREE WITH SUB-BRANCHES ================= */}
 <section className={styles.treeSection}>
   <h2>Our Program Structure</h2>
 
   <div className={styles.treeWrapper}>
 
+    {/* ROOT */}
     <div className={styles.root}>🌍 Programs</div>
 
     <div className={styles.arrowDown}></div>
 
+    {/* LEVEL 1 */}
     <div className={styles.level1}>
       <div>⚽ Sports</div>
       <div>💚 Health</div>
@@ -320,20 +322,42 @@ export default function MissionsClient() {
       <div className={styles.arrowDown}></div>
     </div>
 
+    {/* LEVEL 2 */}
     <div className={styles.level2}>
-      <div>
+      <div className={styles.branchColumn}>
         <span>Football</span>
-        <span>Volleyball</span>
+        <div className={styles.subArrows}>
+          <div className={styles.smallArrow}></div>
+          <div className={styles.smallArrow}></div>
+        </div>
+        <div className={styles.subBranch}>
+          <span>Training</span>
+          <span>Tournaments</span>
+        </div>
       </div>
 
-      <div>
+      <div className={styles.branchColumn}>
         <span>Hygiene</span>
-        <span>Awareness</span>
+        <div className={styles.subArrows}>
+          <div className={styles.smallArrow}></div>
+          <div className={styles.smallArrow}></div>
+        </div>
+        <div className={styles.subBranch}>
+          <span>Sanitation</span>
+          <span>Awareness</span>
+        </div>
       </div>
 
-      <div>
+      <div className={styles.branchColumn}>
         <span>Tree Planting</span>
-        <span>Climate</span>
+        <div className={styles.subArrows}>
+          <div className={styles.smallArrow}></div>
+          <div className={styles.smallArrow}></div>
+        </div>
+        <div className={styles.subBranch}>
+          <span>Nursery</span>
+          <span>Climate Action</span>
+        </div>
       </div>
     </div>
 

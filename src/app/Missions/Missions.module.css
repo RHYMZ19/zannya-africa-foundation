@@ -795,3 +795,54 @@ display: flex;
     gap:10px;
   }
 }
+
+/* LEVEL 2 COLUMN */
+.branchColumn{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+/* SUB ARROWS (split into two) */
+.subArrows{
+  display:flex;
+  gap:30px;
+}
+
+/* SMALL ARROW */
+.smallArrow{
+  width:2px;
+  height:25px;
+  background:#0c3d5d;
+  position:relative;
+}
+
+.smallArrow::after{
+  content:'';
+  position:absolute;
+  bottom:-6px;
+  left:-4px;
+  border-width:6px;
+  border-style:solid;
+  border-color:#0c3d5d transparent transparent transparent;
+}
+
+/* SUB BRANCH ITEMS */
+.subBranch{
+  display:flex;
+  gap:20px;
+}
+
+.subBranch span{
+  background:#fff;
+  padding:8px 14px;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  font-size:13px;
+  transition:0.3s;
+}
+
+.subBranch span:hover{
+  transform:translateY(-3px);
+}
