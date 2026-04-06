@@ -211,7 +211,7 @@ export default function ProgramPage({
   </div>
 
   {/* LEFT SIDE - OBJECTIVES */}
-  <div className={styles.splitLeft}>
+  <div className={styles.singleCard}>
     <h2 className={styles.splitTitle}> Objectives</h2>
 
     <ul className={styles.list}>
@@ -230,7 +230,7 @@ export default function ProgramPage({
   </div>
 
   {/* RIGHT SIDE - ACTIVITIES */}
-  <div className={styles.splitRight}>
+  <div className={styles.singleCard}>
     <h2 className={styles.splitTitle}> Activities</h2>
 
     <ul className={styles.list}>
@@ -260,19 +260,19 @@ export default function ProgramPage({
 
   <div className={styles.activitiesGrid}>
   {activities.map((activity, index: number) => (
-  <div key={index} className={styles.activityCard}>
+  <div key={index} className={styles.activityItem}>
 
-    <div
-      className={styles.activityImage}
-      style={{ backgroundImage: `url(${activity.image})` }}
-    >
-      {/* LABEL ON IMAGE */}
-      <div className={styles.imageLabel}>
-        {activity.title}
-      </div>
-    </div>
+  <div
+    className={styles.activityImage}
+    style={{ backgroundImage: `url(${activity.image})` }}
+  ></div>
 
-  </div>
+  {/* TITLE BELOW IMAGE */}
+  <h3 className={styles.activityTitle}>
+    {activity.title}
+  </h3>
+
+</div>
 ))}
   </div>
 </section>

@@ -691,40 +691,32 @@ display: flex;
 
 /* IMAGE */
 
+.activityItem {
+  text-align: center;
+}
+
+/* IMAGE */
 .activityImage {
-  height: 300px;
-  border-radius: 15px;
+  height: 250px;
+  border-radius: 12px;
   background-size: cover;
   background-position: center;
-  position: relative;
-  overflow: hidden;
-  transition:transform 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
-/* Dark overlay (optional but makes text readable) */
-.activityImage::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-}
-
-/* Label on image */
-.imageLabel {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  right: 15px;
-  color: white;
+/* TITLE BELOW IMAGE */
+.activityTitle {
+  margin-top: 10px;
   font-size: 18px;
   font-weight: 600;
-  z-index: 2;
+  color: #0b3c5d;
+  font-family: 'Poppins', sans-serif;
 }
 
-.activityCard:hover .activityImage{
-  transform:scale(1.08);
+/* HOVER EFFECT */
+.activityItem:hover .activityImage {
+  transform: scale(1.05);
 }
-
 
 /* CONTENT */
 
@@ -799,14 +791,13 @@ display: flex;
 /* Each item */
 .listItem {
   display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 25px;
-  padding: 15px;
-  border-radius: 12px;
-  transition: 0.3s ease;
-  background: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 6px 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 /* Hover effect */
@@ -856,12 +847,12 @@ display: flex;
 .listItem {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  background: white;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 6px 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .listItem h4 {
@@ -897,4 +888,12 @@ display: flex;
 
 .splitSection {
   padding: 50px 10%; /* was 80px */
+}
+
+/* ONE CARD FOR EACH SECTION */
+.singleCard {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
