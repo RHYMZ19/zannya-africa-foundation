@@ -715,7 +715,7 @@ opacity: 1;
 /* TITLE BELOW IMAGE */
 .activityTitle {
   margin-top: 10px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   color: #0b3c5d;
   font-family: 'Poppins', sans-serif;
@@ -826,7 +826,7 @@ opacity: 1;
 
 .bullet {
   font-size: 18px;
-  color: green;
+  color: #0b3c5d;
   margin-top: 5px;
 }
 
