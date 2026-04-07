@@ -429,7 +429,7 @@
 /* ================= FEATURED IMAGES ================= */
 
 .featuredSection {
-  padding: 80px 10%;
+  padding: 0px 5%;
   background: #f5f7fa;
 }
 
@@ -450,7 +450,7 @@
   width: 100%;
   height: 350px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 0px;
   display: block;
   transition: 0.3s;
   cursor: pointer;
@@ -627,6 +627,8 @@
 .section {
   padding: 4rem 2rem;
   text-align: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 
