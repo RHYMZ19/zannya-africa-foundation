@@ -542,7 +542,7 @@ opacity: 1;
 /* ACTIVITIES SECTION */
 
 .activities{
-  padding:4rem 2rem;
+  padding:1.5rem 2rem;
   background:#f5f7ff;
   text-align:center;
 }
@@ -885,6 +885,8 @@ opacity: 1;
   margin-top: 0.5px;
   align-items: center;   /* ✅ centers horizontally */
   text-align: center;    /* ✅ centers text */
+  padding-top: 0px;
+  padding-bottom: 1.5px;
 }
 
 .splitIntro h3 {
