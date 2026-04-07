@@ -216,7 +216,7 @@ export default function MainPage() {
         </p>
       </div>
 
-      <a href="/Missions" className={styles.featuredButton}>
+      <a href="Missions" className={styles.featuredButton}>
         visit us →
       </a>
 
