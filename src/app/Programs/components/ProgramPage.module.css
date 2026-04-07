@@ -715,15 +715,17 @@ opacity: 1;
 /* TITLE BELOW IMAGE */
 .activityTitle {
   margin-top: 10px;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 500;
   color: #0b3c5d;
   font-family: 'Poppins', sans-serif;
+  transform: skewX(-15deg);
+  display: inline-block;
 }
 
 /* HOVER EFFECT */
 .activityItem:hover .activityImage {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* CONTENT */
@@ -807,10 +809,14 @@ opacity: 1;
   box-shadow: none;
   border-radius: 0;
 }
+.listItem {
+  transition: transform 0.3s ease; /* Smoothly animate transform changes */
+}
 
 /* Hover effect */
 .listItem:hover {
   transform: translateY(-5px);
+  
 }
 
 /* Icons */
@@ -828,6 +834,7 @@ opacity: 1;
 .listItem h4 {
   margin: 0;
   font-size: 18px;
+  color: #0b3c5d;
 }
 
 .listItem p {
@@ -866,6 +873,7 @@ opacity: 1;
 .listItem h4 {
   margin: 0;
   font-size: 16px;
+  color: #0b3c5d;
 }
 
 /* SMALL INTRO INSIDE SPLIT */
