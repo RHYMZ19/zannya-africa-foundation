@@ -228,7 +228,7 @@ export default function ProgramPage({
 
   {/* SMALL INTRO */}
   <div className={styles.splitIntro}>
-    <h3>Program Goal</h3>
+    <h3></h3>
     <p>{intro}</p>
   </div>
 

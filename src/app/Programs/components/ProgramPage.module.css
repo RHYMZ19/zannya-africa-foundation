@@ -854,7 +854,7 @@ opacity: 1;
 .number {
   font-size: 20px;
   font-weight: bold;
-  color: #2e7d32; /* nice green */
+  color: #0b3c5d; /* nice green */
   min-width: 30px;
 }
 
@@ -881,15 +881,16 @@ opacity: 1;
 .splitIntro {
   grid-column: 1 / -1; /* span full width */
   text-align: center;
-  margin-bottom: 5px; /* small spacing only */
-  margin-top: 5px;
+  margin-bottom: 0.5px; /* small spacing only */
+  margin-top: 0.5px;
   align-items: center;   /* ✅ centers horizontally */
   text-align: center;    /* ✅ centers text */
 }
 
 .splitIntro h3 {
   font-size: 18px;
-  margin-bottom: 5px;
+  margin-bottom: 0.1px;
+  margin-top: 0.1px;
   color: #0b3c5d;
 }
 
@@ -912,4 +913,5 @@ opacity: 1;
   padding: 30px;
   border-radius: 18px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  margin-bottom: 0.5px;
 }
