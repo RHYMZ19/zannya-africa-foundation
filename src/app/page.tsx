@@ -262,7 +262,8 @@ export default function MainPage() {
         <h3> Sports for enhanced livelihood </h3>
 
         <p>
-         To empower Youth to attain sustainable livelihood through sports-based initiatives.
+         To empower  Youth in urban slums of Uganda to attain sustainable livelihood, 
+      economic stability and wellbeing through sports-based initiatives.
         </p>
 
         <Link href="/Programs/skilling-livelihood" className={styles.learnMore}>
@@ -283,8 +284,9 @@ export default function MainPage() {
         <h3>Sexual reproductive health & physical wellness </h3>
 
         <p>
-          To Improve SRH and Physical wellness for Ugandan adolescents & 
-          youth through sexual health awareness...
+          To Improve SRH and Physical wellness for  Ugandan adolescents & youth living in 
+      urban slums of Uganda through sexual health awareness and healthy physical lifestyles to prevent 
+      lifestyle disease and foster responsible health choices.
         </p>
 
         <Link href="/Programs/reproductive-health" className={styles.learnMore}>
@@ -305,8 +307,9 @@ export default function MainPage() {
         <h3>Climate action & environment justice</h3>
 
         <p>
-          To Strengthen climate resilience and Environmental sustainability vulnerable Youths 
-          in Schools in Uganda through Sports,...
+          To Strengthen climate resilience and Environmental sustainability for  
+      vulnerable Youths in Schools, Community and institutions in Uganda through Sports, 
+      climate Advocacy and digital innovation.
         </p>
 
         <Link href="/Programs/climate-justice" className={styles.learnMore}>

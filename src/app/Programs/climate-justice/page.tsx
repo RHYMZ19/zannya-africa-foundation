@@ -67,9 +67,9 @@ export default function ClimateJustice() {
       title=" CLIMATE ACTION & ENVIRONMENT JUSTICE"
       description=""
       image="https://res.cloudinary.com/dpwuym7xg/image/upload/v1774726189/zannya/uploads/images/mlss4vqueb8unse8qlqf.jpg"
-      intro="To Strengthen climate resilience and Environmental sustainability for 4,500 
+      intro="To Strengthen climate resilience and Environmental sustainability for  
       vulnerable Youths in Schools, Community and institutions in Uganda through Sports, 
-      climate Advocacy and digital innovation by 2028."
+      climate Advocacy and digital innovation."
       highlights={highlights}
       activities={activities}
       ctaText="Learn More →"
