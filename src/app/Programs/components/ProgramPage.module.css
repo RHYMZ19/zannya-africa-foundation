@@ -382,6 +382,11 @@ display: none;
 flex-direction: column;
 min-width: 200px;
 z-index: 1000;
+
+opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
 .dropdownItem{
@@ -399,6 +404,9 @@ background: #f5f5f5;
 
 .dropdown:hover .dropdownMenu{
 display: flex;
+opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* ================= RESPONSIVE ================= */

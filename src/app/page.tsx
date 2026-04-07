@@ -83,7 +83,26 @@ export default function MainPage() {
           }`}
         >
           <a href="#who">Home</a>
-          <a href="#programs">Programs</a>
+          {/* PROGRAMS DROPDOWN */}
+<div className={styles.dropdown}>
+  <span className={styles.dropdownTitle}>Programs ▾</span>
+
+  <div className={styles.dropdownMenu}>
+
+    <Link href="/Programs/climate-justice" className={styles.dropdownItem}>
+      🌱 Climate Justice
+    </Link>
+
+    <Link href="/Programs/reproductive-health" className={styles.dropdownItem}>
+      ❤️ Reproductive Health
+    </Link>
+
+    <Link href="/Programs/skilling-livelihood" className={styles.dropdownItem}>
+      💼 Skilling & Livelihood
+    </Link>
+
+  </div>
+</div>
           
           {/* RESOURCES DROPDOWN */}
   <div className={styles.dropdown}>

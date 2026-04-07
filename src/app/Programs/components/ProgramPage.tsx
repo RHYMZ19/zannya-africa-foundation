@@ -5,6 +5,7 @@ import db from "@/app/lib/firebase";
 import { onSnapshot, collection } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import styles from "./ProgramPage.module.css";
+import Link from "next/link";
 
 type Resource = {
   id: string;
@@ -120,6 +121,27 @@ export default function ProgramPage({
       
           </div>
         </div>
+
+        {/* PROGRAMS DROPDOWN */}
+<div className={styles.dropdown}>
+  <span className={styles.dropdownTitle}>Programs ▾</span>
+
+  <div className={styles.dropdownMenu}>
+
+    <Link href="/Programs/climate-justice" className={styles.dropdownItem}>
+      🌱 Climate Justice
+    </Link>
+
+    <Link href="/Programs/reproductive-health" className={styles.dropdownItem}>
+      ❤️ Reproductive Health
+    </Link>
+
+    <Link href="/Programs/skilling-livelihood" className={styles.dropdownItem}>
+      💼 Skilling & Livelihood
+    </Link>
+
+  </div>
+</div>
                 
                 <a href="/Videos" >Gallery</a>
                 <a href="/Donates" className={styles.btnPrimary}> Donate</a>
