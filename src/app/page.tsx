@@ -361,7 +361,7 @@ export default function MainPage() {
         />
         <div className={styles.cardContent}>
           <h3>News & Updates</h3>
-          <Link href="/News" className={styles.cardLink}>
+          <Link href="News" className={styles.cardLink}>
             <span>View More</span>
             <div className={styles.arrowCircle}>→</div>
           </Link>
@@ -482,7 +482,7 @@ export default function MainPage() {
         </div>
         
         {/* CENTER BUTTON */}
-        <a href="/Internship" className={styles.joinCircle}>
+        <a href="Internship" className={styles.joinCircle}>
           Join Us
         </a>
 
@@ -569,7 +569,7 @@ export default function MainPage() {
     {/* Links */}
     <div className={styles.footerSection}>
       <h4>Links</h4>
-      <a href="/Terms" className={styles.footerLink}>Privacy Policy & Legal Terms</a>
+      <a href="Terms" className={styles.footerLink}>Privacy Policy & Legal Terms</a>
       <a href="/adminpannel" className={styles.adminLink}>Admin Panel</a>
     </div>
   </div>

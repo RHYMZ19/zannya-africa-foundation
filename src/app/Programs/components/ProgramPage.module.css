@@ -698,7 +698,7 @@ display: flex;
 /* IMAGE */
 .activityImage {
   height: 250px;
-  border-radius: 12px;
+  border-radius: 0px;
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease;
@@ -715,7 +715,7 @@ display: flex;
 
 /* HOVER EFFECT */
 .activityItem:hover .activityImage {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 /* CONTENT */
@@ -825,7 +825,7 @@ display: flex;
 .listItem p {
   margin: 5px 0 0;
   font-size: 14px;
-  color: #555;
+  color: #0b3c5d;
 }
 
 /* Responsive */
@@ -879,7 +879,7 @@ display: flex;
 
 .splitIntro p {
   font-size: 14px;
-  color: #555;
+  color: #0b3c5d;
   max-width: 100%;
   margin: auto;
   align-items: center;   /* ✅ centers horizontally */
