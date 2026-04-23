@@ -2,8 +2,10 @@
 import ProgramPage from "../components/ProgramPage";
 
 const highlights = [
-  { title: "employability", icon: "💼", detail: "1.	To enhance employability and income generating opportunities for 350youth in urban slums of Uganda by 2028." },
-  { title: "sports development", icon: "🏅", detail: "To promote sports development and healthy lifestyles among 500 Youth in urban slums of Kampala by 2028. " },
+  { title: "To enhance employability", icon: "💼", detail: "1.	To enhance employability and income generating opportunities for 350youth in urban slums of Uganda by 2028." },
+  { title: "To promote sports development", icon: "🏅", detail: "To promote sports development and healthy lifestyles among 500 Youth in urban slums of Kampala by 2028. " },
+  {title: "To enhance income generating opportunities", icon: "🏅", detail: "To promote sports development and healthy lifestyles among 500 Youth in urban slums of Kampala by 2028. " },
+  {title: "To promote healthy lifestyles", icon: "🏅", detail: "To promote sports development and healthy lifestyles among 500 Youth in urban slums of Kampala by 2028. " },
   
 ];
 
@@ -22,7 +24,13 @@ const activities = [
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023495/zannya/uploads/images/ui2d2218fdpe7uwyesff.jpg"
   },
   {
-    title: "Internship",
+    title: "sports development ",
+    detail: "Conduct bi-annual Job placements & Internship for 150 youth graduates from Entrepreneurship and Life skills program from Urban slums of Uganda by 2028.",
+    image:
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758379328/zannya/uploads/images/ybuex5jd9ntcotpvz1gx.jpg"
+  },
+  {
+    title: "Job placements & Internship",
     detail: "Conduct bi-annual Job placements & Internship for 150 youth graduates from Entrepreneurship and Life skills program from Urban slums of Uganda by 2028.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758379328/zannya/uploads/images/ybuex5jd9ntcotpvz1gx.jpg"

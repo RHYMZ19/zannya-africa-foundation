@@ -4,13 +4,14 @@ import ProgramPage from "../components/ProgramPage";
 const highlights = [
   { title: "Sexual awareness", detail: "To Increase knowledge on responsible sexual behavior & safe sexual practices among 1000 Youth in urban slums of Kampala by 2028.", icon: "🧡" },
   { title: "Encouraging healthy physical lifestyle", detail: "To Encourage healthy physical lifestyle among 1000 adolescents & Youths in Urban slums in Kampala by 2028.", icon: "🏃‍♂️" },
-  { title: "Promoting personal hygiene", detail: "Promote personal hygiene and body care for 1000 adolescents & youths in Urban slums of Kampala by 2028.", icon: "🧼" }
+  { title: "Promoting personal hygiene", detail: "Promote personal hygiene and body care for 1000 adolescents & youths in Urban slums of Kampala by 2028.", icon: "🧼" },
+  { title: "Promoting body care", detail: "Promote personal hygiene and body care for 1000 adolescents & youths in Urban slums of Kampala by 2028.", icon: "🧼" }
 ];
 
 // Program Activities
 const activities = [
   {
-    title: "health education",
+    title: "health education sessions",
     detail: "Conduct quarterly health education in 4 schools and 2 community targeting 1000 adolescents &Youth.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758448958/zannya/uploads/pomsobotwo3fac41gzze.jpg"
@@ -34,7 +35,7 @@ const activities = [
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758448889/zannya/uploads/hrmh4thtitxrkrbucx0i.jpg"
   },
   {
-    title: "Host Personal Hygiene sessions",
+    title: "Personal Hygiene sessions",
     detail: "Host Personal Hygiene and HH sanitation sessions for health living through demonstration events targeting 1000 youth in Urban slums of Kampala by 2028.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758448824/zannya/uploads/ptbzzjwz8na0axwiajfy.jpg"

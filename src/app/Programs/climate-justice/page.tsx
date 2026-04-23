@@ -10,7 +10,7 @@ const highlights = [
     detail: "To build organized pool of 15 climate ambassadors each reaching out to 300 Beneficiaries in their community on quarterly basis by Dec 2028."
   },
   {
-    title: "planting fruit trees ",
+    title: "Promote planting of fruit trees ",
     icon: "🌳",
     detail: "Promote planting of 3,000 fruit trees & 1,500 restoration trees in vulnerable communities to improve food security and eco-system restoration.   "
   },
@@ -20,7 +20,7 @@ const highlights = [
     detail: "To Integrate ICT skills with Environmental Justice/Advocacy campaigns targeting 5000 people via social Medial and Digital platforms."
   },
   {
-    title: "Disaster Risk Reduction ",
+    title: "conduct disaster Risk Reduction ",
     icon: "🌪️",
     detail: "4.	To conduct Disaster Risk Reduction (DRR) and eco-system restoration trainings and awareness targeting 15 climate ambassadors in vulnerable communities in Uganda. "
   }
@@ -35,7 +35,7 @@ const activities = [
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023170/zannya/uploads/images/nnbjk8hm1wvgcn6s2fdn.jpg"
   },
   {
-    title: "Conduct ZAF EcoFit Camping ",
+    title: " ZAF EcoFit Camping ",
     detail: "Conduct Annual in school (150) & out of school (100) ZAF EcoFit Camp targeting 250 participants.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1765369474/zannya/uploads/images/kgbntplydbijpatj6cbi.jpg"
