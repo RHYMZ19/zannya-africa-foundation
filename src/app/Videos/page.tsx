@@ -5,13 +5,11 @@ import { db } from "../lib/firebase";
 import { Timestamp, doc, getDoc } from "firebase/firestore";
 import styles from './Videos.module.css';
 import { useRouter } from "next/navigation";
-import { FaHome } from "react-icons/fa";
-import ContactUs from "../ContactUs/page";
-import GetInvolved from "../GetInvolved/GetInvolved";
-import IncreaseIma from "../Newsp/components/IncreaseIma";
-import OptionalFeatures from "../OptionalFeatures/OptionalFeatures";
-import StickyBar from "../StickyBar/StickyBar";
 import IncreaseImagis from "./components/IncreaseImagis";
+import IncreaseImages from "../components/IncreaseImage";
+import { onSnapshot } from "firebase/firestore";
+import { collection } from "firebase/firestore";
+
 
 interface MediaItem {
   url: string;
@@ -19,11 +17,43 @@ interface MediaItem {
   createdAt: Timestamp | Date;
 }
 
+type Resource = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  pdf: string;
+};
+
 export default function Videos() {
   const [filter, setFilter] = useState<"image" | "video">("image");
   const [items, setItems] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(false);
   const router = useRouter(); 
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [selectedResourceCategory, setSelectedResourceCategory] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+        const unsubscribe = onSnapshot(collection(db, "resources"), (snapshot) => {
+          const items = snapshot.docs.map((doc) => {
+            const data = doc.data();
+      
+            return {
+              id: doc.id,
+              title: data.title,
+              description: data.description,
+              category: data.category,
+              pdf: data.pdf,
+            };
+          });
+      
+          setResources(items);
+        });
+      
+        return () => unsubscribe();
+      }, []);
+  
 
   // Load from Firestore
   useEffect(() => {
@@ -78,27 +108,140 @@ export default function Videos() {
   }, [filter]);
 
   return (
-    <div style={{ overflow: 'hidden', background: 'linear-gradient(to right, #e0f7fa, #e1bee7)', }}>
-      <div style={{ justifyItems: 'center', gap: '1%' }}>
-        <StickyBar>
-          <FaHome
-            style={{ width: '25%', height: '25%' }}
-            color="black"
-            cursor='pointer'
-            onClick={() => router.push('/')}
-          >
-            Home
-          </FaHome>
-          <GetInvolved />
-          <button
-            onClick={() => router.push('/Donates')}
-            className={styles.arrowButton}
-          >
-            Donate
-          </button>
-          <IncreaseIma src='/log.jpg' alt="log" />
-        </StickyBar>
-      </div>
+    <div>
+      {/* ================= NAVBAR ================= */}
+            <nav className={styles.navbar}>
+              <IncreaseImages src='/log.jpg' alt="Logo" />
+              <div className={styles.logo}>Zannya Africa Foundation</div>
+              
+              <div
+                className={`${styles.navLinks} ${
+                  open ? styles.active : ""
+                }`}
+              >
+                <a href="/">Home</a>
+                
+                {/* RESOURCES DROPDOWN */}
+        <div className={styles.dropdown}>
+          <span className={styles.dropdownTitle}>Resources ▾</span>
+      
+          <div className={styles.dropdownMenu}>
+      
+            <a href="/articles" className={styles.dropdownItem}>
+              📰 Articles
+            </a>
+      
+            <a
+              href="#"
+              className={styles.dropdownItem}
+              onClick={() => setSelectedResourceCategory("Research Papers")}
+            >
+              📄 Research Papers
+            </a>
+      
+            <a
+              href="#"
+              className={styles.dropdownItem}
+              onClick={() => setSelectedResourceCategory("Reports")}
+            >
+              📊 Reports
+            </a>
+      
+            <a
+              href="#"
+              className={styles.dropdownItem}
+              onClick={() => setSelectedResourceCategory("Case Studies")}
+            >
+              📁 Case Studies
+            </a>
+      
+          </div>
+        </div>
+                <a href="/Videos" >Gallery</a>
+                <a href="/Donates" className={styles.btnPrimary}> Donate</a>
+              </div>
+      
+              <div
+                className={styles.hamburger}
+                onClick={() => setOpen(!open)}
+              >
+                ☰
+              </div>
+            </nav>
+
+            {/* ================= RESOURCE MODAL ================= */}
+            {selectedResourceCategory && (
+
+              <div className={styles.modalOverlay}
+              onClick={() => setSelectedResourceCategory(null)}
+              >
+            
+                <div className={styles.modalContent}
+                onClick={(e) => e.stopPropagation()}
+                >
+            
+                  <div className={styles.modalHeader}>
+                    <h3>{selectedResourceCategory}</h3>
+            
+                    <button
+                      className={styles.closeBtn}
+                      onClick={() => setSelectedResourceCategory(null)}
+                    >
+                      ✕
+                    </button>
+                  </div>
+            
+                  <div className={styles.resourceList}>
+            
+                    {resources
+                      .filter(res => res.category === selectedResourceCategory)
+                      .map(res => (
+            
+                        <div key={res.id} className={styles.resourceItem}>
+            
+                          <div>
+                            <strong>{res.title}</strong>
+                            <p>{res.description}</p>
+                          </div>
+            
+                          <a
+                            href={res.pdf}
+                            download
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.downloadBtn}
+                          >
+                            Download PDF
+                          </a>
+            
+                        </div>
+            
+                    ))}
+            
+                  </div>
+
+                </div>
+            
+              </div>
+            )}
+
+{/* ================= HERO ================= */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <h1>Zannya Africa Foundation</h1>
+          <p>
+           Changing communities through sports
+          </p>
+          <div className={styles.heroButtons}>
+            <button className={styles.btnPrimary}>
+              Donate Now
+            </button>
+            <button className={styles.btnOutline}>
+              Get Involved
+            </button>
+          </div>
+        </div>
+      </section>
 
       <div style={{ padding: "20px", maxWidth: "900px", margin: "0 auto" }}>
         {/* Filter */}
@@ -157,13 +300,40 @@ export default function Videos() {
         )}
       </div>
 
-      <div style={{ margin: '3%', width: '100%' }}>
-        <ContactUs />
-      </div>
-
-      <div style={{ margin: '0%', width: '100%' }}>
-        <OptionalFeatures />
-      </div>
+      {/* ================= FOOTER ================= */}
+            <footer className={styles.footer}>
+              <div className={styles.footerContainer}>
+                
+                {/* Contact Info */}
+                <div className={styles.footerSection}>
+                  <h4>Contact Us</h4>
+                  <div className={styles.contactLinks}>
+                    <a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a>
+                  </div>
+                </div>
+            
+                {/* Developer Credit */}
+                <div className={styles.footerSection}>
+                  <h4>Developer</h4>
+                  <p>Developed by <strong>SSENABULYA RAHIM</strong></p>
+                  <p>Tel: <a href="tel:+256743878261">0743878261</a></p>
+                  <p>Email: <a href="mailto:rahimssenabulya82@gmail.com">rahimssenabulya82@gmail.com</a></p>
+                </div>
+            
+                {/* Links */}
+                <div className={styles.footerSection}>
+                  <h4>Links</h4>
+                  <a href="/Terms" className={styles.footerLink}>Privacy Policy & Legal Terms</a>
+                  <a href="/adminpannel" className={styles.adminLink}>Admin Panel</a>
+                </div>
+            
+              </div>
+            
+              {/* Bottom Bar */}
+              <div className={styles.footerBottom}>
+                <p>© {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.</p>
+              </div>
+            </footer>
     </div>
   );
 }
