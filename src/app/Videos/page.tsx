@@ -6,9 +6,10 @@ import { Timestamp, doc, getDoc } from "firebase/firestore";
 import styles from './Videos.module.css';
 import { useRouter } from "next/navigation";
 import IncreaseImagis from "./components/IncreaseImagis";
-import IncreaseImages from "../components/IncreaseImage";
+import IncreaseImage from "../components/IncreaseImage";
 import { onSnapshot } from "firebase/firestore";
 import { collection } from "firebase/firestore";
+import Link from "next/link";
 
 
 interface MediaItem {
@@ -111,7 +112,7 @@ export default function Videos() {
     <div>
       {/* ================= NAVBAR ================= */}
             <nav className={styles.navbar}>
-              <IncreaseImages src='/log.jpg' alt="Logo" />
+              <IncreaseImage src='/log.jpg' alt="Logo" />
               <div className={styles.logo}>Zannya Africa Foundation</div>
               
               <div
@@ -157,6 +158,28 @@ export default function Videos() {
       
           </div>
         </div>
+
+        {/* PROGRAMS DROPDOWN */}
+        <div className={styles.dropdown}>
+          <span className={styles.dropdownTitle}>Programs ▾</span>
+        
+          <div className={styles.dropdownMenu}>
+        
+            <Link href="/Programs/climate-justice" className={styles.dropdownItem}>
+              🌱 Climate Justice
+            </Link>
+        
+            <Link href="/Programs/reproductive-health" className={styles.dropdownItem}>
+              ❤️ Reproductive Health
+            </Link>
+        
+            <Link href="/Programs/skilling-livelihood" className={styles.dropdownItem}>
+              💼 Skilling & Livelihood
+            </Link>
+        
+          </div>
+        </div>
+        
                 <a href="/Videos" >Gallery</a>
                 <a href="/Donates" className={styles.btnPrimary}> Donate</a>
               </div>
