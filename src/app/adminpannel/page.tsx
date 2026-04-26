@@ -99,7 +99,7 @@ if (loading) {
         </div>
 
         <div>
-            <NewsAdmin />
+            <admin />
         </div>
 
         </div>
