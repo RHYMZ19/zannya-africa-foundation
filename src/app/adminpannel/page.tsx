@@ -101,7 +101,7 @@ if (loading) {
             <NewsAdmin />
         </div>
 
-        <div>
+        <div style={{paddingBottom: '7%'}}>
           <GoS />
         </div>
 
