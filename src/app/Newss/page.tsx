@@ -82,7 +82,7 @@ const newsData: NewsItem[] = [
 
 const categories: string[] = ["All", "News", "Events", "Announcements", "Blogs"];
 
-export default function NewsSectionPage(): JSX.Element {
+export default function NewsSection(): JSX.Element {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [selectedArticle, setSelectedArticle] = useState<NewsItem | null>(null);
