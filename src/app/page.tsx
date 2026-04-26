@@ -383,7 +383,7 @@ export default function MainPage() {
         />
         <div className={styles.cardContent}>
           <h3>News & Updates</h3>
-          <Link href="#News" className={styles.cardLink}>
+          <Link href="/NewsSection" className={styles.cardLink}>
             <span>View More</span>
             <div className={styles.arrowCircle}>→</div>
           </Link>
