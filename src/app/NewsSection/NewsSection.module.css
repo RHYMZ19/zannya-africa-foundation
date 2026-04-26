@@ -100,7 +100,7 @@
 }
 
 .newsMeta {
-  color: #0c3d5d;
+  color: #0b273a;
   font-size: 0.9rem;
   margin-bottom: 10px;
 }
@@ -230,7 +230,7 @@
 
 .sidebarDate {
   font-size: 0.8rem;
-  color: #0c3d5d;
+  color: #0b273a;
 }
 
 @media (max-width: 900px) {
