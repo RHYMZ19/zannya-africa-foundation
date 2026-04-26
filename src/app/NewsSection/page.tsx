@@ -1,3 +1,5 @@
+'use client'
+
 import React, { JSX, useMemo, useState } from "react";
 import styles from "./NewsSection.module.css";
 
