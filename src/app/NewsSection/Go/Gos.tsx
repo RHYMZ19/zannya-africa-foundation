@@ -14,7 +14,7 @@ import {
 import { db } from "../../lib/firebase";
 import CloudinaryUploader from "../../CloudinaryUploader";
 
-export default function NewsAdmin() {
+export default function GoS() {
   const [form, setForm] = useState({
     title: "",
     category: "News",
