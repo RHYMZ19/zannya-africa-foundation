@@ -52,6 +52,16 @@ export default function NewsSection(): JSX.Element {
     fetchNews();
   }, []);
 
+  const formatDate = (date: any) => {
+  if (!date) return "";
+
+  if (date?.seconds) {
+    return new Date(date.seconds * 1000).toLocaleDateString();
+  }
+
+  return date;
+ };
+
   const filteredNews = useMemo(() => {
     return newsData.filter((item) => {
       const matchesCategory =
@@ -66,6 +76,7 @@ export default function NewsSection(): JSX.Element {
   }, [selectedCategory, search, newsData]);
 
   const featured = filteredNews.length > 0 ? filteredNews[0] : null;
+  
 
   if (loading) {
     return <p>Loading news...</p>;
@@ -105,7 +116,7 @@ export default function NewsSection(): JSX.Element {
             <p className={styles.newsCategory}>{selectedArticle.category}</p>
             <h1 className={styles.articleTitle}>{selectedArticle.title}</h1>
             <p className={styles.newsMeta}>
-              {selectedArticle.date} • By {selectedArticle.author}
+              {formatDate(selectedArticle.date)} • By {selectedArticle.author}
             </p>
             <p className={styles.articleText}>{selectedArticle.content}</p>
           </main>
@@ -126,7 +137,7 @@ export default function NewsSection(): JSX.Element {
                 />
                 <div>
                   <p className={styles.sidebarItemTitle}>{item.title}</p>
-                  <span className={styles.sidebarDate}>{item.date}</span>
+                  <span className={styles.sidebarDate}>{formatDate(item.date)}</span>
                 </div>
               </div>
             ))}
@@ -185,7 +196,7 @@ export default function NewsSection(): JSX.Element {
           <div className={styles.featuredContent}>
             <p className={styles.newsCategory}>{featured.category}</p>
             <h3 className={styles.featuredTitle}>{featured.title}</h3>
-            <p className={styles.newsMeta}>{featured.date}</p>
+            <p className={styles.newsMeta}>{formatDate(featured.date)}</p>
             <p className={styles.featuredExcerpt}>{featured.excerpt}</p>
             <button className={styles.readBtn}>Read More</button>
           </div>
@@ -209,7 +220,7 @@ export default function NewsSection(): JSX.Element {
             <div className={styles.cardBody}>
               <p className={styles.newsCategory}>{item.category}</p>
               <h4 className={styles.cardTitle}>{item.title}</h4>
-              <p className={styles.newsMeta}>{item.date}</p>
+              <p className={styles.newsMeta}>{formatDate(item.date)}</p>
               <p className={styles.cardExcerpt}>{item.excerpt}</p>
               <span className={styles.readMore}>Read More →</span>
             </div>
