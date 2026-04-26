@@ -12,8 +12,7 @@ import SuccessAdmin from '../SuccessAdmin/page';
 import ResoAdmin from '../ResoAdmin/page';
 import AdminEvents from '../UpcomingEvents/AdminEvents/AdminEvents';
 import WeeklyNewsletterAdmin from '../components/WeeklyNewsletterAdmin';
-import NewsAdmin from '../News/admin';
-import GoS from '../NewsSection/Go/Gos';
+import NewsAdmin from '../NewsSection/Admin/NewsAdmin';
 
 export default function
 SocialButtonsPage() {
@@ -97,12 +96,10 @@ if (loading) {
             <WeeklyNewsletterAdmin></WeeklyNewsletterAdmin>
         </div>
 
-        <div>
-            <NewsAdmin />
-        </div>
+        
 
-        <div style={{paddingBottom: '7%'}}>
-          <GoS />
+        <div>
+          <NewsAdmin />
         </div>
 
         </div>

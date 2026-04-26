@@ -14,7 +14,7 @@ import {
 import { db } from "../../lib/firebase";
 import CloudinaryUploader from "../../CloudinaryUploader";
 
-export default function GoS() {
+export default function NewsAdmin() {
   const [form, setForm] = useState({
     title: "",
     category: "News",
@@ -29,6 +29,13 @@ export default function GoS() {
   const [news, setNews] = useState<any[]>([]);
   const [editId, setEditId] = useState<string | null>(null);
 
+  // ✅ AUTO RESIZE TEXTAREA
+  const autoResize = (e: React.FormEvent<HTMLTextAreaElement>) => {
+    const textarea = e.currentTarget;
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  };
+
   // ✅ FETCH
   const fetchNews = async () => {
     const snap = await getDocs(collection(db, "news"));
@@ -39,7 +46,6 @@ export default function GoS() {
     fetchNews();
   }, []);
 
-  // ✅ IMAGE UPLOAD
   const handleImageUpload = (url: string) => {
     setForm((prev) => ({
       ...prev,
@@ -47,7 +53,6 @@ export default function GoS() {
     }));
   };
 
-  // ✅ VIDEO UPLOAD
   const handleVideoUpload = (url: string) => {
     setForm((prev) => ({
       ...prev,
@@ -55,7 +60,6 @@ export default function GoS() {
     }));
   };
 
-  // ✅ EDIT
   const handleEdit = (item: any) => {
     setForm({
       title: item.title || "",
@@ -71,7 +75,6 @@ export default function GoS() {
     setEditId(item.id);
   };
 
-  // ✅ SUBMIT (CREATE + UPDATE)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -98,10 +101,9 @@ export default function GoS() {
       video: "",
     });
 
-    fetchNews(); // ✅ IMPORTANT
+    fetchNews();
   };
 
-  // ✅ DELETE
   const handleDelete = async (id: string) => {
     await deleteDoc(doc(db, "news", id));
     fetchNews();
@@ -124,9 +126,7 @@ export default function GoS() {
           onChange={(e) => setForm({ ...form, category: e.target.value })}
         />
 
-        {/* IMAGES */}
         <label>Upload Images</label>
-
         <CloudinaryUploader
           onUploadComplete={handleImageUpload}
           folder="zannya/news"
@@ -149,9 +149,7 @@ export default function GoS() {
           ))}
         </div>
 
-        {/* VIDEO */}
         <label>Upload Video</label>
-
         <CloudinaryUploader
           onUploadComplete={handleVideoUpload}
           folder="zannya/news"
@@ -168,13 +166,25 @@ export default function GoS() {
         <textarea
           placeholder="Excerpt"
           value={form.excerpt}
+          onInput={autoResize}
           onChange={(e) => setForm({ ...form, excerpt: e.target.value })}
+          style={{
+            minHeight: "100px",
+            resize: "none",
+            overflow: "hidden",
+          }}
         />
 
         <textarea
           placeholder="Content"
           value={form.content}
+          onInput={autoResize}
           onChange={(e) => setForm({ ...form, content: e.target.value })}
+          style={{
+            minHeight: "150px",
+            resize: "none",
+            overflow: "hidden",
+          }}
         />
 
         <input
@@ -200,13 +210,8 @@ export default function GoS() {
         <div key={item.id} style={{ marginBottom: 15 }}>
           <strong>{item.title}</strong>
 
-          <button onClick={() => handleEdit(item)}>
-            Edit
-          </button>
-
-          <button onClick={() => handleDelete(item.id)}>
-            Delete
-          </button>
+          <button onClick={() => handleEdit(item)}>Edit</button>
+          <button onClick={() => handleDelete(item.id)}>Delete</button>
         </div>
       ))}
     </div>
