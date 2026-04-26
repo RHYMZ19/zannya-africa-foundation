@@ -262,7 +262,7 @@ export default function NewsSection(): JSX.Element {
                     
                       </div>
                     )}
-        
+
               {/* ================= HERO ================= */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
@@ -336,6 +336,42 @@ export default function NewsSection(): JSX.Element {
             ))}
           </aside>
         </div>
+
+        {/* ================= FOOTER ================= */}
+            <footer className={styles.footer}>
+              <div className={styles.footerContainer}>
+                
+                {/* Contact Info */}
+                <div className={styles.footerSection}>
+                  <h4>Contact Us</h4>
+                  <div className={styles.contactLinks}>
+                    <a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a>
+                  </div>
+                </div>
+            
+                {/* Developer Credit */}
+                <div className={styles.footerSection}>
+                  <h4>Developer</h4>
+                  <p>Developed by <strong>SSENABULYA RAHIM</strong></p>
+                  <p>Tel: <a href="tel:+256743878261">0743878261</a></p>
+                  <p>Email: <a href="mailto:rahimssenabulya82@gmail.com">rahimssenabulya82@gmail.com</a></p>
+                </div>
+            
+                {/* Links */}
+                <div className={styles.footerSection}>
+                  <h4>Links</h4>
+                  <a href="/Terms" className={styles.footerLink}>Privacy Policy & Legal Terms</a>
+                  <a href="/adminpannel" className={styles.adminLink}>Admin Panel</a>
+                </div>
+            
+              </div>
+            
+              {/* Bottom Bar */}
+              <div className={styles.footerBottom}>
+                <p>© {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.</p>
+              </div>
+            </footer>
+            
       </div>
     );
   }
@@ -343,6 +379,163 @@ export default function NewsSection(): JSX.Element {
   // ================= LIST VIEW =================
   return (
     <section className={styles.newsPage}>
+
+      {/* ================= NAVBAR ================= */}
+                    <nav className={styles.navbar}>
+                      <IncreaseImage src='/log.jpg' alt="Logo" />
+                      <div className={styles.logo}>Zannya Africa Foundation</div>
+              
+                      <div
+                        className={`${styles.navLinks} ${
+                          open ? styles.active : ""
+                        }`}
+                      >
+                        <a href="/">Home</a>
+                        
+                        {/* RESOURCES DROPDOWN */}
+                <div className={styles.dropdown}>
+                  <span className={styles.dropdownTitle}>Resources ▾</span>
+              
+                  <div className={styles.dropdownMenu}>
+              
+                    <a href="/weekly-newsletter" className={styles.dropdownItem}>
+                      📰 Articles
+                    </a>
+        
+                    <a
+                      href="#"
+                      className={styles.dropdownItem}
+                      onClick={() => setSelectedResourceCategory("Research Papers")}
+                    >
+                      📄 Publications
+                    </a>
+              
+                    <a
+                      href="#"
+                      className={styles.dropdownItem}
+                      onClick={() => setSelectedResourceCategory("Reports")}
+                    >
+                      📊 Reports
+                    </a>
+              
+                    <a
+                      href="#"
+                      className={styles.dropdownItem}
+                      onClick={() => setSelectedResourceCategory("Case Studies")}
+                    >
+                      📁 Case Studies
+                    </a>
+              
+                  </div>
+                </div>
+        
+                {/* PROGRAMS DROPDOWN */}
+        <div className={styles.dropdown}>
+          <span className={styles.dropdownTitle}>Programs ▾</span>
+        
+          <div className={styles.dropdownMenu}>
+        
+            <Link href="/Programs/climate-justice" className={styles.dropdownItem}>
+              🌱 Climate Justice
+            </Link>
+        
+            <Link href="/Programs/reproductive-health" className={styles.dropdownItem}>
+              ❤️ Reproductive Health
+            </Link>
+        
+            <Link href="/Programs/skilling-livelihood" className={styles.dropdownItem}>
+              💼 Skilling & Livelihood
+            </Link>
+        
+          </div>
+        </div>
+                        
+                        <a href="/Videos" >Gallery</a>
+                        <a href="/Donates" className={styles.btnPrimary}> Donate</a>
+                      </div>
+              
+                      <div
+                        className={styles.hamburger}
+                        onClick={() => setOpen(!open)}
+                      >
+                        ☰
+                      </div>
+                    </nav>
+        
+                    {/* ================= RESOURCE MODAL ================= */}
+                    {selectedResourceCategory && (
+        
+                      <div className={styles.modalOverlay}
+                      onClick={() => setSelectedResourceCategory(null)}
+                      >
+                    
+                        <div className={styles.modalContent}
+                        onClick={(e) => e.stopPropagation()}
+                        >
+                    
+                          <div className={styles.modalHeader}>
+                            <h3>{selectedResourceCategory}</h3>
+                    
+                            <button
+                              className={styles.closeBtn}
+                              onClick={() => setSelectedResourceCategory(null)}
+                            >
+                              ✕
+                            </button>
+                          </div>
+                    
+                          <div className={styles.resourceList}>
+                    
+                            {resources
+                              .filter(res => res.category === selectedResourceCategory)
+                              .map(res => (
+                    
+                                <div key={res.id} className={styles.resourceItem}>
+                    
+                                  <div>
+                                    <strong>{res.title}</strong>
+                                    <p>{res.description}</p>
+                                  </div>
+                    
+                                  <a
+                                    href={res.pdf}
+                                    download
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.downloadBtn}
+                                  >
+                                    Download PDF
+                                  </a>
+                    
+                                </div>
+                    
+                            ))}
+                    
+                          </div>
+        
+                        </div>
+                    
+                      </div>
+                    )}
+                    
+              {/* ================= HERO ================= */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <h1>Zannya Africa Foundation</h1>
+          <p>
+           Changing communities through sports
+          </p>
+          <div className={styles.heroButtons}>
+            <button className={styles.btnPrimary}>
+              Donate Now
+            </button>
+            <button className={styles.btnOutline}>
+              Get Involved
+            </button>
+          </div>
+        </div>
+      </section>
+
       <div className={styles.newsHeader}>
         <h2 className={styles.newsHeading}>News & Updates</h2>
         <p className={styles.newsSubheading}>

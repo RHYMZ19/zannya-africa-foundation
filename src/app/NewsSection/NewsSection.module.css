@@ -1,5 +1,5 @@
 .newsPage {
-  padding: 40px 20px;
+  padding: 10px 5px;
   max-width: 1200px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
@@ -161,7 +161,8 @@
 
 .newsFooter {
   text-align: center;
-  margin-top: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .articleLayout {
@@ -259,6 +260,75 @@
   .articleImage {
     height: 260px;
   }
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 90vh;
+  background: linear-gradient(rgba(11,60,93,0.7), rgba(11,60,93,0.7)),
+    url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1758898506/zannya/uploads/images/ilyhjfpy0s8u8zvgbueg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.heroContent h1 {
+  font-size: 48px;
+  max-width: 800px;
+}
+
+.heroContent p {
+  margin: 20px 0;
+  font-size: 18px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroButtons {
+  margin-top: 20px;
+}
+
+.heroOverlay h1{
+font-size:3rem;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.heroOverlay p{
+font-size:1.2rem;
+max-width:600px;
+margin:auto;
+line-height:1.6;
+}
+
+.heroButtons{
+margin-top:30px;
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.heroButtons button{
+padding:14px 28px;
+border:none;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+background:#ff6b35;
+color:white;
+transition:all .3s;
+}
+
+.heroButtons button:hover{
+transform:translateY(-3px);
+background:#ff4c12;
 }
 
 /* ================= NAVBAR ================= */
