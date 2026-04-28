@@ -63,7 +63,7 @@
 
 /* ================= HERO ================= */
 .hero {
-  height: 90vh;
+  height: 70vh;
   background: linear-gradient(rgba(11,60,93,0.7), rgba(11,60,93,0.7)),
     url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1758898506/zannya/uploads/images/ilyhjfpy0s8u8zvgbueg.jpg");
   background-size: cover;

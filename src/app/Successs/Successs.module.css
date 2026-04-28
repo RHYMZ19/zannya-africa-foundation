@@ -69,8 +69,8 @@
 .pdfBtn {
   display: inline-block;
   margin-top: 12px;
-  background: #0b3c5d;
-  color: white;
+  background: white;
+  color: #f4a261;
   padding: 10px 16px;
   border-radius: 8px;
   font-size: 14px;
@@ -166,7 +166,7 @@
 
 /* ================= HERO ================= */
 .hero {
-  height: 90vh;
+  height: 70vh;
   background: linear-gradient(rgba(11,60,93,0.7), rgba(11,60,93,0.7)),
     url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023025/zannya/uploads/images/m7srwqv5esgylzapfvsx.jpg");
   background-size: cover;

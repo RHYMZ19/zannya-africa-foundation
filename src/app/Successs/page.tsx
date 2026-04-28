@@ -7,6 +7,7 @@ import db from "../lib/firebase";
 import styles from "./Successs.module.css";
 import Image from "next/image";
 import IncreaseImages from "../components/IncreaseImages";
+import Link from "next/link";
 
 type SuccessStory = {
   id: string;
@@ -120,6 +121,28 @@ export default function Successs() {
             
                 </div>
               </div>
+
+              {/* PROGRAMS DROPDOWN */}
+              <div className={styles.dropdown}>
+                <span className={styles.dropdownTitle}>Programs ▾</span>
+              
+                <div className={styles.dropdownMenu}>
+              
+                  <Link href="/Programs/climate-justice" className={styles.dropdownItem}>
+                    🌱 Climate Justice
+                  </Link>
+              
+                  <Link href="/Programs/reproductive-health" className={styles.dropdownItem}>
+                    ❤️ Reproductive Health
+                  </Link>
+              
+                  <Link href="/Programs/skilling-livelihood" className={styles.dropdownItem}>
+                    💼 Skilling & Livelihood
+                  </Link>
+              
+                </div>
+              </div>
+              
                       <a href="/Videos" >Gallery</a>
                       <a href="/Donates" className={styles.btnPrimary}> Donate</a>
                     </div>
@@ -257,33 +280,6 @@ export default function Successs() {
             ))}
           </div>
         )}
-      </section>
-
-      {/* IMPACT SECTION */}
-      <section className={styles.impact}>
-        <h2>Our Impact</h2>
-
-        <div className={styles.impactGrid}>
-          <div className={styles.impactCard}>
-            <h3>500+</h3>
-            <p>Youth engaged in programs</p>
-          </div>
-
-          <div className={styles.impactCard}>
-            <h3>90%</h3>
-            <p>Health awareness increase</p>
-          </div>
-
-          <div className={styles.impactCard}>
-            <h3>100+</h3>
-            <p>Climate advocates trained</p>
-          </div>
-
-          <div className={styles.impactCard}>
-            <h3>50+</h3>
-            <p>Youth leaders developed</p>
-          </div>
-        </div>
       </section>
 
       {/* IMAGE MODAL */}
