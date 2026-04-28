@@ -4,7 +4,7 @@ import React, { JSX, useMemo, useState, useEffect } from "react";
 import styles from "./NewsSection.module.css";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../lib/firebase";
-import IncreaseImage from "../components/IncreaseImage";
+import IncreaseImages from "../components/IncreaseImages";
 
 import { onSnapshot } from "firebase/firestore";
 
@@ -127,7 +127,7 @@ export default function NewsSection(): JSX.Element {
 
         {/* ================= NAVBAR ================= */}
                     <nav className={styles.navbar}>
-                      <IncreaseImage src='/log.jpg' alt="Logo" />
+                      <IncreaseImages src='/log.jpg' alt="Logo" />
                       <div className={styles.logo}>Zannya Africa Foundation</div>
               
                       <div
@@ -382,7 +382,7 @@ export default function NewsSection(): JSX.Element {
 
       {/* ================= NAVBAR ================= */}
                     <nav className={styles.navbar}>
-                      <IncreaseImage src='/log.jpg' alt="Logo" />
+                      <IncreaseImages src='/log.jpg' alt="Logo" />
                       <div className={styles.logo}>Zannya Africa Foundation</div>
               
                       <div
@@ -536,6 +536,7 @@ export default function NewsSection(): JSX.Element {
         </div>
       </section>
 
+      <div className={styles.Layer}>
       <div className={styles.newsHeader}>
         <h2 className={styles.newsHeading}>News & Updates</h2>
         <p className={styles.newsSubheading}>
@@ -612,6 +613,7 @@ export default function NewsSection(): JSX.Element {
             </div>
           </div>
         ))}
+      </div>
       </div>
 
       <div className={styles.newsFooter}>
