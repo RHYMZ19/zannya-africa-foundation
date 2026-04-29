@@ -97,11 +97,11 @@ export default function ProgramPage({
     </Link>
 
     <Link href="/Programs/reproductive-health" className={styles.dropdownItem}>
-      ❤️ SRH & physical wellness
+      ❤️ SRH
     </Link>
 
     <Link href="/Programs/skilling-livelihood" className={styles.dropdownItem}>
-      💼 Sports For Enhanced Livelihood
+      💼 Sports For Livelihood
     </Link>
 
   </div>
