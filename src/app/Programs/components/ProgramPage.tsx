@@ -295,7 +295,7 @@ export default function ProgramPage({
 
   {/* TITLE BELOW IMAGE */}
   <h3 className={styles.activityTitle}>
-    {activity.title}
+    {activity.imageTitle}
   </h3>
 
 </div>
