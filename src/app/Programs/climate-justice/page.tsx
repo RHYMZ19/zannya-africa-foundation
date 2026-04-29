@@ -30,11 +30,11 @@ const highlights = [
 const activities = [
   
   {
-    imageTitle: "EcoFit Camp",
+    imageTitle: "tree planting",
     title: " ZAF EcoFit Camping ",
     detail: "Conduct Annual in school (150) & out of school (100) ZAF EcoFit Camp targeting 250 participants.",
     image:
-      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1765369474/zannya/uploads/images/kgbntplydbijpatj6cbi.jpg"
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1774726306/zannya/uploads/images/bcff40usb7eiv1qk6qbb.jpg"
   },
   {
     imageTitle: "Climate education in schools",
@@ -58,10 +58,16 @@ const activities = [
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758116555/zannya/uploads/images/yn2i3fknxn7cxmiiwj2n.jpg"
   },
   {
-    imageTitle: "Webinars hosting",
+    imageTitle: "tree planting",
     detail: "Host 5 Webinars and 10 social media spaces on Climate action & environmental justice.",
     image:
-      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758116555/zannya/uploads/images/yn2i3fknxn7cxmiiwj2n.jpg"
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1774726189/zannya/uploads/images/mlss4vqueb8unse8qlqf.jpg"
+  },
+  {
+    imageTitle: "our climate ambassadors",
+    detail: "Host 5 Webinars and 10 social media spaces on Climate action & environmental justice.",
+    image:
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1767266252/zannya/uploads/byx9js6z5qo7ud3m9hha.webp"
   }
 ];
 
