@@ -2,10 +2,10 @@
 import ProgramPage from "../components/ProgramPage";
 
 const highlights = [
-  { title: "Sexual awareness", detail: "To Increase knowledge on responsible sexual behavior & safe sexual practices among 1000 Youth in urban slums of Kampala by 2028.", icon: "🧡" },
-  { title: "Encouraging healthy physical lifestyle", detail: "To Encourage healthy physical lifestyle among 1000 adolescents & Youths in Urban slums in Kampala by 2028.", icon: "🏃‍♂️" },
-  { title: "Promoting personal hygiene", detail: "Promote personal hygiene and body care for 1000 adolescents & youths in Urban slums of Kampala by 2028.", icon: "🧼" },
-  { title: "Promoting body care", detail: "Promote personal hygiene and body care for 1000 adolescents & youths in Urban slums of Kampala by 2028.", icon: "🧼" }
+  { title: "To Increase knowledge on Sexual awareness", detail: "To Increase knowledge on responsible sexual behavior & safe sexual practices among 1000 Youth in urban slums of Kampala by 2028.", icon: "🧡" },
+  { title: "To encouraging healthy physical lifestyle", detail: "To Encourage healthy physical lifestyle among 1000 adolescents & Youths in Urban slums in Kampala by 2028.", icon: "🏃‍♂️" },
+  { title: "To promoting personal hygiene", detail: "Promote personal hygiene and body care for 1000 adolescents & youths in Urban slums of Kampala by 2028.", icon: "🧼" },
+  { title: "To promoting body care", detail: "Promote personal hygiene and body care for 1000 adolescents & youths in Urban slums of Kampala by 2028.", icon: "🧼" }
 ];
 
 // Program Activities
