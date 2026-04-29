@@ -39,6 +39,24 @@ const activities = [
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758379328/zannya/uploads/images/ybuex5jd9ntcotpvz1gx.jpg"
   },
+  {
+    imageTitle: "skilling",
+    detail: "Conduct bi-annual Job placements & Internship for 150 youth graduates from Entrepreneurship and Life skills program from Urban slums of Uganda by 2028.",
+    image:
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758450067/zannya/uploads/o4icdjacsegqaim3gji2.jpg"
+  },
+  {
+    imageTitle: "skilling",
+    detail: "Conduct bi-annual Job placements & Internship for 150 youth graduates from Entrepreneurship and Life skills program from Urban slums of Uganda by 2028.",
+    image:
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758450121/zannya/uploads/wgnwkstgwz3jytqlmvm0.jpg"
+  },
+  {
+    imageTitle: "skilling",
+    detail: "Conduct bi-annual Job placements & Internship for 150 youth graduates from Entrepreneurship and Life skills program from Urban slums of Uganda by 2028.",
+    image:
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758450150/zannya/uploads/h5anrmy2jcid8qjrbbls.jpg"
+  },
   
 ];
 
