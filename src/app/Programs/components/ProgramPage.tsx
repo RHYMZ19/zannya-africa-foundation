@@ -93,15 +93,15 @@ export default function ProgramPage({
   <div className={styles.dropdownMenu}>
 
     <Link href="/Programs/climate-justice" className={styles.dropdownItem}>
-      🌱 Climate Justice
+      🌱 Climate Action
     </Link>
 
     <Link href="/Programs/reproductive-health" className={styles.dropdownItem}>
-      ❤️ Reproductive Health
+      ❤️ SRH & physical wellness
     </Link>
 
     <Link href="/Programs/skilling-livelihood" className={styles.dropdownItem}>
-      💼 Skilling & Livelihood
+      💼 Sports For Enhanced Livelihood
     </Link>
 
   </div>

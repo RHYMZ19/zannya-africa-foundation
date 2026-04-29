@@ -67,7 +67,7 @@ const activities = [
     imageTitle: "our climate ambassadors",
     detail: "Host 5 Webinars and 10 social media spaces on Climate action & environmental justice.",
     image:
-      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1767266252/zannya/uploads/byx9js6z5qo7ud3m9hha.webp"
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023170/zannya/uploads/images/nnbjk8hm1wvgcn6s2fdn.jpg"
   }
 ];
 
