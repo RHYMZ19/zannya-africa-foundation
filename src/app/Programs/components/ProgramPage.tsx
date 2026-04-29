@@ -235,23 +235,23 @@ export default function ProgramPage({
   </div>
 
   {/* LEFT SIDE - OBJECTIVES */}
-  <div className={styles.singleCard}>
-    <h2 className={styles.splitTitle}> Objectives</h2>
+<div className={styles.singleCard}>
+  <h2 className={styles.splitTitle}> Activities</h2>
 
-    <ul className={styles.list}>
-      {highlights.map((item, index: number) => (
+  <ul className={styles.list}>
+    {activities.map((activity, index: number) => (
+      activity.title && (
         <li key={index} className={styles.listItem}>
-          
           <span className={styles.number}>
             {index + 1}.
           </span>
 
-          <h4>{item.title}</h4>
-
+          <h4>{activity.title}</h4>
         </li>
-      ))}
-    </ul>
-  </div>
+      )
+    ))}
+  </ul>
+</div>
 
   {/* RIGHT SIDE - ACTIVITIES */}
   <div className={styles.singleCard}>
@@ -265,7 +265,7 @@ export default function ProgramPage({
             {index + 1}.
           </span>
 
-          {activity.title && <h4>{activity.title}</h4>}
+          <h4>{activity.title}</h4>
 
         </li>
       ))}
