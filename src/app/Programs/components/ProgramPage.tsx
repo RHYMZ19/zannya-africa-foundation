@@ -24,8 +24,8 @@ type Highlight = {
 type Activity = {
   title: string;
   detail: string;
-  image: string;
   imageTitle: string;
+  image?: string;
 };
 
 type ProgramPageProps = {
@@ -144,6 +144,7 @@ export default function ProgramPage({
           </div>
         </div>
 
+        
                 
                 <a href="/Videos" >Gallery</a>
                 <a href="/Donates" className={styles.btnPrimary}> Donate</a>
@@ -266,14 +267,13 @@ export default function ProgramPage({
         {index + 1}.
       </span>
 
-      <h4>{activity.title}</h4>
+      {activity.title && <h4>{activity.title}</h4>}
 
     </li>
   )
 ))}
     </ul>
   </div>
-
 </section>
 
 
@@ -295,7 +295,7 @@ export default function ProgramPage({
 
   {/* TITLE BELOW IMAGE */}
   <h3 className={styles.activityTitle}>
-    {activity.imageTitle}
+    {activity.title}
   </h3>
 
 </div>
