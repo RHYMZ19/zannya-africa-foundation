@@ -12,24 +12,28 @@ const highlights = [
 // Program Activities
 const activities = [
   {
+    imageTitle: "Sports events",
     title: "Sports events",
     detail: "Organize quarterly Sport events, Competition & sports development targeting 4 Schools, 1,000 vulnerable Youth in urban slums of Uganda by 2028.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758376508/zannya/uploads/images/t614e7cy9pkrpcibktnv.jpg"
   },
   {
+    imageTitle: "Mentorship & Coaching in sports",
     title: "Mentorship & Coaching in sports",
     detail: "Conduct Mentorship & Coaching in sports, life skills, Career choices, Business management, record keeping, Financial Literacy, Talent spotting & development, officiating, digital skills and work readiness skills to 1000 youth in Urban slums of Kampala by 2028.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023495/zannya/uploads/images/ui2d2218fdpe7uwyesff.jpg"
   },
   {
+    imageTitle: "sports development ",
     title: "sports development ",
     detail: "Conduct bi-annual Job placements & Internship for 150 youth graduates from Entrepreneurship and Life skills program from Urban slums of Uganda by 2028.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758379328/zannya/uploads/images/ybuex5jd9ntcotpvz1gx.jpg"
   },
   {
+    imageTitle: "Job placements & Internship",
     title: "Job placements & Internship",
     detail: "Conduct bi-annual Job placements & Internship for 150 youth graduates from Entrepreneurship and Life skills program from Urban slums of Uganda by 2028.",
     image:

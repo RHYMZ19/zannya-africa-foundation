@@ -30,25 +30,36 @@ const highlights = [
 const activities = [
   
   {
+    imageTitle: "EcoFit Camp",
     title: " ZAF EcoFit Camping ",
     detail: "Conduct Annual in school (150) & out of school (100) ZAF EcoFit Camp targeting 250 participants.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1765369474/zannya/uploads/images/kgbntplydbijpatj6cbi.jpg"
   },
   {
+    imageTitle: "Climate education in schools",
     title: "Climate education in schools ",
     detail: "Conduct quarterly Climate education in schools targeting 12 schools with 2,400 participants. ",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758116572/zannya/uploads/images/au4ofyrzeimna2haoznw.jpg"
   },
   {
+    imageTitle: "Community fruit tree planting",
     title: "Community fruit tree planting ",
     detail: "Conduct Bi-annual Community fruit tree planting for 3,000 fruit trees & 1,500 restoration trees in 3 Vulnerable communities in Central Uganda by 2028. ",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1774726189/zannya/uploads/images/mlss4vqueb8unse8qlqf.jpg"
   },
   {
+    imageTitle: "Webinars hosting",
     title: " Webinars hosting ",
+    detail: "Host 5 Webinars and 10 social media spaces on Climate action & environmental justice.",
+    image:
+      "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758116555/zannya/uploads/images/yn2i3fknxn7cxmiiwj2n.jpg"
+  },
+  {
+    imageTitle: "Webinars hosting",
+    title: "",
     detail: "Host 5 Webinars and 10 social media spaces on Climate action & environmental justice.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758116555/zannya/uploads/images/yn2i3fknxn7cxmiiwj2n.jpg"

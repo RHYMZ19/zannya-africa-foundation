@@ -25,6 +25,7 @@ type Activity = {
   title: string;
   detail: string;
   image: string;
+  imageTitle: string;
 };
 
 type ProgramPageProps = {
@@ -84,6 +85,27 @@ export default function ProgramPage({
                 }`}
               >
                 <a href="/">Home</a>
+
+                {/* PROGRAMS DROPDOWN */}
+<div className={styles.dropdown}>
+  <span className={styles.dropdownTitle}>Programs ▾</span>
+
+  <div className={styles.dropdownMenu}>
+
+    <Link href="/Programs/climate-justice" className={styles.dropdownItem}>
+      🌱 Climate Justice
+    </Link>
+
+    <Link href="/Programs/reproductive-health" className={styles.dropdownItem}>
+      ❤️ Reproductive Health
+    </Link>
+
+    <Link href="/Programs/skilling-livelihood" className={styles.dropdownItem}>
+      💼 Skilling & Livelihood
+    </Link>
+
+  </div>
+</div>
                 
                 {/* RESOURCES DROPDOWN */}
         <div className={styles.dropdown}>
@@ -122,26 +144,6 @@ export default function ProgramPage({
           </div>
         </div>
 
-        {/* PROGRAMS DROPDOWN */}
-<div className={styles.dropdown}>
-  <span className={styles.dropdownTitle}>Programs ▾</span>
-
-  <div className={styles.dropdownMenu}>
-
-    <Link href="/Programs/climate-justice" className={styles.dropdownItem}>
-      🌱 Climate Justice
-    </Link>
-
-    <Link href="/Programs/reproductive-health" className={styles.dropdownItem}>
-      ❤️ Reproductive Health
-    </Link>
-
-    <Link href="/Programs/skilling-livelihood" className={styles.dropdownItem}>
-      💼 Skilling & Livelihood
-    </Link>
-
-  </div>
-</div>
                 
                 <a href="/Videos" >Gallery</a>
                 <a href="/Donates" className={styles.btnPrimary}> Donate</a>
@@ -291,7 +293,7 @@ export default function ProgramPage({
 
   {/* TITLE BELOW IMAGE */}
   <h3 className={styles.activityTitle}>
-    {activity.title}
+    {activity.imageTitle}
   </h3>
 
 </div>
