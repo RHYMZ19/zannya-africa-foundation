@@ -59,7 +59,6 @@ const activities = [
   },
   {
     imageTitle: "Webinars hosting",
-    title: "",
     detail: "Host 5 Webinars and 10 social media spaces on Climate action & environmental justice.",
     image:
       "https://res.cloudinary.com/dpwuym7xg/image/upload/v1758116555/zannya/uploads/images/yn2i3fknxn7cxmiiwj2n.jpg"

@@ -22,7 +22,7 @@ type Highlight = {
 };
 
 type Activity = {
-  title: string;
+  title?: string;
   detail: string;
   image: string;
   imageTitle: string;
@@ -265,7 +265,7 @@ export default function ProgramPage({
             {index + 1}.
           </span>
 
-          <h4>{activity.title}</h4>
+          {activity.title && <h4>{activity.title}</h4>}
 
         </li>
       ))}
