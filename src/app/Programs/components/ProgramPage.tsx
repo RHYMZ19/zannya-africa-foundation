@@ -22,10 +22,10 @@ type Highlight = {
 };
 
 type Activity = {
-  title: string;
-  detail: string;
-  imageTitle: string;
-  image?: string;
+  title?: string;
+  detail?: string;
+  imageTitle?: string;
+  image: string;
 };
 
 type ProgramPageProps = {
