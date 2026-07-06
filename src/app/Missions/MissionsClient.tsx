@@ -208,7 +208,7 @@ export default function MissionsClient() {
               Donate Now
             </button>
             <button className={styles.btnOutline}>
-              Get Involved
+              Get involved
             </button>
           </div>
         </div>
