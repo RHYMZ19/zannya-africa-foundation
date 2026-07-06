@@ -802,6 +802,8 @@ className={styles.leaderImage}
 
 
 
+
+
 {/* PARTNERS */}
 <section className={styles.partners}>
 
