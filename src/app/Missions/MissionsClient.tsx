@@ -284,61 +284,6 @@ export default function MissionsClient() {
 
 
 
-{/* LEADERSHIP */}
-<section className={styles.leadershipSection}>
-
-<h2>Meet Our Leadership</h2>
-
-<div className={styles.leaderGrid}>
-
-{leaders.map((leader) => (
-
-<div key={leader.id} className={styles.leaderCard}>
-
-  {leader.img && (
-    <Image
-      src={leader.img}
-      alt={leader.name}
-      width={300}
-      height={300}
-      className={styles.leaderImage}
-    />
-  )}
-
-  <h3>{leader.name}</h3>
-  <p className={styles.role}>{leader.role}</p>
-
-  <p className={styles.bio}>{leader.bio}</p>
-
-  <div className={styles.socialIcons}>
-    {leader.linkedin && (
-      <a href={leader.linkedin} target="_blank">
-        <FaLinkedin />
-      </a>
-    )}
-
-    {leader.twitter && (
-      <a href={leader.twitter} target="_blank">
-        <FaTwitter />
-      </a>
-    )}
-
-    {leader.facebook && (
-      <a href={leader.facebook} target="_blank">
-        <FaFacebook />
-      </a>
-    )}
-  </div>
-
-</div>
-
-))}
-
-</div>
-
-</section>
-
-
 {/* ================= LEADERSHIP NEW================= */}
 
 <section className={styles.leadershipSection}>
