@@ -208,7 +208,7 @@ export default function MissionsClient() {
               Donate Now
             </button>
             <button className={styles.btnOutline}>
-              Get involved
+              Get Involved
             </button>
           </div>
         </div>
@@ -284,115 +284,62 @@ export default function MissionsClient() {
 
 
 
-{/* ================= LEADERSHIP NEW================= */}
-
+{/* LEADERSHIP */}
 <section className={styles.leadershipSection}>
 
-  <h2>Leadership & Governance</h2>
+<h2>Meet Our Leadership</h2>
 
-  {/* ================= BOARD CHAIR ================= */}
-  <div className={styles.topLevel}>
-    {leaders
-      .filter(p => p.role.toLowerCase().includes("chair"))
-      .map(p => (
-        <div key={p.id} className={styles.leaderCardLarge}>
-          <Image src={p.img || "/default.png"} alt={p.name} width={180} height={180} className={styles.leaderImage} />
-          <h3>{p.name}</h3>
-          <p className={styles.role}>{p.role}</p>
-          <p>{p.bio}</p>
-        </div>
-      ))}
+<div className={styles.leaderGrid}>
+
+{leaders.map((leader) => (
+
+<div key={leader.id} className={styles.leaderCard}>
+
+  {leader.img && (
+    <Image
+      src={leader.img}
+      alt={leader.name}
+      width={300}
+      height={300}
+      className={styles.leaderImage}
+    />
+  )}
+
+  <h3>{leader.name}</h3>
+  <p className={styles.role}>{leader.role}</p>
+
+  <p className={styles.bio}>{leader.bio}</p>
+
+  <div className={styles.socialIcons}>
+    {leader.linkedin && (
+      <a href={leader.linkedin} target="_blank">
+        <FaLinkedin />
+      </a>
+    )}
+
+    {leader.twitter && (
+      <a href={leader.twitter} target="_blank">
+        <FaTwitter />
+      </a>
+    )}
+
+    {leader.facebook && (
+      <a href={leader.facebook} target="_blank">
+        <FaFacebook />
+      </a>
+    )}
   </div>
 
-  <div className={styles.verticalLine}></div>
+</div>
 
-  {/* ================= BOARD MEMBERS ================= */}
-  <h3 className={styles.groupTitle}>Board of Directors</h3>
+))}
 
-  <div className={styles.horizontalRow}>
-    {leaders
-      .filter(p => p.role.toLowerCase().includes("board member"))
-      .map(p => (
-        <div key={p.id} className={styles.leaderCard}>
-          <Image src={p.img || "/default.png"} alt={p.name} width={160} height={160} className={styles.leaderImage} />
-          <h3>{p.name}</h3>
-          <p className={styles.role}>{p.role}</p>
-        </div>
-      ))}
-  </div>
-
-  <div className={styles.verticalLine}></div>
-
-  {/* ================= EXECUTIVE DIRECTOR ================= */}
-  <div className={styles.topLevel}>
-    {leaders
-      .filter(p => p.role.toLowerCase().includes("executive director"))
-      .map(p => (
-        <div key={p.id} className={styles.leaderCardLarge}>
-          <Image src={p.img || "/default.png"} alt={p.name} width={180} height={180} className={styles.leaderImage} />
-          <h3>{p.name}</h3>
-          <p className={styles.role}>{p.role}</p>
-          <p>{p.bio}</p>
-        </div>
-      ))}
-  </div>
-
-  <div className={styles.verticalLine}></div>
-
-  {/* ================= MANAGEMENT TEAM ================= */}
-  <h3 className={styles.groupTitle}>Executive & Management Team</h3>
-
-  <div className={styles.horizontalRow}>
-    {leaders
-      .filter(p =>
-        p.role.toLowerCase().includes("lead") ||
-        p.role.toLowerCase().includes("communications") ||
-        p.role.toLowerCase().includes("digital")
-      )
-      .map(p => (
-        <div key={p.id} className={styles.leaderCard}>
-          <Image src={p.img || "/default.png"} alt={p.name} width={160} height={160} className={styles.leaderImage} />
-          <h3>{p.name}</h3>
-          <p className={styles.role}>{p.role}</p>
-        </div>
-      ))}
-  </div>
-
-  <div className={styles.verticalLine}></div>
-
-  {/* ================= PROJECT OFFICERS ================= */}
-  <h3 className={styles.groupTitle}>Project Officers</h3>
-
-  <div className={styles.horizontalRow}>
-    {leaders
-      .filter(p => p.role.toLowerCase().includes("project officer"))
-      .map(p => (
-        <div key={p.id} className={styles.leaderCard}>
-          <Image src={p.img || "/default.png"} alt={p.name} width={160} height={160} className={styles.leaderImage} />
-          <h3>{p.name}</h3>
-          <p className={styles.role}>{p.role}</p>
-        </div>
-      ))}
-  </div>
-
-  <div className={styles.verticalLine}></div>
-
-  {/* ================= INTERN ================= */}
-  <h3 className={styles.groupTitle}>Intern</h3>
-
-  <div className={styles.topLevel}>
-    {leaders
-      .filter(p => p.role.toLowerCase().includes("intern"))
-      .map(p => (
-        <div key={p.id} className={styles.leaderCardLarge}>
-          <Image src={p.img || "/default.png"} alt={p.name} width={180} height={180} className={styles.leaderImage} />
-          <h3>{p.name}</h3>
-          <p className={styles.role}>{p.role}</p>
-        </div>
-      ))}
-  </div>
+</div>
 
 </section>
+
+
+
 
 {/* ================= LEADERSHIP AGAIN NEW================= */}
 
