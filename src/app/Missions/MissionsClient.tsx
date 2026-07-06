@@ -281,67 +281,6 @@ export default function MissionsClient() {
 
 </section>
 
-{/* ================= CIRCULAR PROCESS ================= */}
-<section className={styles.cycleSection}>
-  <h2>Our Impact Process</h2>
-
-  <div className={styles.circleWrapper}>
-    
-    <div className={`${styles.cycleBox} ${styles.top}`}>Community</div>
-    <div className={`${styles.cycleBox} ${styles.right}`}>Training</div>
-    <div className={`${styles.cycleBox} ${styles.bottom}`}>Implementation</div>
-    <div className={`${styles.cycleBox} ${styles.left}`}>Impact</div>
-
-    <div className={styles.centerCircle}>🔁</div>
-
-  </div>
-</section>
-
-
-{/*for testing*/}
-<div className={styles.tree}>
-
-      {/* LEVEL 1 */}
-      <div className={styles.level}>
-        <div className={`${styles.node} ${styles.main}`}>Main Topic</div>
-      </div>
-
-      <div className={styles.verticalLine}></div>
-
-      {/* LEVEL 2 */}
-      <div className={styles.level}>
-        <div className={styles.node}>Branch 1</div>
-        <div className={styles.node}>Branch 2</div>
-      </div>
-
-      {/* LINES DOWN */}
-      <div className={styles.level2Lines}>
-        <div className={styles.lineDown}></div>
-        <div className={styles.lineDown}></div>
-      </div>
-
-      {/* LEVEL 3 */}
-      <div className={styles.level}>
-
-        {/* GROUP 1 */}
-        <div className={styles.group}>
-          <div className={styles.children}>
-            <div className={`${styles.node} ${styles.small}`}>B1-A</div>
-            <div className={`${styles.node} ${styles.small}`}>B1-B</div>
-          </div>
-        </div>
-
-        {/* GROUP 2 */}
-        <div className={styles.group}>
-          <div className={styles.children}>
-            <div className={`${styles.node} ${styles.small}`}>B2-A</div>
-            <div className={`${styles.node} ${styles.small}`}>B2-B</div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
 
 
 
