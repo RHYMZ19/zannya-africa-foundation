@@ -878,3 +878,234 @@ display: flex;
   margin-top:30px;
   color:#0B7A3B;
 }
+
+
+/* ================= LEADERSHIP AGAIN NEW================= */
+
+.leadershipSection{
+    width:100%;
+    padding:80px 8%;
+    background:#f8fafc;
+}
+
+.leadershipSection h2{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:60px;
+    color:#12355B;
+}
+
+.groupTitle{
+    text-align:center;
+    margin:60px 0 30px;
+    font-size:28px;
+    color:#0B7A3B;
+    font-weight:bold;
+}
+
+/* Center One Card */
+
+.levelOne{
+    display:flex;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+/* Multiple Cards */
+
+.levelGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:30px;
+}
+
+/* Card */
+
+.leaderCard,
+.leaderCardLarge{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.leaderCard:hover,
+.leaderCardLarge:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+/* Executive Director */
+
+.leaderCardLarge{
+
+    max-width:420px;
+
+}
+
+/* Images */
+
+.leaderImage{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:6px solid #0B7A3B;
+
+    margin-bottom:20px;
+
+}
+
+.leaderCardLarge .leaderImage{
+
+    width:190px;
+
+    height:190px;
+
+}
+
+.leaderCard h3,
+.leaderCardLarge h3{
+
+    margin-bottom:8px;
+
+    color:#12355B;
+
+}
+
+.role{
+
+    color:#0B7A3B;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.leaderCard p,
+.leaderCardLarge p{
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+/* Social */
+
+.socialIcons{
+
+    margin-top:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+}
+
+.socialIcons a{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#0B7A3B;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.socialIcons a:hover{
+
+    background:#12355B;
+
+    transform:scale(1.1);
+
+}
+
+/* Connector */
+
+.connector{
+
+    width:4px;
+
+    height:70px;
+
+    background:#0B7A3B;
+
+    margin:25px auto;
+
+    border-radius:50px;
+
+}
+
+/* Mobile */
+
+@media(max-width:900px){
+
+.leadershipSection{
+
+padding:60px 20px;
+
+}
+
+.levelGrid{
+
+grid-template-columns:1fr;
+
+}
+
+.leadershipSection h2{
+
+font-size:34px;
+
+}
+
+.groupTitle{
+
+font-size:24px;
+
+}
+
+.leaderImage{
+
+width:150px;
+
+height:150px;
+
+}
+
+}

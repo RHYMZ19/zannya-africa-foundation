@@ -510,6 +510,296 @@ export default function MissionsClient() {
 
 </section>
 
+{/* ================= LEADERSHIP AGAIN NEW================= */}
+
+<section className={styles.leadershipSection}>
+
+<h2>Leadership & Governance</h2>
+
+{/* ================= BOARD ================= */}
+
+<h3 className={styles.groupTitle}>Board of Directors</h3>
+
+<div className={styles.levelOne}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("chair"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCardLarge}>
+
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={180}
+height={180}
+className={styles.leaderImage}
+/>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>{person.bio}</p>
+
+<div className={styles.socialIcons}>
+
+{person.linkedin &&
+<a href={person.linkedin} target="_blank">
+<FaLinkedin/>
+</a>}
+
+{person.twitter &&
+<a href={person.twitter} target="_blank">
+<FaTwitter/>
+</a>}
+
+{person.facebook &&
+<a href={person.facebook} target="_blank">
+<FaFacebook/>
+</a>}
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+<div className={styles.connector}></div>
+
+{/* ================= BOARD MEMBERS ================= */}
+
+<div className={styles.levelGrid}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("board member"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCard}>
+
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={160}
+height={160}
+className={styles.leaderImage}
+/>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>{person.bio}</p>
+
+<div className={styles.socialIcons}>
+
+{person.linkedin &&
+<a href={person.linkedin} target="_blank">
+<FaLinkedin/>
+</a>}
+
+{person.twitter &&
+<a href={person.twitter} target="_blank">
+<FaTwitter/>
+</a>}
+
+{person.facebook &&
+<a href={person.facebook} target="_blank">
+<FaFacebook/>
+</a>}
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+<div className={styles.connector}></div>
+
+{/* ================= EXECUTIVE DIRECTOR ================= */}
+
+<h3 className={styles.groupTitle}>Executive Director</h3>
+
+<div className={styles.levelOne}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("executive director"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCardLarge}>
+
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={180}
+height={180}
+className={styles.leaderImage}
+/>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>{person.bio}</p>
+
+<div className={styles.socialIcons}>
+
+{person.linkedin &&
+<a href={person.linkedin} target="_blank">
+<FaLinkedin/>
+</a>}
+
+{person.twitter &&
+<a href={person.twitter} target="_blank">
+<FaTwitter/>
+</a>}
+
+{person.facebook &&
+<a href={person.facebook} target="_blank">
+<FaFacebook/>
+</a>}
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+<div className={styles.connector}></div>
+
+{/* ================= MANAGEMENT ================= */}
+
+<h3 className={styles.groupTitle}>Executive & Management Team</h3>
+
+<div className={styles.levelGrid}>
+
+{leaders
+.filter(person =>
+person.role.toLowerCase().includes("lead") ||
+
+person.role.toLowerCase().includes("communications officer") ||
+
+person.role.toLowerCase().includes("digital communications officer")
+)
+.map(person => (
+
+<div key={person.id} className={styles.leaderCard}>
+
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={160}
+height={160}
+className={styles.leaderImage}
+/>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>{person.bio}</p>
+
+<div className={styles.socialIcons}>
+
+{person.linkedin &&
+<a href={person.linkedin} target="_blank">
+<FaLinkedin/>
+</a>}
+
+{person.twitter &&
+<a href={person.twitter} target="_blank">
+<FaTwitter/>
+</a>}
+
+{person.facebook &&
+<a href={person.facebook} target="_blank">
+<FaFacebook/>
+</a>}
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+<div className={styles.connector}></div>
+
+{/* ================= PROJECT OFFICERS ================= */}
+
+<h3 className={styles.groupTitle}>Project Officers</h3>
+
+<div className={styles.levelGrid}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("project officer"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCard}>
+
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={160}
+height={160}
+className={styles.leaderImage}
+/>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>{person.bio}</p>
+
+</div>
+
+))}
+
+</div>
+
+<div className={styles.connector}></div>
+
+{/* ================= INTERN ================= */}
+
+<h3 className={styles.groupTitle}>Intern</h3>
+
+<div className={styles.levelOne}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("intern"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCardLarge}>
+
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={180}
+height={180}
+className={styles.leaderImage}
+/>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>{person.bio}</p>
+
+</div>
+
+))}
+
+</div>
+
+</section>
+
 
 
 {/* PARTNERS */}
