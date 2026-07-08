@@ -334,6 +334,21 @@ Intern
 
 </div>
 
+<div className={styles.mobileFilter}>
+
+  <select
+    value={activeSection}
+    onChange={(e) => setActiveSection(e.target.value)}
+  >
+    <option value="Board">Board Members</option>
+    <option value="Executive">Executive Director</option>
+    <option value="Management">Management Team</option>
+    <option value="Officers">Project Officers</option>
+    <option value="Intern">Intern</option>
+  </select>
+
+</div>
+
 {/* ================= BOARD ================= */}
 
 {activeSection==="Board" && (

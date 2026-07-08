@@ -967,6 +967,12 @@ margin-bottom:40px;
 
 }
 
+/* Mobile dropdown hidden by default */
+
+.mobileFilter{
+    display:none;
+}
+
 
 .leadershipFilter button{
 
@@ -992,5 +998,39 @@ background:#f4a261;
 .activeFilter{
 
 background:#f4a261 !important;
+
+}
+
+@media (max-width:768px){
+
+    /* Hide desktop buttons */
+
+    .leadershipFilter{
+        display:none;
+    }
+
+    /* Show dropdown */
+
+    .mobileFilter{
+        display:block;
+        margin-bottom:25px;
+    }
+
+    .mobileFilter select{
+        width:100%;
+        padding:14px 16px;
+        border:2px solid #0b3c5d;
+        border-radius:10px;
+        background:#fff;
+        color:#0b3c5d;
+        font-size:16px;
+        font-weight:600;
+        outline:none;
+        cursor:pointer;
+    }
+
+    .mobileFilter select:focus{
+        border-color:#f4a261;
+    }
 
 }
