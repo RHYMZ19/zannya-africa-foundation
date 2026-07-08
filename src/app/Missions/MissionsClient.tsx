@@ -33,6 +33,7 @@ type Resource = {
 export default function MissionsClient() {
   const [leaders, setLeaders] = useState<Leader[]>([]);
   const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
+  const [activeSection, setActiveSection] = useState("Board");
   const [visible, setVisible] = useState(false);
   const router = useRouter();
   const [resources, setResources] = useState<Resource[]>([]);
@@ -290,8 +291,54 @@ export default function MissionsClient() {
 
 <h2>Leadership & Governance</h2>
 
+<div className={styles.leadershipFilter}>
+
+<button
+className={activeSection==="Board" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Board")}
+>
+Board Members
+</button>
+
+
+<button
+className={activeSection==="Executive" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Executive")}
+>
+Executive Director
+</button>
+
+
+<button
+className={activeSection==="Management" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Management")}
+>
+Management Team
+</button>
+
+
+<button
+className={activeSection==="Officers" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Officers")}
+>
+Project Officers
+</button>
+
+
+<button
+className={activeSection==="Intern" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Intern")}
+>
+Intern
+</button>
+
+</div>
+
 {/* ================= BOARD ================= */}
 
+{activeSection==="Board" && (
+
+<>
 <h3 className={styles.groupTitle}>Board of Directors</h3>
 
 <div className={styles.levelOne}>
@@ -357,6 +404,9 @@ className={styles.leaderImage}
 </div>
 
 <div className={styles.connector}></div>
+</>
+
+)}
 
 {/* ================= BOARD MEMBERS ================= */}
 
@@ -426,6 +476,9 @@ className={styles.leaderImage}
 
 {/* ================= EXECUTIVE DIRECTOR ================= */}
 
+{activeSection==="Executive" && (
+
+<>
 <h3 className={styles.groupTitle}>Executive Director</h3>
 
 <div className={styles.levelOne}>
@@ -491,9 +544,15 @@ className={styles.leaderImage}
 </div>
 
 <div className={styles.connector}></div>
+</>
+
+)}
 
 {/* ================= MANAGEMENT ================= */}
 
+{activeSection==="Management" && (
+
+<>
 <h3 className={styles.groupTitle}>Executive & Management Team</h3>
 
 <div className={styles.levelGrid}>
@@ -565,9 +624,15 @@ className={styles.leaderImage}
 </div>
 
 <div className={styles.connector}></div>
+</>
+
+)}
 
 {/* ================= PROJECT OFFICERS ================= */}
 
+{activeSection==="Officers" && (
+
+<>
 <h3 className={styles.groupTitle}>Project Officers</h3>
 
 <div className={styles.levelGrid}>
@@ -614,9 +679,15 @@ className={styles.leaderImage}
 </div>
 
 <div className={styles.connector}></div>
+</>
+
+)}
 
 {/* ================= INTERN ================= */}
 
+{activeSection==="Intern" && (
+
+<>
 <h3 className={styles.groupTitle}>Intern</h3>
 
 <div className={styles.levelOne}>
@@ -661,6 +732,9 @@ className={styles.leaderImage}
 ))}
 
 </div>
+</>
+
+)}
 
 
 {selectedLeader && (

@@ -931,6 +931,44 @@ display: flex;
     text-align:left;
 }
 
+.leadershipFilter{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-bottom:40px;
+
+}
+
+
+.leadershipFilter button{
+
+padding:10px 25px;
+border:none;
+border-radius:30px;
+background:#0b3c5d;
+color:white;
+cursor:pointer;
+font-size:15px;
+transition:.3s;
+
+}
+
+
+.leadershipFilter button:hover{
+
+background:#f4a261;
+
+}
+
+
+.activeFilter{
+
+background:#f4a261 !important;
+
+}
+
 
 
 
