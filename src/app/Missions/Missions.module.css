@@ -959,8 +959,8 @@ display: flex;
     align-items:start;
 
     display:grid;
-    grid-template-columns:repeat(4,minmax(180px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(5,minmax(180px,1fr));
+    gap:5px;
 }
 
 /* ================= CARD ================= */
