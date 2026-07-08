@@ -770,39 +770,24 @@ display: flex;
 /* Social */
 
 .socialIcons{
-
-    margin-top:20px;
-
+    margin-top:15px;
     display:flex;
-
     justify-content:center;
-
-    gap:15px;
-
+    gap:10px;
 }
 
 .socialIcons a{
-
-    width:22px;
-
-    height:22px;
-
+    width:28px;
+    height:28px;
     border-radius:50%;
-
     background:#0b3c5d;
-
     color:white;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     text-decoration:none;
-
     transition:.3s;
-
+    font-size:12px;
 }
 
 .socialIcons a:hover{
