@@ -359,6 +359,7 @@ export default function MissionsClient() {
 
 <div key={person.id} className={styles.leaderCardLarge}>
 
+<div className={styles.imageWrapper}>
 <Image
 src={person.img || "/default.png"}
 alt={person.name}
@@ -366,6 +367,7 @@ width={180}
 height={180}
 className={styles.leaderImage}
 />
+</div>
 
 <h3>{person.name}</h3>
 
