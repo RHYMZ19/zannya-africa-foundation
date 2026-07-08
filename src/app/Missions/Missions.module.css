@@ -783,13 +783,13 @@ display: flex;
 
 .socialIcons a{
 
-    width:42px;
+    width:22px;
 
-    height:42px;
+    height:22px;
 
     border-radius:50%;
 
-    background:#0B7A3B;
+    background:#0b3c5d;
 
     color:white;
 
@@ -807,7 +807,7 @@ display: flex;
 
 .socialIcons a:hover{
 
-    background:#12355B;
+    background:#f4a261;
 
     transform:scale(1.1);
 
@@ -819,7 +819,7 @@ display: flex;
 
     width:4px;
 
-    background:#0B7A3B;
+    background:#0b3c5d;
 
     border-radius:50px;
 
