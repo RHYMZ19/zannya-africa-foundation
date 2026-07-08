@@ -403,8 +403,6 @@ className={styles.leaderImage}
 
 </div>
 
-<div className={styles.connector}></div>
-
 
 {/* ================= BOARD MEMBERS ================= */}
 
@@ -472,8 +470,6 @@ className={styles.leaderImage}
 </>
 
 )}
-
-<div className={styles.connector}></div>
 
 
 {/* ================= EXECUTIVE DIRECTOR ================= */}
@@ -547,8 +543,6 @@ className={styles.leaderImage}
 </>
 
 )}
-
-<div className={styles.connector}></div>
 
 
 {/* ================= MANAGEMENT ================= */}
@@ -629,8 +623,6 @@ className={styles.leaderImage}
 
 )}
 
-<div className={styles.connector}></div>
-
 
 {/* ================= PROJECT OFFICERS ================= */}
 
@@ -684,9 +676,6 @@ className={styles.leaderImage}
 </>
 
 )}
-
-<div className={styles.connector}></div>
-
 
 {/* ================= INTERN ================= */}
 
