@@ -412,6 +412,7 @@ className={styles.leaderImage}
 
 <div key={person.id} className={styles.leaderCard}>
 
+<div className={styles.imageWrapper}>
 <Image
 src={person.img || "/default.png"}
 alt={person.name}
@@ -419,6 +420,7 @@ width={160}
 height={160}
 className={styles.leaderImage}
 />
+</div>
 
 <h3>{person.name}</h3>
 
@@ -465,6 +467,7 @@ className={styles.leaderImage}
 
 <div key={person.id} className={styles.leaderCardLarge}>
 
+<div className={styles.imageWrapper}>
 <Image
 src={person.img || "/default.png"}
 alt={person.name}
@@ -472,6 +475,7 @@ width={180}
 height={180}
 className={styles.leaderImage}
 />
+</div>
 
 <h3>{person.name}</h3>
 
@@ -524,6 +528,7 @@ person.role.toLowerCase().includes("digital communications officer")
 
 <div key={person.id} className={styles.leaderCard}>
 
+<div className={styles.imageWrapper}>
 <Image
 src={person.img || "/default.png"}
 alt={person.name}
@@ -531,6 +536,7 @@ width={160}
 height={160}
 className={styles.leaderImage}
 />
+</div>
 
 <h3>{person.name}</h3>
 
@@ -577,6 +583,7 @@ className={styles.leaderImage}
 
 <div key={person.id} className={styles.leaderCard}>
 
+<div className={styles.imageWrapper}>
 <Image
 src={person.img || "/default.png"}
 alt={person.name}
@@ -584,6 +591,7 @@ width={160}
 height={160}
 className={styles.leaderImage}
 />
+</div>
 
 <h3>{person.name}</h3>
 
@@ -611,6 +619,7 @@ className={styles.leaderImage}
 
 <div key={person.id} className={styles.leaderCardLarge}>
 
+<div className={styles.imageWrapper}>
 <Image
 src={person.img || "/default.png"}
 alt={person.name}
@@ -618,6 +627,7 @@ width={180}
 height={180}
 className={styles.leaderImage}
 />
+</div>
 
 <h3>{person.name}</h3>
 
