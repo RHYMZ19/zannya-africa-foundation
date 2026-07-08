@@ -947,7 +947,7 @@ display: flex;
 .leadershipSection h2{
     text-align:center;
     
-    color:#12355B;
+    color:#0b3c5d;
     
     font-size:32px;
     margin-bottom:20px;
@@ -960,7 +960,7 @@ display: flex;
 
     display:grid;
     grid-template-columns:repeat(5,minmax(180px,1fr));
-    gap:5px;
+    gap:2px;
 }
 
 /* ================= CARD ================= */
@@ -985,13 +985,6 @@ display: flex;
 
 }
 
-/* Executive Director slightly highlighted */
-
-.leaderCardLarge{
-
-    border-top:5px solid #0B7A3B;
-
-}
 
 /* ================= IMAGE ================= */
 
@@ -1010,7 +1003,7 @@ display: flex;
     height:80px;
     border-radius:50%;
     object-fit:cover;
-    border:3px solid #0B7A3B;
+    border:3px solid #f4a261;
 }
 
 /* Executive Director */
@@ -1028,7 +1021,7 @@ display: flex;
     font-size:16px;
     font-weight:600;
     margin:8px 0 4px;
-    color:#12355B;
+    color:#0b3c5d;
 }
 
 .role{
@@ -1049,7 +1042,7 @@ display: flex;
 
     border-radius:30px;
 
-    background:#0B7A3B;
+    background:#f4a261;
 
     color:#fff;
 
@@ -1065,7 +1058,7 @@ display: flex;
 
 .readMoreBtn:hover{
 
-    background:#12355B;
+    background:#0b3c5d;
 
 }
 
@@ -1091,7 +1084,7 @@ display: flex;
 
     border-radius:50%;
 
-    background:#0B7A3B;
+    background:#0b3c5d;
 
     color:#fff;
 
@@ -1112,7 +1105,7 @@ display: flex;
 
 .socialIcons a:hover{
 
-    background:#12355B;
+    background:#f4a261;
 
     transform:scale(1.08);
 
