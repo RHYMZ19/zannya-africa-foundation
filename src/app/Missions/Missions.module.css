@@ -686,8 +686,8 @@ display: flex;
     grid-template-columns:repeat(auto-fit,minmax(250px,300px));
     justify-content:center;
 
-    gap:20px;
-    margin-top:15px;
+    gap:5px;
+    margin-top:5px;
 }
 
 /* Card */
@@ -754,7 +754,7 @@ display: flex;
 
 .role{
     font-size:15px;
-    color:#0B7A3B;
+    color:#0b3c5d;
     margin-bottom:5px;
     font-weight:600;
 }
