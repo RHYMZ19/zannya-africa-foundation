@@ -404,9 +404,7 @@ className={styles.leaderImage}
 </div>
 
 <div className={styles.connector}></div>
-</>
 
-)}
 
 {/* ================= BOARD MEMBERS ================= */}
 
@@ -473,6 +471,9 @@ className={styles.leaderImage}
 </div>
 
 <div className={styles.connector}></div>
+</>
+
+)}
 
 {/* ================= EXECUTIVE DIRECTOR ================= */}
 
