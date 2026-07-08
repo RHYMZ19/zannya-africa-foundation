@@ -32,6 +32,7 @@ type Resource = {
 
 export default function MissionsClient() {
   const [leaders, setLeaders] = useState<Leader[]>([]);
+  const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
   const [visible, setVisible] = useState(false);
   const router = useRouter();
   const [resources, setResources] = useState<Resource[]>([]);
@@ -323,7 +324,10 @@ className={styles.leaderImage}
     : "Biography coming soon."}
 </p>
 
-<button className={styles.readMoreBtn}>
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
   Read More
 </button>
 
@@ -386,7 +390,10 @@ className={styles.leaderImage}
     : "Biography coming soon."}
 </p>
 
-<button className={styles.readMoreBtn}>
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
   Read More
 </button>
 
@@ -451,7 +458,10 @@ className={styles.leaderImage}
     : "Biography coming soon."}
 </p>
 
-<button className={styles.readMoreBtn}>
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
   Read More
 </button>
 
@@ -522,7 +532,10 @@ className={styles.leaderImage}
     : "Biography coming soon."}
 </p>
 
-<button className={styles.readMoreBtn}>
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
   Read More
 </button>
 
@@ -587,7 +600,10 @@ className={styles.leaderImage}
     : "Biography coming soon."}
 </p>
 
-<button className={styles.readMoreBtn}>
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
   Read More
 </button>
 
@@ -633,7 +649,10 @@ className={styles.leaderImage}
     : "Biography coming soon."}
 </p>
 
-<button className={styles.readMoreBtn}>
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
   Read More
 </button>
 
@@ -643,6 +662,39 @@ className={styles.leaderImage}
 
 </div>
 
+
+{selectedLeader && (
+  <div
+    className={styles.modalOverlay}
+    onClick={() => setSelectedLeader(null)}
+  >
+    <div
+      className={styles.modal}
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        className={styles.closeBtn}
+        onClick={() => setSelectedLeader(null)}
+      >
+        ✕
+      </button>
+
+      <Image
+        src={selectedLeader.img || "/default.png"}
+        alt={selectedLeader.name}
+        width={180}
+        height={180}
+        className={styles.modalImage}
+      />
+
+      <h2>{selectedLeader.name}</h2>
+
+      <h4>{selectedLeader.role}</h4>
+
+      <p>{selectedLeader.bio}</p>
+    </div>
+  </div>
+)}
 </section>
 
 
