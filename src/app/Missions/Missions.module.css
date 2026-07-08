@@ -731,7 +731,7 @@ display: flex;
     border-radius:50%;
     object-fit:cover;
     border:5px solid #0B7A3B;
-    margin-bottom:20px;
+    margin-bottom:5px;
 }
 
 .imageWrapper{
