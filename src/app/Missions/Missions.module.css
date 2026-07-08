@@ -232,13 +232,12 @@ transition:.3s;
 color:#ff6b35;
 }
 
-
-
 /* PARTNERS */
 
 .partners{
 padding:80px 5%;
 text-align:center;
+margin-top: 5px;
 }
 
 .partners h2{
