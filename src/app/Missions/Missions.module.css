@@ -676,36 +676,33 @@ display: flex;
 .levelOne{
     display:flex;
     justify-content:center;
-    margin-bottom:20px;
+    margin-bottom:5px;
 }
 
 /* Multiple Cards */
 
 .levelGrid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-    margin-top:30px;
-    row-gap: 45px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,300px));
+    justify-content:center;
+    gap:25px;
 }
 
 /* Card */
 
 .leaderCard,
 .leaderCardLarge{
-
     background:#fff;
-
-    border-radius:20px;
-
-    padding:30px;
-
+    border-radius:18px;
+    padding:20px;
     text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
     transition:.3s;
+}
 
+.leaderCard{
+    max-width:300px;
+    margin:auto;
 }
 
 .leaderCard:hover,
@@ -720,27 +717,19 @@ display: flex;
 /* Executive Director */
 
 .leaderCardLarge{
-
-    max-width:420px;
-
+    max-width:340px;
+    margin:auto;
 }
 
 /* Images */
 
 .leaderImage{
-
-    width:170px;
-
-    height:170px;
-
+    width:140px;
+    height:140px;
     border-radius:50%;
-
     object-fit:cover;
-
-    border:6px solid #0B7A3B;
-
+    border:5px solid #0B7A3B;
     margin-bottom:20px;
-
 }
 
 .imageWrapper{
@@ -750,40 +739,31 @@ display: flex;
 }
 
 .leaderCardLarge .leaderImage{
-
-    width:190px;
-
-    height:190px;
-
+    width:155px;
+    height:155px;
 }
 
 .leaderCard h3,
 .leaderCardLarge h3{
-
-    margin-bottom:8px;
-
+    font-size:22px;
     color:#12355B;
-
+    margin-bottom:8px;
 }
 
 .role{
-
+    font-size:15px;
     color:#0B7A3B;
-
-    font-weight:700;
-
-    margin-bottom:15px;
-
+    margin-bottom:5px;
+    font-weight:600;
 }
 
 .leaderCard p,
 .leaderCardLarge p{
-
+    font-size:15px;
+    line-height:1.6;
     color:#555;
-
-    line-height:1.7;
-
 }
+
 
 /* Social */
 
@@ -849,38 +829,46 @@ display: flex;
 
 /* Mobile */
 
-@media(max-width:900px){
+@media (max-width:900px){
 
-.leadershipSection{
+    .leadershipSection{
+        padding:50px 15px;
+    }
 
-padding:60px 20px;
+    .levelGrid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
 
-}
+    .leaderCard,
+    .leaderCardLarge{
+        max-width:320px;
+        padding:18px;
+        margin:auto;
+    }
 
-.levelGrid{
+    .leaderImage{
+        width:120px;
+        height:120px;
+    }
 
-grid-template-columns:1fr;
+    .leaderCardLarge .leaderImage{
+        width:130px;
+        height:130px;
+    }
 
-}
+    .leaderCard h3,
+    .leaderCardLarge h3{
+        font-size:20px;
+    }
 
-.leadershipSection h2{
+    .leaderCard p,
+    .leaderCardLarge p{
+        font-size:14px;
+    }
 
-font-size:34px;
-
-}
-
-.groupTitle{
-
-font-size:24px;
-
-}
-
-.leaderImage{
-
-width:150px;
-
-height:150px;
-
-}
-
+    .socialIcons a{
+        width:36px;
+        height:36px;
+    }
 }
