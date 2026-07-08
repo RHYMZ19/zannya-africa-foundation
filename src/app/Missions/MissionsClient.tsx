@@ -318,8 +318,8 @@ className={styles.leaderImage}
 
 <p>
   {person.bio
-    ? person.bio.length > 120
-      ? `${person.bio.slice(0, 120)}...`
+    ? person.bio.length > 10
+      ? `${person.bio.slice(0, 10)}...`
       : person.bio
     : "Biography coming soon."}
 </p>
@@ -384,8 +384,8 @@ className={styles.leaderImage}
 
 <p>
   {person.bio
-    ? person.bio.length > 120
-      ? `${person.bio.slice(0, 120)}...`
+    ? person.bio.length > 10
+      ? `${person.bio.slice(0, 10)}...`
       : person.bio
     : "Biography coming soon."}
 </p>
@@ -526,8 +526,8 @@ className={styles.leaderImage}
 
 <p>
   {person.bio
-    ? person.bio.length > 120
-      ? `${person.bio.slice(0, 120)}...`
+    ? person.bio.length > 10
+      ? `${person.bio.slice(0, 10)}...`
       : person.bio
     : "Biography coming soon."}
 </p>
@@ -594,8 +594,8 @@ className={styles.leaderImage}
 
 <p>
   {person.bio
-    ? person.bio.length > 120
-      ? `${person.bio.slice(0, 120)}...`
+    ? person.bio.length > 10
+      ? `${person.bio.slice(0, 10)}...`
       : person.bio
     : "Biography coming soon."}
 </p>
@@ -643,8 +643,8 @@ className={styles.leaderImage}
 
 <p>
   {person.bio
-    ? person.bio.length > 120
-      ? `${person.bio.slice(0, 120)}...`
+    ? person.bio.length > 10
+      ? `${person.bio.slice(0, 10)}...`
       : person.bio
     : "Biography coming soon."}
 </p>
