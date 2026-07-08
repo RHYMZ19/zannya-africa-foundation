@@ -469,11 +469,12 @@ className={styles.leaderImage}
 ))}
 
 </div>
-
-<div className={styles.connector}></div>
 </>
 
 )}
+
+<div className={styles.connector}></div>
+
 
 {/* ================= EXECUTIVE DIRECTOR ================= */}
 
@@ -543,11 +544,12 @@ className={styles.leaderImage}
 ))}
 
 </div>
-
-<div className={styles.connector}></div>
 </>
 
 )}
+
+<div className={styles.connector}></div>
+
 
 {/* ================= MANAGEMENT ================= */}
 
@@ -623,11 +625,12 @@ className={styles.leaderImage}
 ))}
 
 </div>
-
-<div className={styles.connector}></div>
 </>
 
 )}
+
+<div className={styles.connector}></div>
+
 
 {/* ================= PROJECT OFFICERS ================= */}
 
@@ -678,11 +681,12 @@ className={styles.leaderImage}
 ))}
 
 </div>
-
-<div className={styles.connector}></div>
 </>
 
 )}
+
+<div className={styles.connector}></div>
+
 
 {/* ================= INTERN ================= */}
 
@@ -771,7 +775,6 @@ className={styles.leaderImage}
   </div>
 )}
 </section>
-
 
 
 

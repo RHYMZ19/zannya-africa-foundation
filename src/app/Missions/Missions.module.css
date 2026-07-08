@@ -237,7 +237,7 @@ color:#ff6b35;
 /* PARTNERS */
 
 .partners{
-padding:80px 10%;
+padding:80px 5%;
 text-align:center;
 }
 
@@ -684,7 +684,7 @@ display: flex;
 .leadershipSection h2{
     text-align:center;
     font-size:32px;
-    margin-bottom:20px;
+    margin-bottom:10px;
     color:#12355B;
 }
 
