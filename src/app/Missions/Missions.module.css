@@ -960,7 +960,7 @@ display: flex;
 
     display:grid;
     grid-template-columns:repeat(5,minmax(180px,1fr));
-    gap:2px;
+    gap:5px;
 }
 
 /* ================= CARD ================= */
@@ -970,7 +970,7 @@ display: flex;
 .leaderCardLarge{
     background:#fff;
     border-radius:14px;
-    padding:12px;
+    padding:5px;
     text-align:center;
     box-shadow:0 6px 15px rgba(0,0,0,.08);
     transition:.3s;
