@@ -315,7 +315,17 @@ className={styles.leaderImage}
 
 <p className={styles.role}>{person.role}</p>
 
-<p>{person.bio}</p>
+<p>
+  {person.bio
+    ? person.bio.length > 120
+      ? `${person.bio.slice(0, 120)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button className={styles.readMoreBtn}>
+  Read More
+</button>
 
 <div className={styles.socialIcons}>
 
@@ -368,7 +378,17 @@ className={styles.leaderImage}
 
 <p className={styles.role}>{person.role}</p>
 
-<p>{person.bio}</p>
+<p>
+  {person.bio
+    ? person.bio.length > 120
+      ? `${person.bio.slice(0, 120)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button className={styles.readMoreBtn}>
+  Read More
+</button>
 
 <div className={styles.socialIcons}>
 
@@ -423,7 +443,17 @@ className={styles.leaderImage}
 
 <p className={styles.role}>{person.role}</p>
 
-<p>{person.bio}</p>
+<p>
+  {person.bio
+    ? person.bio.length > 120
+      ? `${person.bio.slice(0, 120)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button className={styles.readMoreBtn}>
+  Read More
+</button>
 
 <div className={styles.socialIcons}>
 
@@ -484,7 +514,17 @@ className={styles.leaderImage}
 
 <p className={styles.role}>{person.role}</p>
 
-<p>{person.bio}</p>
+<p>
+  {person.bio
+    ? person.bio.length > 120
+      ? `${person.bio.slice(0, 120)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button className={styles.readMoreBtn}>
+  Read More
+</button>
 
 <div className={styles.socialIcons}>
 
@@ -539,7 +579,17 @@ className={styles.leaderImage}
 
 <p className={styles.role}>{person.role}</p>
 
-<p>{person.bio}</p>
+<p>
+  {person.bio
+    ? person.bio.length > 120
+      ? `${person.bio.slice(0, 120)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button className={styles.readMoreBtn}>
+  Read More
+</button>
 
 </div>
 
