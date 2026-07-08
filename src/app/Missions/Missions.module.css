@@ -930,3 +930,368 @@ display: flex;
     color:#555;
     text-align:left;
 }
+
+
+
+
+/* ================= LEADERSHIP ================= */
+
+.leadershipSection{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:40px 3%;
+    background:#f8fafc;
+}
+
+.leadershipSection h2{
+    text-align:center;
+    font-size:38px;
+    color:#12355B;
+    margin-bottom:40px;
+}
+
+/* ================= GRID ================= */
+
+.leadershipGrid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(220px,1fr));
+    gap:20px;
+    align-items:start;
+}
+
+/* ================= CARD ================= */
+
+.leaderCard,
+.leaderCardLarge{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    width:100%;
+}
+
+.leaderCard:hover,
+.leaderCardLarge:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+/* Executive Director slightly highlighted */
+
+.leaderCardLarge{
+
+    border-top:5px solid #0B7A3B;
+
+}
+
+/* ================= IMAGE ================= */
+
+.imageWrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:15px;
+
+}
+
+.leaderImage{
+
+    width:105px;
+
+    height:105px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid #0B7A3B;
+
+}
+
+/* Executive Director */
+
+.leaderCardLarge .leaderImage{
+
+    width:120px;
+
+    height:120px;
+
+}
+
+/* ================= TEXT ================= */
+
+.leaderCard h3,
+.leaderCardLarge h3{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#12355B;
+
+    margin-bottom:6px;
+
+}
+
+.role{
+
+    font-size:14px;
+
+    color:#0B7A3B;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+/* ================= READ MORE ================= */
+
+.readMoreBtn{
+
+    margin-top:12px;
+
+    padding:9px 18px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#0B7A3B;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+.readMoreBtn:hover{
+
+    background:#12355B;
+
+}
+
+/* ================= SOCIAL ================= */
+
+.socialIcons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:12px;
+
+    margin-bottom:10px;
+
+}
+
+.socialIcons a{
+
+    width:30px;
+
+    height:30px;
+
+    border-radius:50%;
+
+    background:#0B7A3B;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+    font-size:13px;
+
+}
+
+.socialIcons a:hover{
+
+    background:#12355B;
+
+    transform:scale(1.08);
+
+}
+
+/* ================= MODAL ================= */
+
+.modalOverlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    z-index:1000;
+
+}
+
+.modal{
+
+    background:#fff;
+
+    max-width:650px;
+
+    width:100%;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    position:relative;
+
+    text-align:center;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+}
+
+.closeBtn{
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    border:none;
+
+    background:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+.modalImage{
+
+    border-radius:50%;
+
+    border:6px solid #0B7A3B;
+
+    margin-bottom:20px;
+
+}
+
+.modal h2{
+
+    color:#12355B;
+
+    margin-bottom:5px;
+
+}
+
+.modal h4{
+
+    color:#0B7A3B;
+
+    margin-bottom:20px;
+
+}
+
+.modal p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    text-align:left;
+
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width:1100px){
+
+.leadershipGrid{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+.leadershipGrid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.leadershipSection h2{
+
+font-size:30px;
+
+}
+
+.leaderImage{
+
+width:90px;
+
+height:90px;
+
+}
+
+.leaderCardLarge .leaderImage{
+
+width:100px;
+
+height:100px;
+
+}
+
+}
+
+/* ================= SMALL PHONE ================= */
+
+@media (max-width:500px){
+
+.leadershipGrid{
+
+grid-template-columns:1fr;
+
+}
+
+}
