@@ -10,35 +10,35 @@ export default function LeadershipDropdown() {
 
       <div className={styles.dropdownMenu}>
         <Link
-          href="/Missions?section=Board"
+          href="/Missionsdropdown?section=Board"
           className={styles.dropdownItem}
         >
           Board Members
         </Link>
 
         <Link
-          href="/Missions?section=Executive"
+          href="/Missionsdropdown?section=Executive"
           className={styles.dropdownItem}
         >
           Executive Director
         </Link>
 
         <Link
-          href="/Missions?section=Management"
+          href="/Missionsdropdown?section=Management"
           className={styles.dropdownItem}
         >
           Management Team
         </Link>
 
         <Link
-          href="/Missions?section=Officers"
+          href="/Missionsdropdown?section=Officers"
           className={styles.dropdownItem}
         >
           Project Officers
         </Link>
 
         <Link
-          href="/Missions?section=Intern"
+          href="/Missionsdropdown?section=Intern"
           className={styles.dropdownItem}
         >
           Intern
