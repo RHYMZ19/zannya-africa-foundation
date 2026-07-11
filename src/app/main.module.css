@@ -3,23 +3,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 8%;
+  padding:14px 3%;
   background: white;
   position: sticky;
   top: 0;
   z-index: 1000;
+  gap:20px;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: bold;
+  
   color: var(--primary);
+
+  font-size:18px;
+    font-weight:700;
+    white-space:nowrap;
 }
 
 .navLinks {
   display: flex;
-  gap: 25px;
+  gap:16px;
   align-items: center;
+  flex-wrap:nowrap;
 }
 
 .navLinks a {
