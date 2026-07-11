@@ -47,6 +47,15 @@ useEffect(() => {
 
   if (section) {
     setActiveSection(section);
+
+    setTimeout(() => {
+      document
+        .getElementById("leadership")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    }, 100);
   }
 }, [searchParams]);
 
