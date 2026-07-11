@@ -1,0 +1,849 @@
+'use client';
+
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { getDocs, collection } from "firebase/firestore";
+import db from "../lib/firebase";
+import Image from "next/image";
+
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import IncreaseImage from "../components/IncreaseImage";
+import styles from "./Missions.module.css";
+import { onSnapshot } from "firebase/firestore";
+import { useSearchParams } from "next/navigation";
+
+interface Leader {
+  id?: string;
+  name: string;
+  role: string;
+  bio?: string;
+  img?: string;
+  linkedin?: string;
+  twitter?: string;
+  facebook?: string;
+}
+
+type Resource = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  pdf: string;
+};
+
+export default function MissionsClient() {
+  const [leaders, setLeaders] = useState<Leader[]>([]);
+  const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
+  const [visible, setVisible] = useState(false);
+  const router = useRouter();
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [selectedResourceCategory, setSelectedResourceCategory] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+  const searchParams = useSearchParams();
+  const [activeSection, setActiveSection] = useState("Board");
+
+useEffect(() => {
+  const section = searchParams.get("section");
+
+  if (section) {
+    setActiveSection(section);
+  }
+}, [searchParams]);
+
+  useEffect(() => {
+      const unsubscribe = onSnapshot(collection(db, "resources"), (snapshot) => {
+        const items = snapshot.docs.map((doc) => {
+          const data = doc.data();
+    
+          return {
+            id: doc.id,
+            title: data.title,
+            description: data.description,
+            category: data.category,
+            pdf: data.pdf,
+          };
+        });
+    
+        setResources(items);
+      });
+    
+      return () => unsubscribe();
+    }, []);
+
+
+  useEffect(() => {
+    const fetchLeaders = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "leadership"));
+        const data = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...(doc.data() as Leader)
+        }));
+        setLeaders(data);
+      } catch (error) {
+        console.error("Error fetching leadership data:", error);
+      }
+    };
+    fetchLeaders();
+
+    setTimeout(() => setVisible(true), 100);
+  }, []);
+  
+  return (
+<div className={styles.page}>
+  
+  {/* ================= NAVBAR ================= */}
+            <nav className={styles.navbar}>
+              <IncreaseImage src='/log.jpg' alt="Logo" />
+              <div className={styles.logo}>Zannya Africa Foundation</div>
+              
+              <div
+                className={`${styles.navLinks} ${
+                  open ? styles.active : ""
+                }`}
+              >
+                <a href="/">Home</a>
+                
+                {/* RESOURCES DROPDOWN */}
+        <div className={styles.dropdown}>
+          <span className={styles.dropdownTitle}>Resources ▾</span>
+      
+          <div className={styles.dropdownMenu}>
+      
+            <a href="/articles" className={styles.dropdownItem}>
+              📰 Articles
+            </a>
+      
+            <a
+              href="#"
+              className={styles.dropdownItem}
+              onClick={() => setSelectedResourceCategory("Research Papers")}
+            >
+              📄 Research Papers
+            </a>
+      
+            <a
+              href="#"
+              className={styles.dropdownItem}
+              onClick={() => setSelectedResourceCategory("Reports")}
+            >
+              📊 Reports
+            </a>
+      
+            <a
+              href="#"
+              className={styles.dropdownItem}
+              onClick={() => setSelectedResourceCategory("Case Studies")}
+            >
+              📁 Case Studies
+            </a>
+      
+          </div>
+        </div>
+                {/* LEADERSHIP DROPDOWN */}
+<div className={styles.dropdown}>
+  <span className={styles.dropdownTitle}>Leadership ▾</span>
+
+  <div className={styles.dropdownMenu}>
+
+    <a
+  href="#leadership"
+  className={styles.dropdownItem}
+  onClick={() => {
+    setActiveSection("Board");
+    document
+      .getElementById("leadership")
+      ?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  Board Members
+ </a>
+
+
+
+    <a
+  href="#leadership"
+  className={styles.dropdownItem}
+  onClick={() => {
+    setActiveSection("Executive");
+    document
+      .getElementById("leadership")
+      ?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  Executive Director
+ </a>
+
+
+    <a
+  href="#leadership"
+  className={styles.dropdownItem}
+  onClick={() => {
+    setActiveSection("Management");
+    document
+      .getElementById("leadership")
+      ?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+   Management Team
+ </a>
+
+
+    <a
+  href="#leadership"
+  className={styles.dropdownItem}
+  onClick={() => {
+    setActiveSection("Officers");
+    document
+      .getElementById("leadership")
+      ?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  Project Officers
+ </a>
+
+
+    <a
+  href="#leadership"
+  className={styles.dropdownItem}
+  onClick={() => {
+    setActiveSection("Intern");
+    document
+      .getElementById("leadership")
+      ?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  Intern
+ </a>
+
+  </div>
+</div>
+
+<a href="/Videos">Gallery</a>
+
+                <a href="/Donates" className={styles.btnPrimary}> Donate</a>
+              </div>
+      
+              <div
+                className={styles.hamburger}
+                onClick={() => setOpen(!open)}
+              >
+                ☰
+              </div>
+            </nav>
+
+            {/* ================= RESOURCE MODAL ================= */}
+            {selectedResourceCategory && (
+
+              <div className={styles.modalOverlay}
+              onClick={() => setSelectedResourceCategory(null)}
+              >
+            
+                <div className={styles.modalContent}
+                onClick={(e) => e.stopPropagation()}
+                >
+            
+                  <div className={styles.modalHeader}>
+                    <h3>{selectedResourceCategory}</h3>
+            
+                    <button
+                      className={styles.closeBtn}
+                      onClick={() => setSelectedResourceCategory(null)}
+                    >
+                      ✕
+                    </button>
+                  </div>
+            
+                  <div className={styles.resourceList}>
+            
+                    {resources
+                      .filter(res => res.category === selectedResourceCategory)
+                      .map(res => (
+            
+                        <div key={res.id} className={styles.resourceItem}>
+            
+                          <div>
+                            <strong>{res.title}</strong>
+                            <p>{res.description}</p>
+                          </div>
+            
+                          <a
+                            href={res.pdf}
+                            download
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.downloadBtn}
+                          >
+                            Download PDF
+                          </a>
+            
+                        </div>
+            
+                    ))}
+            
+                  </div>
+
+                </div>
+            
+              </div>
+            )}
+
+{/* ================= HERO ================= */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <h1>Zannya Africa Foundation</h1>
+          <p>
+           Changing communities through sports
+          </p>
+          <div className={styles.heroButtons}>
+            <button className={styles.btnPrimary}>
+              Donate Now
+            </button>
+            <button className={styles.btnOutline}>
+              Get Involved
+            </button>
+          </div>
+        </div>
+      </section>
+
+
+{/* ================= LEADERSHIP AGAIN NEW================= */}
+
+<section
+  id="leadership"
+  className={styles.leadershipSection}
+>
+
+<h2>Leadership & Governance</h2>
+
+<div className={styles.leadershipFilter}>
+
+<button
+className={activeSection==="Board" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Board")}
+>
+Board Members
+</button>
+
+
+<button
+className={activeSection==="Executive" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Executive")}
+>
+Executive Director
+</button>
+
+
+<button
+className={activeSection==="Management" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Management")}
+>
+Management Team
+</button>
+
+
+<button
+className={activeSection==="Officers" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Officers")}
+>
+Project Officers
+</button>
+
+
+<button
+className={activeSection==="Intern" ? styles.activeFilter : ""}
+onClick={()=>setActiveSection("Intern")}
+>
+Intern
+</button>
+
+</div>
+
+<div className={styles.mobileFilter}>
+
+  <select
+    value={activeSection}
+    onChange={(e) => setActiveSection(e.target.value)}
+  >
+    <option value="Board">Board Members</option>
+    <option value="Executive">Executive Director</option>
+    <option value="Management">Management Team</option>
+    <option value="Officers">Project Officers</option>
+    <option value="Intern">Intern</option>
+  </select>
+
+</div>
+
+{/* ================= BOARD ================= */}
+
+{activeSection==="Board" && (
+
+<>
+<h3 className={styles.groupTitle}>Board of Directors</h3>
+
+<div className={styles.levelOne}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("chair"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCardLarge}>
+
+<div className={styles.imageWrapper}>
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={180}
+height={180}
+className={styles.leaderImage}
+/>
+</div>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>
+  {person.bio
+    ? person.bio.length > 50
+      ? `${person.bio.slice(0, 50)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
+  Read More
+</button>
+
+<div className={styles.socialIcons}>
+
+{person.linkedin &&
+<a href={person.linkedin} target="_blank">
+<FaLinkedin/>
+</a>}
+
+{person.twitter &&
+<a href={person.twitter} target="_blank">
+<FaTwitter/>
+</a>}
+
+{person.facebook &&
+<a href={person.facebook} target="_blank">
+<FaFacebook/>
+</a>}
+
+</div>
+
+</div>
+
+))}
+
+</div>
+<div className={styles.connector}></div>
+
+
+{/* ================= BOARD MEMBERS ================= */}
+
+<div className={styles.levelGrid}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("board member"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCard}>
+
+<div className={styles.imageWrapper}>
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={160}
+height={160}
+className={styles.leaderImage}
+/>
+</div>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>
+  {person.bio
+    ? person.bio.length > 50
+      ? `${person.bio.slice(0, 50)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
+  Read More
+</button>
+
+<div className={styles.socialIcons}>
+
+{person.linkedin &&
+<a href={person.linkedin} target="_blank">
+<FaLinkedin/>
+</a>}
+
+{person.twitter &&
+<a href={person.twitter} target="_blank">
+<FaTwitter/>
+</a>}
+
+{person.facebook &&
+<a href={person.facebook} target="_blank">
+<FaFacebook/>
+</a>}
+
+</div>
+
+</div>
+
+))}
+
+</div>
+</>
+
+)}
+
+
+{/* ================= EXECUTIVE DIRECTOR ================= */}
+
+{activeSection==="Executive" && (
+
+<>
+<h3 className={styles.groupTitle}>Executive Director</h3>
+
+<div className={styles.levelOne}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("executive director"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCardLarge}>
+
+<div className={styles.imageWrapper}>
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={180}
+height={180}
+className={styles.leaderImage}
+/>
+</div>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>
+  {person.bio
+    ? person.bio.length > 50
+      ? `${person.bio.slice(0, 50)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
+  Read More
+</button>
+
+<div className={styles.socialIcons}>
+
+{person.linkedin &&
+<a href={person.linkedin} target="_blank">
+<FaLinkedin/>
+</a>}
+
+{person.twitter &&
+<a href={person.twitter} target="_blank">
+<FaTwitter/>
+</a>}
+
+{person.facebook &&
+<a href={person.facebook} target="_blank">
+<FaFacebook/>
+</a>}
+
+</div>
+
+</div>
+
+))}
+
+</div>
+</>
+
+)}
+
+
+{/* ================= MANAGEMENT ================= */}
+
+{activeSection==="Management" && (
+
+<>
+<h3 className={styles.groupTitle}>Executive & Management Team</h3>
+
+<div className={styles.levelGrid}>
+
+{leaders
+.filter(person =>
+person.role.toLowerCase().includes("lead") ||
+
+person.role.toLowerCase().includes("communications officer") ||
+
+person.role.toLowerCase().includes("digital communications officer")
+)
+.map(person => (
+
+<div key={person.id} className={styles.leaderCard}>
+
+<div className={styles.imageWrapper}>
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={160}
+height={160}
+className={styles.leaderImage}
+/>
+</div>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>
+  {person.bio
+    ? person.bio.length > 50
+      ? `${person.bio.slice(0, 50)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
+  Read More
+</button>
+
+<div className={styles.socialIcons}>
+
+{person.linkedin &&
+<a href={person.linkedin} target="_blank">
+<FaLinkedin/>
+</a>}
+
+{person.twitter &&
+<a href={person.twitter} target="_blank">
+<FaTwitter/>
+</a>}
+
+{person.facebook &&
+<a href={person.facebook} target="_blank">
+<FaFacebook/>
+</a>}
+
+</div>
+
+</div>
+
+))}
+
+</div>
+</>
+
+)}
+
+
+{/* ================= PROJECT OFFICERS ================= */}
+
+{activeSection==="Officers" && (
+
+<>
+<h3 className={styles.groupTitle}>Project Officers</h3>
+
+<div className={styles.levelGrid}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("project officer"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCard}>
+
+<div className={styles.imageWrapper}>
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={160}
+height={160}
+className={styles.leaderImage}
+/>
+</div>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>
+  {person.bio
+    ? person.bio.length > 50
+      ? `${person.bio.slice(0, 50)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
+  Read More
+</button>
+
+</div>
+
+))}
+
+</div>
+</>
+
+)}
+
+
+{/* ================= INTERN ================= */}
+
+{activeSection==="Intern" && (
+
+<>
+<h3 className={styles.groupTitle}>Intern</h3>
+
+<div className={styles.levelOne}>
+
+{leaders
+.filter(person => person.role.toLowerCase().includes("intern"))
+.map(person => (
+
+<div key={person.id} className={styles.leaderCardLarge}>
+
+<div className={styles.imageWrapper}>
+<Image
+src={person.img || "/default.png"}
+alt={person.name}
+width={180}
+height={180}
+className={styles.leaderImage}
+/>
+</div>
+
+<h3>{person.name}</h3>
+
+<p className={styles.role}>{person.role}</p>
+
+<p>
+  {person.bio
+    ? person.bio.length > 50
+      ? `${person.bio.slice(0, 50)}...`
+      : person.bio
+    : "Biography coming soon."}
+</p>
+
+<button
+  className={styles.readMoreBtn}
+  onClick={() => setSelectedLeader(person)}
+>
+  Read More
+</button>
+
+</div>
+
+))}
+
+</div>
+</>
+
+)}
+
+
+{selectedLeader && (
+  <div
+    className={styles.modalOverlay}
+    onClick={() => setSelectedLeader(null)}
+  >
+    <div
+      className={styles.modal}
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        className={styles.closeBtn}
+        onClick={() => setSelectedLeader(null)}
+      >
+        ✕
+      </button>
+
+      <Image
+        src={selectedLeader.img || "/default.png"}
+        alt={selectedLeader.name}
+        width={180}
+        height={180}
+        className={styles.modalImage}
+      />
+
+      <h2>{selectedLeader.name}</h2>
+
+      <h4>{selectedLeader.role}</h4>
+
+      <p>{selectedLeader.bio}</p>
+    </div>
+  </div>
+)}
+</section>
+
+
+
+{/* ================= FOOTER ================= */}
+      <footer className={styles.footer}>
+        <div className={styles.footerContainer}>
+          
+          {/* Contact Info */}
+          <div className={styles.footerSection}>
+            <h4>Contact Us</h4>
+            <div className={styles.contactLinks}>
+              <a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a>
+            </div>
+          </div>
+      
+          {/* Developer Credit */}
+          <div className={styles.footerSection}>
+            <h4>Developer</h4>
+            <p>Developed by <strong>SSENABULYA RAHIM</strong></p>
+            <p>Tel: <a href="tel:+256743878261">0743878261</a></p>
+            <p>Email: <a href="mailto:rahimssenabulya82@gmail.com">rahimssenabulya82@gmail.com</a></p>
+          </div>
+      
+          {/* Links */}
+          <div className={styles.footerSection}>
+            <h4>Links</h4>
+            <a href="/Terms" className={styles.footerLink}>Privacy Policy & Legal Terms</a>
+            <a href="/adminpannel" className={styles.adminLink}>Admin Panel</a>
+          </div>
+      
+        </div>
+      
+        {/* Bottom Bar */}
+        <div className={styles.footerBottom}>
+          <p>© {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+</div>
+);
+}

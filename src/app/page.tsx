@@ -10,6 +10,7 @@ import db from "./lib/firebase";
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
+import LeadershipDropdown from "@/app/Missionsdropdown/LeadershipDropdown";
 
 
 type Resource = {
@@ -83,6 +84,8 @@ export default function MainPage() {
           }`}
         >
           <a href="#who">Home</a>
+          <LeadershipDropdown />
+
           {/* PROGRAMS DROPDOWN */}
 <div className={styles.dropdown}>
   <span className={styles.dropdownTitle}>Programs ▾</span>

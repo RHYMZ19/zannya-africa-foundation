@@ -1,0 +1,28 @@
+.thumbnail {
+  width: 80%;
+  height: 80%;
+  margin: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.overlayImage {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
