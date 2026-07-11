@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import MissionsClient from "./MissionsClient";
 
 export const metadata = {
@@ -29,5 +30,9 @@ export const metadata = {
 };
 
 export default function MissionsPage() {
-  return <MissionsClient />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MissionsClient />
+    </Suspense>
+  );
 }
