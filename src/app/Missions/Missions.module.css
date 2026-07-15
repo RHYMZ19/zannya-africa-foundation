@@ -10,7 +10,7 @@ color:#1a1a1a;
 
 /* ================= HERO ================= */
 .hero {
-  height: 90vh;
+  height: 70vh;
   background: linear-gradient(rgba(11,60,93,0.7), rgba(11,60,93,0.7)),
     url("https://res.cloudinary.com/dpwuym7xg/image/upload/v1758898506/zannya/uploads/images/ilyhjfpy0s8u8zvgbueg.jpg");
   background-size: cover;
@@ -306,23 +306,28 @@ font-size:14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 8%;
+  padding: 14px 3%;
   background: white;
   position: sticky;
   top: 0;
   z-index: 1000;
+  gap: 20px;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: bold;
+  
   color: var(--primary);
+
+  font-size:18px;
+    font-weight:700;
+    white-space:nowrap;
 }
 
 .navLinks {
   display: flex;
-  gap: 25px;
+  gap: 16px;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .navLinks a {
@@ -330,6 +335,7 @@ font-size:14px;
   color: var(--primary);
   font-weight: 500;
 }
+
 
 .active {
   display: flex;
