@@ -315,12 +315,10 @@ font-size:14px;
 }
 
 .logo {
-  
   color: var(--primary);
-
   font-size:18px;
-    font-weight:700;
-    white-space:nowrap;
+  font-weight:700;
+  white-space:nowrap;
 }
 
 .navLinks {

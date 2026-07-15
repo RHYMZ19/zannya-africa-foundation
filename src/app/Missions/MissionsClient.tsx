@@ -100,7 +100,7 @@ export default function MissionsClient() {
       
           <div className={styles.dropdownMenu}>
       
-            <a href="/articles" className={styles.dropdownItem}>
+            <a href="/weekly-newsletter" className={styles.dropdownItem}>
               📰 Articles
             </a>
       
