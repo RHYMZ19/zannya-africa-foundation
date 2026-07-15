@@ -182,7 +182,7 @@ export default function Videos() {
 
         
                 <a href="/Videos" >Gallery</a>
-                <a href="/Donates" className={styles.btnPrimary}> Donate</a>
+                <a href="#/Donates" className={styles.btnPrimary}> Donate</a>
               </div>
       
               <div

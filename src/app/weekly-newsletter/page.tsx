@@ -135,7 +135,7 @@ export default function WeeklyNewsletterPage() {
               </div>
                       
                       <a href="/Videos" >Gallery</a>
-                      <a href="/Donates" className={styles.btnPrimary}> Donate</a>
+                      <a href="#/Donates" className={styles.btnPrimary}> Donate</a>
                     </div>
             
                     <div

@@ -145,7 +145,7 @@ export default function MainPage() {
   </div>
           <a href="#contact">Contact</a>
           <a href="/Videos" >Gallery</a>
-          <a href="/Donates" className={styles.btnPrimary}> Donate</a>
+          <a href="#/Donates" className={styles.btnPrimary}> Donate</a>
         </div>
 
         <div
@@ -196,7 +196,6 @@ export default function MainPage() {
       </p>
     </div>
 
-
     {/* RIGHT SIDE */}
     <div className={styles.missionVisionBox}>
 
@@ -220,7 +219,7 @@ export default function MainPage() {
       </div>
 
       <a href="Missions" className={styles.featuredButton}>
-        visit us →
+        About Us →
       </a>
 
     </div>
