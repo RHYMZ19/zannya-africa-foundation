@@ -83,6 +83,17 @@ export default function MainPage() {
           }`}
         >
           <a href="#who">Home</a>
+          <div className={styles.dropdown}>
+  <a href="/" className={styles.dropdownTitle}>
+    Home ▾
+  </a>
+
+  <div className={styles.dropdownMenu}>
+    <a href="/">Home</a>
+    <a href="/Missions">Mission & Vision</a>
+  </div>
+</div>
+          
           
 
           {/* PROGRAMS DROPDOWN */}
