@@ -128,7 +128,7 @@ export default function NewsSection(): JSX.Element {
         {/* ================= NAVBAR ================= */}
                     <nav className={styles.navbar}>
                       <IncreaseImages src='/log.jpg' alt="Logo" />
-                      <div className={styles.logo}>Zannya Africa Foundation</div>
+                      <div className={styles.logo}>Zannya Africa oundation</div>
               
                       <div
                         className={`${styles.navLinks} ${

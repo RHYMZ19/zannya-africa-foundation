@@ -92,7 +92,6 @@ export default function MissionsClient() {
                   open ? styles.active : ""
                 }`}
               >
-                
 
                 <div className={styles.dropdown}>
   <span className={styles.dropdownTitle}>Home ▾</span>
@@ -229,7 +228,7 @@ export default function MissionsClient() {
 {/* ABOUT SECTION */}
 <section className={styles.about}>
   <div className={styles.aboutText}>
-    <h2>INTRODUCTION</h2>
+    <h2>About US</h2>
     <p>
       Zannya Africa Foundation (ZAF) is a non-profit organization dedicated to empowering the community 
       using sports and recreation activities for social economic development and sustainability in Uganda. 
