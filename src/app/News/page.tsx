@@ -97,7 +97,8 @@ return(
     </a>
   </div>
 </div>
-                
+
+
                 {/* RESOURCES DROPDOWN */}
         <div className={styles.dropdown}>
           <span className={styles.dropdownTitle}>Resources ▾</span>

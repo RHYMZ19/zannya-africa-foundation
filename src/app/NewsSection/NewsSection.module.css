@@ -63,7 +63,7 @@
 }
 
 .filterBtn:hover {
-  background: #ff6b35;
+  background: #f4a261;
   color: #fff;
 }
 
@@ -123,7 +123,7 @@
   padding: 10px 18px;
   border: none;
   border-radius: 10px;
-  background: #ff6b35;
+  background: #f4a261;
   color: white;
   cursor: pointer;
 }
@@ -160,7 +160,7 @@
 .readMore {
   display: inline-block;
   margin-top: 12px;
-  color: #ff6b35;
+  color: #f4a261;
   font-weight: bold;
 }
 
@@ -182,7 +182,7 @@
   padding: 10px 14px;
   border: none;
   border-radius: 10px;
-  background: #ff6b35;
+  background: #f4a261;
   cursor: pointer;
   color: white;
 }
@@ -328,14 +328,14 @@ border:none;
 border-radius:30px;
 font-size:16px;
 cursor:pointer;
-background:#ff6b35;
+background:#f4a261;
 color:white;
 transition:all .3s;
 }
 
 .heroButtons button:hover{
 transform:translateY(-3px);
-background:#ff4c12;
+background:#e76f51;
 }
 
 /* ================= NAVBAR ================= */
