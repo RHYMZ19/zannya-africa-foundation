@@ -594,7 +594,7 @@ export default function MainPage() {
     
 
     {/* Developer Credit */}
-    <div className={styles.footerSection}>
+    <div className={styles.developerSection}>
       <h4>Developer</h4>
       <p>Developed by <strong>SSENABULYA RAHIM</strong></p>
       <p>Tel: <a href="tel:+256743878261">0743878261</a></p>

@@ -140,6 +140,30 @@
   padding: 30px;
 }
 
+.developerSection {
+  flex: 0 1 150px; /* much smaller width */
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.developerSection h4 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.developerSection p {
+  margin: 3px 0;
+}
+
+.developerSection a {
+  color: #f5f7fa;
+  text-decoration: none;
+}
+
+.developerSection a:hover {
+  color: #f4a261;
+}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .navLinks {
