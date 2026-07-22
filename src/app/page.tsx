@@ -82,15 +82,12 @@ export default function MainPage() {
             open ? styles.active : ""
           }`}
         >
-          <a href="#who">Home</a>
           <div className={styles.dropdown}>
-  <a href="/" className={styles.dropdownTitle}>
-    Home ▾
-  </a>
+  <span className={styles.dropdownTitle}>Home ▾</span>
 
   <div className={styles.dropdownMenu}>
     <a href="/">Home</a>
-    <a href="/Missions">Mission & Vision</a>
+    <a href="/Missions">About us</a>
   </div>
 </div>
           
