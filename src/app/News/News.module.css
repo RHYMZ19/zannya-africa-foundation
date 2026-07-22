@@ -437,9 +437,10 @@ display: flex;
   }
 }
 
-.resourceDescription p {
-  margin: 0 0 12px;
+.resourceDescription {
+  white-space: pre-line;
   line-height: 1.7;
+  margin-top: 8px;
   color: #555;
 }
 
