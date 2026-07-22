@@ -162,6 +162,23 @@ justify-content:center;
     }
 }
 
+.aboutCards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    align-items:stretch;
+}
+
+.aboutCards .infoCard{
+    min-height:190px;
+}
+
+@media (max-width:768px){
+    .aboutCards{
+        grid-template-columns:1fr;
+    }
+}
+
 
 /* LEADERSHIP */
 

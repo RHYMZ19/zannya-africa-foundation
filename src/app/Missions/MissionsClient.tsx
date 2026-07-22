@@ -238,9 +238,43 @@ export default function MissionsClient() {
     </p>
   </div>
 
-  <div className={styles.aboutImage}>
-    <Image src="/log.jpg" alt="ZAF Logo" width={400} height={400}/>
+  <div className={styles.aboutCards}>
+
+  <div className={styles.infoCard}>
+    <h3>Vision</h3>
+    <p>
+      To change lives and build stronger and healthier communities.
+    </p>
   </div>
+
+  <div className={styles.infoCard}>
+    <h3>Mission</h3>
+    <p>
+      To use sports as a tool for community development, empowerment,
+      and sustainability.
+    </p>
+  </div>
+
+  <div className={styles.infoCard}>
+    <h3>Main Objective</h3>
+    <p>
+      Creating opportunities for youth and women through sports
+      and life skills development.
+    </p>
+  </div>
+
+  <div className={styles.infoCard}>
+    <h3>Core Values</h3>
+    <ul>
+      <li>Integrity</li>
+      <li>Inclusiveness</li>
+      <li>Teamwork</li>
+      <li>Diversity</li>
+      <li>Sports for All</li>
+    </ul>
+  </div>
+
+</div>
 </section>
 
 
