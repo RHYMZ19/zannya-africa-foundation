@@ -980,15 +980,22 @@ margin-bottom:40px;
 
 .leadershipFilter button{
 
-padding:10px 25px;
+padding:5px 12px;
 border:none;
-border-radius:30px;
+border-radius:18px;
 background:#0b3c5d;
 color:white;
 cursor:pointer;
-font-size:15px;
+font-size:12px;
 transition:.3s;
 
+}
+
+.leadershipSection h2{
+    text-align:center;
+    font-size:24px;   /* instead of 32px */
+    margin-bottom:10px;
+    color:#12355B;
 }
 
 

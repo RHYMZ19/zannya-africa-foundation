@@ -93,7 +93,7 @@ return(
       Home
     </a>
     <a href="/Missions" className={styles.dropdownItem}>
-      Mission & Vision
+      About Us
     </a>
   </div>
 </div>
