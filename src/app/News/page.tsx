@@ -180,7 +180,11 @@ return(
             
                           <div>
                             <strong>{res.title}</strong>
-                            <p>{res.description}</p>
+                            <div className={styles.resourceDescription}>
+                              {res.description.split("\n\n").map((paragraph, index) => (
+                                <p key={index}>{paragraph}</p>
+                              ))}
+                            </div>
                           </div>
             
                           <a
