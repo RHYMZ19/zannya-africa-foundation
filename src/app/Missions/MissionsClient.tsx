@@ -92,7 +92,7 @@ export default function MissionsClient() {
                   open ? styles.active : ""
                 }`}
               >
-                <a href="/">Home</a>
+                
 
                 <div className={styles.dropdown}>
   <span className={styles.dropdownTitle}>Home ▾</span>

@@ -88,8 +88,12 @@ export default function ProgramPage({
   <span className={styles.dropdownTitle}>Home ▾</span>
 
   <div className={styles.dropdownMenu}>
-    <a href="/">Home</a>
-    <a href="/Missions">Mission & Vision</a>
+    <a href="/" className={styles.dropdownItem}>
+      Home
+    </a>
+    <a href="/Missions" className={styles.dropdownItem}>
+      Mission & Vision
+    </a>
   </div>
 </div>
 
