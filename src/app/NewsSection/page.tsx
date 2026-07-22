@@ -135,7 +135,14 @@ export default function NewsSection(): JSX.Element {
                           open ? styles.active : ""
                         }`}
                       >
-                        <a href="/">Home</a>
+                        <div className={styles.dropdown}>
+  <span className={styles.dropdownTitle}>Home ▾</span>
+
+  <div className={styles.dropdownMenu}>
+    <a href="/">Home</a>
+    <a href="/Missions">About us</a>
+  </div>
+</div>
                         
                         {/* RESOURCES DROPDOWN */}
                 <div className={styles.dropdown}>
