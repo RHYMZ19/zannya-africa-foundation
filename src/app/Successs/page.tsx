@@ -331,9 +331,21 @@ export default function Successs() {
               </div>
             
               {/* Bottom Bar */}
-              <div className={styles.footerBottom}>
-                <p>© {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.</p>
-              </div>
+<div className={styles.footerBottom}>
+  <p>
+    © {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.
+  </p>
+
+  <div className={styles.footerDeveloper}>
+    <span>Developed by <strong>SSENABULYA RAHIM</strong></span>
+    <span>|</span>
+    <a href="tel:+256743878261">0743878261</a>
+    <span>|</span>
+    <a href="mailto:rahimssenabulya82@gmail.com">
+      rahimssenabulya82@gmail.com
+    </a>
+  </div>
+</div>
             </footer>
 
     </div>
