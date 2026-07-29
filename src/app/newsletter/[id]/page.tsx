@@ -243,11 +243,15 @@ export default function NewsletterDetailPage() {
     </div>
   </div>
 
-  <p className={styles.description}>
-    <Linkify options={{ target: "_blank" }}>
-    {item.description}
-    </Linkify>
-    </p>
+  <div className={styles.description}>
+  <Linkify options={{ target: "_blank" }}>
+    {item.description?.split("\n").map((para, index) => (
+      <p key={index}>
+        {para}
+      </p>
+    ))}
+  </Linkify>
+</div>
 
     <div className={styles.authorSection}>
   <Image
