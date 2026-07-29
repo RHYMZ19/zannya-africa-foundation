@@ -219,6 +219,25 @@ export default function NewsletterDetailPage() {
 
 <h1 className={styles.title}>{item.title}</h1>
 
+<div className={styles.authorSection}>
+  <Image
+    src={item.authorImage || "/default-author.jpg"}
+    alt={item.by || "Author"}
+    width={70}
+    height={70}
+    className={styles.authorImage}
+  />
+
+  <div>
+    <p className={styles.by}>By {item.by}</p>
+
+    {item.timestamp && (
+      <p className={styles.authorDate}>
+        {item.timestamp.toDate().toLocaleDateString()}
+      </p>
+    )}
+  </div>
+</div>
 
   <div className={styles.topRow}>
     {item.image && (
@@ -249,24 +268,20 @@ export default function NewsletterDetailPage() {
     </p>
 
     <div className={styles.authorSection}>
-  {item.authorImage && (
-    <Image
-      src={item.authorImage}
-      width={70}
-      height={70}
-      alt={item.by || "Author"}
-      className={styles.authorImage}
-    />
-  )}
+  <Image
+    src={item.authorImage || "/default-author.jpg"}
+    alt={item.by || "Author"}
+    width={70}
+    height={70}
+    className={styles.authorImage}
+  />
 
   <div>
-    <p className={styles.by}>
-      By {item.by}
-    </p>
+    <p className={styles.by}>By {item.by}</p>
 
     {item.timestamp && (
       <p className={styles.authorDate}>
-        Published on {item.timestamp.toDate().toLocaleDateString()}
+        {item.timestamp.toDate().toLocaleDateString()}
       </p>
     )}
   </div>
