@@ -18,8 +18,10 @@ type NewsletterItem = {
   description?: string;
   by?: string;
   image?: string;
+  authorImage?: string;
   timestamp?: Timestamp | null;
 };
+
 
 type Resource = {
   id: string;
@@ -209,11 +211,33 @@ export default function NewsletterDetailPage() {
                   
                     </div>
                   )}
-  {item.timestamp && <p className={styles.date}>{item.timestamp.toDate().toLocaleDateString()}</p>}
+  {item.timestamp && (
+  <p className={styles.date}>
+    {item.timestamp.toDate().toLocaleDateString()}
+  </p>
+)}
 
-  <h1 className={styles.title}>{item.title}</h1>
+<h1 className={styles.title}>{item.title}</h1>
 
-  {item.by && <p className={styles.by}>By {item.by}</p>}
+<div className={styles.authorSection}>
+  <Image
+    src={item.authorImage || "/default-author.jpg"}
+    alt={item.by || "Author"}
+    width={70}
+    height={70}
+    className={styles.authorImage}
+  />
+
+  <div>
+    <p className={styles.by}>By {item.by}</p>
+
+    {item.timestamp && (
+      <p className={styles.authorDate}>
+        {item.timestamp.toDate().toLocaleDateString()}
+      </p>
+    )}
+  </div>
+</div>
 
   <div className={styles.topRow}>
     {item.image && (

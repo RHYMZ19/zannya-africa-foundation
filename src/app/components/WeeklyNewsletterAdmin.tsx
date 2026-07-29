@@ -14,6 +14,7 @@ type NewsletterItem = {
   description?: string;
   by?: string; // new field
   image?: string;
+  authorImage?: string;
   timestamp?: Timestamp | null;
 };
 
@@ -23,6 +24,7 @@ export default function WeeklyNewsletterAdmin() {
   const [description, setDescription] = useState<string>("");
   const [by, setBy] = useState<string>(""); // new field
   const [image, setImage] = useState<string>("");
+  const [authorImage, setAuthorImage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [items, setItems] = useState<NewsletterItem[]>([]);
 
@@ -36,6 +38,7 @@ export default function WeeklyNewsletterAdmin() {
       description: doc.data().description || "",
       by: doc.data().by || "", // include 'by'
       image: doc.data().image || "",
+      authorImage: doc.data().authorImage || "", // include 'authorImage'
       timestamp: doc.data().timestamp || null,
     }));
     setItems(newsletters);
@@ -57,6 +60,7 @@ export default function WeeklyNewsletterAdmin() {
         description,
         by, // send 'by' to Firestore
         image,
+        authorImage,
         timestamp: serverTimestamp(),
       });
 
@@ -67,6 +71,7 @@ export default function WeeklyNewsletterAdmin() {
       setBy(""); // reset 'by'
       setImage("");
       fetchData();
+      setAuthorImage("");
     } catch (err) {
       console.error(err);
       alert("❌ Error posting newsletter");
@@ -136,6 +141,28 @@ export default function WeeklyNewsletterAdmin() {
             alt="Newsletter Banner"
           />
         )}
+
+        <p style={{ marginTop: 20 }}>Upload Author Photo</p>
+
+<CloudinaryUploader
+  folder="zannya/authors"
+  category="author"
+  onUploadComplete={(url: string) => setAuthorImage(url)}
+/>
+
+{authorImage && (
+  <Image
+    src={authorImage}
+    width={80}
+    height={80}
+    alt="Author"
+    style={{
+      marginTop: 10,
+      borderRadius: "50%",
+      objectFit: "cover",
+    }}
+  />
+)}
 
         <button type="submit" disabled={loading} style={{ marginTop: 10 }}>
           {loading ? "Posting..." : "Post Newsletter"}
