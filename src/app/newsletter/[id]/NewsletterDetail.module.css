@@ -71,6 +71,35 @@
   letter-spacing: 0.5px;
 }
 
+.authorSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.authorImage {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f4a261;
+}
+
+.by {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0b3c5d;
+}
+
+.authorDate {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #777;
+}
+
 /* IMAGE + SUBTITLE ROW */
 .topRow {
   display: flex;
