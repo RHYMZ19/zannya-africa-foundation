@@ -35,19 +35,16 @@
 
 /* DESCRIPTION */
 .description {
-  max-width: 900px;
-  margin: 30px auto;
   font-size: 17px;
-  line-height: 1.8;
-  color: #333;
-  font-family: "Georgia", serif;
-  text-align: left;
-  white-space: normal;
-}
-
-
-.description p {
-  margin-bottom: 20px;
+  line-height: 1.9;
+  margin: 20px 0 30px 0;
+  color: #444;
+  text-align: justify;
+  padding: 15px 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .description:hover {
@@ -56,7 +53,14 @@
 }
 
 /* AUTHOR BYLINE */
-
+.by {
+  font-size: 14px;
+  font-style: italic;
+  color: #666;
+  margin: 8px 0 15px 0;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
 
 /* DATE */
 .date {
@@ -67,34 +71,6 @@
   letter-spacing: 0.5px;
 }
 
-.authorSection {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  justify-content: center;
-  margin: 25px 0;
-}
-
-.authorImage {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #f4a261;
-}
-
-.by {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #0b3c5d;
-}
-
-.authorDate {
-  margin-top: 5px;
-  font-size: 14px;
-  color: #777;
-}
 
 /* IMAGE + SUBTITLE ROW */
 .topRow {
