@@ -303,32 +303,25 @@ export default function Successs() {
 
       {/* ================= FOOTER ================= */}
             <footer className={styles.footer}>
-              <div className={styles.footerContainer}>
-                
-                {/* Contact Info */}
-                <div className={styles.footerSection}>
-                  <h4>Contact Us</h4>
-                  <div className={styles.contactLinks}>
-                    <a href="mailto:info@zannyaafricafoundation.org">info@zannyaafricafoundation.org</a>
-                  </div>
-                </div>
-            
-                {/* Developer Credit */}
-                <div className={styles.footerSection}>
-                  <h4>Developer</h4>
-                  <p>Developed by <strong>SSENABULYA RAHIM</strong></p>
-                  <p>Tel: <a href="tel:+256743878261">0743878261</a></p>
-                  <p>Email: <a href="mailto:rahimssenabulya82@gmail.com">rahimssenabulya82@gmail.com</a></p>
-                </div>
-            
-                {/* Links */}
-                <div className={styles.footerSection}>
-                  <h4>Links</h4>
-                  <a href="/Terms" className={styles.footerLink}>Privacy Policy & Legal Terms</a>
-                  <a href="/adminpannel" className={styles.adminLink}>Admin Panel</a>
-                </div>
-            
-              </div>
+              <div className={styles.footerTop}>
+
+  <a href="mailto:info@zannyaafricafoundation.org">
+    📧 info@zannyaafricafoundation.org
+  </a>
+
+  <span>|</span>
+
+  <a href="/Terms">
+    Privacy Policy & Legal Terms
+  </a>
+
+  <span>|</span>
+
+  <a href="/adminpannel">
+    Admin Panel
+  </a>
+
+</div>
             
               {/* Bottom Bar */}
 <div className={styles.footerBottom}>
