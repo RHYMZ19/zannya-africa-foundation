@@ -267,6 +267,32 @@ export default function NewsletterDetailPage() {
     </Linkify>
     </p>
 
+    <div className={styles.authorCard}>
+  {item.authorImage && (
+    <Image
+      src={item.authorImage}
+      width={180}
+      height={220}
+      alt={item.by || "Author"}
+      className={styles.authorImage}
+    />
+  )}
+
+  <div className={styles.authorInfo}>
+    <h3>{item.by}</h3>
+
+    <p className={styles.authorRole}>
+      Article Author
+    </p>
+
+    {item.timestamp && (
+      <p className={styles.authorDate}>
+        Published on {item.timestamp.toDate().toLocaleDateString()}
+      </p>
+    )}
+  </div>
+</div>
+
     <div className={styles.authorSection}>
   <Image
     src={item.authorImage || "/default-author.jpg"}

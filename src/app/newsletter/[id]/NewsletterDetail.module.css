@@ -100,6 +100,65 @@
   color: #777;
 }
 
+/* juyst added this */
+.authorCard {
+  margin: 50px auto;
+  padding: 25px;
+  max-width: 850px;
+
+  display: flex;
+  gap: 25px;
+  align-items: center;
+
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.authorImage {
+  width: 180px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px; /* Rectangle with slightly rounded corners */
+  flex-shrink: 0;
+}
+
+.authorInfo {
+  flex: 1;
+}
+
+.authorInfo h3 {
+  margin: 0;
+  font-size: 28px;
+  color: #0b3c5d;
+}
+
+.authorRole {
+  margin: 8px 0;
+  font-size: 18px;
+  color: #666;
+  font-style: italic;
+}
+
+.authorDate {
+  margin-top: 15px;
+  color: #888;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .authorCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .authorImage {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+  }
+}
+
 /* IMAGE + SUBTITLE ROW */
 .topRow {
   display: flex;
