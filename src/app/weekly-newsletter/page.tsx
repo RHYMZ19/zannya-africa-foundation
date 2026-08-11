@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../lib/firebase";
-import styles from "./WeeklyNewsletter.module.css";
+import styles from "./WeeklyPage.module.css";
 
 type ContentBlock =
 | {
