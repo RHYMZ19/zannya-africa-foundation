@@ -1,333 +1,493 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from "react";
-import { db } from "../lib/firebase";
-import { collection, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
-import Image from "next/image";
-import styles from "./WeeklyPage.module.css";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { onSnapshot } from "firebase/firestore";
-import IncreaseImage from "../components/IncreaseImage";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../lib/firebase";
+import styles from "./WeeklyNewsletter.module.css";
 
-// Type for newsletter items
-type NewsletterItem = {
-  id: string;
-  title: string;
-  subtitle?: string;
-  description?: string;
-  by?: string; // new field
-  image?: string;
-  timestamp?: Timestamp | null;
+type ContentBlock =
+| {
+id: string;
+type: "paragraph";
+text: string;
+}
+| {
+id: string;
+type: "heading";
+text: string;
+}
+| {
+id: string;
+type: "image";
+url: string;
+caption: string;
+}
+| {
+id: string;
+type: "quote";
+text: string;
+}
+| {
+id: string;
+type: "statistic";
+number: string;
+label: string;
+}
+| {
+id: string;
+type: "divider";
 };
 
-type Resource = {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  pdf: string;
+type Article = {
+id: string;
+title: string;
+slug: string;
+subtitle: string;
+category?: string | null;
+bannerImage: string;
+
+author: {
+name: string;
+role: string;
+image: string;
+bio: string;
+};
+
+content: ContentBlock[];
+
+publishedAt?: {
+seconds: number;
+nanoseconds: number;
+} | null;
+
+status: string;
 };
 
 export default function WeeklyNewsletterPage() {
-  const [items, setItems] = useState<NewsletterItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [resources, setResources] = useState<Resource[]>([]);
-  const [selectedResourceCategory, setSelectedResourceCategory] = useState<string | null>(null);
-  const [open, setOpen] = useState(false);
+const [articles, setArticles] = useState<Article[]>([]);
+const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-        const unsubscribe = onSnapshot(collection(db, "resources"), (snapshot) => {
-          const items = snapshot.docs.map((doc) => {
-            const data = doc.data();
-      
-            return {
-              id: doc.id,
-              title: data.title,
-              description: data.description,
-              category: data.category,
-              pdf: data.pdf,
-            };
-          });
-      
-          setResources(items);
-        });
-      
-        return () => unsubscribe();
-      }, []);
+/* ================= FETCH ARTICLES ================= */
 
-  const fetchNewsletters = async () => {
-    const q = query(
-      collection(db, "weeklyNewsletter"),
-      orderBy("timestamp", "desc")
+useEffect(() => {
+const fetchArticles = async () => {
+try {
+const snapshot = await getDocs(
+collection(db, "articles")
+);
+
+    const articleList: Article[] = snapshot.docs.map((document) => {
+      const data = document.data();
+
+      return {
+        id: document.id,
+        title: data.title || "",
+        slug: data.slug || "",
+        subtitle: data.subtitle || "",
+        category: data.category || null,
+        bannerImage: data.bannerImage || "",
+
+        author: {
+          name: data.author?.name || "",
+          role: data.author?.role || "",
+          image: data.author?.image || "",
+          bio: data.author?.bio || "",
+        },
+
+        content: data.content || [],
+
+        publishedAt: data.publishedAt || null,
+
+        status: data.status || "published",
+      };
+    });
+
+    /* ================= ONLY PUBLISHED ARTICLES ================= */
+
+    const publishedArticles = articleList.filter(
+      (article) => article.status === "published"
     );
 
-    const snap = await getDocs(q);
+    /* ================= NEWEST FIRST ================= */
 
-    const newsletters: NewsletterItem[] = snap.docs.map(d => ({
-      id: d.id,
-      title: d.data().title || "No Title",
-      subtitle: d.data().subtitle || "",
-      description: d.data().description || "",
-      by: d.data().by || "", // include 'by'
-      image: d.data().image || "",
-      timestamp: d.data().timestamp || null,
-    }));
+    publishedArticles.sort((a, b) => {
+      const dateA = a.publishedAt?.seconds || 0;
+      const dateB = b.publishedAt?.seconds || 0;
 
-    setItems(newsletters);
+      return dateB - dateA;
+    });
+
+    setArticles(publishedArticles);
+  } catch (error) {
+    console.error("Error loading articles:", error);
+  } finally {
     setLoading(false);
-  };
+  }
+};
 
-  useEffect(() => {
-    fetchNewsletters();
-  }, []);
+fetchArticles();
 
-  if (loading) return <p>Loading...</p>;
+}, []);
 
-  return (
-    <div className={styles.wrapper}>
-      {/* ================= NAVBAR ================= */}
-                  <nav className={styles.navbar}>
-                    <IncreaseImage src='/log.jpg' alt="Logo" />
-                    <div className={styles.logo}>Zannya Africa Foundation</div>
-                    
-                    <div
-                      className={`${styles.navLinks} ${
-                        open ? styles.active : ""
-                      }`}
-                    >
-                      <div className={styles.dropdown}>
-  <span className={styles.dropdownTitle}>Home ▾</span>
+/* ================= FORMAT DATE ================= */
 
-  <div className={styles.dropdownMenu}>
-    <a href="/" className={styles.dropdownItem}>
-      Home
-    </a>
-    <a href="/Missions" className={styles.dropdownItem}>
-      Mission & Vision
-    </a>
-  </div>
+const formatDate = (
+timestamp?: {
+seconds: number;
+nanoseconds: number;
+} | null
+) => {
+if (!timestamp) {
+return "";
+}
+
+const date = new Date(timestamp.seconds * 1000);
+
+return date.toLocaleDateString("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});
+
+};
+
+/* ================= LOADING ================= */
+
+if (loading) {
+return (
+<main className={styles.page}>
+<div className={styles.loading}>
+<p>Loading articles...</p>
 </div>
-                      
-                      {/* RESOURCES DROPDOWN */}
-              <div className={styles.dropdown}>
-                <span className={styles.dropdownTitle}>Resources ▾</span>
-            
-                <div className={styles.dropdownMenu}>
-            
-                  <a href="/weekly-newsletter" className={styles.dropdownItem}>
-                    📰 Articles
-                  </a>
-            
-                  <a
-                    href="#"
-                    className={styles.dropdownItem}
-                    onClick={() => setSelectedResourceCategory("Research Papers")}
-                  >
-                    📄 Research Papers
-                  </a>
-            
-                  <a
-                    href="#"
-                    className={styles.dropdownItem}
-                    onClick={() => setSelectedResourceCategory("Reports")}
-                  >
-                    📊 Reports
-                  </a>
-            
-                  <a
-                    href="#"
-                    className={styles.dropdownItem}
-                    onClick={() => setSelectedResourceCategory("Case Studies")}
-                  >
-                    📁 Case Studies
-                  </a>
-            
-                </div>
-              </div>
-                      
-                      <a href="/Videos" >Gallery</a>
-                      <a href="#/Donates" className={styles.btnPrimary}> Donate</a>
-                    </div>
-            
-                    <div
-                      className={styles.hamburger}
-                      onClick={() => setOpen(!open)}
-                    >
-                      ☰
-                    </div>
-                  </nav>
-      
-                  {/* ================= RESOURCE MODAL ================= */}
-                  {selectedResourceCategory && (
-      
-                    <div className={styles.modalOverlay}
-                    onClick={() => setSelectedResourceCategory(null)}
-                    >
-                  
-                      <div className={styles.modalContent}
-                      onClick={(e) => e.stopPropagation()}
-                      >
-                  
-                        <div className={styles.modalHeader}>
-                          <h3>{selectedResourceCategory}</h3>
-                  
-                          <button
-                            className={styles.closeBtn}
-                            onClick={() => setSelectedResourceCategory(null)}
-                          >
-                            ✕
-                          </button>
-                        </div>
-                  
-                        <div className={styles.resourceList}>
-                  
-                          {resources
-                            .filter(res => res.category === selectedResourceCategory)
-                            .map(res => (
-                  
-                              <div key={res.id} className={styles.resourceItem}>
-                  
-                                <div>
-                                  <strong>{res.title}</strong>
-                                  <p>{res.description}</p>
-                                </div>
-                  
-                                <a
-                                  href={res.pdf}
-                                  download
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className={styles.downloadBtn}
-                                >
-                                  Download PDF
-                                </a>
-                  
-                              </div>
-                  
-                          ))}
-                  
-                        </div>
-      
-                      </div>
-                  
-                    </div>
-                  )}
-      
-      {/* ================= HERO ================= */}
-            <section className={styles.hero}>
-              <div className={styles.heroContent}>
-                <h1>Zannya Africa Foundation</h1>
-                <p>
-                 Changing communities through sports
-                </p>
-                <div className={styles.heroButtons}>
-                  <button className={styles.btnPrimary}>
-                    Donate Now
-                  </button>
-                  <button className={styles.btnOutline}>
-                    Get Involved
-                  </button>
-                </div>
-              </div>
-            </section>
+</main>
+);
+}
 
-   <h1 className={styles.title}>Articles</h1>
-   
-   {items.length === 0 && <p>No newsletters posted yet.</p>}
+/* ================= PAGE ================= */
 
-   <div className={styles.cardsGrid}> {/* new grid wrapper */}
-    {items.map((item) => (
-      <div key={item.id} className={styles.card}>
-        {item.image && (
-          <Link href={`/newsletter/${item.id}`}>
-          <Image
-            src={item.image}
-            alt="Newsletter Banner"
-            width={600}
-            height={300}
-            className={styles.banner}
-          />
-          </Link>
-        )}
+return (
+<main className={styles.page}>
 
-        <h2 className={styles.cardTitle}>{item.title}</h2>
-        
-        <p className={styles.cardSubtitle}>
-          {item.subtitle && item.subtitle.length > 400
-            ? `${item.subtitle.substring(0, 400)}... `
-            : item.subtitle}
+  {/* ================= NAVBAR ================= */}
 
-          {item.subtitle && item.subtitle.length > 400 && (
-            <Link href={`/newsletter/${item.id}`} className={styles.more}>
-              more
-            </Link>
-          )}
-        </p>
-        <Link href={`/newsletter/${item.id}`}>
-        <p className={styles.cardDescription}>
-          {item.description && item.description.length > 100
-            ? `${item.description.substring(0, 100)}... `
-            : item.description}
-  
-          {item.description && item.description.length > 100 && (
-            <Link href={`/newsletter/${item.id}`} className={styles.more}>
-              more
-            </Link>
-          )}
-        </p>
-        </Link>
-        {item.by && <p className={styles.by}><em>By: {item.by}</em></p>}
-        {item.timestamp && (
-          <p className={styles.date}>
-            {item.timestamp.toDate().toLocaleDateString()}
-          </p>
-        )}
+  <nav className={styles.navbar}>
 
-        <hr />
-      </div>
-     ))}
+    <Link href="/" className={styles.logoArea}>
+
+      <img
+        src="/log.jpg"
+        alt="Zannya Africa Foundation"
+        className={styles.logoImage}
+      />
+
+      <span className={styles.logoText}>
+        Zannya Africa Foundation
+      </span>
+
+    </Link>
+
+
+    <div className={styles.navLinks}>
+
+      <Link href="/">
+        Home
+      </Link>
+
+      <Link href="/Missions">
+        Mission & Vision
+      </Link>
+
+      <Link
+        href="/weekly-newsletter"
+        className={styles.activeLink}
+      >
+        Articles
+      </Link>
+
+      <Link href="/Videos">
+        Gallery
+      </Link>
+
+      <Link
+        href="/Donates"
+        className={styles.donateButton}
+      >
+        Donate
+      </Link>
+
     </div>
 
-    {/* ================= FOOTER ================= */}
-      <footer className={styles.footer}>
-        <div className={styles.footerTop}>
+  </nav>
 
-  <a href="mailto:info@zannyaafricafoundation.org">
-    📧 info@zannyaafricafoundation.org
-  </a>
 
-  <span>|</span>
+  {/* ================= HERO ================= */}
 
-  <a href="/Terms">
-    Privacy Policy & Legal Terms
-  </a>
+  <section className={styles.hero}>
 
-  <span>|</span>
+    <div className={styles.heroContent}>
 
-  <a href="/adminpannel">
-    Admin Panel
-  </a>
+      <p className={styles.heroLabel}>
+        ZANNYA AFRICA FOUNDATION
+      </p>
 
-</div>
-      
-        {/* Bottom Bar */}
-<div className={styles.footerBottom}>
-  <p>
-    © {new Date().getFullYear()} Zannya Africa Foundation. All Rights Reserved.
-  </p>
+      <h1>
+        Articles & Stories
+      </h1>
 
-  <div className={styles.footerDeveloper}>
-    <span>Developed by <strong>SSENABULYA RAHIM</strong></span>
-    <span>|</span>
-    <a href="tel:+256743878261">0743878261</a>
-    <span>|</span>
-    <a href="mailto:rahimssenabulya82@gmail.com">
-      rahimssenabulya82@gmail.com
-    </a>
-  </div>
-</div>
-      </footer>
-   </div>
+      <p>
+        Explore stories, insights, research and experiences
+        from our work with communities across Africa.
+      </p>
 
-  );
+    </div>
+
+  </section>
+
+
+  {/* ================= ARTICLES ================= */}
+
+  <section className={styles.articlesSection}>
+
+    <div className={styles.sectionHeader}>
+
+      <p className={styles.sectionLabel}>
+        OUR STORIES
+      </p>
+
+      <h2>
+        Latest Articles
+      </h2>
+
+      <p>
+        Discover our latest stories, ideas and updates.
+      </p>
+
+    </div>
+
+
+    {articles.length === 0 ? (
+
+      <div className={styles.emptyState}>
+
+        <h3>
+          No articles available
+        </h3>
+
+        <p>
+          New articles will appear here once they are published.
+        </p>
+
+      </div>
+
+    ) : (
+
+      <div className={styles.articleGrid}>
+
+        {articles.map((article) => (
+
+          <article
+            key={article.id}
+            className={styles.articleCard}
+          >
+
+            {/* ================= BANNER ================= */}
+
+            {article.bannerImage && (
+
+              <Link
+                href={`/articles/${article.slug}`}
+                className={styles.imageLink}
+              >
+
+                <div className={styles.imageContainer}>
+
+                  <img
+                    src={article.bannerImage}
+                    alt={article.title}
+                    className={styles.articleImage}
+                  />
+
+                </div>
+
+              </Link>
+
+            )}
+
+
+            {/* ================= ARTICLE INFO ================= */}
+
+            <div className={styles.articleContent}>
+
+              {/* CATEGORY + DATE */}
+
+              <div className={styles.meta}>
+
+                {article.category && (
+
+                  <span className={styles.category}>
+                    {article.category}
+                  </span>
+
+                )}
+
+                {article.publishedAt && (
+
+                  <span className={styles.date}>
+                    {formatDate(article.publishedAt)}
+                  </span>
+
+                )}
+
+              </div>
+
+
+              {/* TITLE */}
+
+              <h3 className={styles.articleTitle}>
+
+                <Link
+                  href={`/articles/${article.slug}`}
+                >
+                  {article.title}
+                </Link>
+
+              </h3>
+
+
+              {/* SUBTITLE */}
+
+              {article.subtitle && (
+
+                <p className={styles.subtitle}>
+                  {article.subtitle}
+                </p>
+
+              )}
+
+
+              {/* AUTHOR */}
+
+              <div className={styles.author}>
+
+                {article.author.image ? (
+
+                  <img
+                    src={article.author.image}
+                    alt={article.author.name}
+                    className={styles.authorImage}
+                  />
+
+                ) : (
+
+                  <div className={styles.authorPlaceholder}>
+                    {article.author.name
+                      ? article.author.name.charAt(0).toUpperCase()
+                      : "A"}
+                  </div>
+
+                )}
+
+
+                <div className={styles.authorInfo}>
+
+                  <strong>
+                    {article.author.name || "Zannya Africa Foundation"}
+                  </strong>
+
+                  {article.author.role && (
+
+                    <span>
+                      {article.author.role}
+                    </span>
+
+                  )}
+
+                </div>
+
+              </div>
+
+
+              {/* READ ARTICLE */}
+
+              <Link
+                href={`/articles/${article.slug}`}
+                className={styles.readMore}
+              >
+                Read Article
+                <span>→</span>
+              </Link>
+
+            </div>
+
+          </article>
+
+        ))}
+
+      </div>
+
+    )}
+
+  </section>
+
+
+  {/* ================= FOOTER ================= */}
+
+  <footer className={styles.footer}>
+
+    <div className={styles.footerTop}>
+
+      <a href="mailto:info@zannyaafricafoundation.org">
+        📧 info@zannyaafricafoundation.org
+      </a>
+
+      <span>|</span>
+
+      <Link href="/Terms">
+        Privacy Policy & Legal Terms
+      </Link>
+
+      <span>|</span>
+
+      <Link href="/adminpannel">
+        Admin Panel
+      </Link>
+
+    </div>
+
+
+    <div className={styles.footerBottom}>
+
+      <p>
+        © {new Date().getFullYear()} Zannya Africa Foundation.
+        All Rights Reserved.
+      </p>
+
+      <div className={styles.footerDeveloper}>
+
+        <span>
+          Developed by <strong>SSENABULYA RAHIM</strong>
+        </span>
+
+        <span>|</span>
+
+        <a href="tel:+256743878261">
+          0743878261
+        </a>
+
+        <span>|</span>
+
+        <a href="mailto:rahimssenabulya82@gmail.com">
+          rahimssenabulya82@gmail.com
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</main>
+
+);
 }

@@ -1,0 +1,517 @@
+.previewOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  overflow-y: auto;
+}
+
+
+.previewContainer {
+  width: 100%;
+  min-height: 100vh;
+
+  background: white;
+}
+
+
+/* ================= TOP BAR ================= */
+
+.previewTopBar {
+  position: sticky;
+  top: 0;
+
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 30px;
+
+  background: #0b3c5d;
+  color: white;
+}
+
+
+.closeButton {
+  border: none;
+  border-radius: 6px;
+
+  padding: 9px 15px;
+
+  background: white;
+  color: #0b3c5d;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+
+/* ================= ARTICLE ================= */
+
+.article {
+  max-width: 1100px;
+  margin: auto;
+
+  padding-bottom: 80px;
+
+  color: #222;
+}
+
+
+/* ================= BANNER ================= */
+
+.bannerWrapper {
+  width: 100%;
+
+  margin-bottom: 35px;
+
+  overflow: hidden;
+}
+
+
+.banner {
+  display: block;
+
+  width: 100%;
+  height: 500px;
+
+  object-fit: cover;
+}
+
+
+/* ================= CATEGORY ================= */
+
+.category {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  padding: 6px 14px;
+
+  border-radius: 20px;
+
+  background: #f4a261;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+
+/* ================= DATE ================= */
+
+.date {
+  color: #777;
+
+  font-size: 14px;
+
+  margin-bottom: 15px;
+}
+
+
+/* ================= TITLE ================= */
+
+.title {
+  max-width: 900px;
+
+  margin: 0 0 20px;
+
+  font-family: Georgia, serif;
+
+  font-size: 52px;
+
+  line-height: 1.15;
+
+  color: #0b3c5d;
+}
+
+
+/* ================= SUBTITLE ================= */
+
+.subtitle {
+  max-width: 850px;
+
+  margin-bottom: 30px;
+
+  font-size: 21px;
+
+  line-height: 1.7;
+
+  color: #666;
+}
+
+
+/* ================= AUTHOR HEADER ================= */
+
+.authorHeader {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 55px;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid #ddd;
+}
+
+
+.authorImage,
+.authorPlaceholder {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+
+.authorPlaceholder {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #eee;
+
+  color: #777;
+
+  font-size: 12px;
+}
+
+
+.authorHeader h3 {
+  margin: 0 0 4px;
+
+  color: #0b3c5d;
+
+  font-size: 18px;
+}
+
+
+.authorHeader p {
+  margin: 0 0 3px;
+
+  color: #666;
+}
+
+
+.authorHeader span {
+  font-size: 13px;
+
+  color: #999;
+}
+
+
+/* ================= CONTENT ================= */
+
+.articleContent {
+  max-width: 800px;
+
+  margin: auto;
+}
+
+
+.paragraph {
+  margin-bottom: 25px;
+
+  font-family: Georgia, serif;
+
+  font-size: 19px;
+
+  line-height: 1.9;
+
+  color: #333;
+}
+
+
+.contentHeading {
+  margin: 45px 0 20px;
+
+  font-family: Georgia, serif;
+
+  font-size: 32px;
+
+  line-height: 1.3;
+
+  color: #0b3c5d;
+}
+
+
+/* ================= ARTICLE IMAGE ================= */
+
+.articleImage {
+  margin: 40px 0;
+}
+
+
+.articleImage img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border-radius: 10px;
+}
+
+
+.articleImage figcaption {
+  margin-top: 10px;
+
+  text-align: center;
+
+  color: #777;
+
+  font-size: 14px;
+
+  font-style: italic;
+}
+
+
+/* ================= QUOTE ================= */
+
+.quote {
+  margin: 45px 0;
+
+  padding: 30px 35px;
+
+  border-left: 5px solid #f4a261;
+
+  background: #f7f7f7;
+
+  font-family: Georgia, serif;
+
+  font-size: 25px;
+
+  line-height: 1.6;
+
+  font-style: italic;
+
+  color: #0b3c5d;
+}
+
+
+/* ================= STATISTIC ================= */
+
+.statistic {
+  margin: 45px 0;
+
+  padding: 35px;
+
+  text-align: center;
+
+  background: #0b3c5d;
+
+  border-radius: 12px;
+
+  color: white;
+}
+
+
+.statistic strong {
+  display: block;
+
+  font-size: 48px;
+
+  margin-bottom: 10px;
+}
+
+
+.statistic span {
+  font-size: 17px;
+}
+
+
+/* ================= DIVIDER ================= */
+
+.divider {
+  margin: 50px 0;
+
+  border: none;
+
+  border-top: 1px solid #ddd;
+}
+
+
+/* ================= AUTHOR CARD ================= */
+
+.authorCard {
+  max-width: 900px;
+
+  margin: 80px auto 50px;
+
+  padding: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+
+  background: #f7f7f7;
+
+  border-radius: 12px;
+}
+
+
+.authorCardImage {
+  width: 150px;
+  height: 150px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+
+.authorLabel {
+  margin-bottom: 8px;
+
+  color: #f4a261;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+.authorCard h2 {
+  margin: 0 0 5px;
+
+  color: #0b3c5d;
+}
+
+
+.authorCard h4 {
+  margin: 0 0 15px;
+
+  color: #777;
+}
+
+
+.authorCard p {
+  line-height: 1.7;
+
+  color: #555;
+}
+
+
+/* ================= RELATED ================= */
+
+.related {
+  margin-top: 80px;
+
+  padding-top: 40px;
+
+  border-top: 1px solid #ddd;
+}
+
+
+.related h2 {
+  color: #0b3c5d;
+
+  margin-bottom: 25px;
+}
+
+
+.relatedGrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+
+.relatedGrid div {
+  min-height: 120px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: #f5f5f5;
+
+  border-radius: 10px;
+
+  color: #555;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .previewTopBar {
+    padding: 12px 15px;
+  }
+
+
+  .article {
+    padding: 0 18px 60px;
+  }
+
+
+  .banner {
+    height: 280px;
+  }
+
+
+  .title {
+    font-size: 36px;
+  }
+
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+
+  .paragraph {
+    font-size: 17px;
+  }
+
+
+  .contentHeading {
+    font-size: 27px;
+  }
+
+
+  .quote {
+    font-size: 21px;
+
+    padding: 22px;
+  }
+
+
+  .authorCard {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 25px;
+  }
+
+
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+}

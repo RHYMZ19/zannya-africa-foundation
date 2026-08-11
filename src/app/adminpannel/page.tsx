@@ -13,6 +13,7 @@ import ResoAdmin from '../ResoAdmin/page';
 import AdminEvents from '../UpcomingEvents/AdminEvents/AdminEvents';
 import WeeklyNewsletterAdmin from '../components/WeeklyNewsletterAdmin';
 import NewsAdmin from '../NewsSection/Admin/NewsAdmin';
+import ArticleBuilder from '../components/ArticleBuilder/page';
 
 export default function
 SocialButtonsPage() {
@@ -100,6 +101,10 @@ if (loading) {
 
         <div>
           <NewsAdmin />
+        </div>
+
+        <div>
+          <ArticleBuilder />
         </div>
 
         </div>
