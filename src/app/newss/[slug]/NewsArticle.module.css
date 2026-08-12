@@ -1,0 +1,321 @@
+.page {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #0c3d5d;
+}
+
+
+/* =========================================================
+   BANNER
+========================================================= */
+
+.articleHero {
+  width: 100%;
+  background: #0c3d5d;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.noBanner {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+/* =========================================================
+   ARTICLE CONTAINER
+========================================================= */
+
+.articleContainer {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 60px 25px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 60px;
+}
+
+
+/* =========================================================
+   ARTICLE
+========================================================= */
+
+.article {
+  min-width: 0;
+}
+
+.category {
+  display: inline-block;
+  background: #f4a261;
+  color: white;
+  padding: 7px 15px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1.15;
+  margin: 0 0 20px;
+  color: #0c3d5d;
+}
+
+.excerpt {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e5e5e5;
+  color: #666;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   AUTHOR
+========================================================= */
+
+.authorSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0 35px;
+  padding: 18px;
+  background: #f7f9fa;
+  border-radius: 15px;
+}
+
+.authorImage,
+.authorPlaceholder {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.authorPlaceholder {
+  background: #0c3d5d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.authorLabel {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: #777;
+}
+
+.authorName {
+  margin: 0;
+  color: #0c3d5d;
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: #243746;
+}
+
+.content p {
+  margin: 0 0 25px;
+}
+
+.content p:first-child {
+  font-size: 1.15rem;
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.videoContainer {
+  margin-top: 40px;
+}
+
+.video {
+  width: 100%;
+  max-height: 550px;
+  border-radius: 15px;
+  display: block;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  background: #f7f9fa;
+  padding: 25px;
+  border-radius: 18px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.sidebarTitle {
+  color: #0c3d5d;
+  font-size: 1.4rem;
+  margin: 0 0 25px;
+}
+
+
+/* =========================================================
+   RELATED NEWS
+========================================================= */
+
+.relatedCard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.relatedCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.relatedImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.relatedContent {
+  padding: 15px;
+}
+
+.relatedCategory {
+  color: #f4a261;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.relatedTitle {
+  color: #0c3d5d;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 7px 0;
+}
+
+.relatedDate {
+  color: #777;
+  font-size: 12px;
+}
+
+.noRelated {
+  color: #777;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .articleContainer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .bannerImage {
+    height: 300px;
+  }
+
+  .noBanner {
+    height: 280px;
+  }
+
+  .articleContainer {
+    padding: 40px 18px;
+  }
+
+  .title {
+    font-size: 2.1rem;
+  }
+
+  .excerpt {
+    font-size: 1.05rem;
+  }
+
+  .content {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .bannerImage {
+    height: 240px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .authorSection {
+    padding: 15px;
+  }
+
+}

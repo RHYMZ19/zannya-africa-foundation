@@ -14,6 +14,7 @@ import AdminEvents from '../UpcomingEvents/AdminEvents/AdminEvents';
 import WeeklyNewsletterAdmin from '../components/WeeklyNewsletterAdmin';
 import NewsAdmin from '../NewsSection/Admin/NewsAdmin';
 import ArticleBuilder from '../components/ArticleBuilder/page';
+import NewsBuilder from '../components/NewsBuilder/page';
 
 export default function
 SocialButtonsPage() {
@@ -105,6 +106,10 @@ if (loading) {
 
         <div>
           <ArticleBuilder />
+        </div>
+
+        <div>
+          <NewsBuilder />
         </div>
 
         </div>

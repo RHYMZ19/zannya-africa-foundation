@@ -1,0 +1,337 @@
+/* =====================================================
+   NEWS LISTING
+===================================================== */
+
+.page {
+  min-height: 100vh;
+  background: #ffffff;
+  padding-bottom: 90px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 90px 25px 55px;
+  text-align: center;
+}
+
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #1b6b4b;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+.header h1 {
+  margin: 0 0 18px;
+  color: #17202a;
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+
+.introduction {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #667085;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   NEWS SECTION
+===================================================== */
+
+.newsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.newsGrid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 30px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 15px 35px rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.imageLink {
+  display: block;
+  overflow: hidden;
+}
+
+
+.image {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition:
+    transform 0.35s ease;
+}
+
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.cardContent {
+  padding: 24px;
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+.category {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: #eaf5ef;
+  color: #1b6b4b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+.date {
+  margin: 0 0 10px;
+  color: #98a2b3;
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.card h2 {
+  margin: 0 0 12px;
+}
+
+
+.titleLink {
+  color: #17202a;
+  font-size: 23px;
+  line-height: 1.3;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+
+.titleLink:hover {
+  color: #1b6b4b;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.description {
+  margin: 0 0 22px;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   AUTHOR
+===================================================== */
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #f0f2f5;
+}
+
+
+.authorImage {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+.author div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.author strong {
+  color: #344054;
+  font-size: 13px;
+}
+
+
+.author span {
+  color: #98a2b3;
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   READ MORE
+===================================================== */
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1b6b4b;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+.readMore span {
+  transition:
+    transform 0.2s ease;
+}
+
+
+.readMore:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.emptyState {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+
+.emptyState h2 {
+  margin-bottom: 10px;
+  color: #17202a;
+}
+
+
+.emptyState p {
+  color: #667085;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .newsGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .header {
+    padding: 60px 20px 40px;
+  }
+
+
+  .header h1 {
+    font-size: 38px;
+  }
+
+
+  .introduction {
+    font-size: 16px;
+  }
+
+
+  .newsSection {
+    padding: 0 18px;
+  }
+
+
+  .newsGrid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+
+  .image {
+    height: 220px;
+  }
+
+}
