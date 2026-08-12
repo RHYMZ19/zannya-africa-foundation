@@ -3,730 +3,690 @@ import {
   getDocs,
   query,
   where,
-  orderBy,
   limit,
 } from "firebase/firestore";
-
+import { db } from "../../lib/firebase";
+import styles from "./NewsArticle.module.css";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { firestore } from "../../lib/firebase";
+type ContentBlock =
+  | {
+      id: string;
+      type: "paragraph";
+      text: string;
+    }
+  | {
+      id: string;
+      type: "heading";
+      text: string;
+    }
+  | {
+      id: string;
+      type: "image";
+      url: string;
+      caption: string;
+    }
+  | {
+      id: string;
+      type: "quote";
+      text: string;
+    }
+  | {
+      id: string;
+      type: "statistic";
+      number: string;
+      label: string;
+    }
+  | {
+      id: string;
+      type: "divider";
+    };
 
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-
-import styles from "./NewsArticle.module.css";
-
-export const dynamic = "force-dynamic";
-
-type Author = {
-  name?: string;
-  role?: string;
-  image?: string;
-};
-
-type NewsItem = {
+type Article = {
   id: string;
   title: string;
   slug: string;
-  category?: string;
-  description?: string;
-  bannerImage?: string;
-  author?: Author;
-  publishedAt?: any;
-  status?: string;
+  subtitle: string;
+  category?: string | null;
+  bannerImage: string;
+
+  author: {
+    name: string;
+    role: string;
+    image: string;
+    bio: string;
+  };
+
+  content: ContentBlock[];
+
+  publishedAt?: {
+    seconds: number;
+    nanoseconds: number;
+  } | null;
+
+  status: string;
 };
 
-function formatDate(date: any): string {
-  if (!date) {
-    return "";
-  }
+type RelatedArticle = {
+  id: string;
+  title: string;
+  slug: string;
+  subtitle: string;
+  bannerImage: string;
+  category?: string | null;
+  publishedAt?: {
+    seconds: number;
+    nanoseconds: number;
+  } | null;
+};
 
-  try {
-    if (
-      typeof date.seconds ===
-      "number"
-    ) {
-      return new Date(
-        date.seconds * 1000
-      ).toLocaleDateString(
-        "en-GB",
-        {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        }
-      );
+function formatDate(
+  timestamp?: {
+    seconds: number;
+    nanoseconds: number;
+  } | null
+) {
+  if (!timestamp) return "";
+
+  return new Date(timestamp.seconds * 1000).toLocaleDateString(
+    "en-US",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     }
-
-    if (date instanceof Date) {
-      return date.toLocaleDateString(
-        "en-GB",
-        {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        }
-      );
-    }
-
-    if (
-      typeof date ===
-      "string"
-    ) {
-      const parsedDate =
-        new Date(date);
-
-      if (
-        !isNaN(
-          parsedDate.getTime()
-        )
-      ) {
-        return parsedDate.toLocaleDateString(
-          "en-GB",
-          {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          }
-        );
-      }
-    }
-  } catch (error) {
-    console.error(
-      "Date formatting error:",
-      error
-    );
-  }
-
-  return "";
+  );
 }
 
-async function getNewsBySlug(
-  slug: string
-): Promise<NewsItem | null> {
-  try {
-    const newsQuery = query(
-      collection(
-        firestore,
-        "newsUpdates"
-      ),
-      where(
-        "slug",
-        "==",
-        slug
-      ),
-      where(
-        "status",
-        "==",
-        "published"
-      ),
-      limit(1)
-    );
-
-    const snapshot =
-      await getDocs(
-        newsQuery
-      );
-
-    if (snapshot.empty) {
-      return null;
-    }
-
-    const document =
-      snapshot.docs[0];
-
-    const data =
-      document.data();
-
-    return {
-      id: document.id,
-
-      title:
-        data.title || "",
-
-      slug:
-        data.slug || "",
-
-      category:
-        data.category || "",
-
-      description:
-        data.description || "",
-
-      bannerImage:
-        data.bannerImage || "",
-
-      author: {
-        name:
-          data.author?.name ||
-          "",
-
-        role:
-          data.author?.role ||
-          "",
-
-        image:
-          data.author?.image ||
-          "",
-      },
-
-      publishedAt:
-        data.publishedAt ||
-        null,
-
-      status:
-        data.status || "",
-    };
-  } catch (error) {
-    console.error(
-      "Error loading news:",
-      error
-    );
-
-    return null;
-  }
-}
-
-async function getRelatedNews(
-  currentId: string,
-  currentCategory?: string
-): Promise<NewsItem[]> {
-  try {
-    const newsQuery =
-      currentCategory
-        ? query(
-            collection(
-              firestore,
-              "newsUpdates"
-            ),
-            where(
-              "status",
-              "==",
-              "published"
-            ),
-            where(
-              "category",
-              "==",
-              currentCategory
-            ),
-            orderBy(
-              "publishedAt",
-              "desc"
-            ),
-            limit(4)
-          )
-        : query(
-            collection(
-              firestore,
-              "newsUpdates"
-            ),
-            where(
-              "status",
-              "==",
-              "published"
-            ),
-            orderBy(
-              "publishedAt",
-              "desc"
-            ),
-            limit(4)
-          );
-
-    const snapshot =
-      await getDocs(
-        newsQuery
-      );
-
-    const related =
-      snapshot.docs
-        .map(
-          (document) => {
-            const data =
-              document.data();
-
-            return {
-              id: document.id,
-
-              title:
-                data.title || "",
-
-              slug:
-                data.slug || "",
-
-              category:
-                data.category ||
-                "",
-
-              description:
-                data.description ||
-                "",
-
-              bannerImage:
-                data.bannerImage ||
-                "",
-
-              author: {
-                name:
-                  data.author
-                    ?.name || "",
-
-                role:
-                  data.author
-                    ?.role || "",
-
-                image:
-                  data.author
-                    ?.image || "",
-              },
-
-              publishedAt:
-                data.publishedAt ||
-                null,
-
-              status:
-                data.status || "",
-            };
-          }
-        )
-        .filter(
-          (item) =>
-            item.id !==
-              currentId &&
-            item.slug
-        );
-
-    if (
-      related.length >=
-      3
-    ) {
-      return related.slice(
-        0,
-        3
-      );
-    }
-
-    const allPublishedQuery =
-      query(
-        collection(
-          firestore,
-          "newsUpdates"
-        ),
-        where(
-          "status",
-          "==",
-          "published"
-        ),
-        orderBy(
-          "publishedAt",
-          "desc"
-        ),
-        limit(10)
-      );
-
-    const allSnapshot =
-      await getDocs(
-        allPublishedQuery
-      );
-
-    const additional =
-      allSnapshot.docs
-        .map(
-          (document) => {
-            const data =
-              document.data();
-
-            return {
-              id: document.id,
-
-              title:
-                data.title || "",
-
-              slug:
-                data.slug || "",
-
-              category:
-                data.category ||
-                "",
-
-              description:
-                data.description ||
-                "",
-
-              bannerImage:
-                data.bannerImage ||
-                "",
-
-              author: {
-                name:
-                  data.author
-                    ?.name || "",
-
-                role:
-                  data.author
-                    ?.role || "",
-
-                image:
-                  data.author
-                    ?.image || "",
-              },
-
-              publishedAt:
-                data.publishedAt ||
-                null,
-
-              status:
-                data.status || "",
-            };
-          }
-        )
-        .filter(
-          (item) =>
-            item.id !==
-              currentId &&
-            item.slug &&
-            !related.some(
-              (existing) =>
-                existing.id ===
-                item.id
-            )
-        );
-
-    return [
-      ...related,
-      ...additional,
-    ].slice(0, 3);
-  } catch (error) {
-    console.error(
-      "Error loading related news:",
-      error
-    );
-
-    return [];
-  }
-}
-
-export default async function NewsArticlePage({
+export default async function ArticlePage({
   params,
 }: {
-  params: Promise<{
-    slug: string;
-  }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } =
-    await params;
+  const { slug } = await params;
 
-  const news =
-    await getNewsBySlug(
-      slug
-    );
+  /* ================= FIND ARTICLE ================= */
 
-  if (!news) {
+  const articlesQuery = query(
+    collection(db, "articles"),
+    where("slug", "==", slug),
+    where("status", "==", "published"),
+    limit(1)
+  );
+
+  const snapshot = await getDocs(articlesQuery);
+
+  if (snapshot.empty) {
     notFound();
   }
 
-  const relatedNews =
-    await getRelatedNews(
-      news.id,
-      news.category
-    );
+  const document = snapshot.docs[0];
 
-  const publicationDate =
-    news.publishedAt ||
-    null;
+  const data = document.data();
 
-  const authorName =
-    news.author?.name ||
-    "";
+  const article: Article = {
+    id: document.id,
+    title: data.title || "",
+    slug: data.slug || "",
+    subtitle: data.subtitle || "",
+    category: data.category || null,
+    bannerImage: data.bannerImage || "",
 
-  const authorRole =
-    news.author?.role ||
-    "";
+    author: {
+      name: data.author?.name || "",
+      role: data.author?.role || "",
+      image: data.author?.image || "",
+      bio: data.author?.bio || "",
+    },
 
-  const authorImage =
-    news.author?.image ||
-    "";
+    content: Array.isArray(data.content)
+      ? data.content
+      : [],
 
-  const articleContent =
-    news.description || "";
+    publishedAt: data.publishedAt || null,
+
+    status: data.status || "",
+  };
+
+  /* ================= RELATED ARTICLES ================= */
+
+  const relatedQuery = query(
+    collection(db, "articles"),
+    where("status", "==", "published"),
+    limit(4)
+  );
+
+  const relatedSnapshot = await getDocs(relatedQuery);
+
+  const relatedArticles: RelatedArticle[] =
+    relatedSnapshot.docs
+      .map((doc) => {
+        const data = doc.data();
+
+        return {
+          id: doc.id,
+          title: data.title || "",
+          slug: data.slug || "",
+          subtitle: data.subtitle || "",
+          bannerImage: data.bannerImage || "",
+          category: data.category || null,
+          publishedAt: data.publishedAt || null,
+        };
+      })
+      .filter(
+        (related) => related.slug !== article.slug
+      )
+      .slice(0, 3);
+
+  /* ================= PAGE ================= */
 
   return (
-    <main
-      className={
-        styles.page
-      }
-    >
-      <Navbar />
+    <main className={styles.page}>
 
-      <section
-        className={
-          styles.articleHero
-        }
-      >
-        {news.bannerImage ? (
-          <img
-            src={
-              news.bannerImage
-            }
-            alt={news.title}
-            className={
-              styles.bannerImage
-            }
+      {/* ================= NAVBAR ================= */}
+
+      <nav className={styles.navbar}>
+
+        <Link href="/" className={styles.logoArea}>
+
+          <Image
+            src="/log.jpg"
+            alt="Zannya Africa Foundation"
+            width={55}
+            height={55}
+            className={styles.logoImage}
           />
-        ) : (
-          <div
-            className={
-              styles.noBanner
-            }
+
+          <span className={styles.logoText}>
+            Zannya Africa Foundation
+          </span>
+
+        </Link>
+
+
+        <div className={styles.navLinks}>
+
+          <Link href="/">
+            Home
+          </Link>
+
+          <Link href="/Missions">
+            Mission & Vision
+          </Link>
+
+          <Link href="/weekly-newsletter">
+            Articles
+          </Link>
+
+          <Link href="/Videos">
+            Gallery
+          </Link>
+
+          <Link
+            href="/Donates"
+            className={styles.donateButton}
           >
-            Zannya Africa
-            Foundation
-          </div>
+            Donate
+          </Link>
+
+        </div>
+
+      </nav>
+
+
+      {/* ================= HERO / BANNER ================= */}
+
+      <section className={styles.hero}>
+
+        {article.bannerImage && (
+
+          <Image
+            src={article.bannerImage}
+            alt={article.title}
+            fill
+            priority
+            className={styles.bannerImage}
+          />
+
         )}
+
+        <div className={styles.heroOverlay}></div>
+
       </section>
 
-      <div
-        className={
-          styles.articleContainer
-        }
-      >
-        <article
-          className={
-            styles.article
-          }
-        >
-          {news.category && (
-            <div
-              className={
-                styles.category
-              }
-            >
-              {news.category}
+
+      {/* ================= ARTICLE HEADER ================= */}
+
+      <article className={styles.article}>
+
+        <div className={styles.articleHeader}>
+
+          {article.category && (
+
+            <div className={styles.category}>
+              {article.category}
             </div>
+
           )}
 
-          <h1
-            className={
-              styles.title
-            }
-          >
-            {news.title}
+
+          <p className={styles.date}>
+            {formatDate(article.publishedAt)}
+          </p>
+
+
+          <h1 className={styles.title}>
+            {article.title}
           </h1>
 
-          {articleContent && (
-            <div
-              className={
-                styles.content
-              }
-            >
-              {articleContent
-                .split(
-                  /\n\s*\n/
-                )
-                .map(
-                  (
-                    paragraph,
-                    index
-                  ) => {
-                    if (
-                      !paragraph.trim()
-                    ) {
-                      return null;
-                    }
 
-                    return (
-                      <p
-                        key={
-                          index
-                        }
-                      >
-                        {paragraph.trim()}
-                      </p>
-                    );
-                  }
-                )}
-            </div>
+          {article.subtitle && (
+
+            <p className={styles.subtitle}>
+              {article.subtitle}
+            </p>
+
           )}
 
-          <div
-            className={
-              styles.meta
-            }
-          >
-            {publicationDate && (
-              <span>
-                📅{" "}
-                {formatDate(
-                  publicationDate
-                )}
-              </span>
+
+          {/* ================= AUTHOR BYLINE ================= */}
+
+          <div className={styles.authorByline}>
+
+            {article.author.image ? (
+
+              <Image
+                src={article.author.image}
+                alt={article.author.name}
+                width={70}
+                height={70}
+                className={styles.authorSmallImage}
+              />
+
+            ) : (
+
+              <div className={styles.authorPlaceholder}>
+                {article.author.name
+                  ? article.author.name.charAt(0)
+                  : "A"}
+              </div>
+
             )}
 
-            {authorName && (
-              <span>
-                By{" "}
-                {authorName}
-              </span>
-            )}
-          </div>
 
-          {authorName && (
-            <div
-              className={
-                styles.authorSection
-              }
-            >
-              {authorImage ? (
-                <img
-                  src={
-                    authorImage
-                  }
-                  alt={
-                    authorName
-                  }
-                  className={
-                    styles.authorImage
-                  }
-                />
-              ) : (
-                <div
-                  className={
-                    styles.authorPlaceholder
-                  }
-                >
-                  {authorName
-                    .charAt(0)
-                    .toUpperCase()}
-                </div>
+            <div className={styles.authorBylineInfo}>
+
+              <strong>
+                {article.author.name}
+              </strong>
+
+              {article.author.role && (
+
+                <span>
+                  {article.author.role}
+                </span>
+
               )}
 
-              <div>
-                <p
-                  className={
-                    styles.authorLabel
-                  }
-                >
-                  Written by
-                </p>
+              <small>
+                Published {formatDate(article.publishedAt)}
+              </small>
 
-                <h3
-                  className={
-                    styles.authorName
-                  }
-                >
-                  {authorName}
-                </h3>
-
-                {authorRole && (
-                  <p
-                    style={{
-                      margin:
-                        "4px 0 0",
-                      color:
-                        "#777",
-                      fontSize:
-                        "14px",
-                    }}
-                  >
-                    {authorRole}
-                  </p>
-                )}
-              </div>
             </div>
-          )}
-        </article>
 
-        <aside
-          className={
-            styles.sidebar
-          }
-        >
-          <h2
-            className={
-              styles.sidebarTitle
-            }
-          >
-            Related News
-          </h2>
+          </div>
 
-          {relatedNews.length >
-          0 ? (
-            relatedNews.map(
-              (item) => (
-                <a
-                  key={
-                    item.id
-                  }
-                  href={`/news/${item.slug}`}
-                  className={
-                    styles.relatedCard
-                  }
+        </div>
+
+
+        {/* ================= MAIN ARTICLE CONTENT ================= */}
+
+        <div className={styles.articleContent}>
+
+          {article.content.map((block) => {
+
+            /* ---------- PARAGRAPH ---------- */
+
+            if (block.type === "paragraph") {
+
+              return (
+                <p
+                  key={block.id}
+                  className={styles.paragraph}
                 >
-                  {item.bannerImage && (
-                    <img
-                      src={
-                        item.bannerImage
-                      }
-                      alt={
-                        item.title
-                      }
-                      className={
-                        styles.relatedImage
-                      }
-                    />
+                  {block.text}
+                </p>
+              );
+
+            }
+
+
+            /* ---------- HEADING ---------- */
+
+            if (block.type === "heading") {
+
+              return (
+                <h2
+                  key={block.id}
+                  className={styles.contentHeading}
+                >
+                  {block.text}
+                </h2>
+              );
+
+            }
+
+
+            /* ---------- IMAGE ---------- */
+
+            if (block.type === "image") {
+
+              return (
+                <figure
+                  key={block.id}
+                  className={styles.articleImageBlock}
+                >
+
+                  <Image
+                    src={block.url}
+                    alt={
+                      block.caption ||
+                      article.title
+                    }
+                    width={1200}
+                    height={700}
+                    className={styles.articleImage}
+                  />
+
+                  {block.caption && (
+
+                    <figcaption
+                      className={styles.imageCaption}
+                    >
+                      {block.caption}
+                    </figcaption>
+
                   )}
 
-                  <div
-                    className={
-                      styles.relatedContent
-                    }
-                  >
-                    {item.category && (
-                      <span
-                        className={
-                          styles.relatedCategory
-                        }
-                      >
-                        {
-                          item.category
-                        }
-                      </span>
+                </figure>
+              );
+
+            }
+
+
+            /* ---------- QUOTE ---------- */
+
+            if (block.type === "quote") {
+
+              return (
+                <blockquote
+                  key={block.id}
+                  className={styles.quote}
+                >
+                  <span className={styles.quoteMark}>
+                    “
+                  </span>
+
+                  <p>
+                    {block.text}
+                  </p>
+
+                </blockquote>
+              );
+
+            }
+
+
+            /* ---------- STATISTIC ---------- */
+
+            if (block.type === "statistic") {
+
+              return (
+                <div
+                  key={block.id}
+                  className={styles.statistic}
+                >
+
+                  <strong>
+                    {block.number}
+                  </strong>
+
+                  <span>
+                    {block.label}
+                  </span>
+
+                </div>
+              );
+
+            }
+
+
+            /* ---------- DIVIDER ---------- */
+
+            if (block.type === "divider") {
+
+              return (
+                <hr
+                  key={block.id}
+                  className={styles.divider}
+                />
+              );
+
+            }
+
+            return null;
+          })}
+
+        </div>
+
+
+        {/* ================= AUTHOR CARD ================= */}
+
+        <section className={styles.authorCard}>
+
+          <div className={styles.authorCardImage}>
+
+            {article.author.image ? (
+
+              <Image
+                src={article.author.image}
+                alt={article.author.name}
+                width={180}
+                height={180}
+              />
+
+            ) : (
+
+              <div className={styles.largeAuthorPlaceholder}>
+                {article.author.name
+                  ? article.author.name.charAt(0)
+                  : "A"}
+              </div>
+
+            )}
+
+          </div>
+
+
+          <div className={styles.authorCardInfo}>
+
+            <p className={styles.authorLabel}>
+              ABOUT THE AUTHOR
+            </p>
+
+            <h2>
+              {article.author.name}
+            </h2>
+
+            {article.author.role && (
+
+              <p className={styles.authorRole}>
+                {article.author.role}
+              </p>
+
+            )}
+
+            {article.author.bio && (
+
+              <p className={styles.authorBio}>
+                {article.author.bio}
+              </p>
+
+            )}
+
+          </div>
+
+        </section>
+
+
+        {/* ================= RELATED ARTICLES ================= */}
+
+        {relatedArticles.length > 0 && (
+
+          <section className={styles.related}>
+
+            <div className={styles.relatedHeader}>
+
+              <h2>
+                Related Articles
+              </h2>
+
+              <Link href="/weekly-newsletter">
+                View all articles →
+              </Link>
+
+            </div>
+
+
+            <div className={styles.relatedGrid}>
+
+              {relatedArticles.map((related) => (
+
+                <Link
+                  key={related.id}
+                  href={`/articles/${related.slug}`}
+                  className={styles.relatedCard}
+                >
+
+                  <div className={styles.relatedImage}>
+
+                    {related.bannerImage && (
+
+                      <Image
+                        src={related.bannerImage}
+                        alt={related.title}
+                        fill
+                      />
+
                     )}
 
-                    <h3
-                      className={
-                        styles.relatedTitle
-                      }
-                    >
-                      {item.title}
+                  </div>
+
+
+                  <div className={styles.relatedInfo}>
+
+                    {related.category && (
+
+                      <span className={styles.relatedCategory}>
+                        {related.category}
+                      </span>
+
+                    )}
+
+                    <h3>
+                      {related.title}
                     </h3>
 
-                    <span
-                      className={
-                        styles.relatedDate
-                      }
-                    >
-                      {formatDate(
-                        item.publishedAt
-                      )}
-                    </span>
-                  </div>
-                </a>
-              )
-            )
-          ) : (
-            <p
-              className={
-                styles.noRelated
-              }
-            >
-              No related news
-              available.
-            </p>
-          )}
-        </aside>
-      </div>
+                    {related.subtitle && (
 
-      <Footer />
+                      <p>
+                        {related.subtitle}
+                      </p>
+
+                    )}
+
+                    <small>
+                      {formatDate(
+                        related.publishedAt
+                      )}
+                    </small>
+
+                  </div>
+
+                </Link>
+
+              ))}
+
+            </div>
+
+          </section>
+
+        )}
+
+      </article>
+
+
+      {/* ================= FOOTER ================= */}
+
+      <footer className={styles.footer}>
+
+        <div className={styles.footerTop}>
+
+          <a href="mailto:info@zannyaafricafoundation.org">
+            📧 info@zannyaafricafoundation.org
+          </a>
+
+          <span>|</span>
+
+          <Link href="/Terms">
+            Privacy Policy & Legal Terms
+          </Link>
+
+          <span>|</span>
+
+          <Link href="/adminpannel">
+            Admin Panel
+          </Link>
+
+        </div>
+
+
+        <div className={styles.footerBottom}>
+
+          <p>
+            © {new Date().getFullYear()} Zannya Africa Foundation.
+            All Rights Reserved.
+          </p>
+
+          <div className={styles.footerDeveloper}>
+
+            <span>
+              Developed by{" "}
+              <strong>
+                SSENABULYA RAHIM
+              </strong>
+            </span>
+
+            <span>|</span>
+
+            <a href="tel:+256743878261">
+              0743878261
+            </a>
+
+            <span>|</span>
+
+            <a href="mailto:rahimssenabulya82@gmail.com">
+              rahimssenabulya82@gmail.com
+            </a>
+
+          </div>
+
+        </div>
+
+      </footer>
+
     </main>
   );
 }

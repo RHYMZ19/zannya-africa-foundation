@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import styles from "./WeeklyPage.module.css";
 
+
 type ContentBlock =
 | {
 id: string;
