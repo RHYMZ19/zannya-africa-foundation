@@ -75,7 +75,7 @@ const createUniqueSlug = async (title: string) => {
 
   while (true) {
     const slugQuery = query(
-      collection(db, "articles"),
+      collection(db, "more news"),
       where("slug", "==", slug)
     );
 
@@ -478,7 +478,7 @@ const publishArticle = async () => {
 
   const slug = await createUniqueSlug(title);
 
-  await addDoc(collection(db, "articles"), {
+  await addDoc(collection(db, "more news"), {
 
       /* ================= ARTICLE INFORMATION ================= */
 

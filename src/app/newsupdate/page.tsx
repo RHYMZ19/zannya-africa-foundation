@@ -74,7 +74,7 @@ useEffect(() => {
 const fetchArticles = async () => {
 try {
 const snapshot = await getDocs(
-collection(db, "articles")
+collection(db, "more news")
 );
 
     const articleList: Article[] = snapshot.docs.map((document) => {
@@ -296,7 +296,7 @@ return (
             {article.bannerImage && (
 
               <Link
-                href={`/articles/${article.slug}`}
+                href={`/more news/${article.slug}`}
                 className={styles.imageLink}
               >
 

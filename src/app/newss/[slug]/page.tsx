@@ -110,7 +110,7 @@ export default async function ArticlePage({
   /* ================= FIND ARTICLE ================= */
 
   const articlesQuery = query(
-    collection(db, "articles"),
+    collection(db, "more news"),
     where("slug", "==", slug),
     where("status", "==", "published"),
     limit(1)
@@ -153,7 +153,7 @@ export default async function ArticlePage({
   /* ================= RELATED ARTICLES ================= */
 
   const relatedQuery = query(
-    collection(db, "articles"),
+    collection(db, "more news"),
     where("status", "==", "published"),
     limit(4)
   );
@@ -566,7 +566,7 @@ export default async function ArticlePage({
 
                 <Link
                   key={related.id}
-                  href={`/articles/${related.slug}`}
+                  href={`/more news/${related.slug}`}
                   className={styles.relatedCard}
                 >
 
