@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import styles from "./ArticlePreview.module.css";
+import styles from "./NewsPreview.module.css";
 
 type ContentBlock =
   | {
