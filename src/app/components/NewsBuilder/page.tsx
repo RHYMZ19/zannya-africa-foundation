@@ -10,7 +10,7 @@ import {
   where,
   serverTimestamp,
 } from "firebase/firestore";
-import styles from "./Builder.module.css";
+import styles from "./NewsBuilder.module.css";
 import CloudinaryUploader from "../../CloudinaryUploader";
 import NewsPreview from "./NewsPreview";
 
