@@ -13,7 +13,7 @@ import { firestore } from "../../lib/firebase";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-import styles from "./page.module.css";
+import styles from "./NewsArticle.module.css";
 
 /* =========================================================
    NEWS TYPE
