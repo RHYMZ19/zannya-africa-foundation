@@ -2,6 +2,7 @@ import {
   collection,
   getDocs,
   query,
+  where,
   orderBy,
 } from "firebase/firestore";
 
@@ -14,40 +15,26 @@ import styles from "./NewsListing.module.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-/* =====================================================
-   NEWS TYPE
-===================================================== */
+export const dynamic = "force-dynamic";
 
 type NewsItem = {
   id: string;
-
   title: string;
-
   slug: string;
-
   category?: string;
-
   description: string;
-
   bannerImage: string;
-
   author?: {
     name: string;
     role: string;
     image: string;
   };
-
   publishedAt?: {
     seconds: number;
     nanoseconds: number;
   } | null;
-
   status?: string;
 };
-
-/* =====================================================
-   FORMAT DATE
-===================================================== */
 
 function formatDate(
   timestamp?: NewsItem["publishedAt"]
@@ -57,37 +44,26 @@ function formatDate(
   }
 
   try {
-    const date = new Date(
-      timestamp.seconds * 1000
-    );
-
-    return date.toLocaleDateString(
-      "en-GB",
-      {
+    if (typeof timestamp.seconds === "number") {
+      return new Date(
+        timestamp.seconds * 1000
+      ).toLocaleDateString("en-GB", {
         year: "numeric",
         month: "long",
         day: "numeric",
-      }
-    );
+      });
+    }
   } catch (error) {
     console.error(
       "Date formatting error:",
       error
     );
-
-    return "";
   }
+
+  return "";
 }
 
-/* =====================================================
-   NEWS LISTING PAGE
-===================================================== */
-
 export default async function NewsPage() {
-  /* =====================================================
-     GET PUBLISHED NEWS
-  ===================================================== */
-
   let news: NewsItem[] = [];
 
   try {
@@ -96,7 +72,11 @@ export default async function NewsPage() {
         firestore,
         "newsUpdates"
       ),
-
+      where(
+        "status",
+        "==",
+        "published"
+      ),
       orderBy(
         "publishedAt",
         "desc"
@@ -107,7 +87,6 @@ export default async function NewsPage() {
       await getDocs(newsQuery);
 
     news = snapshot.docs
-
       .map((document) => {
         const data =
           document.data();
@@ -152,19 +131,22 @@ export default async function NewsPage() {
               ? {
                   name:
                     typeof data.author
-                      .name === "string"
+                      .name ===
+                    "string"
                       ? data.author.name
                       : "",
 
                   role:
                     typeof data.author
-                      .role === "string"
+                      .role ===
+                    "string"
                       ? data.author.role
                       : "",
 
                   image:
                     typeof data.author
-                      .image === "string"
+                      .image ===
+                    "string"
                       ? data.author.image
                       : "",
                 }
@@ -173,15 +155,21 @@ export default async function NewsPage() {
           publishedAt:
             data.publishedAt &&
             typeof data.publishedAt
-              .seconds === "number"
+              .seconds ===
+              "number"
               ? {
                   seconds:
                     data.publishedAt
                       .seconds,
 
                   nanoseconds:
-                    data.publishedAt
-                      .nanoseconds || 0,
+                    typeof data
+                      .publishedAt
+                      .nanoseconds ===
+                    "number"
+                      ? data.publishedAt
+                          .nanoseconds
+                      : 0,
                 }
               : null,
 
@@ -192,15 +180,8 @@ export default async function NewsPage() {
               : "",
         };
       })
-
-      /* =================================================
-         ONLY PUBLISHED ARTICLES
-      ================================================= */
-
       .filter(
         (article) =>
-          article.status ===
-            "published" &&
           article.slug &&
           article.title
       );
@@ -211,28 +192,15 @@ export default async function NewsPage() {
     );
   }
 
-  /* =====================================================
-     PAGE
-  ===================================================== */
-
   return (
-    <main className={styles.page}>
-
-      {/* =================================================
-          NAVBAR
-      ================================================= */}
-
+    <main
+      className={styles.page}
+    >
       <Navbar />
-
-
-      {/* =================================================
-          HEADER
-      ================================================= */}
 
       <section
         className={styles.header}
       >
-
         <p
           className={
             styles.eyebrow
@@ -241,11 +209,9 @@ export default async function NewsPage() {
           Zannya Africa Foundation
         </p>
 
-
         <h1>
           News & Updates
         </h1>
-
 
         <p
           className={
@@ -257,32 +223,19 @@ export default async function NewsPage() {
           updates from Zannya Africa
           Foundation.
         </p>
-
       </section>
-
-
-      {/* =================================================
-          NEWS SECTION
-      ================================================= */}
 
       <section
         className={
           styles.newsSection
         }
       >
-
         {news.length === 0 ? (
-
-          /* =================================================
-             EMPTY STATE
-          ================================================= */
-
           <div
             className={
               styles.emptyState
             }
           >
-
             <h2>
               No news articles
               available
@@ -292,74 +245,45 @@ export default async function NewsPage() {
               New stories and updates
               will appear here soon.
             </p>
-
           </div>
-
         ) : (
-
-          /* =================================================
-             NEWS GRID
-          ================================================= */
-
           <div
             className={
               styles.newsGrid
             }
           >
-
             {news.map((item) => (
-
               <article
                 key={item.id}
                 className={
                   styles.card
                 }
               >
-
-                {/* =================================================
-                    IMAGE
-                ================================================= */}
-
                 {item.bannerImage && (
-
                   <Link
                     href={`/news/${item.slug}`}
                     className={
                       styles.imageLink
                     }
                   >
-
                     <img
                       src={
                         item.bannerImage
                       }
-                      alt={
-                        item.title
-                      }
+                      alt={item.title}
                       className={
                         styles.image
                       }
                     />
-
                   </Link>
-
                 )}
-
-
-                {/* =================================================
-                    CARD CONTENT
-                ================================================= */}
 
                 <div
                   className={
                     styles.cardContent
                   }
                 >
-
-                  {/* CATEGORY */}
-
                   {item.category && (
-
                     <span
                       className={
                         styles.category
@@ -367,14 +291,9 @@ export default async function NewsPage() {
                     >
                       {item.category}
                     </span>
-
                   )}
 
-
-                  {/* DATE */}
-
                   {item.publishedAt && (
-
                     <p
                       className={
                         styles.date
@@ -384,14 +303,9 @@ export default async function NewsPage() {
                         item.publishedAt
                       )}
                     </p>
-
                   )}
 
-
-                  {/* TITLE */}
-
                   <h2>
-
                     <Link
                       href={`/news/${item.slug}`}
                       className={
@@ -400,20 +314,14 @@ export default async function NewsPage() {
                     >
                       {item.title}
                     </Link>
-
                   </h2>
 
-
-                  {/* DESCRIPTION */}
-
                   {item.description && (
-
                     <p
                       className={
                         styles.description
                       }
                     >
-
                       {item.description
                         .replace(
                           /\s+/g,
@@ -425,79 +333,59 @@ export default async function NewsPage() {
                         )}
 
                       {item.description
-                        .length > 180 &&
+                        .length >
+                        180 &&
                         "..."}
-
                     </p>
-
                   )}
-
-
-                  {/* =================================================
-                      AUTHOR
-                  ================================================= */}
 
                   {item.author &&
-                    item.author.name && (
-
-                    <div
-                      className={
-                        styles.author
-                      }
-                    >
-
-                      {item.author
-                        .image && (
-
-                        <img
-                          src={
-                            item.author
-                              .image
-                          }
-                          alt={
-                            item.author
-                              .name
-                          }
-                          className={
-                            styles.authorImage
-                          }
-                        />
-
-                      )}
-
-
-                      <div>
-
-                        <strong>
-                          {
-                            item.author
-                              .name
-                          }
-                        </strong>
-
-
+                    item.author
+                      .name && (
+                      <div
+                        className={
+                          styles.author
+                        }
+                      >
                         {item.author
-                          .role && (
-
-                          <span>
-                            {
+                          .image && (
+                          <img
+                            src={
                               item.author
-                                .role
+                                .image
                             }
-                          </span>
-
+                            alt={
+                              item.author
+                                .name
+                            }
+                            className={
+                              styles.authorImage
+                            }
+                          />
                         )}
 
+                        <div>
+                          <strong>
+                            {
+                              item
+                                .author
+                                .name
+                            }
+                          </strong>
+
+                          {item.author
+                            .role && (
+                            <span>
+                              {
+                                item
+                                  .author
+                                  .role
+                              }
+                            </span>
+                          )}
+                        </div>
                       </div>
-
-                    </div>
-
-                  )}
-
-
-                  {/* =================================================
-                      READ MORE
-                  ================================================= */}
+                    )}
 
                   <Link
                     href={`/news/${item.slug}`}
@@ -505,34 +393,20 @@ export default async function NewsPage() {
                       styles.readMore
                     }
                   >
-
                     Read Full Story
 
                     <span>
                       →
                     </span>
-
                   </Link>
-
                 </div>
-
               </article>
-
             ))}
-
           </div>
-
         )}
-
       </section>
 
-
-      {/* =================================================
-          FOOTER
-      ================================================= */}
-
       <Footer />
-
     </main>
   );
 }

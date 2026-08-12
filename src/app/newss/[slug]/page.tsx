@@ -3,6 +3,7 @@ import {
   getDocs,
   query,
   where,
+  orderBy,
   limit,
 } from "firebase/firestore";
 
@@ -15,9 +16,7 @@ import Footer from "../../components/Footer";
 
 import styles from "./NewsArticle.module.css";
 
-/* =========================================================
-   NEWS TYPE
-========================================================= */
+export const dynamic = "force-dynamic";
 
 type Author = {
   name?: string;
@@ -27,27 +26,15 @@ type Author = {
 
 type NewsItem = {
   id: string;
-
   title: string;
-
   slug: string;
-
   category?: string;
-
   description?: string;
-
   bannerImage?: string;
-
   author?: Author;
-
   publishedAt?: any;
-
   status?: string;
 };
-
-/* =========================================================
-   FORMAT DATE
-========================================================= */
 
 function formatDate(date: any): string {
   if (!date) {
@@ -55,10 +42,13 @@ function formatDate(date: any): string {
   }
 
   try {
-    /* Firestore Timestamp */
-
-    if (date?.seconds) {
-      return new Date(date.seconds * 1000).toLocaleDateString(
+    if (
+      typeof date.seconds ===
+      "number"
+    ) {
+      return new Date(
+        date.seconds * 1000
+      ).toLocaleDateString(
         "en-GB",
         {
           day: "numeric",
@@ -67,8 +57,6 @@ function formatDate(date: any): string {
         }
       );
     }
-
-    /* JavaScript Date */
 
     if (date instanceof Date) {
       return date.toLocaleDateString(
@@ -81,12 +69,18 @@ function formatDate(date: any): string {
       );
     }
 
-    /* String date */
+    if (
+      typeof date ===
+      "string"
+    ) {
+      const parsedDate =
+        new Date(date);
 
-    if (typeof date === "string") {
-      const parsedDate = new Date(date);
-
-      if (!isNaN(parsedDate.getTime())) {
+      if (
+        !isNaN(
+          parsedDate.getTime()
+        )
+      ) {
         return parsedDate.toLocaleDateString(
           "en-GB",
           {
@@ -107,40 +101,54 @@ function formatDate(date: any): string {
   return "";
 }
 
-/* =========================================================
-   GET NEWS BY SLUG
-========================================================= */
-
 async function getNewsBySlug(
   slug: string
 ): Promise<NewsItem | null> {
   try {
     const newsQuery = query(
-      collection(firestore, "newsUpdates"),
-      where("slug", "==", slug),
+      collection(
+        firestore,
+        "newsUpdates"
+      ),
+      where(
+        "slug",
+        "==",
+        slug
+      ),
+      where(
+        "status",
+        "==",
+        "published"
+      ),
       limit(1)
     );
 
-    const snapshot = await getDocs(
-      newsQuery
-    );
+    const snapshot =
+      await getDocs(
+        newsQuery
+      );
 
     if (snapshot.empty) {
       return null;
     }
 
-    const document = snapshot.docs[0];
+    const document =
+      snapshot.docs[0];
 
-    const data = document.data();
+    const data =
+      document.data();
 
     return {
       id: document.id,
 
-      title: data.title || "",
+      title:
+        data.title || "",
 
-      slug: data.slug || "",
+      slug:
+        data.slug || "",
 
-      category: data.category || "",
+      category:
+        data.category || "",
 
       description:
         data.description || "",
@@ -150,17 +158,21 @@ async function getNewsBySlug(
 
       author: {
         name:
-          data.author?.name || "",
+          data.author?.name ||
+          "",
 
         role:
-          data.author?.role || "",
+          data.author?.role ||
+          "",
 
         image:
-          data.author?.image || "",
+          data.author?.image ||
+          "",
       },
 
       publishedAt:
-        data.publishedAt || null,
+        data.publishedAt ||
+        null,
 
       status:
         data.status || "",
@@ -175,105 +187,213 @@ async function getNewsBySlug(
   }
 }
 
-/* =========================================================
-   GET RELATED NEWS
-========================================================= */
-
 async function getRelatedNews(
   currentId: string,
   currentCategory?: string
 ): Promise<NewsItem[]> {
   try {
-    const snapshot = await getDocs(
-      collection(
-        firestore,
-        "newsUpdates"
-      )
-    );
-
-    const allNews: NewsItem[] =
-      snapshot.docs.map(
-        (document) => {
-          const data =
-            document.data();
-
-          return {
-            id: document.id,
-
-            title:
-              data.title || "",
-
-            slug:
-              data.slug || "",
-
-            category:
-              data.category || "",
-
-            description:
-              data.description || "",
-
-            bannerImage:
-              data.bannerImage || "",
-
-            author: {
-              name:
-                data.author?.name ||
-                "",
-
-              role:
-                data.author?.role ||
-                "",
-
-              image:
-                data.author?.image ||
-                "",
-            },
-
-            publishedAt:
-              data.publishedAt ||
-              null,
-
-            status:
-              data.status || "",
-          };
-        }
-      );
-
-    /* Remove current article */
-
-    const otherNews =
-      allNews.filter(
-        (item) =>
-          item.id !== currentId &&
-          item.slug &&
-          item.status === "published"
-      );
-
-    /* Same category first */
-
-    const sameCategory =
+    const newsQuery =
       currentCategory
-        ? otherNews.filter(
-            (item) =>
-              item.category ===
+        ? query(
+            collection(
+              firestore,
+              "newsUpdates"
+            ),
+            where(
+              "status",
+              "==",
+              "published"
+            ),
+            where(
+              "category",
+              "==",
               currentCategory
+            ),
+            orderBy(
+              "publishedAt",
+              "desc"
+            ),
+            limit(4)
           )
-        : [];
+        : query(
+            collection(
+              firestore,
+              "newsUpdates"
+            ),
+            where(
+              "status",
+              "==",
+              "published"
+            ),
+            orderBy(
+              "publishedAt",
+              "desc"
+            ),
+            limit(4)
+          );
 
-    /* Other categories */
-
-    const differentCategory =
-      otherNews.filter(
-        (item) =>
-          item.category !==
-          currentCategory
+    const snapshot =
+      await getDocs(
+        newsQuery
       );
 
-    /* Return maximum 3 */
+    const related =
+      snapshot.docs
+        .map(
+          (document) => {
+            const data =
+              document.data();
+
+            return {
+              id: document.id,
+
+              title:
+                data.title || "",
+
+              slug:
+                data.slug || "",
+
+              category:
+                data.category ||
+                "",
+
+              description:
+                data.description ||
+                "",
+
+              bannerImage:
+                data.bannerImage ||
+                "",
+
+              author: {
+                name:
+                  data.author
+                    ?.name || "",
+
+                role:
+                  data.author
+                    ?.role || "",
+
+                image:
+                  data.author
+                    ?.image || "",
+              },
+
+              publishedAt:
+                data.publishedAt ||
+                null,
+
+              status:
+                data.status || "",
+            };
+          }
+        )
+        .filter(
+          (item) =>
+            item.id !==
+              currentId &&
+            item.slug
+        );
+
+    if (
+      related.length >=
+      3
+    ) {
+      return related.slice(
+        0,
+        3
+      );
+    }
+
+    const allPublishedQuery =
+      query(
+        collection(
+          firestore,
+          "newsUpdates"
+        ),
+        where(
+          "status",
+          "==",
+          "published"
+        ),
+        orderBy(
+          "publishedAt",
+          "desc"
+        ),
+        limit(10)
+      );
+
+    const allSnapshot =
+      await getDocs(
+        allPublishedQuery
+      );
+
+    const additional =
+      allSnapshot.docs
+        .map(
+          (document) => {
+            const data =
+              document.data();
+
+            return {
+              id: document.id,
+
+              title:
+                data.title || "",
+
+              slug:
+                data.slug || "",
+
+              category:
+                data.category ||
+                "",
+
+              description:
+                data.description ||
+                "",
+
+              bannerImage:
+                data.bannerImage ||
+                "",
+
+              author: {
+                name:
+                  data.author
+                    ?.name || "",
+
+                role:
+                  data.author
+                    ?.role || "",
+
+                image:
+                  data.author
+                    ?.image || "",
+              },
+
+              publishedAt:
+                data.publishedAt ||
+                null,
+
+              status:
+                data.status || "",
+            };
+          }
+        )
+        .filter(
+          (item) =>
+            item.id !==
+              currentId &&
+            item.slug &&
+            !related.some(
+              (existing) =>
+                existing.id ===
+                item.id
+            )
+        );
 
     return [
-      ...sameCategory,
-      ...differentCategory,
+      ...related,
+      ...additional,
     ].slice(0, 3);
   } catch (error) {
     console.error(
@@ -285,10 +405,6 @@ async function getRelatedNews(
   }
 }
 
-/* =========================================================
-   PAGE
-========================================================= */
-
 export default async function NewsArticlePage({
   params,
 }: {
@@ -296,27 +412,17 @@ export default async function NewsArticlePage({
     slug: string;
   }>;
 }) {
-  const { slug } = await params;
-
-  /* =======================================================
-     FIND ARTICLE
-  ======================================================= */
+  const { slug } =
+    await params;
 
   const news =
-    await getNewsBySlug(slug);
-
-  /*
-   * If article does not exist,
-   * show Next.js 404 page.
-   */
+    await getNewsBySlug(
+      slug
+    );
 
   if (!news) {
     notFound();
   }
-
-  /* =======================================================
-     RELATED NEWS
-  ======================================================= */
 
   const relatedNews =
     await getRelatedNews(
@@ -324,100 +430,71 @@ export default async function NewsArticlePage({
       news.category
     );
 
-  /* =======================================================
-     PUBLICATION DATE
-  ======================================================= */
-
   const publicationDate =
-    news.publishedAt || null;
-
-  /* =======================================================
-     AUTHOR INFORMATION
-  ======================================================= */
+    news.publishedAt ||
+    null;
 
   const authorName =
-    news.author?.name || "";
+    news.author?.name ||
+    "";
 
   const authorRole =
-    news.author?.role || "";
+    news.author?.role ||
+    "";
 
   const authorImage =
-    news.author?.image || "";
-
-  /* =======================================================
-     ARTICLE CONTENT
-  ======================================================= */
+    news.author?.image ||
+    "";
 
   const articleContent =
     news.description || "";
 
-  /* =======================================================
-     RETURN PAGE
-  ======================================================= */
-
   return (
-    <main className={styles.page}>
-
-      {/* =================================================
-          NAVBAR
-      ================================================= */}
-
+    <main
+      className={
+        styles.page
+      }
+    >
       <Navbar />
 
-      {/* =================================================
-          ARTICLE BANNER
-      ================================================= */}
-
       <section
-        className={styles.articleHero}
+        className={
+          styles.articleHero
+        }
       >
-
         {news.bannerImage ? (
-
           <img
-            src={news.bannerImage}
+            src={
+              news.bannerImage
+            }
             alt={news.title}
             className={
               styles.bannerImage
             }
           />
-
         ) : (
-
           <div
             className={
               styles.noBanner
             }
           >
-            Zannya Africa Foundation
+            Zannya Africa
+            Foundation
           </div>
-
         )}
-
       </section>
-
-      {/* =================================================
-          ARTICLE CONTAINER
-      ================================================= */}
 
       <div
         className={
           styles.articleContainer
         }
       >
-
-        {/* =================================================
-            MAIN ARTICLE
-        ================================================= */}
-
         <article
-          className={styles.article}
+          className={
+            styles.article
+          }
         >
-
-          {/* CATEGORY */}
-
           {news.category && (
-
             <div
               className={
                 styles.category
@@ -425,35 +502,31 @@ export default async function NewsArticlePage({
             >
               {news.category}
             </div>
-
           )}
 
-          {/* TITLE */}
-
           <h1
-            className={styles.title}
+            className={
+              styles.title
+            }
           >
             {news.title}
           </h1>
 
-          {/* DESCRIPTION / INTRODUCTION */}
-
           {articleContent && (
-
             <div
               className={
                 styles.content
               }
             >
-
               {articleContent
-                .split(/\n\s*\n/)
+                .split(
+                  /\n\s*\n/
+                )
                 .map(
                   (
                     paragraph,
                     index
                   ) => {
-
                     if (
                       !paragraph.trim()
                     ) {
@@ -462,71 +535,59 @@ export default async function NewsArticlePage({
 
                     return (
                       <p
-                        key={index}
+                        key={
+                          index
+                        }
                       >
                         {paragraph.trim()}
                       </p>
                     );
                   }
                 )}
-
             </div>
-
           )}
 
-          {/* =================================================
-              META
-          ================================================= */}
-
           <div
-            className={styles.meta}
+            className={
+              styles.meta
+            }
           >
-
             {publicationDate && (
-
               <span>
                 📅{" "}
                 {formatDate(
                   publicationDate
                 )}
               </span>
-
             )}
 
             {authorName && (
-
               <span>
-                By {authorName}
+                By{" "}
+                {authorName}
               </span>
-
             )}
-
           </div>
 
-          {/* =================================================
-              AUTHOR
-          ================================================= */}
-
           {authorName && (
-
             <div
               className={
                 styles.authorSection
               }
             >
-
               {authorImage ? (
-
                 <img
-                  src={authorImage}
-                  alt={authorName}
+                  src={
+                    authorImage
+                  }
+                  alt={
+                    authorName
+                  }
                   className={
                     styles.authorImage
                   }
                 />
-
               ) : (
-
                 <div
                   className={
                     styles.authorPlaceholder
@@ -536,11 +597,9 @@ export default async function NewsArticlePage({
                     .charAt(0)
                     .toUpperCase()}
                 </div>
-
               )}
 
               <div>
-
                 <p
                   className={
                     styles.authorLabel
@@ -558,7 +617,6 @@ export default async function NewsArticlePage({
                 </h3>
 
                 {authorRole && (
-
                   <p
                     style={{
                       margin:
@@ -571,25 +629,17 @@ export default async function NewsArticlePage({
                   >
                     {authorRole}
                   </p>
-
                 )}
-
               </div>
-
             </div>
-
           )}
-
         </article>
 
-        {/* =================================================
-            SIDEBAR
-        ================================================= */}
-
         <aside
-          className={styles.sidebar}
+          className={
+            styles.sidebar
+          }
         >
-
           <h2
             className={
               styles.sidebarTitle
@@ -600,88 +650,70 @@ export default async function NewsArticlePage({
 
           {relatedNews.length >
           0 ? (
-
             relatedNews.map(
-              (item) => {
+              (item) => (
+                <a
+                  key={
+                    item.id
+                  }
+                  href={`/news/${item.slug}`}
+                  className={
+                    styles.relatedCard
+                  }
+                >
+                  {item.bannerImage && (
+                    <img
+                      src={
+                        item.bannerImage
+                      }
+                      alt={
+                        item.title
+                      }
+                      className={
+                        styles.relatedImage
+                      }
+                    />
+                  )}
 
-                return (
-
-                  <a
-                    key={item.id}
-                    href={`/news/${item.slug}`}
+                  <div
                     className={
-                      styles.relatedCard
+                      styles.relatedContent
                     }
                   >
-
-                    {/* IMAGE */}
-
-                    {item.bannerImage && (
-
-                      <img
-                        src={
-                          item.bannerImage
-                        }
-                        alt={
-                          item.title
-                        }
-                        className={
-                          styles.relatedImage
-                        }
-                      />
-
-                    )}
-
-                    {/* CONTENT */}
-
-                    <div
-                      className={
-                        styles.relatedContent
-                      }
-                    >
-
-                      {item.category && (
-
-                        <span
-                          className={
-                            styles.relatedCategory
-                          }
-                        >
-                          {
-                            item.category
-                          }
-                        </span>
-
-                      )}
-
-                      <h3
-                        className={
-                          styles.relatedTitle
-                        }
-                      >
-                        {item.title}
-                      </h3>
-
+                    {item.category && (
                       <span
                         className={
-                          styles.relatedDate
+                          styles.relatedCategory
                         }
                       >
-                        {formatDate(
-                          item.publishedAt
-                        )}
+                        {
+                          item.category
+                        }
                       </span>
+                    )}
 
-                    </div>
+                    <h3
+                      className={
+                        styles.relatedTitle
+                      }
+                    >
+                      {item.title}
+                    </h3>
 
-                  </a>
-
-                );
-              }
+                    <span
+                      className={
+                        styles.relatedDate
+                      }
+                    >
+                      {formatDate(
+                        item.publishedAt
+                      )}
+                    </span>
+                  </div>
+                </a>
+              )
             )
-
           ) : (
-
             <p
               className={
                 styles.noRelated
@@ -690,19 +722,11 @@ export default async function NewsArticlePage({
               No related news
               available.
             </p>
-
           )}
-
         </aside>
-
       </div>
 
-      {/* =================================================
-          FOOTER
-      ================================================= */}
-
       <Footer />
-
     </main>
   );
 }
