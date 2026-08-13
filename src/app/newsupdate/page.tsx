@@ -354,7 +354,7 @@ return (
               <h3 className={styles.articleTitle}>
 
                 <Link
-                  href={`/articles/${article.slug}`}
+                  href={`/more news/${article.slug}`}
                 >
                   {article.title}
                 </Link>
@@ -418,7 +418,7 @@ return (
               {/* READ ARTICLE */}
 
               <Link
-                href={`/articles/${article.slug}`}
+                href={`/more news/${article.slug}`}
                 className={styles.readMore}
               >
                 Read Article
