@@ -605,7 +605,7 @@ export default async function ArticlePage({
 
                 <Link
                   key={related.id}
-                  href={`/more news/${related.slug}`}
+                  href={`/newss/${related.slug}`}
                   className={styles.relatedCard}
                 >
 

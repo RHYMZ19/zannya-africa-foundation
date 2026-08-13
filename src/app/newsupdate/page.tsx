@@ -303,7 +303,7 @@ return (
             {article.bannerImage && (
 
               <Link
-                href={`/more news/${article.slug}`}
+                href={`/newss/${article.slug}`}
                 className={styles.imageLink}
               >
 
@@ -354,7 +354,7 @@ return (
               <h3 className={styles.articleTitle}>
 
                 <Link
-                  href={`/more news/${article.slug}`}
+                  href={`/newss/${article.slug}`}
                 >
                   {article.title}
                 </Link>
@@ -418,7 +418,7 @@ return (
               {/* READ ARTICLE */}
 
               <Link
-                href={`/more news/${article.slug}`}
+                href={`/newss/${article.slug}`}
                 className={styles.readMore}
               >
                 Read Article
