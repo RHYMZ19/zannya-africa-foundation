@@ -127,7 +127,7 @@ collection(db, "more news")
 
     setArticles(publishedArticles);
   } catch (error) {
-    console.error("Error loading articles:", error);
+    console.error("Error loading news:", error);
   } finally {
     setLoading(false);
   }
@@ -239,11 +239,11 @@ return (
       </p>
 
       <h1>
-        Articles & Stories
+        News & Blogs
       </h1>
 
       <p>
-        Explore stories, insights, research and experiences
+        Read news, blogs, research and experiences
         from our work with communities across Africa.
       </p>
 
@@ -259,15 +259,15 @@ return (
     <div className={styles.sectionHeader}>
 
       <p className={styles.sectionLabel}>
-        OUR STORIES
+        News
       </p>
 
       <h2>
-        Latest Articles
+        Latest News 
       </h2>
 
       <p>
-        Discover our latest stories, ideas and updates.
+        Discover our latest news, ideas and updates.
       </p>
 
     </div>
@@ -278,11 +278,11 @@ return (
       <div className={styles.emptyState}>
 
         <h3>
-          No articles available
+          No news available
         </h3>
 
         <p>
-          New articles will appear here once they are published.
+          New news will appear here once they are published.
         </p>
 
       </div>
@@ -421,7 +421,7 @@ return (
                 href={`/newss/${article.slug}`}
                 className={styles.readMore}
               >
-                Read Article
+                Read News
                 <span>→</span>
               </Link>
 

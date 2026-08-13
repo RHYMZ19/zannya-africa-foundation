@@ -589,11 +589,11 @@ export default async function ArticlePage({
             <div className={styles.relatedHeader}>
 
               <h2>
-                Related Articles
+                Related News
               </h2>
 
               <Link href="/weekly-newsletter">
-                View all articles →
+                View all news →
               </Link>
 
             </div>
