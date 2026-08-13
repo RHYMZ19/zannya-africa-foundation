@@ -396,7 +396,7 @@ export default function MainPage() {
         />
         <div className={styles.cardContent}>
           <h3>News & Updates</h3>
-          <Link href="/NewsSection" className={styles.cardLink}>
+          <Link href="/newsupdate" className={styles.cardLink}>
             <span>View More</span>
             <div className={styles.arrowCircle}>→</div>
           </Link>
@@ -414,7 +414,7 @@ export default function MainPage() {
         />
         <div className={styles.cardContent}>
           <h3>Upcoming Events</h3>
-          <a href="/newsupdate" className={styles.cardLink}>
+          <a href="/NewsSection" className={styles.cardLink}>
             <span>View More</span>
             <div className={styles.arrowCircle}>→</div>
           </a>
