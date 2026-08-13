@@ -670,3 +670,88 @@
   background: #000;
   object-fit: contain;
 }
+
+/* ================= DELETE ARTICLE BUTTON ================= */
+/* ================= EXISTING ARTICLES ================= */
+
+.loadArticlesButton {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 7px;
+  background: #0b3c5d;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loadArticlesButton:hover {
+  opacity: 0.9;
+}
+
+.loadArticlesButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.existingArticles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.existingArticle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 16px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.existingArticleInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.existingArticleInfo strong {
+  color: #0b3c5d;
+}
+
+.existingArticleInfo span {
+  color: #777;
+  font-size: 14px;
+}
+
+.deleteArticleButton {
+  border: none;
+  border-radius: 7px;
+  padding: 9px 14px;
+  background: #dc3545;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.deleteArticleButton:hover {
+  opacity: 0.85;
+}
+
+.deleteArticleButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .existingArticle {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .deleteArticleButton {
+    width: 100%;
+  }
+}

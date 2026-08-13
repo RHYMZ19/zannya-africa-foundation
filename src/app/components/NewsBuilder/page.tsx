@@ -9,6 +9,8 @@ import {
   query,
   where,
   serverTimestamp,
+  deleteDoc,
+  doc,
 } from "firebase/firestore";
 import styles from "./NewsBuilder.module.css";
 import CloudinaryUploader from "../../CloudinaryUploader";
@@ -59,6 +61,17 @@ type ContentBlock =
       id: string;
       type: "divider";
     };
+    
+    type ExistingArticle = {
+  id: string;
+  title: string;
+  slug: string;
+  category?: string | null;
+  publishedAt?: {
+    seconds: number;
+    nanoseconds: number;
+  } | null;
+};
 
     /* ================= CREATE ARTICLE SLUG ================= */
 
@@ -106,6 +119,9 @@ export default function NewsBuilder() {
   const [editingBlockId, setEditingBlockId] = useState<string | null>(null);
   const [showPreview, setShowPreview] = useState(false);
   const [publishing, setPublishing] = useState(false);
+  const [existingArticles, setExistingArticles] = useState<ExistingArticle[]>([]);
+  const [loadingArticles, setLoadingArticles] = useState(false);
+  const [deletingArticleId, setDeletingArticleId] = useState<string | null>(null);
 
   const [author, setAuthor] = useState<Author>({
     name: "",
@@ -154,6 +170,77 @@ export default function NewsBuilder() {
 
   const [statisticNumber, setStatisticNumber] = useState("");
   const [statisticLabel, setStatisticLabel] = useState("");
+
+  /* ================= FETCH EXISTING ARTICLES ================= */
+  const loadExistingArticles = async () => {
+  setLoadingArticles(true);
+
+  try {
+    const snapshot = await getDocs(
+      collection(db, "more news")
+    );
+
+    const articles: ExistingArticle[] = snapshot.docs.map((document) => {
+      const data = document.data();
+
+      return {
+        id: document.id,
+        title: data.title || "",
+        slug: data.slug || "",
+        category: data.category || null,
+        publishedAt: data.publishedAt || null,
+      };
+    });
+
+    articles.sort((a, b) => {
+      const dateA = a.publishedAt?.seconds || 0;
+      const dateB = b.publishedAt?.seconds || 0;
+
+      return dateB - dateA;
+    });
+
+    setExistingArticles(articles);
+
+  } catch (error) {
+    console.error("Error loading articles:", error);
+    alert("Failed to load existing articles.");
+  } finally {
+    setLoadingArticles(false);
+  }
+};
+
+ /* ================= DELETE ARTICLE ================= */
+ const deleteArticle = async (article: ExistingArticle) => {
+  const confirmed = window.confirm(
+    `Are you sure you want to delete "${article.title}"?\n\nThis will permanently remove the article from the website.`
+  );
+
+  if (!confirmed) {
+    return;
+  }
+
+  setDeletingArticleId(article.id);
+
+  try {
+    await deleteDoc(
+      doc(db, "more news", article.id)
+    );
+
+    setExistingArticles((previous) =>
+      previous.filter(
+        (item) => item.id !== article.id
+      )
+    );
+
+    alert("Article deleted successfully.");
+
+  } catch (error) {
+    console.error("Error deleting article:", error);
+    alert("Failed to delete article.");
+  } finally {
+    setDeletingArticleId(null);
+  }
+};
   
 
 
@@ -1341,6 +1428,76 @@ const publishArticle = async () => {
           )}
 
         </section>
+
+        {/* ================= EXISTING ARTICLES ================= */}
+        <section className={styles.card}>
+
+  <h2>
+    Manage Existing Articles
+  </h2>
+
+  <p className={styles.helperText}>
+    View and delete articles that have already been published.
+  </p>
+
+  <button
+    type="button"
+    className={styles.loadArticlesButton}
+    onClick={loadExistingArticles}
+    disabled={loadingArticles}
+  >
+    {loadingArticles
+      ? "Loading Articles..."
+      : "Load Existing Articles"}
+  </button>
+
+
+  {existingArticles.length > 0 && (
+
+    <div className={styles.existingArticles}>
+
+      {existingArticles.map((article) => (
+
+        <div
+          key={article.id}
+          className={styles.existingArticle}
+        >
+
+          <div className={styles.existingArticleInfo}>
+
+            <strong>
+              {article.title}
+            </strong>
+
+            {article.category && (
+              <span>
+                {article.category}
+              </span>
+            )}
+
+          </div>
+
+
+          <button
+            type="button"
+            className={styles.deleteArticleButton}
+            onClick={() => deleteArticle(article)}
+            disabled={deletingArticleId === article.id}
+          >
+            {deletingArticleId === article.id
+              ? "Deleting..."
+              : "Delete Article"}
+          </button>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  )}
+
+</section>
 
         {/* ================= ARTICLE ACTIONS ================= */}
 
