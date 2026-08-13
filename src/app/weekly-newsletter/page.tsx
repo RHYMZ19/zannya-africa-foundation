@@ -238,7 +238,7 @@ return (
 
       <p>
         Explore stories, insights, research and experiences
-        from our work with communities across Africa.
+        from our work with communities across Uganda.
       </p>
 
     </div>

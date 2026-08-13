@@ -165,7 +165,7 @@ if (loading) {
 return (
 <main className={styles.page}>
 <div className={styles.loading}>
-<p>Loading articles...</p>
+<p>Loading news & blogs...</p>
 </div>
 </main>
 );
@@ -244,7 +244,7 @@ return (
 
       <p>
         Read news, blogs, research and experiences
-        from our work with communities across Africa.
+        from our work with communities across Uganda.
       </p>
 
     </div>
