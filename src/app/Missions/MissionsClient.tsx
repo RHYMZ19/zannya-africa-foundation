@@ -10,6 +10,7 @@ import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import IncreaseImage from "../components/IncreaseImage";
 import styles from "./Missions.module.css";
 import { onSnapshot } from "firebase/firestore";
+import Navbar from "../components/Navbar";
 
 interface Leader {
   id?: string;
@@ -81,6 +82,8 @@ export default function MissionsClient() {
   
   return (
 <div className={styles.page}>
+  <Navbar />
+  
   
   {/* ================= NAVBAR ================= */}
             <nav className={styles.navbar}>
