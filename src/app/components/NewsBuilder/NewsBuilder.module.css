@@ -657,3 +657,16 @@
   }
 
 }
+
+/* ================= VIDEO PREVIEW ================= */
+
+.videoPreview {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  max-height: 500px;
+  margin: 15px auto;
+  border-radius: 10px;
+  background: #000;
+  object-fit: contain;
+}

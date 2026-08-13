@@ -515,3 +515,30 @@
   }
 
 }
+
+/* ================= ARTICLE VIDEO ================= */
+
+.articleVideo {
+  width: 100%;
+  margin: 35px 0;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 700px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: #000;
+  object-fit: contain;
+}
+
+.articleVideo figcaption {
+  margin-top: 10px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+}

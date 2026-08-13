@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import styles from "./NewsListing.module.css";
 
+
 type ContentBlock =
 | {
 id: string;
@@ -20,6 +21,12 @@ text: string;
 | {
 id: string;
 type: "image";
+url: string;
+caption: string;
+}
+| {
+id: string;
+type: "video";
 url: string;
 caption: string;
 }

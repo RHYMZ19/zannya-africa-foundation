@@ -867,3 +867,30 @@
   }
 
 }
+
+/* ================= ARTICLE VIDEO ================= */
+
+.articleVideoBlock {
+  width: 100%;
+  margin: 40px 0;
+}
+
+.articleVideo {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 700px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: #000;
+  object-fit: contain;
+}
+
+.videoCaption {
+  margin-top: 10px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+}

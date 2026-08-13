@@ -23,6 +23,12 @@ type ContentBlock =
     }
   | {
       id: string;
+      type: "video";
+      url: string;
+      caption?: string;
+    }
+  | {
+      id: string;
       type: "quote";
       text: string;
     }
@@ -231,6 +237,33 @@ export default function ArticlePreview({
                       alt={block.caption || "Article image"}
                       width={1200}
                       height={700}
+                    />
+
+                    {block.caption && (
+                      <figcaption>
+                        {block.caption}
+                      </figcaption>
+                    )}
+
+                  </figure>
+                );
+              }
+
+                            /* VIDEO */
+
+              if (block.type === "video") {
+                return (
+                  <figure
+                    key={block.id}
+                    className={styles.articleVideo}
+                  >
+
+                    <video
+                      src={block.url}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className={styles.video}
                     />
 
                     {block.caption && (

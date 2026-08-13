@@ -30,6 +30,12 @@ type ContentBlock =
     }
   | {
       id: string;
+      type: "video";
+      url: string;
+      caption: string;
+    }
+  | {
+      id: string;
       type: "quote";
       text: string;
     }
@@ -404,6 +410,39 @@ export default async function ArticlePage({
 
                     <figcaption
                       className={styles.imageCaption}
+                    >
+                      {block.caption}
+                    </figcaption>
+
+                  )}
+
+                </figure>
+              );
+
+            }
+
+                        /* ---------- VIDEO ---------- */
+
+            if (block.type === "video") {
+
+              return (
+                <figure
+                  key={block.id}
+                  className={styles.articleVideoBlock}
+                >
+
+                  <video
+                    src={block.url}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className={styles.articleVideo}
+                  />
+
+                  {block.caption && (
+
+                    <figcaption
+                      className={styles.videoCaption}
                     >
                       {block.caption}
                     </figcaption>

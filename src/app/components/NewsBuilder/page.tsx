@@ -40,6 +40,12 @@ type ContentBlock =
     }
   | {
       id: string;
+      type: "video";
+      url: string;
+      caption: string;
+    }
+  | {
+      id: string;
       type: "quote";
       text: string;
     }
@@ -64,6 +70,7 @@ const createSlug = (text: string) => {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
 };
+
 
 /* ================= CREATE UNIQUE SLUG ================= */
 
@@ -115,6 +122,7 @@ export default function NewsBuilder() {
     "paragraph" |
     "heading" |
     "image" |
+    "video" |
     "quote" |
     "statistic" |
     null
@@ -132,6 +140,11 @@ export default function NewsBuilder() {
 
   const [imageUrl, setImageUrl] = useState("");
   const [imageCaption, setImageCaption] = useState("");
+
+    /* Video */
+
+  const [videoUrl, setVideoUrl] = useState("");
+  const [videoCaption, setVideoCaption] = useState("");
 
   /* Quote */
 
@@ -210,6 +223,30 @@ export default function NewsBuilder() {
 
     setImageUrl("");
     setImageCaption("");
+
+    setActiveEditor(null);
+  };
+
+    /* ================= ADD VIDEO ================= */
+
+  const addVideo = () => {
+
+    if (!videoUrl.trim()) {
+      alert("Please upload a video first.");
+      return;
+    }
+
+    const newBlock: ContentBlock = {
+      id: Date.now().toString(),
+      type: "video",
+      url: videoUrl.trim(),
+      caption: videoCaption.trim(),
+    };
+
+    setContent((previous) => [...previous, newBlock]);
+
+    setVideoUrl("");
+    setVideoCaption("");
 
     setActiveEditor(null);
   };
@@ -344,6 +381,11 @@ const startEditingBlock = (block: ContentBlock) => {
     setImageCaption(block.caption);
   }
 
+    if (block.type === "video") {
+    setVideoUrl(block.url);
+    setVideoCaption(block.caption);
+  }
+
   if (block.type === "quote") {
     setQuoteText(block.text);
   }
@@ -395,6 +437,14 @@ const updateBlock = () => {
         };
       }
 
+            if (block.type === "video") {
+        return {
+          ...block,
+          url: videoUrl.trim(),
+          caption: videoCaption.trim(),
+        };
+      }
+
 
       if (block.type === "quote") {
         return {
@@ -434,6 +484,9 @@ const updateBlock = () => {
 
     setImageUrl("");
     setImageCaption("");
+
+    setVideoUrl("");
+    setVideoCaption("");
 
     setQuoteText("");
 
@@ -817,6 +870,13 @@ const publishArticle = async () => {
               + Image
             </button>
 
+            <button
+              type="button"
+              onClick={() => setActiveEditor("video")}
+            >
+              + Video
+            </button>
+
 
             <button
               type="button"
@@ -1033,6 +1093,116 @@ const publishArticle = async () => {
 >
   {editingBlockId ? "Update Image" : "Add Image"}
 </button>
+
+
+                <button
+                  type="button"
+                  className={styles.cancelButton}
+                  onClick={cancelEditor}
+                >
+                  Cancel
+                </button>
+
+              </div>
+
+            </div>
+
+          )}
+
+                    {/* ================= VIDEO EDITOR ================= */}
+
+          {activeEditor === "video" && (
+
+            <div className={styles.blockEditor}>
+
+              <h3>
+                Add Article Video
+              </h3>
+
+
+              <div className={styles.field}>
+
+                <p className={styles.helperText}>
+                  Upload a video that will appear inside the article.
+                </p>
+
+
+                <CloudinaryUploader
+                  folder="zannya/articles/videos"
+                  category="article-video"
+                  onUploadComplete={(url: string) =>
+                    setVideoUrl(url)
+                  }
+                />
+
+
+                {videoUrl && (
+                  <div className={styles.uploadPreview}>
+
+                    <video
+                      src={videoUrl}
+                      controls
+                      className={styles.videoPreview}
+                    />
+
+                    <button
+                      type="button"
+                      className={styles.removeImageButton}
+                      onClick={() => setVideoUrl("")}
+                    >
+                      Remove Video
+                    </button>
+
+                  </div>
+                )}
+
+              </div>
+
+
+              <div className={styles.field}>
+
+                <label>
+                  Video Caption (Optional)
+                </label>
+
+                <input
+                  type="text"
+                  value={videoCaption}
+                  onChange={(e) =>
+                    setVideoCaption(e.target.value)
+                  }
+                  placeholder="Describe this video..."
+                />
+
+              </div>
+
+
+              {videoUrl && (
+
+                <video
+                  src={videoUrl}
+                  controls
+                  className={styles.videoPreview}
+                />
+
+              )}
+
+
+              <div className={styles.editorActions}>
+
+                <button
+                  type="button"
+                  className={styles.addButton}
+                  onClick={
+                    editingBlockId
+                      ? updateBlock
+                      : addVideo
+                  }
+                >
+                  {editingBlockId
+                    ? "Update Video"
+                    : "Add Video"}
+                </button>
 
 
                 <button
