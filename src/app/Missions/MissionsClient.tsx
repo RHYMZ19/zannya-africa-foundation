@@ -31,6 +31,7 @@ type Resource = {
   pdf: string;
 };
 
+
 export default function MissionsClient() {
   const [leaders, setLeaders] = useState<Leader[]>([]);
   const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);

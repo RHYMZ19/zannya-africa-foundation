@@ -12,6 +12,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
 
+
 type Resource = {
   id: string;
   title: string;
