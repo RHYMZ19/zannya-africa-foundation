@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.6",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^1.2.0",
     "aos": "^2.3.4",
     "cloudinary": "^2.7.0",
