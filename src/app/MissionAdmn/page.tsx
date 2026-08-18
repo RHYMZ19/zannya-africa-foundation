@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../lib/firebase"; // Adjust path as needed
 import styles from "./MissionAdmn.module.css";
 import CloudinaryUploader from "../CloudinaryUploader";
@@ -31,6 +31,7 @@ export default function MissionAdmn() {
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   // Fetch leaders on load
   useEffect(() => {
@@ -71,6 +72,79 @@ export default function MissionAdmn() {
     setLoading(false);
   };
 
+
+  // Edit an existing leader
+const handleEdit = (leader: Leader) => {
+  if (!leader.id) {
+    alert("No ID found for this leader.");
+    return;
+  }
+
+  setEditingId(leader.id);
+
+  setForm({
+    name: leader.name || "",
+    role: leader.role || "",
+    bio: leader.bio || "",
+    img: leader.img || "",
+    linkedin: leader.linkedin || "",
+    twitter: leader.twitter || "",
+    facebook: leader.facebook || "",
+  });
+
+  setMessage("Editing leader...");
+};
+
+
+// Update an existing leader
+const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  if (!editingId) {
+    return;
+  }
+
+  setLoading(true);
+  setMessage("");
+
+  try {
+    await updateDoc(
+      doc(db, "leadership", editingId),
+      {
+        name: form.name,
+        role: form.role,
+        bio: form.bio,
+        img: form.img,
+        linkedin: form.linkedin,
+        twitter: form.twitter,
+        facebook: form.facebook,
+      }
+    );
+
+    setMessage("Leader updated successfully!");
+
+    setForm({
+      name: "",
+      role: "",
+      bio: "",
+      img: "",
+      linkedin: "",
+      twitter: "",
+      facebook: "",
+    });
+
+    setEditingId(null);
+
+    fetchLeaders();
+
+  } catch (error) {
+    console.error("Error updating leader:", error);
+    setMessage("Error updating leader.");
+  }
+
+  setLoading(false);
+};
+
   // ✅ Delete a leader
   const handleDelete = async (id: string) => {
     if (!id) {
@@ -104,7 +178,8 @@ export default function MissionAdmn() {
 
       {message && <p className={styles.message}>{message}</p>}
 
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form
+  onSubmit={editingId ? handleUpdate : handleSubmit}className={styles.form}>
         <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name" required />
         <input name="role" value={form.role} onChange={handleChange} placeholder="Role/Position" required />
         <textarea name="bio" value={form.bio} onChange={handleChange} placeholder="Biography" rows={4} />
@@ -133,7 +208,29 @@ export default function MissionAdmn() {
         <input name="linkedin" value={form.linkedin} onChange={handleChange} placeholder="LinkedIn URL" />
         <input name="twitter" value={form.twitter} onChange={handleChange} placeholder="Twitter URL" />
         <input name="facebook" value={form.facebook} onChange={handleChange} placeholder="Facebook URL" />
-        <button type="submit" disabled={loading}>Add Leader</button>
+        <button type="submit" disabled={loading}>{editingId ? "Update Leader" : "Add Leader"}</button>
+        {editingId && (
+  <button
+    type="button"
+    onClick={() => {
+      setEditingId(null);
+
+      setForm({
+        name: "",
+        role: "",
+        bio: "",
+        img: "",
+        linkedin: "",
+        twitter: "",
+        facebook: "",
+      });
+
+      setMessage("");
+    }}
+  >
+    Cancel Edit
+  </button>
+)}
       </form>
 
       <h2 className={styles.h2}>Existing Leaders</h2>
@@ -146,6 +243,23 @@ export default function MissionAdmn() {
             <div>
               <strong>{leader.name}</strong> — <em>{leader.role}</em>
             </div>
+
+            {/* ✅ Edit button */}
+<button
+  onClick={() => handleEdit(leader)}
+  style={{
+    marginTop: "6px",
+    marginRight: "6px",
+    background: "#444",
+    color: "white",
+    padding: "6px 10px",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",
+  }}
+>
+  Edit
+</button>
             {/* ✅ Delete button */}
             <button
               onClick={() => {
