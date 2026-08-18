@@ -9,6 +9,9 @@ import {
   query,
   where,
   serverTimestamp,
+  deleteDoc,
+  doc,
+  updateDoc,
 } from "firebase/firestore";
 import styles from "./ArticleBuilder.module.css";
 import CloudinaryUploader from "../../CloudinaryUploader";
@@ -53,6 +56,21 @@ type ContentBlock =
       id: string;
       type: "divider";
     };
+    
+    type ExistingArticle = {
+  id: string;
+  title: string;
+  subtitle?: string;
+  slug: string;
+  category?: string | null;
+  bannerImage?: string;
+  author?: Author;
+  content?: ContentBlock[];
+  publishedAt?: {
+    seconds: number;
+    nanoseconds: number;
+  } | null;
+};
 
     /* ================= CREATE ARTICLE SLUG ================= */
 
@@ -100,6 +118,12 @@ export default function ArticleBuilder() {
   const [showPreview, setShowPreview] = useState(false);
   const [publishing, setPublishing] = useState(false);
 
+  const [existingArticles, setExistingArticles] = useState<ExistingArticle[]>([]);
+const [loadingArticles, setLoadingArticles] = useState(false);
+const [deletingArticleId, setDeletingArticleId] = useState<string | null>(null);
+const [editingArticleId, setEditingArticleId] = useState<string | null>(null);
+const [updatingArticle, setUpdatingArticle] = useState(false);
+
   const [author, setAuthor] = useState<Author>({
     name: "",
     role: "",
@@ -141,6 +165,200 @@ export default function ArticleBuilder() {
 
   const [statisticNumber, setStatisticNumber] = useState("");
   const [statisticLabel, setStatisticLabel] = useState("");
+
+
+  /* ================= FETCH EXISTING ARTICLES ================= */
+
+const loadExistingArticles = async () => {
+  setLoadingArticles(true);
+
+  try {
+    const snapshot = await getDocs(
+      collection(db, "articles")
+    );
+
+    const articles: ExistingArticle[] = snapshot.docs.map((document) => {
+      const data = document.data();
+
+      return {
+        id: document.id,
+        title: data.title || "",
+        subtitle: data.subtitle || "",
+        slug: data.slug || "",
+        category: data.category || null,
+        bannerImage: data.bannerImage || "",
+        author: data.author || {
+          name: "",
+          role: "",
+          image: "",
+          bio: "",
+        },
+        content: data.content || [],
+        publishedAt: data.publishedAt || null,
+      };
+    });
+
+    articles.sort((a, b) => {
+      const dateA = a.publishedAt?.seconds || 0;
+      const dateB = b.publishedAt?.seconds || 0;
+
+      return dateB - dateA;
+    });
+
+    setExistingArticles(articles);
+
+  } catch (error) {
+    console.error("Error loading articles:", error);
+    alert("Failed to load existing articles.");
+  } finally {
+    setLoadingArticles(false);
+  }
+};
+
+
+/* ================= DELETE ARTICLE ================= */
+
+const deleteArticle = async (article: ExistingArticle) => {
+  const confirmed = window.confirm(
+    `Are you sure you want to delete "${article.title}"?\n\nThis will permanently remove the article from the website.`
+  );
+
+  if (!confirmed) {
+    return;
+  }
+
+  setDeletingArticleId(article.id);
+
+  try {
+    await deleteDoc(
+      doc(db, "articles", article.id)
+    );
+
+    setExistingArticles((previous) =>
+      previous.filter(
+        (item) => item.id !== article.id
+      )
+    );
+
+    alert("Article deleted successfully.");
+
+  } catch (error) {
+    console.error("Error deleting article:", error);
+    alert("Failed to delete article.");
+  } finally {
+    setDeletingArticleId(null);
+  }
+};
+
+
+/* ================= EDIT EXISTING ARTICLE ================= */
+
+const editArticle = (article: ExistingArticle) => {
+  setEditingArticleId(article.id);
+
+  setTitle(article.title || "");
+  setSubtitle(article.subtitle || "");
+  setCategory(article.category || "");
+
+  setBannerImage(article.bannerImage || "");
+
+  setAuthor(
+    article.author || {
+      name: "",
+      role: "",
+      image: "",
+      bio: "",
+    }
+  );
+
+  setContent(article.content || []);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+
+
+/* ================= UPDATE EXISTING ARTICLE ================= */
+
+const updateArticle = async () => {
+  if (!editingArticleId) {
+    return;
+  }
+
+  if (!title.trim()) {
+    alert("Please enter an article title.");
+    return;
+  }
+
+  if (!subtitle.trim()) {
+    alert("Please enter a short subtitle.");
+    return;
+  }
+
+  if (!bannerImage) {
+    alert("Please upload a banner image.");
+    return;
+  }
+
+  if (!author.name.trim()) {
+    alert("Please enter the author name.");
+    return;
+  }
+
+  if (content.length === 0) {
+    alert("Please add at least one content block.");
+    return;
+  }
+
+  setUpdatingArticle(true);
+
+  try {
+
+    await updateDoc(
+      doc(db, "articles", editingArticleId),
+      {
+        title: title.trim(),
+
+        subtitle: subtitle.trim(),
+
+        category: category.trim() || null,
+
+        bannerImage: bannerImage,
+
+        author: {
+          name: author.name.trim(),
+          role: author.role.trim(),
+          image: author.image,
+          bio: author.bio.trim(),
+        },
+
+        content: content,
+
+        status: "published",
+      }
+    );
+
+    alert("✅ Article updated successfully!");
+
+    setEditingArticleId(null);
+
+    await loadExistingArticles();
+
+  } catch (error) {
+
+    console.error("Error updating article:", error);
+
+    alert("❌ Failed to update article.");
+
+  } finally {
+
+    setUpdatingArticle(false);
+
+  }
+};
   
 
 
@@ -1172,9 +1390,107 @@ const publishArticle = async () => {
 
         </section>
 
+
+        {/* ================= EXISTING ARTICLES ================= */}
+
+<section className={styles.card}>
+
+  <h2>
+    Manage Existing Articles
+  </h2>
+
+  <p className={styles.helperText}>
+    View, edit, or delete articles that have already been published.
+  </p>
+
+  <button
+    type="button"
+    className={styles.loadArticlesButton}
+    onClick={loadExistingArticles}
+    disabled={loadingArticles}
+  >
+    {loadingArticles
+      ? "Loading Articles..."
+      : "Load Existing Articles"}
+  </button>
+
+
+  {existingArticles.length > 0 && (
+
+    <div className={styles.existingArticles}>
+
+      {existingArticles.map((article) => (
+
+        <div
+          key={article.id}
+          className={styles.existingArticle}
+        >
+
+          <div className={styles.existingArticleInfo}>
+
+            <strong>
+              {article.title}
+            </strong>
+
+            {article.category && (
+              <span>
+                {article.category}
+              </span>
+            )}
+
+          </div>
+
+
+          <div className={styles.blockActions}>
+
+            <button
+              type="button"
+              className={styles.editButton}
+              onClick={() => editArticle(article)}
+            >
+              Edit Article
+            </button>
+
+
+            <button
+              type="button"
+              className={styles.deleteArticleButton}
+              onClick={() => deleteArticle(article)}
+              disabled={deletingArticleId === article.id}
+            >
+              {deletingArticleId === article.id
+                ? "Deleting..."
+                : "Delete Article"}
+            </button>
+
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  )}
+
+</section>
+
         {/* ================= ARTICLE ACTIONS ================= */}
 
 <div className={styles.articleActions}>
+
+  {editingArticleId && (
+  <button
+    type="button"
+    className={styles.cancelButton}
+    onClick={() => {
+      setEditingArticleId(null);
+      cancelEditor();
+    }}
+  >
+    Cancel Editing
+  </button>
+)}
 
   <button
     type="button"
@@ -1186,15 +1502,19 @@ const publishArticle = async () => {
 
 
   <button
-    type="button"
-    className={styles.publishButton}
-    onClick={publishArticle}
-    disabled={publishing}
-  >
-    {publishing
+  type="button"
+  className={styles.publishButton}
+  onClick={editingArticleId ? updateArticle : publishArticle}
+  disabled={publishing || updatingArticle}
+>
+  {editingArticleId
+    ? updatingArticle
+      ? "Updating..."
+      : "✏️ Update Article"
+    : publishing
       ? "Publishing..."
       : "🚀 Publish Article"}
-  </button>
+</button>
 
 </div>
 
