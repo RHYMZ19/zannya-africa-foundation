@@ -1226,130 +1226,148 @@ display: flex;
   }
 }
 
-/* ================= UPCOMING EVENT HIGHLIGHT ================= */
+/* ================= UPCOMING EVENT OVERLAY ================= */
 
 .eventHighlightCard {
+  position: relative;
   width: 100%;
+  height: 100%;
+  min-height: 320px;
   overflow: hidden;
-  border-radius: 12px;
-  background: #ffffff;
+  border-radius: inherit;
 }
 
 .eventHighlightImage {
   width: 100%;
-  height: 240px;
+  height: 100%;
+  min-height: 320px;
   object-fit: cover;
   display: block;
 }
 
-.eventHighlightContent {
-  padding: 20px;
+.eventHighlightOverlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
   text-align: center;
+
+  color: white;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.82)
+  );
 }
 
-.eventHighlightContent h3 {
-  margin: 0 0 10px;
-  font-size: 24px;
-  font-weight: 800;
+.eventHighlightOverlay h3 {
+  margin: 0 0 8px;
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.eventVenue {
+.eventHighlightVenue {
   margin: 0 0 18px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.countdownLabel {
-  margin: 0 0 10px;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-weight: 500;
 }
 
 .bigCountdown {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 100%;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 5px 0 15px;
 }
 
 .countdownUnit {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
   min-width: 65px;
 }
 
-.countdownUnit span {
-  font-size: 32px;
+.countdownUnit strong {
+  font-size: clamp(28px, 4vw, 48px);
   line-height: 1;
-  font-weight: 900;
+  font-weight: 800;
 }
 
-.countdownUnit small {
-  margin-top: 7px;
-  font-size: 9px;
-  font-weight: 700;
-}
-
-.countdownSeparator {
-  font-size: 28px;
-  font-weight: 900;
-  margin-bottom: 15px;
+.countdownUnit span {
+  margin-top: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .eventStarted {
-  margin-top: 20px;
-  padding: 15px 10px;
-  border-radius: 8px;
-  font-size: 20px;
+  margin: 12px 0 18px;
+
+  font-size: clamp(24px, 3vw, 38px);
   font-weight: 900;
   text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Make the existing View More link visible on the dark image overlay */
+.eventHighlightOverlay .cardLink {
+  color: white;
 }
 
 
 /* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
+
+  .eventHighlightCard {
+    min-height: 280px;
+  }
+
   .eventHighlightImage {
-    height: 200px;
+    min-height: 280px;
   }
 
-  .eventHighlightContent {
-    padding: 16px 10px;
+  .eventHighlightOverlay {
+    padding: 18px;
   }
 
-  .eventHighlightContent h3 {
-    font-size: 20px;
+  .eventHighlightOverlay h3 {
+    font-size: 21px;
   }
 
-  .eventVenue {
+  .eventHighlightVenue {
     font-size: 14px;
-  }
-
-  .bigCountdown {
-    gap: 3px;
-  }
-
-  .countdownUnit {
-    min-width: 52px;
-  }
-
-  .countdownUnit span {
-    font-size: 23px;
-  }
-
-  .countdownUnit small {
-    font-size: 7px;
-  }
-
-  .countdownSeparator {
-    font-size: 20px;
     margin-bottom: 12px;
   }
 
+  .bigCountdown {
+    gap: 7px;
+  }
+
+  .countdownUnit {
+    min-width: 55px;
+  }
+
+  .countdownUnit strong {
+    font-size: 27px;
+  }
+
+  .countdownUnit span {
+    font-size: 9px;
+  }
+
   .eventStarted {
-    font-size: 17px;
+    font-size: 25px;
   }
 }

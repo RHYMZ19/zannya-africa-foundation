@@ -557,93 +557,90 @@ export default function MainPage() {
     </div>
 
     {/* Upcoming Events Card */}
-        {/* Upcoming Events Card */}
-    <div className={styles.highlightCard}>
-      {upcomingEvent ? (
-        <div className={styles.eventHighlightCard}>
+<div className={styles.highlightCard}>
 
-          {/* EVENT IMAGE */}
-          <img
-            src={upcomingEvent.bannerImage}
-            alt={upcomingEvent.title}
-            className={styles.eventHighlightImage}
-          />
+  {upcomingEvent ? (
+    <div className={styles.eventHighlightCard}>
 
-          {/* EVENT INFORMATION */}
-          <div className={styles.eventHighlightContent}>
+      {/* EVENT BANNER */}
+      <img
+        src={upcomingEvent.bannerImage}
+        alt={upcomingEvent.title}
+        className={styles.eventHighlightImage}
+      />
 
-            <h3>{upcomingEvent.title}</h3>
+      {/* CONTENT OVER THE IMAGE */}
+      <div className={styles.eventHighlightOverlay}>
 
-            <p className={styles.eventVenue}>
-              📍 {upcomingEvent.venue}
-            </p>
+        <h3>{upcomingEvent.title}</h3>
 
-            {/* COUNTDOWN */}
-            {eventStarted ? (
-              <div className={styles.eventStarted}>
-                🔴 EVENT HAS STARTED
-              </div>
-            ) : (
-              <>
-                <p className={styles.countdownLabel}>
-                  Event starts in
-                </p>
+        <p className={styles.eventHighlightVenue}>
+          📍 {upcomingEvent.venue}
+        </p>
 
-                <div className={styles.bigCountdown}>
+        {/* COUNTDOWN */}
+        {eventStarted ? (
+          <div className={styles.eventStarted}>
+            EVENT HAS STARTED
+          </div>
+        ) : (
+          <div className={styles.bigCountdown}>
 
-                  <div className={styles.countdownUnit}>
-                    <span>{String(countdown.days).padStart(2, "0")}</span>
-                    <small>DAYS</small>
-                  </div>
+            <div className={styles.countdownUnit}>
+              <strong>{countdown.days}</strong>
+              <span>Days</span>
+            </div>
 
-                  <div className={styles.countdownSeparator}>:</div>
+            <div className={styles.countdownUnit}>
+              <strong>{countdown.hours}</strong>
+              <span>Hours</span>
+            </div>
 
-                  <div className={styles.countdownUnit}>
-                    <span>{String(countdown.hours).padStart(2, "0")}</span>
-                    <small>HOURS</small>
-                  </div>
+            <div className={styles.countdownUnit}>
+              <strong>{countdown.minutes}</strong>
+              <span>Minutes</span>
+            </div>
 
-                  <div className={styles.countdownSeparator}>:</div>
-
-                  <div className={styles.countdownUnit}>
-                    <span>{String(countdown.minutes).padStart(2, "0")}</span>
-                    <small>MINUTES</small>
-                  </div>
-
-                  <div className={styles.countdownSeparator}>:</div>
-
-                  <div className={styles.countdownUnit}>
-                    <span>{String(countdown.seconds).padStart(2, "0")}</span>
-                    <small>SECONDS</small>
-                  </div>
-
-                </div>
-              </>
-            )}
+            <div className={styles.countdownUnit}>
+              <strong>{countdown.seconds}</strong>
+              <span>Seconds</span>
+            </div>
 
           </div>
+        )}
 
-        </div>
-      ) : (
-        /* DEFAULT CARD WHEN THERE IS NO EVENT */
-        <div className={styles.cardInner}>
-          <img
-            src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023192/zannya/uploads/images/evtysd6cvwkgufpbfhcm.jpg"
-            alt="Upcoming Events"
-            className={styles.cardImage}
-          />
+        {/* KEEP VIEW MORE LINK */}
+        <a href="/events" className={styles.cardLink}>
+          <span>View More</span>
+          <div className={styles.arrowCircle}>→</div>
+        </a>
 
-          <div className={styles.cardContent}>
-            <h3>Upcoming Events</h3>
-
-            <a href="/events" className={styles.cardLink}>
-              <span>View More</span>
-              <div className={styles.arrowCircle}>→</div>
-            </a>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
+
+  ) : (
+
+    /* DEFAULT CARD — SAME AS YOUR ORIGINAL */
+    <div className={styles.cardInner}>
+      <img
+        src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023192/zannya/uploads/images/evtysd6cvwkgufpbfhcm.jpg"
+        alt="Upcoming Events"
+        className={styles.cardImage}
+      />
+
+      <div className={styles.cardContent}>
+        <h3>Upcoming Events</h3>
+
+        <a href="/events" className={styles.cardLink}>
+          <span>View More</span>
+          <div className={styles.arrowCircle}>→</div>
+        </a>
+      </div>
+    </div>
+
+  )}
+
+</div>
   </div>
 </section>
 
