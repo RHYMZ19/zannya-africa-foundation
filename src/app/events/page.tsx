@@ -40,65 +40,93 @@ export default function EventsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const snapshot = await getDocs(
-          collection(db, "events")
+  let timer: NodeJS.Timeout;
+
+  const fetchEvents = async () => {
+    try {
+      const snapshot = await getDocs(
+        collection(db, "events")
+      );
+
+      const now = new Date();
+
+      const getEventStart = (event: Event) => {
+        return new Date(
+          `${event.date}T${event.startTime || "00:00"}:00+03:00`
+        );
+      };
+
+      const getEventEnd = (event: Event) => {
+        if (!event.endTime) return null;
+
+        return new Date(
+          `${event.date}T${event.endTime}:00+03:00`
+        );
+      };
+
+      const fetchedEvents: Event[] = snapshot.docs
+        .map((eventDoc) => {
+          const data = eventDoc.data();
+
+          return {
+            id: eventDoc.id,
+            title: data.title || "",
+            slug: data.slug || "",
+            summary: data.summary || "",
+            category: data.category || "Event",
+            bannerImage: data.bannerImage || "",
+            date: data.date || "",
+            startTime: data.startTime || "",
+            endTime: data.endTime || "",
+            venue: data.venue || "",
+            location: data.location || "",
+            status: data.status || "draft",
+          };
+        })
+        .filter((event) => {
+          if (event.status !== "published") {
+            return false;
+          }
+
+          if (!event.date) {
+            return false;
+          }
+
+          const start = getEventStart(event);
+          const end = getEventEnd(event);
+
+          // Remove event once its end time has passed
+          if (end && now >= end) {
+            return false;
+          }
+
+          // Keep upcoming and currently active events
+          return (
+            start > now ||
+            (start <= now && (!end || now < end))
+          );
+        })
+        .sort(
+          (a, b) =>
+            getEventStart(a).getTime() -
+            getEventStart(b).getTime()
         );
 
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
+      setEvents(fetchedEvents);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-        const fetchedEvents: Event[] = snapshot.docs
-          .map((eventDoc) => {
-            const data = eventDoc.data();
+  fetchEvents();
 
-            return {
-              id: eventDoc.id,
-              title: data.title || "",
-              slug: data.slug || "",
-              summary: data.summary || "",
-              category: data.category || "Event",
-              bannerImage: data.bannerImage || "",
-              date: data.date || "",
-              startTime: data.startTime || "",
-              endTime: data.endTime || "",
-              venue: data.venue || "",
-              location: data.location || "",
-              status: data.status || "draft",
-            };
-          })
-          .filter((event) => {
-            if (event.status !== "published") {
-              return false;
-            }
+  // Check event times every second
+  timer = setInterval(fetchEvents, 1000);
 
-            if (!event.date) {
-              return false;
-            }
-
-            const eventDate = new Date(
-              `${event.date}T00:00:00`
-            );
-
-            return eventDate >= today;
-          })
-          .sort(
-            (a, b) =>
-              new Date(`${a.date}T00:00:00`).getTime() -
-              new Date(`${b.date}T00:00:00`).getTime()
-          );
-
-        setEvents(fetchedEvents);
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, []);
+  return () => clearInterval(timer);
+}, []);
 
   return (
     <main className={styles.page}>

@@ -592,7 +592,7 @@ export default async function ArticlePage({
                 Related News
               </h2>
 
-              <Link href="/weekly-newsletter">
+              <Link href="/newsupdate">
                 View all news →
               </Link>
 
