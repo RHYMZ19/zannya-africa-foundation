@@ -633,6 +633,7 @@ export default function MainPage() {
 
         <a href="#/events" className={styles.cardLink}>
           <span>No Events Yet!</span>
+          <div className={styles.arrowCircle}>→</div>
         </a>
       </div>
     </div>
