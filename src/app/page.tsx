@@ -21,12 +21,35 @@ type Resource = {
   pdf: string;
 };
 
+type UpcomingEvent = {
+  id: string;
+  title: string;
+  bannerImage: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  venue: string;
+  location: string;
+  slug: string;
+  status: string;
+};
+
 export default function MainPage() {
   const [open, setOpen] = useState(false);
   const counterRef = useRef(null);
   const [inView, setInView] = useState(false);
   const [resources, setResources] = useState<Resource[]>([]);
   const [selectedResourceCategory, setSelectedResourceCategory] = useState<string | null>(null);
+  const [upcomingEvent, setUpcomingEvent] = useState<UpcomingEvent | null>(null);
+
+  const [countdown, setCountdown] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  const [eventStarted, setEventStarted] = useState(false);
 
   // Initialize AOS and IntersectionObserver
   useEffect(() => {
@@ -70,6 +93,134 @@ export default function MainPage() {
 
   return () => unsubscribe();
 }, []);
+
+
+  // ================= UPCOMING EVENT =================
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, "events"), (snapshot) => {
+      const now = new Date();
+
+      const events: UpcomingEvent[] = snapshot.docs
+        .map((eventDoc) => {
+          const data = eventDoc.data();
+
+          return {
+            id: eventDoc.id,
+            title: data.title || "",
+            bannerImage: data.bannerImage || "",
+            date: data.date || "",
+            startTime: data.startTime || "",
+            endTime: data.endTime || "",
+            venue: data.venue || "",
+            location: data.location || "",
+            slug: data.slug || "",
+            status: data.status || "draft",
+          };
+        })
+        .filter((event) => event.status === "published");
+
+      const getEventStart = (event: UpcomingEvent) => {
+        return new Date(
+          `${event.date}T${event.startTime || "00:00"}:00+03:00`
+        );
+      };
+
+      const getEventEnd = (event: UpcomingEvent) => {
+        if (!event.endTime) return null;
+
+        return new Date(
+          `${event.date}T${event.endTime}:00+03:00`
+        );
+      };
+
+      // Find an event that is currently happening
+      const activeEvent = events.find((event) => {
+        const start = getEventStart(event);
+        const end = getEventEnd(event);
+
+        return (
+          start <= now &&
+          (!end || now < end)
+        );
+      });
+
+      // If an event is currently happening, show it
+      if (activeEvent) {
+        setUpcomingEvent(activeEvent);
+        setEventStarted(true);
+        return;
+      }
+
+      // Otherwise find the next upcoming event
+      const nextEvent = events
+        .filter((event) => getEventStart(event) > now)
+        .sort(
+          (a, b) =>
+            getEventStart(a).getTime() -
+            getEventStart(b).getTime()
+        )[0];
+
+      setUpcomingEvent(nextEvent || null);
+      setEventStarted(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+    // ================= EVENT COUNTDOWN =================
+  useEffect(() => {
+    if (!upcomingEvent || eventStarted) return;
+
+    const calculateCountdown = () => {
+      const eventTime = new Date(
+        `${upcomingEvent.date}T${upcomingEvent.startTime || "00:00"}:00+03:00`
+      );
+
+      const now = new Date();
+      const difference = eventTime.getTime() - now.getTime();
+
+      if (difference <= 0) {
+        setCountdown({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        });
+
+        setEventStarted(true);
+        return;
+      }
+
+      const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      );
+
+      const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      );
+
+      const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+      );
+
+      const seconds = Math.floor(
+        (difference / 1000) % 60
+      );
+
+      setCountdown({
+        days,
+        hours,
+        minutes,
+        seconds,
+      });
+    };
+
+    calculateCountdown();
+
+    const timer = setInterval(calculateCountdown, 1000);
+
+    return () => clearInterval(timer);
+  }, [upcomingEvent, eventStarted]);
 
   return (
     <>
@@ -406,21 +557,92 @@ export default function MainPage() {
     </div>
 
     {/* Upcoming Events Card */}
+        {/* Upcoming Events Card */}
     <div className={styles.highlightCard}>
-      <div className={styles.cardInner}>
-        <img
-          src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023192/zannya/uploads/images/evtysd6cvwkgufpbfhcm.jpg"
-          alt="Upcoming Events"
-          className={styles.cardImage}
-        />
-        <div className={styles.cardContent}>
-          <h3>Upcoming Events</h3>
-          <a href="/events" className={styles.cardLink}>
-            <span>View More</span>
-            <div className={styles.arrowCircle}>→</div>
-          </a>
+      {upcomingEvent ? (
+        <div className={styles.eventHighlightCard}>
+
+          {/* EVENT IMAGE */}
+          <img
+            src={upcomingEvent.bannerImage}
+            alt={upcomingEvent.title}
+            className={styles.eventHighlightImage}
+          />
+
+          {/* EVENT INFORMATION */}
+          <div className={styles.eventHighlightContent}>
+
+            <h3>{upcomingEvent.title}</h3>
+
+            <p className={styles.eventVenue}>
+              📍 {upcomingEvent.venue}
+            </p>
+
+            {/* COUNTDOWN */}
+            {eventStarted ? (
+              <div className={styles.eventStarted}>
+                🔴 EVENT HAS STARTED
+              </div>
+            ) : (
+              <>
+                <p className={styles.countdownLabel}>
+                  Event starts in
+                </p>
+
+                <div className={styles.bigCountdown}>
+
+                  <div className={styles.countdownUnit}>
+                    <span>{String(countdown.days).padStart(2, "0")}</span>
+                    <small>DAYS</small>
+                  </div>
+
+                  <div className={styles.countdownSeparator}>:</div>
+
+                  <div className={styles.countdownUnit}>
+                    <span>{String(countdown.hours).padStart(2, "0")}</span>
+                    <small>HOURS</small>
+                  </div>
+
+                  <div className={styles.countdownSeparator}>:</div>
+
+                  <div className={styles.countdownUnit}>
+                    <span>{String(countdown.minutes).padStart(2, "0")}</span>
+                    <small>MINUTES</small>
+                  </div>
+
+                  <div className={styles.countdownSeparator}>:</div>
+
+                  <div className={styles.countdownUnit}>
+                    <span>{String(countdown.seconds).padStart(2, "0")}</span>
+                    <small>SECONDS</small>
+                  </div>
+
+                </div>
+              </>
+            )}
+
+          </div>
+
         </div>
-      </div>
+      ) : (
+        /* DEFAULT CARD WHEN THERE IS NO EVENT */
+        <div className={styles.cardInner}>
+          <img
+            src="https://res.cloudinary.com/dpwuym7xg/image/upload/v1758023192/zannya/uploads/images/evtysd6cvwkgufpbfhcm.jpg"
+            alt="Upcoming Events"
+            className={styles.cardImage}
+          />
+
+          <div className={styles.cardContent}>
+            <h3>Upcoming Events</h3>
+
+            <a href="/events" className={styles.cardLink}>
+              <span>View More</span>
+              <div className={styles.arrowCircle}>→</div>
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   </div>
 </section>
