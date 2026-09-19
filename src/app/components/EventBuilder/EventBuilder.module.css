@@ -1,0 +1,421 @@
+.builder {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0 0 8px;
+  color: #0b3c5d;
+  font-size: 32px;
+}
+
+.header p {
+  margin: 0;
+  color: #666;
+}
+
+.section {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.section h2 {
+  margin: 0 0 20px;
+  color: #0b3c5d;
+  font-size: 22px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: #333;
+}
+
+.formGroup input,
+.formGroup textarea,
+.blockEditor input,
+.blockEditor textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  background: #fff;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.blockEditor input:focus,
+.blockEditor textarea:focus {
+  border-color: #0b3c5d;
+}
+
+.uploadedImage {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.uploadedImage img {
+  width: 100%;
+  max-width: 500px;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.uploadedImage button,
+.cancelButton {
+  border: none;
+  background: #eee;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.contentHeader p {
+  margin: 0;
+  color: #666;
+}
+
+.blockButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.blockButtons button {
+  border: 1px solid #0b3c5d;
+  background: white;
+  color: #0b3c5d;
+  padding: 9px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.blockButtons button:hover {
+  background: #0b3c5d;
+  color: white;
+}
+
+.contentBlocks {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.emptyContent {
+  padding: 25px;
+  text-align: center;
+  color: #777;
+  background: #f7f7f7;
+  border-radius: 8px;
+}
+
+.contentBlock {
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.blockTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  background: #f7f7f7;
+}
+
+.blockActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.blockActions button {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 6px 9px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.blockActions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.blockEditor {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contentImage {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.deleteButton {
+  color: #b42318 !important;
+  border-color: #e5b8b5 !important;
+}
+
+.publishActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.draftButton,
+.publishButton {
+  border: none;
+  padding: 13px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.draftButton {
+  background: #e8e8e8;
+  color: #333;
+}
+
+.publishButton {
+  background: #0b3c5d;
+  color: white;
+}
+
+.draftButton:disabled,
+.publishButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.existingHeader {
+  margin-bottom: 20px;
+}
+
+.existingHeader p {
+  color: #666;
+  margin: 0;
+}
+
+.eventsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.eventItem {
+  display: grid;
+  grid-template-columns: 150px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.eventItemImage {
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #eee;
+}
+
+.eventItemImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eventItemInfo h3 {
+  margin: 0 0 8px;
+  color: #0b3c5d;
+}
+
+.eventItemInfo p {
+  margin: 0 0 10px;
+  color: #666;
+}
+
+.published,
+.draft {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.published {
+  background: #e7f6ec;
+  color: #237a3b;
+}
+
+.draft {
+  background: #f2f2f2;
+  color: #666;
+}
+
+.eventItemActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.eventItemActions button {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 8px 11px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.loading {
+  padding: 30px;
+  text-align: center;
+  color: #666;
+}
+
+@media (max-width: 900px) {
+  .eventItem {
+    grid-template-columns: 120px 1fr;
+  }
+
+  .eventItemImage {
+    width: 120px;
+    height: 90px;
+  }
+
+  .eventItemActions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .contentHeader {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 700px) {
+  .builder {
+    padding: 20px 12px 40px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .section {
+    padding: 18px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .publishActions {
+    flex-direction: column;
+  }
+
+  .draftButton,
+  .publishButton {
+    width: 100%;
+  }
+
+  .eventItem {
+    grid-template-columns: 1fr;
+  }
+
+  .eventItemImage {
+    width: 100%;
+    height: 180px;
+  }
+
+  .eventItemActions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .eventItemActions button {
+    width: 100%;
+  }
+
+  .blockTop {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .blockActions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 15px;
+  }
+
+  .blockButtons {
+    width: 100%;
+  }
+
+  .blockButtons button {
+    flex: 1;
+  }
+}

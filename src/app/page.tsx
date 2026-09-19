@@ -415,7 +415,7 @@ export default function MainPage() {
         />
         <div className={styles.cardContent}>
           <h3>Upcoming Events</h3>
-          <a href="#/NewsSection" className={styles.cardLink}>
+          <a href="/events" className={styles.cardLink}>
             <span>View More</span>
             <div className={styles.arrowCircle}>→</div>
           </a>
