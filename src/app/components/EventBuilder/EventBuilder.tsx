@@ -82,6 +82,24 @@ const createSlug = (text: string) => {
     .replace(/--+/g, "-");
 };
 
+const formatFirestoreDate = (value: any) => {
+  if (!value) return "";
+
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (value?.toDate) {
+    return value.toDate().toLocaleDateString("en-GB");
+  }
+
+  if (value?.seconds) {
+    return new Date(value.seconds * 1000).toLocaleDateString("en-GB");
+  }
+
+  return "";
+};
+
 export default function EventBuilder() {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
@@ -269,7 +287,7 @@ export default function EventBuilder() {
           summary: data.summary || "",
           category: data.category || "Event",
           bannerImage: data.bannerImage || "",
-          date: data.date || "",
+          date: formatFirestoreDate(data.date),
           startTime: data.startTime || "",
           endTime: data.endTime || "",
           venue: data.venue || "",
