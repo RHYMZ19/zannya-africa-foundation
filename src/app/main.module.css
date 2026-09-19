@@ -193,21 +193,26 @@
 
 /* Cards Row */
 .cardsRow {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: space-between;
   margin-top: 2rem;
+  align-items: stretch;
 }
+
+
 
 /* Highlight Card with gradient border */
 .highlightCard {
-  flex: 1 1 30%;
+  width: 100%;
+  height: 240px;
+  box-sizing: border-box;
   border-radius: 16px;
-  padding: 2px; /* for gradient border effect */
+  padding: 2px;
   background: linear-gradient(135deg, #0b3c5d, #f4a261);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .highlightCard:hover {
@@ -215,19 +220,24 @@
   box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
+
 /* Inner card with white background */
 .cardInner {
+  width: 100%;
+  height: 100%;
   border-radius: 14px;
   overflow: hidden;
   background: #fff;
   position: relative;
 }
 
+
 /* Card Image */
 .cardImage {
   width: 100%;
-  height: 220px;
+  height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.5s;
 }
 
@@ -283,14 +293,18 @@
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
-  .highlightCard {
-    flex: 1 1 45%; /* 2 cards per row on tablets */
+  .cardsRow {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
+  .cardsRow {
+    grid-template-columns: 1fr;
+  }
+
   .highlightCard {
-    flex: 1 1 100%; /* 1 card per row on mobile */
+    height: 300px;
   }
 }
 
@@ -1228,19 +1242,19 @@ display: flex;
 
 /* ================= UPCOMING EVENT OVERLAY ================= */
 
+
 .eventHighlightCard {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 320px;
   overflow: hidden;
   border-radius: inherit;
 }
 
+
 .eventHighlightImage {
   width: 100%;
   height: 100%;
-  min-height: 320px;
   object-fit: cover;
   display: block;
 }
