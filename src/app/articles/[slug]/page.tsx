@@ -51,6 +51,7 @@ type Article = {
   subtitle: string;
   category?: string | null;
   bannerImage: string;
+  articleLink?: string | null;
 
   author: {
     name: string;
@@ -76,6 +77,7 @@ type RelatedArticle = {
   subtitle: string;
   bannerImage: string;
   category?: string | null;
+  articleLink?: string | null;
   publishedAt?: {
     seconds: number;
     nanoseconds: number;
@@ -133,6 +135,7 @@ export default async function ArticlePage({
     subtitle: data.subtitle || "",
     category: data.category || null,
     bannerImage: data.bannerImage || "",
+    articleLink: data.articleLink || null,
 
     author: {
       name: data.author?.name || "",
@@ -171,6 +174,7 @@ export default async function ArticlePage({
           slug: data.slug || "",
           subtitle: data.subtitle || "",
           bannerImage: data.bannerImage || "",
+          articleLink: data.articleLink || null,
           category: data.category || null,
           publishedAt: data.publishedAt || null,
         };
@@ -543,89 +547,150 @@ export default async function ArticlePage({
 
         {/* ================= RELATED ARTICLES ================= */}
 
-        {relatedArticles.length > 0 && (
+{relatedArticles.length > 0 && (
 
-          <section className={styles.related}>
+  <section className={styles.related}>
 
-            <div className={styles.relatedHeader}>
+    <div className={styles.relatedHeader}>
 
-              <h2>
-                Related Articles
-              </h2>
+      <h2>
+        Related Articles
+      </h2>
 
-              <Link href="/weekly-newsletter">
-                View all articles →
-              </Link>
+      <Link href="/weekly-newsletter">
+        View all articles →
+      </Link>
+
+    </div>
+
+
+    <div className={styles.relatedGrid}>
+
+      {relatedArticles.map((related) => (
+
+        related.articleLink ? (
+
+          <a
+            key={related.id}
+            href={related.articleLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.relatedCard}
+          >
+
+            <div className={styles.relatedImage}>
+
+              {related.bannerImage && (
+
+                <Image
+                  src={related.bannerImage}
+                  alt={related.title}
+                  fill
+                />
+
+              )}
+
+            </div>
+
+
+            <div className={styles.relatedInfo}>
+
+              {related.category && (
+
+                <span className={styles.relatedCategory}>
+                  {related.category}
+                </span>
+
+              )}
+
+              <h3>
+                {related.title}
+              </h3>
+
+              {related.subtitle && (
+
+                <p>
+                  {related.subtitle}
+                </p>
+
+              )}
+
+              <small>
+                {formatDate(
+                  related.publishedAt
+                )}
+              </small>
+
+            </div>
+
+          </a>
+
+        ) : (
+
+          <Link
+            key={related.id}
+            href={`/articles/${related.slug}`}
+            className={styles.relatedCard}
+          >
+
+            <div className={styles.relatedImage}>
+
+              {related.bannerImage && (
+
+                <Image
+                  src={related.bannerImage}
+                  alt={related.title}
+                  fill
+                />
+
+              )}
 
             </div>
 
 
-            <div className={styles.relatedGrid}>
+            <div className={styles.relatedInfo}>
 
-              {relatedArticles.map((related) => (
+              {related.category && (
 
-                <Link
-                  key={related.id}
-                  href={`/articles/${related.slug}`}
-                  className={styles.relatedCard}
-                >
+                <span className={styles.relatedCategory}>
+                  {related.category}
+                </span>
 
-                  <div className={styles.relatedImage}>
+              )}
 
-                    {related.bannerImage && (
+              <h3>
+                {related.title}
+              </h3>
 
-                      <Image
-                        src={related.bannerImage}
-                        alt={related.title}
-                        fill
-                      />
+              {related.subtitle && (
 
-                    )}
+                <p>
+                  {related.subtitle}
+                </p>
 
-                  </div>
+              )}
 
-
-                  <div className={styles.relatedInfo}>
-
-                    {related.category && (
-
-                      <span className={styles.relatedCategory}>
-                        {related.category}
-                      </span>
-
-                    )}
-
-                    <h3>
-                      {related.title}
-                    </h3>
-
-                    {related.subtitle && (
-
-                      <p>
-                        {related.subtitle}
-                      </p>
-
-                    )}
-
-                    <small>
-                      {formatDate(
-                        related.publishedAt
-                      )}
-                    </small>
-
-                  </div>
-
-                </Link>
-
-              ))}
+              <small>
+                {formatDate(
+                  related.publishedAt
+                )}
+              </small>
 
             </div>
 
-          </section>
+          </Link>
 
-        )}
+        )
 
-      </article>
+      ))}
+
+    </div>
+
+  </section>
+
+)}
+
+</article>
 
 
       {/* ================= FOOTER ================= */}
