@@ -62,6 +62,7 @@ type ContentBlock =
   title: string;
   subtitle?: string;
   slug: string;
+  articleLink?: string | null;
   category?: string | null;
   bannerImage?: string;
   author?: Author;
@@ -112,6 +113,7 @@ export default function ArticleBuilder() {
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
   const [category, setCategory] = useState("");
+  const [articleLink, setArticleLink] = useState("");
 
   const [bannerImage, setBannerImage] = useState("");
   const [editingBlockId, setEditingBlockId] = useState<string | null>(null);
@@ -185,6 +187,7 @@ const loadExistingArticles = async () => {
         title: data.title || "",
         subtitle: data.subtitle || "",
         slug: data.slug || "",
+        articleLink: data.articleLink || null,
         category: data.category || null,
         bannerImage: data.bannerImage || "",
         author: data.author || {
@@ -259,6 +262,8 @@ const editArticle = (article: ExistingArticle) => {
   setTitle(article.title || "");
   setSubtitle(article.subtitle || "");
   setCategory(article.category || "");
+  setArticleLink(article.articleLink || "");
+
 
   setBannerImage(article.bannerImage || "");
 
@@ -325,6 +330,7 @@ const updateArticle = async () => {
         subtitle: subtitle.trim(),
 
         category: category.trim() || null,
+        articleLink: articleLink.trim() || null,
 
         bannerImage: bannerImage,
 
@@ -708,6 +714,9 @@ const publishArticle = async () => {
 
       category: category.trim() || null,
 
+      articleLink: articleLink.trim() || null,
+
+
       bannerImage: bannerImage,
 
       /* ================= AUTHOR ================= */
@@ -740,6 +749,7 @@ const publishArticle = async () => {
     setTitle("");
     setSubtitle("");
     setCategory("");
+    setArticleLink("");
 
     setBannerImage("");
 
@@ -837,6 +847,25 @@ const publishArticle = async () => {
             />
 
           </div>
+
+          <div className={styles.field}>
+
+  <label>
+    Article Link (Optional)
+  </label>
+
+  <input
+    type="url"
+    value={articleLink}
+    onChange={(e) => setArticleLink(e.target.value)}
+    placeholder="https://example.com"
+  />
+
+  <p className={styles.helperText}>
+    Optional. If you add a link, clicking the article title will open this link instead of the article page.
+  </p>
+
+</div>
 
         </section>
 

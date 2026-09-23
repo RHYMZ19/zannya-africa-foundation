@@ -44,6 +44,7 @@ type Article = {
 id: string;
 title: string;
 slug: string;
+articleLink?: string | null;
 subtitle: string;
 category?: string | null;
 bannerImage: string;
@@ -85,6 +86,7 @@ collection(db, "articles")
         id: document.id,
         title: data.title || "",
         slug: data.slug || "",
+        articleLink: data.articleLink || null,
         subtitle: data.subtitle || "",
         category: data.category || null,
         bannerImage: data.bannerImage || "",
@@ -294,26 +296,37 @@ return (
 
             {/* ================= BANNER ================= */}
 
-            {article.bannerImage && (
-
-              <Link
-                href={`/articles/${article.slug}`}
-                className={styles.imageLink}
-              >
-
-                <div className={styles.imageContainer}>
-
-                  <img
-                    src={article.bannerImage}
-                    alt={article.title}
-                    className={styles.articleImage}
-                  />
-
-                </div>
-
-              </Link>
-
-            )}
+{article.bannerImage && (
+  article.articleLink ? (
+    <a
+      href={article.articleLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.imageLink}
+    >
+      <div className={styles.imageContainer}>
+        <img
+          src={article.bannerImage}
+          alt={article.title}
+          className={styles.articleImage}
+        />
+      </div>
+    </a>
+  ) : (
+    <Link
+      href={`/articles/${article.slug}`}
+      className={styles.imageLink}
+    >
+      <div className={styles.imageContainer}>
+        <img
+          src={article.bannerImage}
+          alt={article.title}
+          className={styles.articleImage}
+        />
+      </div>
+    </Link>
+  )
+)}
 
 
             {/* ================= ARTICLE INFO ================= */}
@@ -347,11 +360,23 @@ return (
 
               <h3 className={styles.articleTitle}>
 
-                <Link
-                  href={`/articles/${article.slug}`}
-                >
-                  {article.title}
-                </Link>
+                {article.articleLink ? (
+
+                  <a
+                    href={article.articleLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {article.title}
+                  </a>
+
+                ) : (
+
+                  <Link href={`/articles/${article.slug}`}>
+                    {article.title}
+                  </Link>
+
+                )}
 
               </h3>
 
@@ -411,13 +436,23 @@ return (
 
               {/* READ ARTICLE */}
 
-              <Link
-                href={`/articles/${article.slug}`}
-                className={styles.readMore}
-              >
-                Read Article
-                <span>→</span>
-              </Link>
+              {article.articleLink ? (
+  <a
+    href={article.articleLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={styles.readMore}
+  >
+    Read Article <span>→</span>
+  </a>
+) : (
+  <Link
+    href={`/articles/${article.slug}`}
+    className={styles.readMore}
+  >
+    Read Article <span>→</span>
+  </Link>
+)}
 
             </div>
 
